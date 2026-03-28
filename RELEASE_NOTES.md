@@ -6,6 +6,31 @@
 
 ---
 
+## v0.6.1 -- 2026-03-29
+### Infrastructure, DNS, MCP, Bug Fixes
+
+**Site Live on warintel.info**
+- DNS A records confirmed resolving to GitHub Pages IPs
+- GitHub Pages serving from `prod` branch — site live and HTTPS provisioning
+- Repo made private (GitHub Pro) — Pages continues to serve publicly
+- Loading overlay bug fixed — `ui.js` and other modified files were uncommitted, pushed to prod
+- Scroll-to-top on load fixed — inline `scrollRestoration` script added to `<head>`
+
+**Claude Code MCP — GitHub (I27)**
+- GitHub MCP server configured and connected (`✓ Connected`)
+- Token stored in `~/.claude.json` — local only, never committed
+- Fine-grained PAT scoped to `warintel.info` repo only
+
+**Claude Desktop MCP — Attempted, Parked (I29)**
+- Node.js v24.14.1 installed
+- `claude_desktop_config.json` written with npx config
+- Hammer not appearing — root cause unresolved, parked for next session
+
+**Document Ownership**
+- Ownership rules added to `CLAUDE.md` — CC owns CLAUDE.md + RELEASE_NOTES.md, claude.ai owns CONTEXT.md, BACKLOG.md shared
+
+---
+
 ## v0.6.0 -- 2026-03-28
 ### Branching Strategy, Logo, Favicon, Site Identity
 
