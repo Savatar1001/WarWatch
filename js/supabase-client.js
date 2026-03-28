@@ -1,5 +1,5 @@
 /**
- * WarWatch — Supabase client
+ * WarIntel — Supabase client
  * Single import point for all Supabase access across the site.
  * Import this in backlog.html, chat panel, subscription widget etc.
  *

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-WarWatch — Automated data fetcher
+WarIntel — Automated data fetcher
 Runs every 30 minutes via GitHub Actions.
 Scrapes Wikipedia, Al Jazeera RSS, Reuters RSS, NewsAPI, and OilPriceAPI.
 Injects live data into index.html — GitHub Actions commits & deploys to GitHub Pages.
@@ -30,7 +30,7 @@ WAR_START = datetime(2026, 2, 28, tzinfo=timezone.utc)
 def fetch_url(url, headers=None, timeout=15):
     """Fetch a URL and return the response body as a string."""
     req = urllib.request.Request(url, headers=headers or {
-        'User-Agent': 'WarWatch-Bot/1.0 (https://iranwarstats.info; automated news aggregator)'
+        'User-Agent': 'WarIntel-Bot/1.0 (https://warintel.info; automated news aggregator)'
     })
     try:
         with urllib.request.urlopen(req, timeout=timeout) as r:
@@ -75,13 +75,13 @@ def fetch_oil_prices():
             url = 'https://api.oilpriceapi.com/v1/prices/latest?by_code=BRENT_CRUDE_USD'
             data = json.loads(fetch_url(url, headers={
                 'Authorization': f'Token {OIL_API_KEY}',
-                'User-Agent': 'WarWatch-Bot/1.0'
+                'User-Agent': 'WarIntel-Bot/1.0'
             }))
             brent = float(data['data']['price'])
             url2 = 'https://api.oilpriceapi.com/v1/prices/latest?by_code=WTI_USD'
             data2 = json.loads(fetch_url(url2, headers={
                 'Authorization': f'Token {OIL_API_KEY}',
-                'User-Agent': 'WarWatch-Bot/1.0'
+                'User-Agent': 'WarIntel-Bot/1.0'
             }))
             wti = float(data2['data']['price'])
             result['source'] = 'oilpriceapi.com'
@@ -728,7 +728,7 @@ def inject_data(html, oil, wiki, news, fx=None):
 
 def main():
     print(f"\n{'='*50}")
-    print(f"WarWatch data fetch — {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')}")
+    print(f"WarIntel data fetch — {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')}")
     print(f"{'='*50}\n")
 
     with open('index.html', 'r', encoding='utf-8') as f:

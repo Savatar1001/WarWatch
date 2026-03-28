@@ -191,7 +191,7 @@
           if (rates[key]) window._liveFX = window._liveFX || {};
           if (rates[key]) window._liveFX[code] = rates[key];
         });
-        console.log('[WarWatch] FX rates refreshed from open.er-api.com');
+        console.log('[WarIntel] FX rates refreshed from open.er-api.com');
       })
       .catch(() => {}); // silent fail — stale rates still show
   }
