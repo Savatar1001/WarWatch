@@ -1,0 +1,1120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WarWatch · Iran War Statistics (Realtime)</title>
+<meta name="description" content="Live data dashboard tracking the 2026 US-Iran war. Casualties, strikes, oil prices, war cost and more — updated continuously from verified sources.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500;600;700&family=Barlow:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<link rel="stylesheet" href="styles.css?v=CACHE_BUST">
+</head>
+<body>
+
+<button id="scroll-top" aria-label="Scroll to top" title="Scroll to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<div class="ad-slot">ADVERTISEMENT — YOUR AD HERE</div>
+
+<!-- HEADER -->
+<header>
+  <div class="logo">WAR<em>WATCH</em> <span class="logo-sub">· Iran War Statistics (realtime)</span></div>
+  <div class="header-center">
+    <span class="live-pip"></span>
+    <span>LIVE · Updated <span id="htime"></span></span>
+  </div>
+  <div class="day-pill" id="day-pill-wrap"><span id="day-pill-text">DAY — · 28 FEB 2026 – —</span></div>
+
+</header>
+
+<!-- TEXT SIZE BAR -->
+<div class="text-size-bar">
+  <span class="tsb-label">Text size</span>
+  <span class="pfc-icon small">A</span>
+  <input type="range" class="fs-slider" id="fontSlider" min="0" max="100" value="50" aria-label="Text size">
+  <span class="pfc-icon large">A</span>
+  <span class="pfc-value" id="font-size-val">115%</span>
+</div>
+
+
+
+<!-- BREAKING TICKER -->
+<div class="ticker-wrap">
+  <!-- TICKER_START --><div class="ticker-inner">
+    ⚡ China 'is playing the long game' in Iran war by staying neutral <span class="ticker-sep">◆</span> <span class="ticker-source">— Al Jazeera</span> &nbsp; ⚡ Iran war: What's happening on day 24 of US-Israel attacks? <span class="ticker-sep">◆</span> <span class="ticker-source">— Al Jazeera</span> &nbsp; ⚡ IEA chief warns of 'very severe' global energy crisis <span class="ticker-sep">◆</span> <span class="ticker-source">— Al Jazeera</span> &nbsp; ⚡ World in energy crisis worse than 1970s' oil shocks combined, IEA head says <span class="ticker-sep">◆</span> <span class="ticker-source">— Al Jazeera</span> &nbsp; ⚡ Brothers search rubble for missing sibling under Tehran rubble after strike <span class="ticker-sep">◆</span> <span class="ticker-source">— Al Jazeera</span> &nbsp; ⚡ Immense damage seen in Iran's streets after air strikes <span class="ticker-sep">◆</span> <span class="ticker-source">— Al Jazeera</span> &nbsp; ⚡ Asian stock markets plunge amid Trump's ultimatum on Iran <span class="ticker-sep">◆</span> <span class="ticker-source">— Al Jazeera</span> &nbsp; ⚡ Iran war live: Tehran vows to 'completely close' Hormuz if power plants hit <span class="ticker-sep">◆</span> <span class="ticker-source">— Al Jazeera</span> &nbsp; ⚡ Middle East crisis live: Starmer and Trump discuss 'essential' need to open strait of Hormuz <span class="ticker-sep">◆</span> <span class="ticker-source">— The Guardian</span> &nbsp; ⚡ Tehran's toxic cloud: satellite images show oily fires burned for days <span class="ticker-sep">◆</span> <span class="ticker-source">— The Guardian</span> &nbsp; ⚡ US warns Americans worldwide to show 'increased caution' <span class="ticker-sep">◆</span> <span class="ticker-source">— The Guardian</span> &nbsp; ⚡ Iran war live: Tehran vows to 'completely close' Hormuz if power plants hit <span class="ticker-sep">◆</span> <span class="ticker-source">— Al Jazeera</span>
+  </div><!-- TICKER_END -->
+</div>
+
+<main>
+
+  <div class="update-strip">
+    <div class="update-left">
+      <span class="live-pip"></span>
+      <span>Data as of: <strong id="update-time">21 Mar 2026 23:53 UTC</strong></span>
+    </div>
+    <span>Sources: CENTCOM · Hengaw · HRANA · Al Jazeera · CNBC · IAEA · NPR · Reuters</span>
+  </div>
+
+  <!-- ANCHOR TAG CLOUD — standalone -->
+  <div class="updates-card">
+    <div class="panel-bar-label pbl-updates">⚡ Latest Updates — Click to view</div>
+    <div id="tag-cloud" class="tag-cloud-pills"></div>
+  </div>
+
+  <!-- PANEL BAR -->
+  <div id="panel-bar">
+    <div class="panel-bar-label pbl-panels">⠿ Panels — drag to reorder · click to collapse/expand</div>
+    <div class="panel-bar-pills" id="panel-bar-pills"></div>
+  </div>
+  <div id="widgets-container">
+  <div id="no-panels-msg">
+    <span>NO PANELS SELECTED</span>
+    <small>Use the panel bar above to re-enable sections</small>
+  </div>
+  <!-- HERO STATS ROW -->
+  <div class="widget" id="w-hero">
+  <div class="sec">
+    <span class="sec-dot sd-gold"></span>
+    <div class="sec-title" onclick="WW.toggle('w-hero')">Key stats</div>
+    <div class="sec-line"></div>
+    <div class="sec-tag">Auto-updated hourly · Source: Wikipedia ⚠ approx</div>
+    <button class="widget-collapse-btn" onclick="WW.toggle('w-hero')" title="Collapse/expand Key stats">−</button>
+  </div>
+
+  <div class="g5">
+    <div class="hero-stat hs-gold">
+      <div class="hs-label">War duration</div>
+      <div class="hs-value c-gold" id="day-count">22</div>
+      <div class="hs-sub">Days since Feb 28, 2026<br>Operation Epic Fury</div>
+      <div class="hs-icon">⏱</div>
+    </div>
+    <div class="hero-stat hs-red">
+      <div class="hs-label">US + Israeli strikes in Iran</div>
+      <div class="hs-value c-red" id="hero-strikes">7,400+</div>
+      <div class="hs-sub" id="hero-strikes-sub">Last known · 21 Mar 2026 23:53 UTC · Source: Wikipedia<br>⚠ approximate · unconfirmed · updated hourly</div>
+      <div class="hs-icon">🎯</div>
+    </div>
+    <div class="hero-stat hs-scarlet">
+      <div class="hs-label">Confirmed casualties</div>
+      <div class="hs-value c-scarlet" id="hero-total-casualties">8,835+</div>
+      <div class="hs-sub">Every life lost — Iranian &amp; coalition combined<br>Highest source per group · ⚠ approximate</div>
+      <div class="hs-icon">🕯</div>
+    </div>
+    <div class="hero-stat hs-blue">
+      <div class="hs-label">Countries attacked by Iran</div>
+      <div class="hs-value c-blue">9+</div>
+      <div class="hs-sub">Bahrain, Iraq, Israel, Jordan,<br>Kuwait, Qatar, Saudi, UAE, Cyprus</div>
+      <div class="hs-icon">🌍</div>
+    </div>
+    <div class="hero-stat hs-green">
+      <div class="hs-label">Displaced persons</div>
+      <div class="hs-value c-green" id="hero-displaced">~300,000</div>
+      <div class="hs-sub" id="hero-displaced-sub">Last known · 21 Mar 2026 23:53 UTC · Source: Wikipedia<br>⚠ approximate · unconfirmed · updated hourly</div>
+      <div class="hs-icon">🏳</div>
+    </div>
+  </div><!-- end g5 -->
+  <div class="panel-disclaimer-link"><a href="#data-disclaimer" class="disclaimer-link">⚠ Data Sources &amp; Accuracy</a></div>
+  </div><!-- end w-hero widget -->
+
+  <!-- CASUALTIES widget -->
+  <div class="widget" id="w-casualties">
+  <div class="sec">
+    <span class="sec-dot sd-red"></span>
+    <div class="sec-title" onclick="WW.toggle('w-casualties')">Casualties</div>
+    <div class="sec-line"></div>
+    <div class="sec-tag">Auto-scraped from <a href="https://en.wikipedia.org/wiki/2026_Iran%E2%80%93United_States_war" target="_blank" rel="noopener" style="color:inherit;opacity:0.7;">Wikipedia</a> · ⚠ approximate · unconfirmed</div>
+    <button class="widget-collapse-btn" onclick="WW.toggle('w-casualties')" title="Collapse/expand Casualties">−</button>
+  </div>
+
+  <div class="cas-section-header">Iranian Casualties</div>
+  <!-- Iranian casualties — 3 vertical source cards -->
+  <div class="cas-grid">
+
+    <div class="cas-card">
+      <div class="cas-header">
+        <div class="cas-source-name">Iran Health Ministry</div>
+        <span class="cas-badge b-official">Official</span>
+      </div>
+      <div class="cas-total">
+        <div class="cas-total-num c-blue" id="cas1" data-target="4162">4,162</div>
+        <div class="cas-total-label">confirmed killed</div>
+      </div>
+      <div class="bar-track"><div class="bar-fill bg-blue" style="width:53%" id="bar1"></div></div>
+      <div class="cas-rows">
+        <div class="cas-row"><span class="cas-row-label">Civilians killed</span><span class="cas-row-val" id="cas1-civ">N/A</span></div>
+        <div class="cas-row"><span class="cas-row-label">Military killed</span><span class="cas-row-val" id="cas1-mil">N/A</span></div>
+        <div class="cas-row"><span class="cas-row-label">Injured</span><span class="cas-row-val" id="cas1-inj">14,000+</span></div>
+      </div>
+      <div class="cas-note"><a href="https://en.wikipedia.org/wiki/2026_Iran%E2%80%93United_States_war" target="_blank" rel="noopener" id="cas1-note">Wikipedia · IHM via state media · auto-updated</a></div>
+    </div>
+
+    <div class="cas-card">
+      <div class="cas-header">
+        <div class="cas-source-name">Hengaw</div>
+        <span class="cas-badge b-field">Field reports</span>
+      </div>
+      <div class="cas-total">
+        <div class="cas-total-num c-green" id="cas2" data-target="6840">6,840</div>
+        <div class="cas-total-label">confirmed killed</div>
+      </div>
+      <div class="bar-track"><div class="bar-fill bg-green" style="width:87%" id="bar2"></div></div>
+      <div class="cas-rows">
+        <div class="cas-row"><span class="cas-row-label">Civilians killed</span><span class="cas-row-val" id="cas2-civ">4,551</span></div>
+        <div class="cas-row"><span class="cas-row-label">Military killed</span><span class="cas-row-val" id="cas2-mil">2,630</span></div>
+        <div class="cas-row"><span class="cas-row-label">Injured</span><span class="cas-row-val" id="cas2-inj">N/A</span></div>
+      </div>
+      <div class="cas-note"><a href="https://hengaw.net/en" target="_blank" rel="noopener" id="cas2-note">hengaw.net · auto-updated via Wikipedia</a></div>
+    </div>
+
+    <div class="cas-card">
+      <div class="cas-header">
+        <div class="cas-source-name">HRANA</div>
+        <span class="cas-badge b-ngo">NGO</span>
+      </div>
+      <div class="cas-total">
+        <div class="cas-total-num c-gold" id="cas3" data-target="7920">7,920</div>
+        <div class="cas-total-label">confirmed killed</div>
+      </div>
+      <div class="bar-track"><div class="bar-fill bg-gold" style="width:100%" id="bar3"></div></div>
+      <div class="cas-rows">
+        <div class="cas-row"><span class="cas-row-label">Civilians killed</span><span class="cas-row-val" id="cas3-civ">5,740</span></div>
+        <div class="cas-row"><span class="cas-row-label">Military killed</span><span class="cas-row-val" id="cas3-mil">2,180</span></div>
+        <div class="cas-row"><span class="cas-row-label">Injured</span><span class="cas-row-val" id="cas3-inj">N/A</span></div>
+      </div>
+      <div class="cas-note"><a href="https://en-hrana.org" target="_blank" rel="noopener" id="cas3-note">en-hrana.org · auto-updated via Wikipedia</a></div>
+    </div>
+
+  </div>
+
+    <div class="cas-section-header cas-section-header--coalition">Coalition Casualties</div>
+  <div class="coalition-panel">
+    <div class="coalition-item">
+      <div class="coalition-country"><span class="coalition-flag">🇺🇸</span>United States</div>
+      <div class="coalition-row"><span class="coalition-row-label">Military killed</span><span class="coalition-row-val c-blue-text" id="cas4-us-mil">74</span></div>
+      <div class="coalition-row"><span class="coalition-row-label">Civilians killed</span><span class="coalition-row-val c-muted" id="cas4-us-civ">—</span></div>
+    </div><div class="coalition-sep"></div>
+    <div class="coalition-item">
+      <div class="coalition-country"><span class="coalition-flag">🇮🇱</span>Israel</div>
+      <div class="coalition-row"><span class="coalition-row-label">Military killed</span><span class="coalition-row-val c-blue-text" id="cas4-il-mil">241</span></div>
+      <div class="coalition-row"><span class="coalition-row-label">Civilians killed</span><span class="coalition-row-val c-red-text" id="cas4-il-civ">71</span></div>
+    </div><div class="coalition-sep"></div>
+    <div class="coalition-item">
+      <div class="coalition-country"><span class="coalition-flag">🇮🇶</span>Iraq</div>
+      <div class="coalition-row"><span class="coalition-row-label">Military killed</span><span class="coalition-row-val c-muted" id="cas4-iq-mil">—</span></div>
+      <div class="coalition-row"><span class="coalition-row-label">Civilians killed</span><span class="coalition-row-val c-red-text" id="cas4-iq-civ">506</span></div>
+    </div><div class="coalition-sep"></div>
+    <div class="coalition-item">
+      <div class="coalition-country"><span class="coalition-flag">🇧🇭</span>Bahrain</div>
+      <div class="coalition-row"><span class="coalition-row-label">Military killed</span><span class="coalition-row-val c-blue-text" id="cas4-bh-mil">23</span></div>
+      <div class="coalition-row"><span class="coalition-row-label">Civilians killed</span><span class="coalition-row-val c-muted" id="cas4-bh-civ">—</span></div>
+    </div>
+  </div>
+  <div class="panel-disclaimer-link"><a href="#data-disclaimer" class="disclaimer-link">⚠ Data Sources &amp; Accuracy</a></div>
+  
+  </div><!-- end w-casualties widget -->
+
+  <!-- CHARTS ROW widget -->
+  <div class="widget" id="w-charts">
+  <div class="sec">
+    <span class="sec-dot sd-blue"></span>
+    <div class="sec-title" onclick="WW.toggle('w-charts')">Casualty comparison & escalation timeline</div>
+    <div class="sec-line"></div>
+    <div class="sec-tag">Source: <a href="https://en.wikipedia.org/wiki/2026_Iran%E2%80%93United_States_war" target="_blank" rel="noopener" style="color:inherit;opacity:0.7;">Wikipedia</a> · ⚠ approximate · auto-updated</div>
+    <button class="widget-collapse-btn" onclick="WW.toggle('w-charts')" title="Collapse/expand Charts">−</button>
+  </div>
+
+  <div class="g2">
+    <div class="chart-box">
+      <div class="chart-title">Casualties by source — ⚠ approximate · auto-updated · unconfirmed</div>
+      <div class="chart-wrap h-200">
+        <canvas id="casChart"></canvas>
+      </div>
+    </div>
+    <div class="chart-box">
+      <div class="chart-title">Strike escalation — ⚠ approximate · auto-updated · unconfirmed</div>
+      <div class="chart-wrap h-200">
+        <canvas id="strikeChart"></canvas>
+      </div>
+    </div>
+  </div>
+  <div class="panel-disclaimer-link"><a href="#data-disclaimer" class="disclaimer-link">⚠ Data Sources &amp; Accuracy</a></div>
+  </div><!-- end w-charts widget -->
+
+  <!-- STRIKE COUNTER widget -->
+  <div class="widget" id="w-strikes">
+  <div class="sec">
+    <span class="sec-dot sd-gold"></span>
+    <div class="sec-title" onclick="WW.toggle('w-strikes')">Strike counter & missile waves</div>
+    <div class="sec-line"></div>
+    <div class="sec-tag">Auto-scraped from <a href="https://en.wikipedia.org/wiki/2026_Iran%E2%80%93United_States_war" target="_blank" rel="noopener" style="color:inherit;opacity:0.7;">Wikipedia</a> · ⚠ approximate · unconfirmed</div>
+    <button class="widget-collapse-btn" onclick="WW.toggle('w-strikes')" title="Collapse/expand Strikes">−</button>
+  </div>
+
+  <div class="strike-hero">
+    <div class="sh-left">
+      <div class="sh-target-label">Targets struck in Iran</div>
+      <div class="sh-num" id="strike-total">7,400+</div>
+      <div class="sh-label">Auto-updated hourly · Source: Wikipedia · ⚠ approx</div>
+      <div class="sh-slider-wrap">
+        <div class="sh-slider-label">
+          Strike timeline — Day <span id="slider-day-val">1</span> to <span id="slider-day-end">22</span>
+        </div>
+        <input type="range" id="strike-day-slider" min="1" max="22" value="22">
+        <div id="slider-strike-estimate" class="sh-slider-note">⚠ Timeline estimates based on Wikipedia cumulative data</div>
+      </div>
+    </div>
+    <div class="sh-div"></div>
+    <div class="sh-grid" id="sh-grid">
+      <div class="sh-item" data-fallback="70+" data-fallback-date="21 Mar 2026 23:53 UTC"><div class="sv c-red" id="stat-waves">70+</div><div class="sl">Iranian missile/drone waves</div><div class="sh-fallback-label" id="stat-waves-fb"></div></div>
+      <div class="sh-item" data-fallback="500+" data-fallback-date="21 Mar 2026 23:53 UTC"><div class="sv c-orange" id="stat-missiles">500+</div><div class="sl">Ballistic missiles fired</div><div class="sh-fallback-label" id="stat-missiles-fb"></div></div>
+      <div class="sh-item" data-fallback="3,000+" data-fallback-date="21 Mar 2026 23:53 UTC"><div class="sv c-gold" id="stat-drones">3,000+</div><div class="sl">Drones launched total</div><div class="sh-fallback-label" id="stat-drones-fb"></div></div>
+      <div class="sh-item" data-fallback="143" data-fallback-date="21 Mar 2026 23:53 UTC"><div class="sv c-green" id="stat-intercept">143</div><div class="sl">Destroyed by Bahrain</div><div class="sh-fallback-label" id="stat-intercept-fb"></div></div>
+      <div class="sh-item"><div class="sv c-blue" id="stat-cities">—</div><div class="sl">Iranian cities targeted</div></div>
+      <div class="sh-item"><div class="sv c-white2" id="stat-ships">—</div><div class="sl">Iranian ships damaged/sunk</div></div>
+    </div>
+  </div><!-- end strike-hero -->
+
+  <!-- CHARTS ROW 2 — part of strikes widget -->
+  <div class="g2 mt-12">
+    <div class="chart-box">
+      <div class="chart-title">Iranian missile & drone waves — cumulative <span class="chart-verified" id="wave-verified"></span></div>
+      <div class="chart-wrap h-200">
+        <canvas id="waveChart"></canvas>
+      </div>
+    </div>
+    <div class="chart-box">
+      <div class="chart-title">Interception breakdown by country <span class="chart-verified" id="intercept-verified"></span></div>
+      <div class="chart-wrap h-200">
+        <canvas id="interceptChart"></canvas>
+      </div>
+    </div>
+  </div>
+  <div class="panel-disclaimer-link"><a href="#data-disclaimer" class="disclaimer-link">⚠ Data Sources &amp; Accuracy</a></div>
+  </div><!-- end w-strikes widget -->
+
+  <!-- RECENT EVENTS widget — locked -->
+  <div class="widget" id="w-events">
+  <div class="sec">
+    <span class="sec-dot sd-red"></span>
+    <div class="sec-title" onclick="WW.toggle('w-events')">Latest headlines</div>
+    <div class="sec-line"></div>
+    <div class="sec-tag">Full war history · Feb 28 – present</div>
+    <button class="widget-collapse-btn" onclick="WW.toggle('w-events')" title="Collapse/expand Latest headlines">−</button>
+  </div>
+
+  <!-- HEADLINE SOURCE FILTER BAR -->
+  <div class="hf-bar" id="hf-bar">
+    <button class="hf-btn hf-active" data-source="all">All <span class="hf-count" id="hfc-all"></span></button>
+    <button class="hf-btn" data-source="Al Jazeera">Al Jazeera <span class="hf-count" id="hfc-al-jazeera"></span></button>
+    <button class="hf-btn" data-source="Reuters">Reuters <span class="hf-count" id="hfc-reuters"></span></button>
+    <button class="hf-btn" data-source="Associated Press">Associated Press <span class="hf-count" id="hfc-ap"></span></button>
+    <button class="hf-btn" data-source="BBC">BBC <span class="hf-count" id="hfc-bbc"></span></button>
+    <button class="hf-btn" data-source="The Guardian">The Guardian <span class="hf-count" id="hfc-guardian"></span></button>
+    <button class="hf-btn" data-source="France 24">France 24 <span class="hf-count" id="hfc-france24"></span></button>
+    <button class="hf-btn" data-source="Fox News">Fox News <span class="hf-count" id="hfc-foxnews"></span></button>
+    <button class="hf-btn" data-source="CNN">CNN <span class="hf-count" id="hfc-cnn"></span></button>
+    <button class="hf-btn" data-source="NBC News">NBC <span class="hf-count" id="hfc-nbc"></span></button>
+    <button class="hf-btn" data-source="CBS News">CBS <span class="hf-count" id="hfc-cbs"></span></button>
+    <button class="hf-btn" data-source="ABC News (AU)">ABC (AU) <span class="hf-count" id="hfc-abc"></span></button>
+    <button class="hf-btn" data-source="CBC News">CBC <span class="hf-count" id="hfc-cbc"></span></button>
+    <button class="hf-btn" data-source="The Times of India">Times of India <span class="hf-count" id="hfc-toi"></span></button>
+    <button class="hf-btn" data-source="Financial Post">Financial Post <span class="hf-count" id="hfc-fp"></span></button>
+    <button class="hf-btn" data-source="New York Post">NY Post <span class="hf-count" id="hfc-nypost"></span></button>
+    <button class="hf-btn" data-source="Business Insider">Business Insider <span class="hf-count" id="hfc-bi"></span></button>
+    <button class="hf-btn" data-source="OilPrice.com">OilPrice <span class="hf-count" id="hfc-oilprice"></span></button>
+    <button class="hf-btn" data-source="DW (English)">Deutsche Welle <span class="hf-count" id="hfc-dw"></span></button>
+    <button class="hf-btn" data-source="CNA">CNA (Asia) <span class="hf-count" id="hfc-cna"></span></button>
+    <button class="hf-btn" data-source="RT">RT (Russia) <span class="hf-count" id="hfc-rt"></span></button>
+    <button class="hf-btn" data-source="Sputnikglobe.com">Sputnik <span class="hf-count" id="hfc-sputnik"></span></button>
+    <button class="hf-btn" data-source="Globalsecurity.org">GlobalSecurity <span class="hf-count" id="hfc-gs"></span></button>
+    <button class="hf-btn" data-source="Slashdot.org">Slashdot <span class="hf-count" id="hfc-slashdot"></span></button>
+    <button class="hf-btn" data-source="Mediaite">Mediaite <span class="hf-count" id="hfc-mediaite"></span></button>
+    <button class="hf-btn" data-source="Freerepublic.com">FreeRepublic <span class="hf-count" id="hfc-fr"></span></button>
+  </div>
+
+
+  <div class="hf-controls-bar">
+    <div class="hf-date-wrap">
+      <label class="hf-date-label">From</label>
+      <input type="date" id="hf-date-from" class="hf-date-input" min="2026-02-28" max="2026-12-31" value="2026-02-28">
+      <label class="hf-date-label">To</label>
+      <input type="date" id="hf-date-to" class="hf-date-input" min="2026-02-28">
+    </div>
+    <div class="hf-rows-wrap" style="margin-left:24px">
+      <label class="hf-date-label">Show</label>
+      <select id="hf-rows" class="hf-date-input">
+        <option value="10" selected>10</option>
+        <option value="25">25</option>
+        <option value="50">50</option>
+      </select>
+      <label class="hf-date-label"><span id="hf-source-label"></span> <span id="hf-grand-total"></span></label>
+    </div>
+  </div>
+
+  <div class="events-feed" id="events-feed">
+    <!-- EVENTS_FEED_START -->
+    <div class="event-item" data-source="Al Jazeera" data-date="2026-03-23">
+      <div class="event-time">2026-03-23</div>
+      <div class="event-src">Al Jazeera</div>
+      <div class="event-body">
+        <span class="event-tag et-diplo">Diplomatic<span class="ev-tip">Political developments, peace talks, sanctions, humanitarian events or general war news</span></span>
+        <div class="event-text"><a href="#" class="event-link" title="China 'is playing the long game' in Iran war by staying neutral">China 'is playing the long game' in Iran war by staying neutral</a></div>
+      </div>
+    </div>
+    <div class="event-item" data-source="Al Jazeera" data-date="2026-03-23">
+      <div class="event-time">2026-03-23</div>
+      <div class="event-src">Al Jazeera</div>
+      <div class="event-body">
+        <span class="event-tag et-strike">Airstrike<span class="ev-tip">A military strike, missile attack or drone operation carried out by either side</span></span>
+        <div class="event-text"><a href="#" class="event-link" title="Iran war: What's happening on day 24 of US-Israel attacks?">Iran war: What's happening on day 24 of US-Israel attacks?</a></div>
+      </div>
+    </div>
+    <div class="event-item" data-source="Al Jazeera" data-date="2026-03-22">
+      <div class="event-time">2026-03-22</div>
+      <div class="event-src">Al Jazeera</div>
+      <div class="event-body">
+        <span class="event-tag et-energy">Energy/Oil<span class="ev-tip">Impact on oil prices, gas supplies, refineries, shipping lanes or energy infrastructure</span></span>
+        <div class="event-text"><a href="#" class="event-link" title="IEA chief warns of 'very severe' global energy crisis">IEA chief warns of 'very severe' global energy crisis</a></div>
+      </div>
+    </div>
+    <div class="event-item" data-source="Reuters" data-date="2026-03-23">
+      <div class="event-time">2026-03-23</div>
+      <div class="event-src">Reuters</div>
+      <div class="event-body">
+        <span class="event-tag et-diplo">Diplomatic<span class="ev-tip">Political developments, peace talks, sanctions, humanitarian events or general war news</span></span>
+        <div class="event-text"><a href="#" class="event-link" title="Trump tells Iran it has 48 hours to open Hormuz or face strikes">Trump tells Iran it has 48 hours to open Hormuz or face strikes</a></div>
+      </div>
+    </div>
+    <div class="event-item" data-source="Reuters" data-date="2026-03-22">
+      <div class="event-time">2026-03-22</div>
+      <div class="event-src">Reuters</div>
+      <div class="event-body">
+        <span class="event-tag et-strike">Airstrike<span class="ev-tip">A military strike, missile attack or drone operation carried out by either side</span></span>
+        <div class="event-text"><a href="#" class="event-link" title="US and Israel strike Iran Natanz enrichment site for second time">US and Israel strike Iran Natanz enrichment site for second time</a></div>
+      </div>
+    </div>
+    <div class="event-item" data-source="Associated Press" data-date="2026-03-23">
+      <div class="event-time">2026-03-23</div>
+      <div class="event-src">Associated Press</div>
+      <div class="event-body">
+        <span class="event-tag et-strike">Airstrike<span class="ev-tip">A military strike, missile attack or drone operation carried out by either side</span></span>
+        <div class="event-text"><a href="#" class="event-link" title="Iran state media says Israel attacked the largest gas field in the world">Iran state media says Israel attacked the largest gas field in the world</a></div>
+      </div>
+    </div>
+    <div class="event-item" data-source="Associated Press" data-date="2026-03-22">
+      <div class="event-time">2026-03-22</div>
+      <div class="event-src">Associated Press</div>
+      <div class="event-body">
+        <span class="event-tag et-diplo">Diplomatic<span class="ev-tip">Political developments, peace talks, sanctions, humanitarian events or general war news</span></span>
+        <div class="event-text"><a href="#" class="event-link" title="Trump administration laying groundwork to resume talks with Iran">Trump administration laying groundwork to resume talks with Iran</a></div>
+      </div>
+    </div>
+    <div class="event-item" data-source="BBC" data-date="2026-03-22">
+      <div class="event-time">2026-03-22</div>
+      <div class="event-src">BBC</div>
+      <div class="event-body">
+        <span class="event-tag et-strike">Airstrike<span class="ev-tip">A military strike, missile attack or drone operation carried out by either side</span></span>
+        <div class="event-text"><a href="#" class="event-link" title="Iranian missiles injure 180 in towns near Israeli nuclear site">Iranian missiles injure 180 in towns near Israeli nuclear site</a></div>
+      </div>
+    </div>
+    <div class="event-item" data-source="BBC" data-date="2026-03-22">
+      <div class="event-time">2026-03-22</div>
+      <div class="event-src">BBC</div>
+      <div class="event-body">
+        <span class="event-tag et-diplo">Diplomatic<span class="ev-tip">Political developments, peace talks, sanctions, humanitarian events or general war news</span></span>
+        <div class="event-text"><a href="#" class="event-link" title="Trump at a crossroads as US weighs tough options in Iran">Trump at a crossroads as US weighs tough options in Iran</a></div>
+      </div>
+    </div>
+    <div class="event-item" data-source="BBC" data-date="2026-03-21">
+      <div class="event-time">2026-03-21</div>
+      <div class="event-src">BBC</div>
+      <div class="event-body">
+        <span class="event-tag et-strike">Airstrike<span class="ev-tip">A military strike, missile attack or drone operation carried out by either side</span></span>
+        <div class="event-text"><a href="#" class="event-link" title="UK allows US to use bases to strike Strait of Hormuz targets">UK allows US to use bases to strike Strait of Hormuz targets</a></div>
+      </div>
+    </div>
+    <div class="event-item" data-source="The Guardian" data-date="2026-03-23">
+      <div class="event-time">2026-03-23</div>
+      <div class="event-src">The Guardian</div>
+      <div class="event-body">
+        <span class="event-tag et-diplo">Diplomatic<span class="ev-tip">Political developments, peace talks, sanctions, humanitarian events or general war news</span></span>
+        <div class="event-text"><a href="#" class="event-link" title="Middle East crisis live: Starmer and Trump discuss Hormuz">Middle East crisis live: Starmer and Trump discuss Hormuz</a></div>
+      </div>
+    </div>
+    <div class="event-item" data-source="The Guardian" data-date="2026-03-22">
+      <div class="event-time">2026-03-22</div>
+      <div class="event-src">The Guardian</div>
+      <div class="event-body">
+        <span class="event-tag et-energy">Energy/Oil<span class="ev-tip">Impact on oil prices, gas supplies, refineries, shipping lanes or energy infrastructure</span></span>
+        <div class="event-text"><a href="#" class="event-link" title="Six fuel ships bound for Australia cancelled as oil flow slows">Six fuel ships bound for Australia cancelled as oil flow slows</a></div>
+      </div>
+    </div>
+    <div class="event-item" data-source="The Guardian" data-date="2026-03-22">
+      <div class="event-time">2026-03-22</div>
+      <div class="event-src">The Guardian</div>
+      <div class="event-body">
+        <span class="event-tag et-strike">Airstrike<span class="ev-tip">A military strike, missile attack or drone operation carried out by either side</span></span>
+        <div class="event-text"><a href="#" class="event-link" title="Iran vows to destroy Middle East energy facilities if power plants hit">Iran vows to destroy Middle East energy facilities if power plants hit</a></div>
+      </div>
+    </div>
+    <div class="event-item" data-source="France 24" data-date="2026-03-22">
+      <div class="event-time">2026-03-22</div>
+      <div class="event-src">France 24</div>
+      <div class="event-body">
+        <span class="event-tag et-diplo">Diplomatic<span class="ev-tip">Political developments, peace talks, sanctions, humanitarian events or general war news</span></span>
+        <div class="event-text"><a href="#" class="event-link" title="Strait of Hormuz: Trump's ultimatum to Iran">Strait of Hormuz: Trump's ultimatum to Iran</a></div>
+      </div>
+    </div>
+    <div class="event-item" data-source="France 24" data-date="2026-03-22">
+      <div class="event-time">2026-03-22</div>
+      <div class="event-src">France 24</div>
+      <div class="event-body">
+        <span class="event-tag et-strike">Airstrike<span class="ev-tip">A military strike, missile attack or drone operation carried out by either side</span></span>
+        <div class="event-text"><a href="#" class="event-link" title="Trump threat to hit Iran power plants could violate Geneva Conventions">Trump threat to hit Iran power plants could violate Geneva Conventions</a></div>
+      </div>
+    </div>
+    <div class="event-item" data-source="Fox News" data-date="2026-03-22">
+      <div class="event-time">2026-03-22</div>
+      <div class="event-src">Fox News</div>
+      <div class="event-body">
+        <span class="event-tag et-strike">Airstrike<span class="ev-tip">A military strike, missile attack or drone operation carried out by either side</span></span>
+        <div class="event-text"><a href="#" class="event-link" title="Trump proven right on Iran long-range missile capability">Trump proven right on Iran long-range missile capability</a></div>
+      </div>
+    </div>
+    <div class="event-item" data-source="Fox News" data-date="2026-03-21">
+      <div class="event-time">2026-03-21</div>
+      <div class="event-src">Fox News</div>
+      <div class="event-body">
+        <span class="event-tag et-diplo">Diplomatic<span class="ev-tip">Political developments, peace talks, sanctions, humanitarian events or general war news</span></span>
+        <div class="event-text"><a href="#" class="event-link" title="NATO heavyweights balk at Hormuz mission as Trump warns alliance at risk">NATO heavyweights balk at Hormuz mission as Trump warns alliance at risk</a></div>
+      </div>
+    </div>
+    <div class="event-item" data-source="CNN" data-date="2026-03-22">
+      <div class="event-time">2026-03-22</div>
+      <div class="event-src">CNN</div>
+      <div class="event-body">
+        <span class="event-tag et-diplo">Diplomatic<span class="ev-tip">Political developments, peace talks, sanctions, humanitarian events or general war news</span></span>
+        <div class="event-text"><a href="#" class="event-link" title="Takeaways from intelligence officials testimony amid war with Iran">Takeaways from intelligence officials testimony amid war with Iran</a></div>
+      </div>
+    </div>
+    <div class="event-item" data-source="CNN" data-date="2026-03-21">
+      <div class="event-time">2026-03-21</div>
+      <div class="event-src">CNN</div>
+      <div class="event-body">
+        <span class="event-tag et-strike">Airstrike<span class="ev-tip">A military strike, missile attack or drone operation carried out by either side</span></span>
+        <div class="event-text"><a href="#" class="event-link" title="US B-2 bombers strike underground bunkers in western Iran">US B-2 bombers strike underground bunkers in western Iran</a></div>
+      </div>
+    </div>
+    <div class="event-item" data-source="NBC News" data-date="2026-03-21">
+      <div class="event-time">2026-03-21</div>
+      <div class="event-src">NBC News</div>
+      <div class="event-body">
+        <span class="event-tag et-diplo">Diplomatic<span class="ev-tip">Political developments, peace talks, sanctions, humanitarian events or general war news</span></span>
+        <div class="event-text"><a href="#" class="event-link" title="Trump weighing several options for US troops inside Iran">Trump weighing several options for US troops inside Iran</a></div>
+      </div>
+    </div>
+    <div class="event-item" data-source="CBS News" data-date="2026-03-21">
+      <div class="event-time">2026-03-21</div>
+      <div class="event-src">CBS News</div>
+      <div class="event-body">
+        <span class="event-tag et-diplo">Diplomatic<span class="ev-tip">Political developments, peace talks, sanctions, humanitarian events or general war news</span></span>
+        <div class="event-text"><a href="#" class="event-link" title="6 highlights from CBS News interview with IAEA chief Rafael Grossi">6 highlights from CBS News interview with IAEA chief Rafael Grossi</a></div>
+      </div>
+    </div>
+    <div class="event-item" data-source="ABC News (AU)" data-date="2026-03-21">
+      <div class="event-time">2026-03-21</div>
+      <div class="event-src">ABC News (AU)</div>
+      <div class="event-body">
+        <span class="event-tag et-diplo">Diplomatic<span class="ev-tip">Political developments, peace talks, sanctions, humanitarian events or general war news</span></span>
+        <div class="event-text"><a href="#" class="event-link" title="Trump may have lost a game of chicken with Iran which exposed a red line">Trump may have lost a game of chicken with Iran which exposed a red line</a></div>
+      </div>
+    </div>
+    <div class="event-item" data-source="CBC News" data-date="2026-03-21">
+      <div class="event-time">2026-03-21</div>
+      <div class="event-src">CBC News</div>
+      <div class="event-body">
+        <span class="event-tag et-diplo">Diplomatic<span class="ev-tip">Political developments, peace talks, sanctions, humanitarian events or general war news</span></span>
+        <div class="event-text"><a href="#" class="event-link" title="Trump says the war on Iran is militarily won. Yet there is no end in sight">Trump says the war on Iran is militarily won. Yet there is no end in sight</a></div>
+      </div>
+    </div>
+    <div class="event-item" data-source="The Times of India" data-date="2026-03-21">
+      <div class="event-time">2026-03-21</div>
+      <div class="event-src">The Times of India</div>
+      <div class="event-body">
+        <span class="event-tag et-diplo">Diplomatic<span class="ev-tip">Political developments, peace talks, sanctions, humanitarian events or general war news</span></span>
+        <div class="event-text"><a href="#" class="event-link" title="Three weeks in escalating Iran war is likely slipping out of Trump's hands">Three weeks in escalating Iran war is likely slipping out of Trump's hands</a></div>
+      </div>
+    </div>
+    <div class="event-item" data-source="Financial Post" data-date="2026-03-21">
+      <div class="event-time">2026-03-21</div>
+      <div class="event-src">Financial Post</div>
+      <div class="event-body">
+        <span class="event-tag et-energy">Energy/Oil<span class="ev-tip">Impact on oil prices, gas supplies, refineries, shipping lanes or energy infrastructure</span></span>
+        <div class="event-text"><a href="#" class="event-link" title="Trump Says US Considers Winding Down Iran Military Effort">Trump Says US Considers Winding Down Iran Military Effort</a></div>
+      </div>
+    </div>
+    <div class="event-item" data-source="Financial Post" data-date="2026-03-20">
+      <div class="event-time">2026-03-20</div>
+      <div class="event-src">Financial Post</div>
+      <div class="event-body">
+        <span class="event-tag et-energy">Energy/Oil<span class="ev-tip">Impact on oil prices, gas supplies, refineries, shipping lanes or energy infrastructure</span></span>
+        <div class="event-text"><a href="#" class="event-link" title="Oil surges past $140 as Hormuz blockade enters third week">Oil surges past $140 as Hormuz blockade enters third week</a></div>
+      </div>
+    </div>
+    <div class="event-item" data-source="New York Post" data-date="2026-03-21">
+      <div class="event-time">2026-03-21</div>
+      <div class="event-src">New York Post</div>
+      <div class="event-body">
+        <span class="event-tag et-diplo">Diplomatic<span class="ev-tip">Political developments, peace talks, sanctions, humanitarian events or general war news</span></span>
+        <div class="event-text"><a href="#" class="event-link" title="How Iran's forced oil crisis is Trump's energy opportunity">How Iran's forced oil crisis is Trump's energy opportunity</a></div>
+      </div>
+    </div>
+    <div class="event-item" data-source="Business Insider" data-date="2026-03-21">
+      <div class="event-time">2026-03-21</div>
+      <div class="event-src">Business Insider</div>
+      <div class="event-body">
+        <span class="event-tag et-energy">Energy/Oil<span class="ev-tip">Impact on oil prices, gas supplies, refineries, shipping lanes or energy infrastructure</span></span>
+        <div class="event-text"><a href="#" class="event-link" title="3 critical supply chains being upended by the war in Iran">3 critical supply chains being upended by the war in Iran</a></div>
+      </div>
+    </div>
+    <div class="event-item" data-source="Business Insider" data-date="2026-03-20">
+      <div class="event-time">2026-03-20</div>
+      <div class="event-src">Business Insider</div>
+      <div class="event-body">
+        <span class="event-tag et-diplo">Diplomatic<span class="ev-tip">Political developments, peace talks, sanctions, humanitarian events or general war news</span></span>
+        <div class="event-text"><a href="#" class="event-link" title="Wall Street braces for prolonged conflict as Iran war enters week four">Wall Street braces for prolonged conflict as Iran war enters week four</a></div>
+      </div>
+    </div>
+    <div class="event-item" data-source="OilPrice.com" data-date="2026-03-20">
+      <div class="event-time">2026-03-20</div>
+      <div class="event-src">OilPrice.com</div>
+      <div class="event-body">
+        <span class="event-tag et-energy">Energy/Oil<span class="ev-tip">Impact on oil prices, gas supplies, refineries, shipping lanes or energy infrastructure</span></span>
+        <div class="event-text"><a href="#" class="event-link" title="Why Global Energy Shock Could Leave China Stronger Than Ever">Why Global Energy Shock Could Leave China Stronger Than Ever</a></div>
+      </div>
+    </div>
+    <div class="event-item" data-source="OilPrice.com" data-date="2026-03-19">
+      <div class="event-time">2026-03-19</div>
+      <div class="event-src">OilPrice.com</div>
+      <div class="event-body">
+        <span class="event-tag et-energy">Energy/Oil<span class="ev-tip">Impact on oil prices, gas supplies, refineries, shipping lanes or energy infrastructure</span></span>
+        <div class="event-text"><a href="#" class="event-link" title="OPEC emergency meeting called as Hormuz closure disrupts global supply">OPEC emergency meeting called as Hormuz closure disrupts global supply</a></div>
+      </div>
+    </div>
+    <div class="event-item" data-source="DW (English)" data-date="2026-03-21">
+      <div class="event-time">2026-03-21</div>
+      <div class="event-src">DW (English)</div>
+      <div class="event-body">
+        <span class="event-tag et-diplo">Diplomatic<span class="ev-tip">Political developments, peace talks, sanctions, humanitarian events or general war news</span></span>
+        <div class="event-text"><a href="#" class="event-link" title="Germany news: Merz to call Trump amid Hormuz standoff">Germany news: Merz to call Trump amid Hormuz standoff</a></div>
+      </div>
+    </div>
+    <div class="event-item" data-source="CNA" data-date="2026-03-21">
+      <div class="event-time">2026-03-21</div>
+      <div class="event-src">CNA</div>
+      <div class="event-body">
+        <span class="event-tag et-diplo">Diplomatic<span class="ev-tip">Political developments, peace talks, sanctions, humanitarian events or general war news</span></span>
+        <div class="event-text"><a href="#" class="event-link" title="Iran president says cessation of US-Israeli aggression needed to end war">Iran president says cessation of US-Israeli aggression needed to end war</a></div>
+      </div>
+    </div>
+    <div class="event-item" data-source="RT" data-date="2026-03-21">
+      <div class="event-time">2026-03-21</div>
+      <div class="event-src">RT</div>
+      <div class="event-body">
+        <span class="event-tag et-diplo">Diplomatic<span class="ev-tip">Political developments, peace talks, sanctions, humanitarian events or general war news</span></span>
+        <div class="event-text"><a href="#" class="event-link" title="America's war with Iran could destroy NATO from within">America's war with Iran could destroy NATO from within</a></div>
+      </div>
+    </div>
+    <div class="event-item" data-source="Sputnikglobe.com" data-date="2026-03-21">
+      <div class="event-time">2026-03-21</div>
+      <div class="event-src">Sputnikglobe.com</div>
+      <div class="event-body">
+        <span class="event-tag et-strike">Airstrike<span class="ev-tip">A military strike, missile attack or drone operation carried out by either side</span></span>
+        <div class="event-text"><a href="#" class="event-link" title="Attack on Natanz Facility Blatant Violation of International Law - Russia MFA">Attack on Natanz Facility Blatant Violation of International Law - Russia MFA</a></div>
+      </div>
+    </div>
+    <div class="event-item" data-source="Globalsecurity.org" data-date="2026-03-21">
+      <div class="event-time">2026-03-21</div>
+      <div class="event-src">Globalsecurity.org</div>
+      <div class="event-body">
+        <span class="event-tag et-diplo">Diplomatic<span class="ev-tip">Political developments, peace talks, sanctions, humanitarian events or general war news</span></span>
+        <div class="event-text"><a href="#" class="event-link" title="Iraq Pulled Into Iran War As Tehran Expands The Battlefield">Iraq Pulled Into Iran War As Tehran Expands The Battlefield</a></div>
+      </div>
+    </div>
+    <div class="event-item" data-source="Slashdot.org" data-date="2026-03-21">
+      <div class="event-time">2026-03-21</div>
+      <div class="event-src">Slashdot.org</div>
+      <div class="event-body">
+        <span class="event-tag et-energy">Energy/Oil<span class="ev-tip">Impact on oil prices, gas supplies, refineries, shipping lanes or energy infrastructure</span></span>
+        <div class="event-text"><a href="#" class="event-link" title="US pauses sanctions on some of Iran's oil as gas prices surge">US pauses sanctions on some of Iran's oil as gas prices surge</a></div>
+      </div>
+    </div>
+    <div class="event-item" data-source="Mediaite" data-date="2026-03-21">
+      <div class="event-time">2026-03-21</div>
+      <div class="event-src">Mediaite</div>
+      <div class="event-body">
+        <span class="event-tag et-diplo">Diplomatic<span class="ev-tip">Political developments, peace talks, sanctions, humanitarian events or general war news</span></span>
+        <div class="event-text"><a href="#" class="event-link" title="Trump Shreds NY Times Writer Who Questioned Operation Epic Fury">Trump Shreds NY Times Writer Who Questioned Operation Epic Fury</a></div>
+      </div>
+    </div>
+    <div class="event-item" data-source="Freerepublic.com" data-date="2026-03-21">
+      <div class="event-time">2026-03-21</div>
+      <div class="event-src">Freerepublic.com</div>
+      <div class="event-body">
+        <span class="event-tag et-diplo">Diplomatic<span class="ev-tip">Political developments, peace talks, sanctions, humanitarian events or general war news</span></span>
+        <div class="event-text"><a href="#" class="event-link" title="Inside Trump's most difficult war decision: boots on the ground in Iran">Inside Trump's most difficult war decision: boots on the ground in Iran</a></div>
+      </div>
+    </div>
+    <!-- EVENTS_FEED_END -->
+  </div><!-- end events-feed -->
+
+  <!-- ARTICLE PANEL — slides up over the feed on row click -->
+  <div class="ap-overlay" id="ap-overlay">
+    <div class="ap-panel" id="ap-panel">
+      <div class="ap-header">
+        <div class="ap-meta">
+          <span class="ap-type" id="ap-type"></span>
+          <span class="ap-source" id="ap-source"></span>
+          <span class="ap-date" id="ap-date"></span>
+        </div>
+        <button class="ap-close" id="ap-close" title="Back to headlines">✕</button>
+      </div>
+      <div class="ap-headline" id="ap-headline"></div>
+      <div class="ap-summary-wrap">
+        <div class="ap-summary-label">AI Summary</div>
+        <div class="ap-summary" id="ap-summary">
+          <div class="ap-spinner" id="ap-spinner"><span></span><span></span><span></span></div>
+          <div class="ap-summary-text" id="ap-summary-text"></div>
+        </div>
+      </div>
+      <div class="ap-ad">
+        <div class="ap-ad-label">Advertisement</div>
+        <!-- DROP AD CODE HERE -->
+        <div class="ap-ad-slot">Your ad unit here — 728×90 or responsive</div>
+      </div>
+      <a class="ap-read-btn" id="ap-read-btn" href="#" target="_blank" rel="noopener">Read full article ↗</a>
+    </div>
+  </div>
+
+  <div class="panel-disclaimer-link"><a href="#data-disclaimer" class="disclaimer-link">⚠ Data Sources &amp; Accuracy</a></div>
+  </div><!-- end w-events widget -->
+
+  <!-- WAR COST CLOCK widget -->
+  <div class="widget" id="w-cost">
+  <div class="sec">
+    <span class="sec-dot sd-red"></span>
+    <div class="sec-title" onclick="WW.toggle('w-cost')">War cost clock</div>
+    <div class="sec-line"></div>
+    <div class="sec-tag">US taxpayer · Pentagon congressional briefing estimate</div>
+    <button class="widget-collapse-btn" onclick="WW.toggle('w-cost')" title="Collapse/expand War cost">−</button>
+  </div>
+
+  <div class="cost-layout">
+    <div class="cost-hero">
+      <div class="cost-num-label">ESTIMATED COST</div>
+      <div class="cost-num" id="cost-display">~$27,538,142,857</div>
+      <div class="cost-words" id="cost-words">Twenty Seven Billion, Five Hundred Thirty Eight Million Dollars</div>
+      <div class="cost-rate">↑ <span id="cost-per-sec">$1,157</span> per second · <span id="cost-per-min">$69,420</span> per minute</div>
+      <div class="cost-chips">
+        <!-- ⚠ COST CHIPS — injected by fetch_data.py on each deploy -->
+        <div class="cost-chip"><div class="cv c-red">$11.3B</div><div class="cl">First 6 days</div></div>
+        <div class="cost-chip"><div class="cv c-gold">~$1B</div><div class="cl">Per day ongoing</div></div>
+        <div class="cost-chip"><div class="cv c-blue">$200B</div><div class="cl">Budget request</div></div>
+        <div class="cost-chip"><div class="cv c-white2">$4M</div><div class="cl">Per Patriot missile</div></div>
+        <div class="cost-chip"><div class="cv c-white2">106:1</div><div class="cl">Cost ratio vs drone</div></div>
+      </div>
+      <div class="cost-label">
+        ⚠ Formula-based estimate of US military spending since Feb 28, 2026.
+        Rate derived from <a href="https://comptroller.defense.gov/" target="_blank" rel="noopener">Pentagon briefing data</a>
+        and <a href="https://www.csis.org/programs/international-security-program/missile-defense-project" target="_blank" rel="noopener">CSIS analysis</a>.
+        <a href="https://watson.brown.edu/costsofwar/" target="_blank" rel="noopener">Methodology →</a>
+        · Wikipedia source: <a href="https://en.wikipedia.org/wiki/2026_Iran%E2%80%93United_States_war" target="_blank" rel="noopener">2026 Iran–US war</a>
+      </div>
+    </div>
+    <!-- Currency conversions — stacked on RHS -->
+    <div class="cost-curr-panel">
+      <div class="cost-curr-title">Equivalent Value</div>
+      <div class="cost-curr-item"><span class="cost-curr-flag">🇺🇸</span><span class="cost-curr-label">USD</span><span class="cost-curr-val" id="cost-usd">—</span></div>
+      <div class="cost-curr-item"><span class="cost-curr-flag">🇪🇺</span><span class="cost-curr-label">EUR</span><span class="cost-curr-val" id="cost-eur">—</span></div>
+      <div class="cost-curr-item"><span class="cost-curr-flag">🇬🇧</span><span class="cost-curr-label">GBP</span><span class="cost-curr-val" id="cost-gbp">—</span></div>
+      <div class="cost-curr-item"><span class="cost-curr-flag">🇨🇳</span><span class="cost-curr-label">CNY</span><span class="cost-curr-val" id="cost-cny">—</span></div>
+      <div class="cost-curr-item"><span class="cost-curr-flag">🇯🇵</span><span class="cost-curr-label">JPY</span><span class="cost-curr-val" id="cost-jpy">—</span></div>
+      <div class="cost-curr-item"><span class="cost-curr-flag">🇿🇦</span><span class="cost-curr-label">ZAR</span><span class="cost-curr-val" id="cost-zar">—</span></div>
+      <div class="cost-curr-custom">
+        <input id="cost-curr-input" class="cost-curr-input" list="cost-curr-list" placeholder="Add currency…" maxlength="6" autocomplete="off" spellcheck="false">
+        <datalist id="cost-curr-list"></datalist>
+        <div class="cost-curr-item cost-curr-custom-result" id="cost-custom-row">
+          <span class="cost-curr-flag" id="cost-custom-flag">🌐</span>
+          <span class="cost-curr-label" id="cost-custom-label">—</span>
+          <span class="cost-curr-val" id="cost-custom-val">—</span>
+        </div>
+      </div>
+    </div>
+    <div class="chart-box">
+      <div class="chart-title">Daily cost estimate — US spending (USD billions)</div>
+      <div class="chart-wrap h-220">
+        <canvas id="costChart"></canvas>
+      </div>
+    </div>
+  </div>
+  <div class="panel-disclaimer-link"><a href="#data-disclaimer" class="disclaimer-link">⚠ Data Sources &amp; Accuracy</a></div>
+  </div><!-- end w-cost widget -->
+
+  <!-- OIL & ENERGY widget -->
+  <div class="widget" id="w-oil">
+  <div class="sec">
+    <span class="sec-dot sd-gold"></span>
+    <div class="sec-title" onclick="WW.toggle('w-oil')">Oil & energy impact</div>
+    <div class="sec-line"></div>
+    <div class="sec-tag">Live prices · CNBC · Bloomberg · IEA</div>
+    <button class="widget-collapse-btn" onclick="WW.toggle('w-oil')" title="Collapse/expand Oil & energy">−</button>
+  </div>
+
+  <div class="g21">
+    <div class="oil-hero">
+      <div class="oil-benchmark-label">Brent crude — global benchmark</div>
+      <div class="oil-price-main" id="oil-brent">—</div>
+      <div class="oil-change-badge" id="oil-brent-change">Updating...</div>
+      <div class="oil-note">Live price · auto-updated hourly · Source: oilpriceapi.com · ⚠ Not financial advice · approximate</div>
+      <div class="oil-sub-grid">
+        <div class="oil-sub-card">
+          <div class="osc-val c-red" id="oil-wti">—</div>
+          <div class="osc-lbl" id="oil-wti-lbl">WTI crude (US) · updating...</div>
+        </div>
+        <div class="oil-sub-card">
+          <div class="osc-val c-white2">~CLOSED</div>
+          <div class="osc-lbl">Strait of Hormuz status</div>
+        </div>
+        <div class="oil-sub-card">
+          <div class="osc-val c-red" id="oil-lng">—</div>
+          <div class="osc-lbl">World LNG disrupted (Qatar)</div>
+        </div>
+        <div class="oil-sub-card">
+          <div class="osc-val c-gold" id="oil-gas">—</div>
+          <div class="osc-lbl">US avg gas price/gallon</div>
+        </div>
+      </div>
+    </div>
+    <div class="chart-box">
+      <div class="chart-title">Brent crude price — pre-war vs now (USD/bbl)</div>
+      <div class="chart-wrap h-280">
+        <canvas id="oilChart"></canvas>
+      </div>
+    </div>
+  </div><!-- end g21 oil -->
+  <div class="panel-disclaimer-link"><a href="#data-disclaimer" class="disclaimer-link">⚠ Data Sources &amp; Accuracy</a></div>
+  </div><!-- end w-oil widget -->
+
+  <!-- COUNTRIES TABLE widget -->
+  <div class="widget" id="w-countries">
+  <div class="sec">
+    <span class="sec-dot sd-blue"></span>
+    <div class="sec-title" onclick="WW.toggle('w-countries')">Countries involved</div>
+    <div class="sec-line"></div>
+    <div class="sec-tag">Iran has attacked targets in 9+ countries</div>
+    <button class="widget-collapse-btn" onclick="WW.toggle('w-countries')" title="Collapse/expand Countries">−</button>
+  </div>
+  <div class="ctable">
+    <div class="ct-head">
+      <span>Country</span><span>Status</span><span>Role</span><span>Key facts</span>
+    </div>
+    <!-- ⚠ COUNTRIES DATA — injected by fetch_data.py on each deploy -->
+    <div class="ct-row"><div class="ct-country"><span class="flag">🇺🇸</span>United States</div><div><span class="status-pill s-att">Attacker</span></div><div class="ct-role">Primary attacker</div><div class="ct-notes">Active attacker · leading strike campaign</div></div>
+    <div class="ct-row"><div class="ct-country"><span class="flag">🇮🇱</span>Israel</div><div><span class="status-pill s-att">Attacker</span></div><div class="ct-role">Co-attacker</div><div class="ct-notes">500+ strikes from Day 1 · struck South Pars gasfield</div></div>
+    <div class="ct-row"><div class="ct-country"><span class="flag">🇮🇷</span>Iran</div><div><span class="status-pill s-def">Defender</span></div><div class="ct-role">Defending / retaliating</div><div class="ct-notes">Casualties disputed · Hormuz near-closed</div></div>
+    <div class="ct-row"><div class="ct-country"><span class="flag">🇧🇭</span>Bahrain</div><div><span class="status-pill s-coal">Coalition</span></div><div class="ct-role">Coalition / targeted</div><div class="ct-notes">US 5th Fleet HQ · 143+ missiles/drones destroyed</div></div>
+    <div class="ct-row"><div class="ct-country"><span class="flag">🇶🇦</span>Qatar</div><div><span class="status-pill s-aff">Targeted</span></div><div class="ct-role">Targeted</div><div class="ct-notes">Ras Laffan LNG struck · 17% world LNG offline</div></div>
+    <div class="ct-row"><div class="ct-country"><span class="flag">🇸🇦</span>Saudi Arabia</div><div><span class="status-pill s-aff">Targeted</span></div><div class="ct-role">Targeted</div><div class="ct-notes">Aramco Samref refinery targeted · 47 drones shot down</div></div>
+    <div class="ct-row"><div class="ct-country"><span class="flag">🇰🇼</span>Kuwait</div><div><span class="status-pill s-aff">Targeted</span></div><div class="ct-role">Coalition / targeted</div><div class="ct-notes">US embassy struck · Mina Al-Ahmadi refinery hit</div></div>
+    <div class="ct-row"><div class="ct-country"><span class="flag">🇦🇪</span>UAE</div><div><span class="status-pill s-aff">Targeted</span></div><div class="ct-role">Targeted</div><div class="ct-notes">Al Hosn gas field targeted · Dubai airport disrupted</div></div>
+    <div class="ct-row"><div class="ct-country"><span class="flag">🇬🇧</span>United Kingdom</div><div><span class="status-pill s-coal">Coalition</span></div><div class="ct-role">Coalition</div><div class="ct-notes">Akrotiri (Cyprus) struck · Diego Garcia targeted</div></div>
+    <div class="ct-row"><div class="ct-country"><span class="flag">🇮🇶</span>Iraq</div><div><span class="status-pill s-aff">Affected</span></div><div class="ct-role">Affected</div><div class="ct-notes">Casualties reported · force majeure on oil exports</div></div>
+    <div class="ct-row"><div class="ct-country"><span class="flag">🇯🇴</span>Jordan</div><div><span class="status-pill s-aff">Targeted</span></div><div class="ct-role">Affected / targeted</div><div class="ct-notes">Airspace used · intercept operations conducted</div></div>
+    <div class="ct-row"><div class="ct-country"><span class="flag">🇨🇾</span>Cyprus</div><div><span class="status-pill s-coal">Coalition</span></div><div class="ct-role">Coalition (UK base)</div><div class="ct-notes">UK Akrotiri base struck by Iranian missiles</div></div>
+    <div class="ct-verified-note">⚠ Manually verified · as of 21 Mar 2026 23:53 UTC · updated when situation changes</div>
+    </div>
+  <div class="panel-disclaimer-link"><a href="#data-disclaimer" class="disclaimer-link">⚠ Data Sources &amp; Accuracy</a></div>
+  </div><!-- end w-countries widget -->
+
+  <!-- NUCLEAR widget -->
+  <div class="widget" id="w-nuclear">
+  <div class="sec">
+    <span class="sec-dot sd-red-glow"></span>
+    <div class="sec-title" onclick="WW.toggle('w-nuclear')">Nuclear facility status</div>
+    <div class="sec-line"></div>
+    <div class="sec-tag">IAEA · CENTCOM · verified reports</div>
+    <button class="widget-collapse-btn" onclick="WW.toggle('w-nuclear')" title="Collapse/expand Nuclear">−</button>
+  </div>
+  <div class="nuke-alert">
+    <div class="icon">☢️</div>
+    <p id="nuke-alert-text"><strong>Nuclear facility status</strong> — auto-updated hourly from Wikipedia and IAEA statements. ⚠ All figures approximate and unconfirmed. Verify directly with <a href="https://www.iaea.org" target="_blank" rel="noopener" class="link-gold">iaea.org</a></p>
+  </div>
+  <div class="fac-grid">
+    <!-- ⚠ NUCLEAR DATA — injected by fetch_data.py on each deploy -->
+    <div class="fac-card"><div class="fac-name">Natanz Enrichment Facility</div><div class="fac-status fs-struck">Status: see latest reports · ⚠ approx</div><div class="fac-note" id="nuke-natanz-note">Auto-updated from Wikipedia · ⚠ approximate · unconfirmed</div></div>
+    <div class="fac-card"><div class="fac-name">60%-Enriched Uranium Stock</div><div class="fac-status fs-unk">Location Unknown</div><div class="fac-note" id="nuke-uranium-note">Auto-updated from Wikipedia · ⚠ approximate · unconfirmed</div></div>
+    <div class="fac-card"><div class="fac-name">Fordow Enrichment Plant</div><div class="fac-status fs-unk">Status Unclear</div><div class="fac-note">Underground near Qom. Built inside mountain to survive conventional strikes. Strike status not officially confirmed. · ⚠ Last verified 21 Mar 2026 23:53 UTC</div></div>
+    <div class="fac-card"><div class="fac-name">Arak Heavy Water Reactor</div><div class="fac-status fs-ok">Reportedly Intact</div><div class="fac-note">No confirmed strikes reported. Plutonium production — distinct risk profile from enrichment sites. · ⚠ Last verified 21 Mar 2026 23:53 UTC</div></div>
+    <div class="fac-card"><div class="fac-name">Iranian Nuclear Scientists</div><div class="fac-status fs-struck">9+ Killed</div><div class="fac-note">Israel reportedly killed 9+ named scientists. Fereydoon Abbasi and Mohammad Mehdi Tehranchi confirmed. · ⚠ Last verified 21 Mar 2026 23:53 UTC</div></div>
+    <div class="fac-card"><div class="fac-name">IAEA Verification</div><div class="fac-status fs-unk">Suspended</div><div class="fac-note">Inspectors cannot verify facility status or uranium stockpiles during active conflict. · ⚠ Last verified 21 Mar 2026 23:53 UTC</div></div>
+  </div>
+  <div class="panel-disclaimer-link"><a href="#data-disclaimer" class="disclaimer-link">⚠ Data Sources &amp; Accuracy</a></div>
+  </div><!-- end w-nuclear widget -->
+
+  <!-- MAP widget -->
+  <div class="widget" id="w-map">
+  <div class="sec">
+    <span class="sec-dot sd-blue"></span>
+    <div class="sec-title" onclick="WW.toggle('w-map')">Strike map</div>
+    <div class="sec-line"></div>
+    <div class="sec-tag">Source: Hengaw via Wikipedia · auto-updated · ⚠ approximate</div>
+    <button class="widget-collapse-btn" onclick="WW.toggle('w-map')" title="Collapse/expand Strike map">−</button>
+  </div>
+
+  <div class="map-card">
+    <div class="map-header">
+      <div class="map-title">Middle East conflict overview — schematic</div>
+      <div class="map-scale-note">NOT TO SCALE · Simplified representation</div>
+    </div>
+    <div class="map-svg-wrap">
+      <svg viewBox="0 0 860 380" width="100%" xmlns="http://www.w3.org/2000/svg" style="display:block">
+        <rect width="860" height="380" fill="#070f1e"/>
+        <!-- Grid lines -->
+        <line x1="0" y1="95" x2="860" y2="95" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+        <line x1="0" y1="190" x2="860" y2="190" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+        <line x1="0" y1="285" x2="860" y2="285" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+        <line x1="215" y1="0" x2="215" y2="380" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+        <line x1="430" y1="0" x2="430" y2="380" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+        <line x1="645" y1="0" x2="645" y2="380" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+
+        <!-- Turkey (top) -->
+        <ellipse cx="260" cy="55" rx="110" ry="35" fill="#0f1e35" stroke="rgba(255,255,255,0.08)" stroke-width="0.5"/>
+        <text x="260" y="53" text-anchor="middle" fill="rgba(238,242,247,0.4)" font-family="Barlow Condensed,sans-serif" font-weight="600" font-size="12">TURKEY</text>
+        <text x="260" y="68" text-anchor="middle" fill="rgba(238,242,247,0.2)" font-family="DM Mono,monospace" font-size="9">Not involved</text>
+
+        <!-- Cyprus -->
+        <ellipse cx="155" cy="100" rx="28" ry="16" fill="#0f1e35" stroke="rgba(61,155,233,0.3)" stroke-width="0.8"/>
+        <text x="155" y="98" text-anchor="middle" fill="rgba(61,155,233,0.7)" font-family="Barlow Condensed,sans-serif" font-weight="600" font-size="10">CYPRUS</text>
+        <text x="155" y="111" text-anchor="middle" fill="rgba(61,155,233,0.4)" font-family="DM Mono,monospace" font-size="8">UK Akrotiri hit</text>
+
+        <!-- Syria -->
+        <ellipse cx="245" cy="135" rx="55" ry="45" fill="#0f1e35" stroke="rgba(255,255,255,0.06)" stroke-width="0.5"/>
+        <text x="245" y="138" text-anchor="middle" fill="rgba(238,242,247,0.3)" font-family="Barlow Condensed,sans-serif" font-weight="600" font-size="11">SYRIA</text>
+
+        <!-- Lebanon / Israel -->
+        <ellipse cx="165" cy="185" rx="22" ry="30" fill="#0f1e35" stroke="rgba(61,155,233,0.25)" stroke-width="0.8"/>
+        <text x="165" y="181" text-anchor="middle" fill="rgba(238,242,247,0.5)" font-family="Barlow Condensed,sans-serif" font-weight="600" font-size="9">LBN</text>
+        <ellipse cx="163" cy="220" rx="20" ry="28" fill="#162744" stroke="rgba(61,155,233,0.5)" stroke-width="1"/>
+        <text x="163" y="217" text-anchor="middle" fill="rgba(61,155,233,0.9)" font-family="Barlow Condensed,sans-serif" font-weight="700" font-size="11">ISRAEL</text>
+        <text x="163" y="230" text-anchor="middle" fill="rgba(61,155,233,0.5)" font-family="DM Mono,monospace" font-size="8">18+ KIA</text>
+
+        <!-- Jordan -->
+        <ellipse cx="220" cy="215" rx="32" ry="38" fill="#0f1e35" stroke="rgba(255,255,255,0.06)" stroke-width="0.5"/>
+        <text x="220" y="218" text-anchor="middle" fill="rgba(238,242,247,0.35)" font-family="Barlow Condensed,sans-serif" font-weight="600" font-size="10">JORDAN</text>
+
+        <!-- Iraq -->
+        <ellipse cx="340" cy="160" rx="75" ry="65" fill="#0f1e35" stroke="rgba(240,165,0,0.2)" stroke-width="0.8"/>
+        <text x="340" y="157" text-anchor="middle" fill="rgba(240,165,0,0.7)" font-family="Barlow Condensed,sans-serif" font-weight="700" font-size="13">IRAQ</text>
+        <text x="340" y="172" text-anchor="middle" fill="rgba(240,165,0,0.4)" font-family="DM Mono,monospace" font-size="9">61+ killed</text>
+        <text x="340" y="185" text-anchor="middle" fill="rgba(240,165,0,0.3)" font-family="DM Mono,monospace" font-size="8">Force majeure on oil</text>
+
+        <!-- IRAN — main -->
+        <ellipse cx="560" cy="130" rx="165" ry="95" fill="#1a1520" stroke="rgba(232,69,60,0.4)" stroke-width="1.5"/>
+        <!-- Iran glow effect -->
+        <ellipse cx="560" cy="130" rx="165" ry="95" fill="none" stroke="rgba(232,69,60,0.15)" stroke-width="8"/>
+        <text x="560" y="108" text-anchor="middle" fill="#e8453c" font-family="Barlow Condensed,sans-serif" font-weight="700" font-size="20" letter-spacing="0.05em">IRAN</text>
+        <text x="560" y="126" text-anchor="middle" fill="rgba(232,69,60,0.7)" font-family="DM Mono,monospace" font-size="10">AUTO-UPDATED HOURLY</text>
+        <text x="560" y="142" text-anchor="middle" fill="rgba(232,69,60,0.5)" font-family="DM Mono,monospace" font-size="9">Source: Wikipedia ⚠ approx</text>
+        <text x="560" y="157" text-anchor="middle" fill="rgba(232,69,60,0.4)" font-family="DM Mono,monospace" font-size="9">See casualty panel</text>
+
+        <!-- Strike dots on Iran (animated) -->
+        <circle cx="490" cy="105" r="4" fill="#e8453c" opacity="0.9"><animate attributeName="opacity" values="0.9;0.3;0.9" dur="1.4s" repeatCount="indefinite"/></circle>
+        <circle cx="530" cy="90" r="3" fill="#e8453c" opacity="0.8"><animate attributeName="opacity" values="0.8;0.2;0.8" dur="1.8s" repeatCount="indefinite"/></circle>
+        <circle cx="570" cy="95" r="5" fill="#e8453c" opacity="0.9"><animate attributeName="opacity" values="0.9;0.3;0.9" dur="1.2s" repeatCount="indefinite"/></circle>
+        <circle cx="610" cy="110" r="3" fill="#e8453c" opacity="0.7"><animate attributeName="opacity" values="0.7;0.2;0.7" dur="2.1s" repeatCount="indefinite"/></circle>
+        <circle cx="500" cy="140" r="4" fill="#e8453c" opacity="0.8"><animate attributeName="opacity" values="0.8;0.3;0.8" dur="1.6s" repeatCount="indefinite"/></circle>
+        <circle cx="550" cy="155" r="3" fill="#e8453c" opacity="0.6"><animate attributeName="opacity" values="0.6;0.1;0.6" dur="2.4s" repeatCount="indefinite"/></circle>
+        <circle cx="630" cy="125" r="3" fill="#e8453c" opacity="0.7"><animate attributeName="opacity" values="0.7;0.2;0.7" dur="1.9s" repeatCount="indefinite"/></circle>
+        <circle cx="580" cy="125" r="4" fill="#e8453c" opacity="0.9"><animate attributeName="opacity" values="0.9;0.4;0.9" dur="1.3s" repeatCount="indefinite"/></circle>
+
+        <!-- Natanz nuclear marker -->
+        <circle cx="525" cy="135" r="10" fill="none" stroke="#f0a500" stroke-width="1.5" opacity="0.9"/>
+        <circle cx="525" cy="135" r="5" fill="rgba(240,165,0,0.3)"/>
+        <text x="525" y="115" text-anchor="middle" fill="#f0a500" font-family="DM Mono,monospace" font-size="9">☢ Natanz</text>
+        <text x="525" y="106" text-anchor="middle" fill="rgba(240,165,0,0.6)" font-family="DM Mono,monospace" font-size="8">Struck Mar 21</text>
+
+        <!-- Persian Gulf -->
+        <text x="445" cy="252" y="252" text-anchor="middle" fill="rgba(61,155,233,0.35)" font-family="Barlow,sans-serif" font-size="12" font-style="italic">Persian Gulf</text>
+
+        <!-- Gulf states -->
+        <!-- Kuwait -->
+        <ellipse cx="420" cy="245" rx="22" ry="16" fill="#0f1e35" stroke="rgba(240,165,0,0.3)" stroke-width="0.8"/>
+        <text x="420" y="243" text-anchor="middle" fill="rgba(240,165,0,0.6)" font-family="Barlow Condensed,sans-serif" font-weight="600" font-size="10">KWT</text>
+        <text x="420" y="256" text-anchor="middle" fill="rgba(240,165,0,0.35)" font-family="DM Mono,monospace" font-size="8">Embassy hit</text>
+
+        <!-- Bahrain -->
+        <ellipse cx="460" cy="278" rx="16" ry="12" fill="#162744" stroke="rgba(61,155,233,0.5)" stroke-width="1"/>
+        <text x="460" y="275" text-anchor="middle" fill="rgba(61,155,233,0.8)" font-family="Barlow Condensed,sans-serif" font-weight="700" font-size="10">BHR</text>
+        <text x="460" y="296" text-anchor="middle" fill="rgba(61,155,233,0.4)" font-family="DM Mono,monospace" font-size="8">US 5th Fleet</text>
+
+        <!-- Qatar -->
+        <ellipse cx="503" cy="290" rx="16" ry="16" fill="#0f1e35" stroke="rgba(232,69,60,0.3)" stroke-width="0.8"/>
+        <text x="503" y="288" text-anchor="middle" fill="rgba(232,69,60,0.7)" font-family="Barlow Condensed,sans-serif" font-weight="600" font-size="10">QAT</text>
+        <text x="503" y="311" text-anchor="middle" fill="rgba(232,69,60,0.4)" font-family="DM Mono,monospace" font-size="8">LNG hit</text>
+
+        <!-- UAE -->
+        <ellipse cx="555" cy="285" rx="28" ry="16" fill="#0f1e35" stroke="rgba(240,165,0,0.25)" stroke-width="0.8"/>
+        <text x="555" y="283" text-anchor="middle" fill="rgba(240,165,0,0.6)" font-family="Barlow Condensed,sans-serif" font-weight="600" font-size="11">UAE</text>
+        <text x="555" y="301" text-anchor="middle" fill="rgba(240,165,0,0.35)" font-family="DM Mono,monospace" font-size="8">Gas field targeted</text>
+
+        <!-- Saudi Arabia -->
+        <ellipse cx="340" cy="285" rx="95" ry="65" fill="#0f1e35" stroke="rgba(240,165,0,0.2)" stroke-width="0.8"/>
+        <text x="340" y="280" text-anchor="middle" fill="rgba(240,165,0,0.55)" font-family="Barlow Condensed,sans-serif" font-weight="600" font-size="13">SAUDI ARABIA</text>
+        <text x="340" y="296" text-anchor="middle" fill="rgba(240,165,0,0.35)" font-family="DM Mono,monospace" font-size="9">Aramco struck · 47 drones shot down</text>
+
+        <!-- Strait of Hormuz -->
+        <path d="M 588 268 Q 620 252 650 270" fill="none" stroke="#f0a500" stroke-width="2" stroke-dasharray="5 3" opacity="0.7"/>
+        <text x="648" y="258" fill="#f0a500" font-family="Barlow Condensed,sans-serif" font-weight="600" font-size="10">Strait of Hormuz</text>
+        <text x="648" y="272" fill="rgba(240,165,0,0.6)" font-family="DM Mono,monospace" font-size="9">⚠ Near closed</text>
+
+        <!-- Oman -->
+        <ellipse cx="640" cy="300" rx="38" ry="45" fill="#0a1220" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/>
+        <text x="640" y="303" text-anchor="middle" fill="rgba(238,242,247,0.3)" font-family="Barlow Condensed,sans-serif" font-weight="600" font-size="11">OMAN</text>
+
+        <!-- Pakistan (right edge) -->
+        <ellipse cx="780" cy="140" rx="60" ry="70" fill="#0a1220" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/>
+        <text x="780" y="143" text-anchor="middle" fill="rgba(238,242,247,0.2)" font-family="Barlow Condensed,sans-serif" font-weight="600" font-size="12">PAKISTAN</text>
+
+        <!-- Afghanistan -->
+        <ellipse cx="710" cy="70" rx="65" ry="45" fill="#0a1220" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/>
+        <text x="710" y="73" text-anchor="middle" fill="rgba(238,242,247,0.2)" font-family="Barlow Condensed,sans-serif" font-weight="600" font-size="11">AFGHANISTAN</text>
+
+        <!-- Missile paths from Iran -->
+        <path d="M 420 155 Q 320 180 205 215" fill="none" stroke="rgba(232,69,60,0.35)" stroke-width="1.2" stroke-dasharray="6 4"/>
+        <path d="M 430 170 Q 425 225 462 268" fill="none" stroke="rgba(232,69,60,0.35)" stroke-width="1.2" stroke-dasharray="6 4"/>
+        <path d="M 448 175 Q 450 235 505 275" fill="none" stroke="rgba(232,69,60,0.3)" stroke-width="1.2" stroke-dasharray="6 4"/>
+        <path d="M 460 175 Q 490 235 555 272" fill="none" stroke="rgba(232,69,60,0.3)" stroke-width="1.2" stroke-dasharray="6 4"/>
+        <path d="M 410 140 Q 375 175 345 224" fill="none" stroke="rgba(232,69,60,0.25)" stroke-width="1" stroke-dasharray="6 4"/>
+        <path d="M 405 130 Q 290 185 235 268" fill="none" stroke="rgba(232,69,60,0.2)" stroke-width="1" stroke-dasharray="6 4"/>
+
+        <!-- Diego Garcia arrow (off-screen) -->
+        <path d="M 540 218 Q 580 280 640 340" fill="none" stroke="rgba(232,69,60,0.25)" stroke-width="1" stroke-dasharray="5 4"/>
+        <text x="650" y="348" fill="rgba(232,69,60,0.45)" font-family="DM Mono,monospace" font-size="8">→ Diego Garcia (Indian Ocean)</text>
+
+        <!-- Legend box -->
+        <rect x="14" y="288" width="188" height="84" rx="6" fill="rgba(6,12,24,0.9)" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/>
+        <circle cx="28" cy="305" r="4" fill="#e8453c"/>
+        <text x="38" y="309" fill="rgba(238,242,247,0.6)" font-family="DM Mono,monospace" font-size="10">Strike locations (blinking)</text>
+        <circle cx="28" cy="323" r="5" fill="none" stroke="#f0a500" stroke-width="1.5"/>
+        <text x="38" y="327" fill="rgba(238,242,247,0.6)" font-family="DM Mono,monospace" font-size="10">Nuclear facility</text>
+        <line x1="22" y1="341" x2="34" y2="341" stroke="#e8453c" stroke-width="1.2" stroke-dasharray="5 3"/>
+        <text x="38" y="345" fill="rgba(238,242,247,0.6)" font-family="DM Mono,monospace" font-size="10">Iranian attack paths</text>
+        <text x="28" y="364" fill="rgba(238,242,247,0.25)" font-family="DM Mono,monospace" font-size="8">Schematic — not to scale</text>
+      </svg>
+    </div>
+    <div class="map-footer">
+      Precise geolocated event data: <a href="https://acleddata.com" target="_blank" rel="noopener">acleddata.com</a> — 2,000+ events documented across 29 Iranian provinces · Free daily database
+    </div>
+  </div>
+  <div class="panel-disclaimer-link"><a href="#data-disclaimer" class="disclaimer-link">⚠ Data Sources &amp; Accuracy</a></div>
+
+  </div><!-- end w-map widget -->
+  </div><!-- end widgets-container -->
+
+  <!-- SOURCES — always visible, not a widget -->
+  <div class="sources-bar">
+    <strong>Sources & methodology</strong> — All figures sourced from publicly available, named organisations. Casualty figures shown from multiple independent sources simultaneously to reflect genuine uncertainty — we do not endorse any single figure as definitive. Updated manually; figures reflect best available information as of the displayed timestamp.<br>
+    <strong>Primary sources:</strong> Al Jazeera live tracker · Hengaw Organisation for Human Rights · HRANA · CENTCOM (US Central Command) · Wikipedia 2026 Iran War article · NPR Iran War Cost Tracker · CNBC Energy · Bloomberg · Fortune · Newsweek · TIME · IEA · IAEA statements · Iran Health Ministry (via Reuters/AP)<br><span class="sources-auto-update">
+    ⚡ Data auto-updated 21 Mar 2026 23:53 UTC · Scraped from Wikipedia, Al Jazeera, Reuters, BBC &amp; oilpriceapi.com ·
+    Figures are approximate and unconfirmed · Always verify with primary sources
+    </span>
+  </div>
+
+</main>
+
+<div class="ad-slot">ADVERTISEMENT — YOUR AD HERE</div>
+
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <span class="footer-logo">WAR<em>WATCH</em></span>
+      <span class="footer-tagline">Iran War Statistics · Independent data dashboard</span>
+    </div>
+    <div class="footer-links">
+      <a href="#" onclick="WW.toggleLegal('legal-disclaimer');return false;">Disclaimer</a>
+      <a href="#" onclick="WW.toggleLegal('legal-privacy');return false;">Privacy Policy</a>
+      <a href="#" onclick="WW.toggleLegal('legal-terms');return false;">Terms of Use</a>
+      <a href="#" onclick="WW.toggleLegal('legal-sources');return false;">Sources</a>
+    </div>
+  </div>
+
+  <div class="legal-section" id="legal-disclaimer">
+    <div class="legal-title" onclick="WW.toggleLegal('legal-disclaimer')">⚠ Disclaimer &amp; Accuracy Notice</div>
+    <div class="legal-body">
+      <p>WarWatch is an independent data aggregation dashboard. All information is sourced from publicly available third-party sources including Wikipedia, Al Jazeera, Reuters, BBC, Hengaw, HRANA, CENTCOM, IAEA, IEA, Bloomberg, CNBC, and NPR. Data is scraped automatically and may be delayed, incomplete, or inaccurate.</p>
+      <p>WarWatch makes no representation or warranty as to the accuracy, completeness, or timeliness of any data displayed. All figures are approximate and unconfirmed unless explicitly stated otherwise. Casualty figures are particularly contested and subject to significant revision. The display of multiple conflicting figures is intentional and reflects genuine uncertainty.</p>
+      <p>Nothing on this site constitutes professional, financial, legal, medical, military, or investment advice. WarWatch expressly disclaims all liability for any loss or harm arising from reliance on information presented here. Always verify with primary sources.</p>
+      <p>WarWatch is not affiliated with any government, military, intelligence agency, political party, news organisation, or advocacy group.</p>
+    </div>
+  </div>
+
+  <div class="legal-section" id="legal-privacy">
+    <div class="legal-title" onclick="WW.toggleLegal('legal-privacy')">🔒 Privacy Policy</div>
+    <div class="legal-body">
+      <p><strong>Last updated: March 2026.</strong> This Privacy Policy applies to the WarWatch website operated from the Republic of South Africa.</p>
+      <p><strong>Data we collect:</strong> WarWatch does not directly collect or store personal data. Panel preferences and text size settings are stored locally in your browser using localStorage and never transmitted to any server.</p>
+      <p><strong>Third-party advertising:</strong> This site may display advertisements served by third-party networks including Google AdSense and/or Ezoic. These networks may use cookies to serve personalised advertisements. You can opt out at <a href="https://adssettings.google.com" target="_blank" rel="noopener">adssettings.google.com</a>.</p>
+      <p><strong>Your rights:</strong> Under South Africa's Protection of Personal Information Act (POPIA) and the EU GDPR, you have rights over your personal data. Since we do not collect personal data directly, no such data exists on our systems. For advertising-related data, contact the respective ad network.</p>
+    </div>
+  </div>
+
+  <div class="legal-section" id="legal-terms">
+    <div class="legal-title" onclick="WW.toggleLegal('legal-terms')">📋 Terms of Use</div>
+    <div class="legal-body">
+      <p><strong>Permitted use:</strong> You may access and view content for personal, non-commercial informational purposes. You may share links to this site freely.</p>
+      <p><strong>Prohibited use:</strong> You may not reproduce, scrape, redistribute, or commercially exploit any content, data, design, or code from this site without prior written permission.</p>
+      <p><strong>Intellectual property:</strong> The design, layout, code, and original presentation are the intellectual property of WarWatch. Underlying data belongs to the respective third-party sources.</p>
+      <p><strong>Limitation of liability:</strong> To the fullest extent permitted by law, WarWatch and its operators shall not be liable for any damages arising from your use of this site.</p>
+      <p><strong>Governing law:</strong> These terms are governed by the laws of the Republic of South Africa.</p>
+    </div>
+  </div>
+
+  <div class="legal-section" id="legal-sources">
+    <div class="legal-title" onclick="WW.toggleLegal('legal-sources')">📡 Sources &amp; Methodology</div>
+    <div class="legal-body">
+      <p><strong>Automated data sources:</strong> Wikipedia (2026 Iran–United States war article) · Al Jazeera RSS · Reuters RSS · BBC RSS · oilpriceapi.com · IAEA statements.</p>
+      <p><strong>Methodology:</strong> Data is scraped automatically every hour using a GitHub Actions workflow. Figures are injected directly from source text and are not manually verified before publication. All figures should be treated as approximate and unconfirmed.</p>
+      <p><strong>Update frequency:</strong> Oil prices update every hour. News headlines update every hour. Casualty and strike figures update when Wikipedia is updated, which varies from minutes to hours. The timestamp shown reflects when the last automated update ran.</p>
+      <p><strong>Corrections:</strong> Contact us via X @warwatchlive. We take accuracy seriously and will update promptly upon verification.</p>
+    </div>
+  </div>
+
+  <div id="data-disclaimer" class="data-disclaimer">
+    <div class="data-disclaimer-title">⚠ Data Sources &amp; Accuracy</div>
+    <div class="data-disclaimer-body">
+      <strong>Casualty figures</strong> — Iran Health Ministry (via Wikipedia), Hengaw (hengaw.net), HRANA (en-hrana.org). Approximate, unconfirmed, subject to revision.<br>
+      <strong>Strike &amp; missile data</strong> — Wikipedia "2026 Iran–United States war". Cumulative estimates, may lag real-time events.<br>
+      <strong>Oil &amp; energy prices</strong> — oilpriceapi.com. Spot estimates, not for trading purposes.<br>
+      <strong>Nuclear status</strong> — IAEA statements and CENTCOM press releases via Wikipedia. Editorial summaries only.<br>
+      <strong>News headlines</strong> — Al Jazeera, Reuters, AP, BBC, The Guardian, France 24 RSS feeds.<br>
+      <strong>War cost</strong> — Formula-based estimate from Pentagon and CSIS briefing data. Not an official figure.<br>
+      <strong>Update frequency</strong> — All data refreshes every 6 hours. Nothing here constitutes professional, financial, legal, or military advice.
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 WarWatch · All rights reserved · Operated from the Republic of South Africa</span>
+    <span>Corrections: <a href="https://x.com/warwatchlive" target="_blank" rel="noopener">@warwatchlive</a></span>
+  </div>
+</footer>
+
+<script src="js/utils.js"></script>
+<script src="js/warcost.js"></script>
+<script src="js/widgets.js"></script>
+<script src="js/casualties.js"></script>
+<script src="js/charts.js"></script>
+<script src="js/latest-updates-panel.js"></script>
+<script src="js/headlines.js"></script>
+<script src="js/ui.js"></script>
+
+</body>
+</html>
