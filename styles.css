@@ -1,3 +1,8 @@
+@font-face {
+  font-family: 'Armalite';
+  src: url('armalite.ttf') format('truetype');
+}
+
 :root {
   /* ── Colour tokens ── */
   --bg: #060c18;
@@ -14,6 +19,8 @@
   --blue: #3d9be9;
   --blue-dim: rgba(61,155,233,0.1);
   --green: #2ecc71;
+  --phosphor: #00ff41;
+  --army-olive: #8b9a4a;
   --green-dim: rgba(46,204,113,0.1);
   --orange: #f07030;
   --scarlet: #8b0000;
@@ -140,23 +147,23 @@ header {
   flex-wrap: wrap;
   gap: 8px;
   padding: 10px clamp(12px, 3vw, 48px);
-  min-height: 56px;
+  min-height: 80px;
   backdrop-filter: blur(12px);
 }
 
-.logo {
-  font-family: var(--cond);
-  font-weight: 700;
-  font-size: var(--text-section);
-  letter-spacing: 0.04em;
-  color: var(--white);
+.logo-wrap {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-shrink: 0;
 }
-.logo em { color: var(--gold); font-style: normal; }
-.logo-sub {
-  font-size: var(--text-md);
-  font-weight: 400;
-  color: var(--white3);
-  letter-spacing: 0.02em;
+.logo-wordmark {
+  font-family: 'Armalite', monospace;
+  font-size: 26px;
+  color: var(--gold);
+  letter-spacing: 3px;
+  line-height: 1;
+  text-shadow: 0 0 14px rgba(240, 165, 0, 0.4);
 }
 
 .header-center {
@@ -1587,3 +1594,41 @@ footer { background: var(--bg2); border-top: 1px solid var(--border); margin-top
   font-size: inherit;
 }
 .cas-note a:hover { color: var(--gold); text-decoration: underline; }
+
+/* ── LOADING OVERLAY ── */
+#loading-overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--bg);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.45s ease;
+}
+#loading-overlay.fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
+#loading-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+#loading-spinner {
+  width: 28px;
+  height: 28px;
+  border: 2px solid rgba(240,165,0,0.15);
+  border-top-color: var(--gold);
+  border-radius: 50%;
+  animation: loading-spin 0.75s linear infinite;
+}
+@keyframes loading-spin { to { transform: rotate(360deg); } }
+#loading-text {
+  font-family: var(--mono);
+  font-size: var(--text-2xs);
+  letter-spacing: 0.22em;
+  color: rgba(240,165,0,0.5);
+  text-transform: uppercase;
+}
