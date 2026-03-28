@@ -108,6 +108,24 @@
 
 ---
 
+## 💰 Monetisation
+
+| # | Priority | Item | Full description | Status | Session history |
+|---|----------|------|-----------------|--------|-----------------|
+| M1 | 🟠 High | **Header + footer banner ads** | Narrow persistent banner slots at top and bottom of every page. Currently placeholder HTML exists. Needs ad network integration (AdSense or programmatic). Sitewide, always visible. | — | Confirmed 2026-03-29. Placeholder slots already in HTML. |
+| M2 | 🟠 High | **Article overlay ads** | Ad placement shown inside the article panel when a user opens an article in-dashboard. High-intent placement — user is actively reading. | — | Confirmed 2026-03-29. |
+| M3 | 🟠 High | **Article interstitial** | Full-page ad shown between "Open Article" click and redirect to source. Guaranteed full-attention moment, premium CPM. Requires interstitial page with countdown or skip option. | — | Confirmed 2026-03-29. |
+| M4 | 🟠 High | **Video interstitial** | Full-page ad shown when user clicks a video card to open the hosting site. Same pattern as M3. Complements F17 inline carousel ads. | — | Confirmed 2026-03-29. Pairs with F17. |
+| M5 | 🟡 Medium | **User affiliate links** | Contextually relevant affiliate products surfaced alongside content — financial products, VPNs, gold/oil ETFs, insurance, travel, survival gear. Triggered by conflict topic. Amazon Associates + vertical-specific affiliate networks. | — | Confirmed 2026-03-29. |
+| M6 | 🟡 Medium | **Publisher affiliate / referral** | Monetise outbound clicks to news sources and video hosts where affiliate or partner programmes exist. Longer term: direct sponsored content deals with publishers WarIntel already drives traffic to. | — | Confirmed 2026-03-29. F4 partially covers this. |
+| M7 | 🟠 High | **Sponsored data panels** | Branded panel sponsorship — e.g. "Oil Prices powered by [Broker]", "War Cost data by [Think Tank]". Native, non-intrusive, high CPM. Financial services, energy companies, defence analysts are natural fits. Direct sales. | — | Added 2026-03-29. |
+| M8 | 🟡 Medium | **Email newsletter sponsorship** | Sponsored placement in daily/breaking news digest emails. Single sponsor per send, premium rate. Requires F6 (notification subscriptions) to be built first. | — | Added 2026-03-29. Depends on F6. |
+| M9 | 🟡 Medium | **Premium subscription — ad-free + features** | Paid tier removes ads, unlocks extra features (data export, custom alerts, advanced filters). Supabase memberships table already planned (I14). | — | Added 2026-03-29. Depends on I14. |
+| M10 | 🟢 Low | **Data API access** | Sell API access to aggregated conflict data for researchers, journalists, analysts, hedge funds. Metered pricing. Only viable once data quality and uptime are consistent. | — | Added 2026-03-29. Long-term. |
+| M11 | 🟢 Low | **Push notification sponsorship** | Sponsored breaking news alerts — "BREAKING: [headline] — Brought to you by [Brand]". Premium because it's opt-in, high-intent audience. Depends on F6. | — | Added 2026-03-29. Depends on F6. |
+
+---
+
 ## 🔵 Features — Agreed
 
 | # | Priority | Item | Full description | Status | Session history |
