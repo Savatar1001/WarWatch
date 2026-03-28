@@ -3,8 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>WarWatch · Iran War Statistics (Realtime)</title>
-<meta name="description" content="Live data dashboard tracking the 2026 US-Iran war. Casualties, strikes, oil prices, war cost and more — updated continuously from verified sources.">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<title>WarIntel.info — Worldwide Realtime Statistics</title>
+<meta name="description" content="Worldwide realtime intelligence dashboard. Casualties, strikes, oil prices, war cost and more — updated continuously from verified sources.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500;600;700&family=Barlow:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
@@ -12,13 +13,66 @@
 </head>
 <body>
 
+<div id="loading-overlay">
+  <div id="loading-content">
+    <div id="loading-spinner"></div>
+    <div id="loading-text">LOADING</div>
+  </div>
+</div>
+
 <button id="scroll-top" aria-label="Scroll to top" title="Scroll to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 
 <div class="ad-slot">ADVERTISEMENT — YOUR AD HERE</div>
 
 <!-- HEADER -->
 <header>
-  <div class="logo">WAR<em>WATCH</em> <span class="logo-sub">· Iran War Statistics (realtime)</span></div>
+  <div class="logo-wrap">
+    <svg id="site-logo" viewBox="0 0 120 120" width="80" height="80" xmlns="http://www.w3.org/2000/svg" aria-label="WarIntel.info radar logo">
+      <defs>
+        <clipPath id="rc">
+          <circle cx="60" cy="60" r="54"/>
+        </clipPath>
+      </defs>
+      <!-- Radar disc -->
+      <circle cx="60" cy="60" r="54" fill="#020d02" stroke="#00ff41" stroke-width="0.9" stroke-opacity="0.45"/>
+      <!-- Range rings -->
+      <circle cx="60" cy="60" r="18" fill="none" stroke="#00ff41" stroke-width="0.5" stroke-opacity="0.2"/>
+      <circle cx="60" cy="60" r="36" fill="none" stroke="#00ff41" stroke-width="0.5" stroke-opacity="0.2"/>
+      <!-- Crosshairs -->
+      <line x1="6"  y1="60" x2="114" y2="60"  stroke="#00ff41" stroke-width="0.4" stroke-opacity="0.15"/>
+      <line x1="60" y1="6"  x2="60"  y2="114" stroke="#00ff41" stroke-width="0.4" stroke-opacity="0.15"/>
+      <!-- Clipped layer: sweep arm + blips -->
+      <g clip-path="url(#rc)">
+        <!-- Rotating sweep arm + trail -->
+        <g>
+          <animateTransform attributeName="transform" type="rotate" from="0 60 60" to="360 60 60" dur="4s" repeatCount="indefinite"/>
+          <!-- Trail sectors: widest/faintest → narrowest/brightest, CCW from arm -->
+          <path d="M60,60 L114,60 A54,54,0,0,0,60,6 Z"   fill="#00ff41" opacity="0.04"/>
+          <path d="M60,60 L114,60 A54,54,0,0,0,87,13 Z"   fill="#00ff41" opacity="0.09"/>
+          <path d="M60,60 L114,60 A54,54,0,0,0,107,33 Z"  fill="#00ff41" opacity="0.19"/>
+          <!-- Sweep arm -->
+          <line x1="60" y1="60" x2="114" y2="60" stroke="#00ff41" stroke-width="1.4" stroke-opacity="0.85" stroke-linecap="round"/>
+          <!-- Arm tip -->
+          <circle cx="114" cy="60" r="2.5" fill="#00ff41" opacity="0.65"/>
+        </g>
+        <!-- Blip 1: lower-right (~5 o'clock, 60° into sweep) -->
+        <circle cx="78" cy="91" r="2.5" fill="#00ff41"><animate attributeName="opacity" values="0;0;0.9;0.6;0.2;0.05;0"  keyTimes="0;0.167;0.2;0.45;0.75;0.95;1"  dur="4s" repeatCount="indefinite"/></circle>
+        <circle cx="78" cy="91" r="5.5" fill="#00ff41"><animate attributeName="opacity" values="0;0;0.2;0.08;0.02;0;0"   keyTimes="0;0.167;0.2;0.45;0.75;0.95;1"  dur="4s" repeatCount="indefinite"/></circle>
+        <!-- Blip 2: lower-left (~8 o'clock, 150° into sweep) -->
+        <circle cx="27" cy="79" r="2.5" fill="#00ff41"><animate attributeName="opacity" values="0;0;0.9;0.6;0.2;0.05;0"  keyTimes="0;0.417;0.45;0.65;0.85;0.97;1" dur="4s" repeatCount="indefinite"/></circle>
+        <circle cx="27" cy="79" r="5.5" fill="#00ff41"><animate attributeName="opacity" values="0;0;0.2;0.08;0.02;0;0"   keyTimes="0;0.417;0.45;0.65;0.85;0.97;1" dur="4s" repeatCount="indefinite"/></circle>
+        <!-- Blip 3: upper-left (~10 o'clock, 240° into sweep) -->
+        <circle cx="47" cy="37" r="2.5" fill="#00ff41"><animate attributeName="opacity" values="0;0;0.9;0.6;0.3;0.05;0"  keyTimes="0;0.667;0.7;0.82;0.93;0.99;1"  dur="4s" repeatCount="indefinite"/></circle>
+        <circle cx="47" cy="37" r="5.5" fill="#00ff41"><animate attributeName="opacity" values="0;0;0.2;0.08;0.02;0;0"   keyTimes="0;0.667;0.7;0.82;0.93;0.99;1"  dur="4s" repeatCount="indefinite"/></circle>
+        <!-- Blip 4: upper-right (~1 o'clock, 300° into sweep) -->
+        <circle cx="76" cy="32" r="2.5" fill="#00ff41"><animate attributeName="opacity" values="0;0;0.9;0.5;0.1;0;0"     keyTimes="0;0.833;0.857;0.93;0.99;1;1"   dur="4s" repeatCount="indefinite"/></circle>
+        <circle cx="76" cy="32" r="5.5" fill="#00ff41"><animate attributeName="opacity" values="0;0;0.2;0.07;0;0;0"      keyTimes="0;0.833;0.857;0.93;0.99;1;1"   dur="4s" repeatCount="indefinite"/></circle>
+      </g>
+      <!-- Centre pip -->
+      <circle cx="60" cy="60" r="3" fill="#00ff41" opacity="0.9"/>
+    </svg>
+    <span class="logo-wordmark">WARINTEL.INFO</span>
+  </div>
   <div class="header-center">
     <span class="live-pip"></span>
     <span>LIVE · Updated <span id="htime"></span></span>
@@ -1038,7 +1092,7 @@
   <div class="footer-top">
     <div class="footer-brand">
       <span class="footer-logo">WAR<em>WATCH</em></span>
-      <span class="footer-tagline">Iran War Statistics · Independent data dashboard</span>
+      <span class="footer-tagline">WarIntel.info · Worldwide Realtime Statistics</span>
     </div>
     <div class="footer-links">
       <a href="#" onclick="WW.toggleLegal('legal-disclaimer');return false;">Disclaimer</a>
@@ -1051,18 +1105,18 @@
   <div class="legal-section" id="legal-disclaimer">
     <div class="legal-title" onclick="WW.toggleLegal('legal-disclaimer')">⚠ Disclaimer &amp; Accuracy Notice</div>
     <div class="legal-body">
-      <p>WarWatch is an independent data aggregation dashboard. All information is sourced from publicly available third-party sources including Wikipedia, Al Jazeera, Reuters, BBC, Hengaw, HRANA, CENTCOM, IAEA, IEA, Bloomberg, CNBC, and NPR. Data is scraped automatically and may be delayed, incomplete, or inaccurate.</p>
-      <p>WarWatch makes no representation or warranty as to the accuracy, completeness, or timeliness of any data displayed. All figures are approximate and unconfirmed unless explicitly stated otherwise. Casualty figures are particularly contested and subject to significant revision. The display of multiple conflicting figures is intentional and reflects genuine uncertainty.</p>
-      <p>Nothing on this site constitutes professional, financial, legal, medical, military, or investment advice. WarWatch expressly disclaims all liability for any loss or harm arising from reliance on information presented here. Always verify with primary sources.</p>
-      <p>WarWatch is not affiliated with any government, military, intelligence agency, political party, news organisation, or advocacy group.</p>
+      <p>WarIntel is an independent data aggregation dashboard. All information is sourced from publicly available third-party sources including Wikipedia, Al Jazeera, Reuters, BBC, Hengaw, HRANA, CENTCOM, IAEA, IEA, Bloomberg, CNBC, and NPR. Data is scraped automatically and may be delayed, incomplete, or inaccurate.</p>
+      <p>WarIntel makes no representation or warranty as to the accuracy, completeness, or timeliness of any data displayed. All figures are approximate and unconfirmed unless explicitly stated otherwise. Casualty figures are particularly contested and subject to significant revision. The display of multiple conflicting figures is intentional and reflects genuine uncertainty.</p>
+      <p>Nothing on this site constitutes professional, financial, legal, medical, military, or investment advice. WarIntel expressly disclaims all liability for any loss or harm arising from reliance on information presented here. Always verify with primary sources.</p>
+      <p>WarIntel is not affiliated with any government, military, intelligence agency, political party, news organisation, or advocacy group.</p>
     </div>
   </div>
 
   <div class="legal-section" id="legal-privacy">
     <div class="legal-title" onclick="WW.toggleLegal('legal-privacy')">🔒 Privacy Policy</div>
     <div class="legal-body">
-      <p><strong>Last updated: March 2026.</strong> This Privacy Policy applies to the WarWatch website operated from the Republic of South Africa.</p>
-      <p><strong>Data we collect:</strong> WarWatch does not directly collect or store personal data. Panel preferences and text size settings are stored locally in your browser using localStorage and never transmitted to any server.</p>
+      <p><strong>Last updated: March 2026.</strong> This Privacy Policy applies to the WarIntel website operated from the Republic of South Africa.</p>
+      <p><strong>Data we collect:</strong> WarIntel does not directly collect or store personal data. Panel preferences and text size settings are stored locally in your browser using localStorage and never transmitted to any server.</p>
       <p><strong>Third-party advertising:</strong> This site may display advertisements served by third-party networks including Google AdSense and/or Ezoic. These networks may use cookies to serve personalised advertisements. You can opt out at <a href="https://adssettings.google.com" target="_blank" rel="noopener">adssettings.google.com</a>.</p>
       <p><strong>Your rights:</strong> Under South Africa's Protection of Personal Information Act (POPIA) and the EU GDPR, you have rights over your personal data. Since we do not collect personal data directly, no such data exists on our systems. For advertising-related data, contact the respective ad network.</p>
     </div>
@@ -1073,8 +1127,8 @@
     <div class="legal-body">
       <p><strong>Permitted use:</strong> You may access and view content for personal, non-commercial informational purposes. You may share links to this site freely.</p>
       <p><strong>Prohibited use:</strong> You may not reproduce, scrape, redistribute, or commercially exploit any content, data, design, or code from this site without prior written permission.</p>
-      <p><strong>Intellectual property:</strong> The design, layout, code, and original presentation are the intellectual property of WarWatch. Underlying data belongs to the respective third-party sources.</p>
-      <p><strong>Limitation of liability:</strong> To the fullest extent permitted by law, WarWatch and its operators shall not be liable for any damages arising from your use of this site.</p>
+      <p><strong>Intellectual property:</strong> The design, layout, code, and original presentation are the intellectual property of WarIntel. Underlying data belongs to the respective third-party sources.</p>
+      <p><strong>Limitation of liability:</strong> To the fullest extent permitted by law, WarIntel and its operators shall not be liable for any damages arising from your use of this site.</p>
       <p><strong>Governing law:</strong> These terms are governed by the laws of the Republic of South Africa.</p>
     </div>
   </div>
@@ -1085,7 +1139,7 @@
       <p><strong>Automated data sources:</strong> Wikipedia (2026 Iran–United States war article) · Al Jazeera RSS · Reuters RSS · BBC RSS · oilpriceapi.com · IAEA statements.</p>
       <p><strong>Methodology:</strong> Data is scraped automatically every hour using a GitHub Actions workflow. Figures are injected directly from source text and are not manually verified before publication. All figures should be treated as approximate and unconfirmed.</p>
       <p><strong>Update frequency:</strong> Oil prices update every hour. News headlines update every hour. Casualty and strike figures update when Wikipedia is updated, which varies from minutes to hours. The timestamp shown reflects when the last automated update ran.</p>
-      <p><strong>Corrections:</strong> Contact us via X @warwatchlive. We take accuracy seriously and will update promptly upon verification.</p>
+      <p><strong>Corrections:</strong> Contact us via X @warintellive. We take accuracy seriously and will update promptly upon verification.</p>
     </div>
   </div>
 
@@ -1102,8 +1156,8 @@
     </div>
   </div>
   <div class="footer-bottom">
-    <span>© 2026 WarWatch · All rights reserved · Operated from the Republic of South Africa</span>
-    <span>Corrections: <a href="https://x.com/warwatchlive" target="_blank" rel="noopener">@warwatchlive</a></span>
+    <span>© 2026 WarIntel · All rights reserved · Operated from the Republic of South Africa</span>
+    <span>Corrections: <a href="https://x.com/warintellive" target="_blank" rel="noopener">@warintellive</a></span>
   </div>
 </footer>
 

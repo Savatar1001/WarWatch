@@ -1,5 +1,5 @@
-# WarWatch — Backlog
-**Last updated:** 2026-03-27
+# WarIntel — Backlog
+**Last updated:** 2026-03-28
 **Maintained by:** Developer + Claude. Update and commit at the end of every session.
 **Truth rule:** Later entries supersede earlier ones. Check this file at the start of every session.
 **Working practice:** At the end of every discussion topic, Claude lists what needs adding in point form and confirms before updating.
@@ -12,7 +12,7 @@
 | **Coded** | Built and in outputs/local. Not yet committed to repo. |
 | **Tested** | Committed to `dev` branch. Automated tests passing. |
 | **Staged** | Merged to `staging`. Manually verified on staging URL. |
-| **Deployed** | Merged to `main`. Live on iranwarstats.info. |
+| **Deployed** | Merged to `prod`. Live on warintel.info. |
 
 ## Priority levels
 | Priority | Meaning |
@@ -94,6 +94,8 @@
 | U4 | 🟢 Low | **Headlines grid column widths** | Current widths cause title truncation at narrower viewports. | — | Adjusted multiple sessions. Never fully settled. |
 | U5 | 🟠 High | **Pill separator + ordering — verify live** | Pills join back of active group. HR separator between selected/unselected. Implemented but not verified live. | — | Implemented 2026-03-23. |
 | U6 | 🟠 High | **Re-enable cron schedule** | `update.yml` currently manual only. Re-enable once branching strategy (I21) is in place. | — | Disabled deliberately 2026-03-23. |
+| U7 | 🟡 Medium | **Verify logo + favicon on mobile** | Radar SVG logo and favicon added 2026-03-28. Header layout not yet verified at mobile breakpoints. May need flex-wrap or size adjustment. | — | Added 2026-03-28. |
+| U8 | 🟡 Medium | **Delete `main` branch** | `main` is now redundant — `prod` is the live branch. Requires confirming GitHub Pages and default branch are fully switched to `prod` first. | — | Added 2026-03-28. |
 
 ---
 
@@ -106,7 +108,7 @@
 | F16 | 🟡 Medium | **Telegram channel integration** | Subscribe to public Telegram channels (e.g. Iran war, Middle East news) via Telegram Bot API or MTProto. Pull messages into the unified feed (F15). Channels are public, API is clean, no ToS issues. Much more accessible than WhatsApp. | — | Raised 2026-03-27. Recommended over WhatsApp for initial social/messaging integration. |
 | F1 | 🟡 Medium | **Social & video content** | YouTube, Reddit, Twitter/X, TikTok, Instagram Reels alongside RSS. Tabs or mixed feed. | — | Discussed 2026-03-23. |
 | F2 | 🟡 Medium | **Live blog scraping** | Sky News, BBC, Al Jazeera live war blogs — timestamped entries, more granular than articles. | — | Identified 2026-03-24. |
-| F3 | 🟡 Medium | **AI-powered content pipeline** | Auto-discover, score, caption, auto-post to WarWatch socials with backlinks. Claude API curation layer. | — | Discussed 2026-03-23. |
+| F3 | 🟡 Medium | **AI-powered content pipeline** | Auto-discover, score, caption, auto-post to WarIntel socials with backlinks. Claude API curation layer. | — | Discussed 2026-03-23. |
 | F4 | 🟡 Medium | **Related sites / content slider** | Horizontal scrollable strip of curated external links. Affiliate/referral revenue potential. | — | Raised 2026-03-22. |
 | F5 | 🟡 Medium | **Share controls** | Per-panel and per-headline Web Share API with copy-link fallback. | — | Raised 2026-03-23. |
 | F6 | 🟡 Medium | **Notification subscriptions** | Email, browser push, WhatsApp (Twilio). Subscribe by panel/topic/source. Supabase table already designed. | — | Raised 2026-03-23. |
@@ -126,12 +128,12 @@
 | # | Priority | Item | Full description | Status | Session history |
 |---|----------|------|-----------------|--------|-----------------|
 | I1 | 🔴 Critical | **Commit test suite and enable CI** | Three-layer test suite written 2026-03-23: pytest (25 tests), Vitest (23 tests), Playwright (10 tests). CI in `tests.yml`. All files exist locally — none committed. Requires I21 first. | Coded | Written 2026-03-23. |
-| I2 | 🔴 Critical | **Implement branching strategy** | `dev` → `staging` → `main`. Tests gate dev→staging via CI. Release Review gates staging→main. | — | Agreed 2026-03-23. |
+| I2 | 🔴 Critical | **Implement branching strategy** | `dev` → `staging` → `main`. Tests gate dev→staging via CI. Release Review gates staging→main. | Coded | Agreed 2026-03-23. Branches + bat files created 2026-03-28. CI not yet wired. |
 | I4 | 🟡 Medium | **Local dev with real data** | Gitignored `.env` with API keys so `fetch_data.py` runs locally. `mock_data.py` is current workaround. | — | Raised multiple sessions. |
 | I5 | 🟢 Low | **Node.js 24 upgrade** | GitHub Actions warning: Node 20 deprecation June 2026. | — | Identified in workflow logs. |
 | I6 | 🟢 Low | **CSS further cleanup** | Post-audit `!important` remains in grid layout. Ongoing maintenance. | — | Audit done 2026-03-23. |
 | I7 | 🔴 Critical | **Commit CONTEXT.md + BACKLOG.md** | Both written locally, neither committed to repo. | Coded | Written 2026-03-23. |
-| I8 | 🟠 High | **Set up Claude Code CLI** | `npm install -g @anthropic-ai/claude-code`. Eliminates upload/download cycle. | — | Agreed 2026-03-23. |
+| I8 | 🟠 High | **Set up Claude Code CLI** | `npm install -g @anthropic-ai/claude-code`. Eliminates upload/download cycle. | Deployed | Live and in use from 2026-03-28. |
 | I9 | 🔴 Critical | **Run Supabase schema migration** | `001_initial_schema.sql` creates 5 tables. Run `backup.bat` first, then paste into Supabase SQL Editor. | Coded | Written 2026-03-25. Not yet run. |
 | I10 | 🟠 High | **Supabase rollback strategy** | `001_rollback.sql` + code abstraction (Supabase → localStorage → seed fallback). | Coded | Implemented 2026-03-25. |
 | I11 | 🟠 High | **`supabase_backup.py`** | backup / write-local / restore commands. Exports versioned JSON. | Coded | Built 2026-03-25. |
@@ -141,10 +143,10 @@
 | I15 | 🟠 High | **Environment config files** | Same pattern as WorkScrumList — 4 env configs, `build.bat` swaps active config. | — | Agreed 2026-03-25. |
 | I16 | 🟠 High | **Timestamps on all persisted records** | `created_at`/`updated_at` on every record. Collapsible column in UI. | — | Agreed 2026-03-26. |
 | I17 | 🔴 Critical | **JS file separation** | One file per feature, named after the feature. Current 8 files need audit. | — | Agreed 2026-03-26. |
-| I18 | 🟠 High | **White-label config architecture** | Extract all WarWatch-specific content to `warwatch.config.js`. Codebase becomes domain-agnostic. | — | Agreed 2026-03-26. |
+| I18 | 🟠 High | **White-label config architecture** | Extract all WarIntel-specific content to `warintel.config.js`. Codebase becomes domain-agnostic. | — | Agreed 2026-03-26. |
 | I19 | 🟡 Medium | **White-label theming layer** | `theme.css` client-overridable layer on top of base styles. | — | Agreed 2026-03-26. |
 | I20 | 🟡 Medium | **Data source config abstraction** | RSS_FEEDS, API endpoints, Wikipedia selectors moved to `sources.config.json`. | — | Agreed 2026-03-26. |
-| I21 | 🔴 Critical | **Branching strategy** | `dev` → `staging` → `main`. Tests gate dev→staging. Release Review gates staging→main. | — | Agreed 2026-03-26. |
+| I21 | 🔴 Critical | **Branching strategy** | `dev` → `staging` → `prod`. Tests gate dev→staging. Release Review gates staging→prod. CI still needs wiring. | Coded | Agreed 2026-03-26. Branches created, bat files added 2026-03-28. |
 | I22 | 🟠 High | **Prod smoke test suite** | Lightweight post-deployment tests. Runs automatically after staging→main merge. | — | Agreed 2026-03-26. |
 | I23 | 🟠 High | **Test data tagging and cleanup** | `is_test: true` tag on all test data. Cleanup script post-run. | — | Agreed 2026-03-26. |
 | I24 | 🟠 High | **Pre-deployment restore point** | Versioned restore point before every prod deployment. Auto-rollback if smoke tests fail. | — | Agreed 2026-03-26. |
@@ -192,3 +194,11 @@
 | Supabase schema + migration SQL | ✅ | — | — | — |
 | `supabase_backup.py` + `backup.bat` | ✅ | — | — | — |
 | `supabase-client.js` | ✅ | — | — | — |
+| Branching strategy (`dev`/`staging`/`prod`) | ✅ | — | — | — |
+| `push-warintel-dev.bat` | ✅ | — | — | — |
+| `push-warintel-staging.bat` | ✅ | — | — | — |
+| `push-warintel-prod.bat` | ✅ | — | — | — |
+| `CNAME` | ✅ | — | — | ✅ |
+| Radar SVG logo + Armalite font | ✅ | — | — | — |
+| `favicon.ico` | ✅ | — | — | — |
+| Site title + meta description updated | ✅ | — | — | — |

@@ -1,8 +1,45 @@
-# WarWatch -- Release Notes
-**Project:** WarWatch Iran War Intelligence Dashboard
-**URL:** iranwarstats.info
+# WarIntel -- Release Notes
+**Project:** WarIntel Iran War Intelligence Dashboard
+**URL:** warintel.info
 **Developer:** Savvas D (SavvasD)
 **AI Pair:** Claude (Anthropic)
+
+---
+
+## v0.6.0 -- 2026-03-28
+### Branching Strategy, Logo, Favicon, Site Identity
+
+**Branching Strategy (I21 — Coded)**
+- `dev` → `staging` → `prod` branch structure created in git and on GitHub
+- `prod` branch set as GitHub Pages source
+- `dev` set as default branch
+- `First-Branch` legacy branch deleted (fully superseded)
+- Push bat files created for each environment: `push-warintel-dev.bat`, `push-warintel-staging.bat`, `push-warintel-prod.bat`
+
+**CNAME**
+- `CNAME` file created with `warintel.info` — committed to `prod`
+- DNS A records updated to GitHub Pages IPs (185.199.108–111.153)
+- `www` CNAME record updated to `savatar1001.github.io`
+
+**Radar Logo**
+- Replaced plain text header logo with animated inline SVG radar
+- Phosphor green (#00ff41) on black, night-vision colour scheme
+- Animated clockwise sweep arm with fading trail sectors
+- Four timed blips synced to sweep arm position
+- Armalite military font (`armalite.ttf`) added to project root
+- `WARINTEL.INFO` wordmark in gold (`--gold`) to the right of radar
+- `@font-face` declaration added to `styles.css`
+- `--phosphor` CSS variable added
+
+**Favicon**
+- `favicon.ico` generated at 6 sizes: 16, 32, 48, 64, 128, 256px
+- Radar design: black background, bold sweep arm, range rings, blips at larger sizes
+- Linked in `<head>` via `<link rel="icon">`
+
+**Site Identity**
+- Page title updated: `WarIntel.info — Worldwide Realtime Statistics`
+- Meta description updated to reflect worldwide scope
+- Footer tagline updated: `WarIntel.info · Worldwide Realtime Statistics`
 
 ---
 
@@ -43,7 +80,7 @@
 
 **Automation**
 - update.yml cron confirmed at 30-minute intervals (*/30 * * * *)
-- push-warwatch.bat and push-workscrumlist.bat added to Projects/ root
+- push-warintel.bat and push-workscrumlist.bat added to Projects/ root
 - Deployment: `tar -xf Sites.zip -C "D:\_Development\Projects\"` then run push bat
 
 ---
@@ -130,7 +167,7 @@
 ## v0.1.0 -- 2026-03-22
 ### Initial Build & Live Deployment
 
-- Iran war intelligence dashboard live at iranwarstats.info
+- Iran war intelligence dashboard live at warintel.info
 - GitHub Pages hosting, GitHub Actions CI/CD
 - RSS aggregation from 14 sources
 - War cost clock + currency converter
