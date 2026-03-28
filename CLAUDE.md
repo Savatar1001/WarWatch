@@ -1,0 +1,319 @@
+# CLAUDE.md
+
+This file provides guidance to Claude Code (claude.ai/code) when working with this repository.
+
+---
+
+## Project Overview
+
+**WarIntel** is a real-time intelligence dashboard tracking the 2026 US-Iran conflict, live at **warintel.info**. It is a **zero-build static site** — no npm, no bundler, no framework. Data is fetched by a Python pipeline running in GitHub Actions every 30 minutes and injected directly into `index.html` via regex replacement.
+
+- **Repo:** github.com/Savatar1001/WarIntel
+- **Hosting:** GitHub Pages (main branch)
+- **Developer:** Savvas D — South Africa (SAST = UTC+2)
+
+---
+
+## Commands
+
+### Local Development
+```bash
+# Serve the site locally (no build step needed):
+python -m http.server 8000
+# Then open http://localhost:8000
+
+# Inject mock data locally:
+python mock_data.py
+
+# Run the data pipeline locally (API keys optional):
+export OIL_API_KEY="your_key"
+export NEWS_API_KEY="your_key"
+python fetch_data.py
+```
+
+### Deployment
+```bash
+# From the parent Projects/ folder (Windows batch files):
+push-warintel.bat       # Push WarIntel to GitHub
+push-workscrumlist.bat  # Push WorkScrumList to GitHub
+
+# Supabase backup before schema changes:
+python supabase_backup.py backup
+# OR:
+backup.bat
+```
+
+### Tests (written but not yet committed — blocked on I21 branching strategy)
+```bash
+pytest tests/               # 25 Python unit tests
+npm test                    # 23 Vitest frontend unit tests
+npx playwright test         # 10 browser tests
+```
+
+---
+
+## Architecture
+
+### Data Flow
+1. GitHub Actions cron (`*/30 * * * *`) triggers `fetch_data.py` via `update.yml` (currently set to manual-only — cron disabled pending I21)
+2. `fetch_data.py` scrapes Wikipedia (casualties/strikes/nuclear), fetches 14 RSS feeds, NewsAPI, and oil prices
+3. Results are injected into `index.html` via regex — casualty figures into `hero-*` elements, headlines into the article grid, ticker text between `TICKER_START`/`TICKER_END` markers, timestamp into `update-time`
+4. `headlines_cache.json` accumulates all fetched articles (keyed by URL) across runs
+5. GitHub Pages serves the updated static files
+
+**GitHub Secrets required:** `OIL_API_KEY` (oilpriceapi.com, with EIA.gov fallback), `NEWS_API_KEY` (newsapi.org, with RSS fallback)
+
+### Frontend JS Modules (`js/`)
+Each file owns exactly one feature domain. Load order matters — `utils.js` must load first.
+
+| File | Responsibility |
+|------|---------------|
+| `utils.js` | Shared helpers: casualty sums, time/date formatting, Chart.js utilities |
+| `warcost.js` | War cost clock + currency converter (5 currencies) |
+| `widgets.js` | Panel collapse, drag-to-reorder, persistence via localStorage |
+| `casualties.js` | Casualty counters, progress bars, date range slider |
+| `charts.js` | All Chart.js initializations |
+| `latest-updates-panel.js` | Change tracker, tag cloud |
+| `headlines.js` | Source filter pills, article grid, pagination, overlay panel |
+| `ui.js` | Font size slider, scroll-to-top |
+| `supabase-client.js` | Supabase client (coded but not yet active) |
+
+### CSS Standards
+- No inline styles — classes only
+- No `!important` (except grid layout — known exception, tracked as I6)
+- CSS variables throughout — no hardcoded color or size values
+- `--fz` drives all font sizing via `html { font-size: var(--fz) }` — all spacing in `em`
+- User preferences (font size, panel order, selected sources) persist in `localStorage`
+
+### Data Pipeline Injection Anchors
+`fetch_data.py` uses regex to find and replace named anchors in `index.html`. Do not rename or remove:
+- Elements with IDs prefixed `hero-` (casualty/strike/nuclear figures)
+- The `update-time` element (timestamp)
+- `TICKER_START` / `TICKER_END` comment markers (ticker headlines)
+
+---
+
+## Session DoD
+
+Before ending every session, confirm:
+- [ ] `RELEASE_NOTES.md` updated (both sites)
+- [ ] `BACKLOG.md` updated (both sites)
+- [ ] New backlog items confirmed and numbered
+- [ ] Sites.zip regenerated
+- [ ] `push-warintel.bat` run (if WarIntel changed)
+- [ ] `push-workscrumlist.bat` run (if WSL changed)
+- [ ] Next session priorities noted at top of `BACKLOG.md`
+
+---
+
+## Living Documentation
+
+Always update these files and commit them at the end of every session:
+
+- **BACKLOG.md** — full issue tracker with pipeline statuses and priority levels. Source of truth for what needs doing. Later entries supersede earlier ones.
+- **CONTEXT.md** — architecture snapshot. Update when file structure or data flow changes.
+- **RELEASE_NOTES.md** — version history. Add entry when deploying to main.
+
+**Working practice:** At the end of every discussion topic, Claude lists what needs adding in point form and confirms before updating BACKLOG.md.
+
+---
+
+## Pipeline Statuses
+
+| Status | Meaning |
+|--------|---------|
+| **Coded** | Built and in outputs/local. Not yet committed to repo. |
+| **Tested** | Committed to `dev` branch. Automated tests passing. |
+| **Staged** | Merged to `staging`. Manually verified on staging URL. |
+| **Deployed** | Merged to `main`. Live on warintel.info. |
+
+## Priority Levels
+
+| Priority | Meaning |
+|----------|---------|
+| 🔴 Critical | Breaks core functionality or blocks other work. Fix immediately. |
+| 🟠 High | Significant user-facing impact or important tech debt. Next in queue. |
+| 🟡 Medium | Meaningful improvement but site works without it. Plan for next session. |
+| 🟢 Low | Nice to have. Do when higher priorities are clear. |
+
+---
+
+## Definition of Done
+
+### Coded ✅
+- [ ] Code written and working locally, no console errors
+- [ ] Follows naming conventions and file structure
+- [ ] CSS variables used throughout, no inline styles
+- [ ] Files saved to outputs and copied to local repo folder
+- [ ] `BACKLOG.md` updated (confirmed with developer)
+- [ ] `CONTEXT.md` updated if architecture changed
+- [ ] Data persists correctly in localStorage — verified manually as per feature description
+
+### Tested ✅
+- [ ] All Coded criteria met
+- [ ] Committed to `dev` branch
+- [ ] Backend / unit tests passing (pytest)
+- [ ] Frontend automation tests passing (Vitest + Playwright)
+- [ ] New functionality has corresponding backend tests
+- [ ] New functionality has corresponding frontend tests
+- [ ] Manually tested in Chrome + Firefox
+- [ ] No regressions in existing functionality
+- [ ] Data persists correctly after test suite runs — no corruption or data loss
+
+### Staged ✅
+- [ ] All Tested criteria met
+- [ ] PR from `dev` → `staging` opened and reviewed
+- [ ] Merged to `staging`, GitHub Actions workflow deployed
+- [ ] Manually verified on staging URL (not localhost)
+- [ ] `fetch_data.py` run against staging to confirm data injection
+- [ ] `backup.bat` run before any schema/database changes
+- [ ] No broken links, missing assets, or layout regressions
+- [ ] Data persists correctly on staging URL as per feature description
+
+### Deployed ✅
+- [ ] All Staged criteria met
+- [ ] PR from `staging` → `main` opened and approved
+- [ ] Merged to `main`, GitHub Pages confirmed live
+- [ ] Hard refresh confirms new version serving
+- [ ] `BACKLOG.md` pipeline tracker updated
+- [ ] `CONTEXT.md` updated, both files committed
+- [ ] Data persists correctly on production — verified on live URL
+- [ ] No environment or deployment issues (console clean, network requests healthy)
+
+---
+
+## Bugs / Broken
+
+| # | Priority | Item | Full description | Status | Session history |
+|---|----------|------|-----------------|--------|-----------------|
+| B1 | 🟠 High | **Pagination not implemented** | The headlines grid uses `applyFilters()` which hides all rows beyond `maxRows` but there is no UI to navigate to hidden rows. No Prev/Next buttons, no "Page X of Y", no way to reach articles beyond the first page. | — | Discussed 2026-03-22. Agreed 2026-03-23. Never built. |
+| B2 | 🟠 High | **Sort order not newest-first** | Articles display in cron-injection order, not chronological. Need to sort by `pub_iso` descending before pagination in `applyFilters()`. | — | Raised 2026-03-22. Agreed but never implemented. |
+| B3 | 🔴 Critical | **Article panel broken after JS refactor** | Headline click overlay was working before refactor. Post-refactor status unverified. Needs live test. | — | Confirmed working 2026-03-22. Refactored 2026-03-23 without re-testing. |
+| B4 | 🟡 Medium | **"Data as of" timestamp is static** | `update-time` element shows hardcoded date. `inject_data()` has regex but may not be firing. | — | Raised 2026-03-22. Not confirmed working on live. |
+| B5 | 🟠 High | **Source filter pills out of sync** | RSS_FEEDS expanded 2026-03-24 with 7 new sources. Pill HTML still shows original 7. | — | New sources added to backend 2026-03-24. Frontend not updated. |
+| B6 | 🟠 High | **Ticker shows placeholder text** | "⚡ Live updates loading..." displays when articles exist. Ticker injection likely failing silently. | — | Raised 2026-03-22. Intermittently broken. |
+| B7 | 🟠 High | **OilPrice API timing out** | oilpriceapi.com returning 504. Oil prices show dash on live site. No fallback. | — | Identified in GitHub Actions workflow logs. |
+| B8 | 🟠 High | **Wikipedia scraping returning dash** | Some casualty/strike/nuclear fields returning dash. Selectors likely stale. | — | Known recurring issue. Wikipedia structure changes frequently. |
+| B9 | 🟢 Low | **Hengaw + HRANA figures hardcoded** | Both orgs publish running totals. Hardcoded from a specific date. Scraping deferred as fragile. | — | Discussed 2026-03-22. |
+
+---
+
+## UI / Behaviour
+
+| # | Priority | Item | Full description | Status | Session history |
+|---|----------|------|-----------------|--------|-----------------|
+| U1 | 🟡 Medium | **Key stats card layout — number alignment** | Numbers misalign when labels wrap to different heights. Needs flex column with number anchored below label. | — | Raised 2026-03-23. |
+| U2 | 🟠 High | **Day pill — verify not regressed** | Dynamic day pill implemented 2026-03-23. Needs live verification after recent commits. | — | Implemented 2026-03-23. |
+| U3 | 🟢 Low | **Sort order indicator in headlines header** | When B2 is fixed, show sort direction indicator in header. Click to toggle. | — | Raised 2026-03-22. Pairs with B2. |
+| U4 | 🟢 Low | **Headlines grid column widths** | Current widths cause title truncation at narrower viewports. | — | Adjusted multiple sessions. Never fully settled. |
+| U5 | 🟠 High | **Pill separator + ordering — verify live** | Pills join back of active group. HR separator between selected/unselected. Implemented but not verified live. | — | Implemented 2026-03-23. |
+| U6 | 🟠 High | **Re-enable cron schedule** | `update.yml` currently manual only. Re-enable once branching strategy (I21) is in place. | — | Disabled deliberately 2026-03-23. |
+
+---
+
+## Features — Agreed
+
+| # | Priority | Item | Full description | Status | Session history |
+|---|----------|------|-----------------|--------|-----------------|
+| F17 | 🟠 High | **Video source carousel** | Horizontal auto-scrolling strip of live/recent video thumbnails from major news networks (CNN, BBC, Al Jazeera, Sky News, France 24, CGTN). Pauses on hover. Click opens source site or expands inline embed. Every N-th card is a paid ad slot — contextual, native-looking, non-intrusive. Two revenue streams: (1) affiliate/referral clicks to network sites, (2) display ad slots in carousel. Technical approach: YouTube Data API for networks that publish clips/streams publicly, direct embeds where permitted (Al Jazeera, France 24), thumbnail+link fallback for others. Separate panel from Articles and Live Feed — its own horizontal row in the dashboard layout. | — | Raised 2026-03-27. Two revenue streams identified: affiliate clicks + ad slots. YouTube Data API recommended as primary source — clean, legal, free. |
+| F15 | 🟠 High | **Never-ending live news feed** | Unified infinite-scroll feed pulling from all available sources: RSS feeds, Telegram public channels (proper API, no ToS issues), scraped live blogs (BBC, Sky, Al Jazeera), social media where accessible. Auto-refreshes without page reload. New items slide in at top with a "X new items" notification bar. Filterable by source type. Telegram is the priority integration — many Iran/Middle East war channels are public and have a proper API. WhatsApp channels deferred until Meta opens a read API. | — | Raised 2026-03-27. WhatsApp channel explored but content not publicly accessible via web — ToS issues with scraping. Telegram recommended as technically clean alternative. |
+| F16 | 🟡 Medium | **Telegram channel integration** | Subscribe to public Telegram channels (e.g. Iran war, Middle East news) via Telegram Bot API or MTProto. Pull messages into the unified feed (F15). Channels are public, API is clean, no ToS issues. Much more accessible than WhatsApp. | — | Raised 2026-03-27. Recommended over WhatsApp for initial social/messaging integration. |
+| F1 | 🟡 Medium | **Social & video content** | YouTube, Reddit, Twitter/X, TikTok, Instagram Reels alongside RSS. Tabs or mixed feed. | — | Discussed 2026-03-23. |
+| F2 | 🟡 Medium | **Live blog scraping** | Sky News, BBC, Al Jazeera live war blogs — timestamped entries, more granular than articles. | — | Identified 2026-03-24. |
+| F3 | 🟡 Medium | **AI-powered content pipeline** | Auto-discover, score, caption, auto-post to WarIntel socials with backlinks. Claude API curation layer. | — | Discussed 2026-03-23. |
+| F4 | 🟡 Medium | **Related sites / content slider** | Horizontal scrollable strip of curated external links. Affiliate/referral revenue potential. | — | Raised 2026-03-22. |
+| F5 | 🟡 Medium | **Share controls** | Per-panel and per-headline Web Share API with copy-link fallback. | — | Raised 2026-03-23. |
+| F6 | 🟡 Medium | **Notification subscriptions** | Email, browser push, WhatsApp (Twilio). Subscribe by panel/topic/source. Supabase table already designed. | — | Raised 2026-03-23. |
+| F7 | 🟡 Medium | **Community chat panel** | Supabase Realtime on messages table. Anonymous posting. Moderation before public launch. | — | Raised 2026-03-23. |
+| F8 | 🟡 Medium | **Twitter/X panel** | Curated hashtags + verified accounts. AI layer scores the stream. | — | Raised 2026-03-23. |
+| F9 | 🟡 Medium | **Expanded data panels** | Markets, shipping & logistics, real-world impact panels. | — | Raised 2026-03-23. |
+| F10 | 🟢 Low | **"See all data sources" link** | Replace static footer strip with link to #legal-sources section. | — | Raised 2026-03-23. |
+| F11 | 🟡 Medium | **Site analytics** | Page views, user paths, hotspots, conversion events. GA4 or Plausible. | — | Raised 2026-03-22. |
+| F12 | 🟢 Low | **Feedback form** | Simple modal for feedback, data corrections, source suggestions. Supabase-backed. | — | Raised 2026-03-22. |
+| F13 | 🟢 Low | **Coalition casualties from Wikipedia** | Auto-update US/Israel/Iraq/Bahrain figures from Wikipedia infobox. | — | Identified 2026-03-24. |
+| F14 | 🟢 Low | **Glossary — ongoing curation** | 24 terms currently. Collapsed by default, alphabetical, above footer. | Deployed | Implemented 2026-03-22. |
+
+---
+
+## Infrastructure / Dev
+
+| # | Priority | Item | Full description | Status | Session history |
+|---|----------|------|-----------------|--------|-----------------|
+| I1 | 🔴 Critical | **Commit test suite and enable CI** | Three-layer test suite written 2026-03-23: pytest (25 tests), Vitest (23 tests), Playwright (10 tests). CI in `tests.yml`. All files exist locally — none committed. Requires I21 first. | Coded | Written 2026-03-23. |
+| I2 | 🔴 Critical | **Implement branching strategy** | `dev` → `staging` → `main`. Tests gate dev→staging via CI. Release Review gates staging→main. | — | Agreed 2026-03-23. |
+| I4 | 🟡 Medium | **Local dev with real data** | Gitignored `.env` with API keys so `fetch_data.py` runs locally. `mock_data.py` is current workaround. | — | Raised multiple sessions. |
+| I5 | 🟢 Low | **Node.js 24 upgrade** | GitHub Actions warning: Node 20 deprecation June 2026. | — | Identified in workflow logs. |
+| I6 | 🟢 Low | **CSS further cleanup** | Post-audit `!important` remains in grid layout. Ongoing maintenance. | — | Audit done 2026-03-23. |
+| I7 | 🔴 Critical | **Commit CONTEXT.md + BACKLOG.md** | Both written locally, neither committed to repo. | Coded | Written 2026-03-23. |
+| I8 | 🟠 High | **Set up Claude Code CLI** | `npm install -g @anthropic-ai/claude-code`. Eliminates upload/download cycle. | — | Agreed 2026-03-23. |
+| I9 | 🔴 Critical | **Run Supabase schema migration** | `001_initial_schema.sql` creates 5 tables. Run `backup.bat` first, then paste into Supabase SQL Editor. | Coded | Written 2026-03-25. Not yet run. |
+| I10 | 🟠 High | **Supabase rollback strategy** | `001_rollback.sql` + code abstraction (Supabase → localStorage → seed fallback). | Coded | Implemented 2026-03-25. |
+| I11 | 🟠 High | **`supabase_backup.py`** | backup / write-local / restore commands. Exports versioned JSON. | Coded | Built 2026-03-25. |
+| I12 | 🟠 High | **`backup.bat`** | Pre-migration safety script. Always run before schema changes. | Coded | Built 2026-03-25. |
+| I13 | 🟠 High | **`supabase-client.js`** | Shared Supabase client module. Single import for all features. | Coded | Built 2026-03-25. |
+| I14 | 🟢 Low | **Future: paid membership/plans table** | Memberships for paid tiers. Do not build until revenue model confirmed. | — | Agreed 2026-03-25. |
+| I15 | 🟠 High | **Environment config files** | Same pattern as WorkScrumList — 4 env configs, `build.bat` swaps active config. | — | Agreed 2026-03-25. |
+| I16 | 🟠 High | **Timestamps on all persisted records** | `created_at`/`updated_at` on every record. Collapsible column in UI. | — | Agreed 2026-03-26. |
+| I17 | 🔴 Critical | **JS file separation** | One file per feature, named after the feature. Current 8 files need audit. | — | Agreed 2026-03-26. |
+| I18 | 🟠 High | **White-label config architecture** | Extract all WarIntel-specific content to `warintel.config.js`. Codebase becomes domain-agnostic. | — | Agreed 2026-03-26. |
+| I19 | 🟡 Medium | **White-label theming layer** | `theme.css` client-overridable layer on top of base styles. | — | Agreed 2026-03-26. |
+| I20 | 🟡 Medium | **Data source config abstraction** | RSS_FEEDS, API endpoints, Wikipedia selectors moved to `sources.config.json`. | — | Agreed 2026-03-26. |
+| I21 | 🔴 Critical | **Branching strategy** | `dev` → `staging` → `main`. Tests gate dev→staging. Release Review gates staging→main. | — | Agreed 2026-03-26. |
+| I22 | 🟠 High | **Prod smoke test suite** | Lightweight post-deployment tests. Runs automatically after staging→main merge. | — | Agreed 2026-03-26. |
+| I23 | 🟠 High | **Test data tagging and cleanup** | `is_test: true` tag on all test data. Cleanup script post-run. | — | Agreed 2026-03-26. |
+| I24 | 🟠 High | **Pre-deployment restore point** | Versioned restore point before every prod deployment. Auto-rollback if smoke tests fail. | — | Agreed 2026-03-26. |
+| I25 | 🟡 Medium | **Automated rollback on smoke test failure** | Auto-revert git + restore Supabase if prod smoke tests fail. | — | Agreed 2026-03-26. |
+| I26 | 🟠 High | **`rollback.bat`** | One-click rollback — reads latest backup, runs paired rollback SQL, restores data. | — | Agreed 2026-03-26. |
+
+---
+
+## Pipeline Tracker
+
+| Item | Coded | Tested | Staged | Deployed |
+|------|-------|--------|--------|----------|
+| Live site + GitHub Pages | ✅ | ✅ | ✅ | ✅ |
+| `headlines_cache.json` | ✅ | ✅ | ✅ | ✅ |
+| `update.yml` corrected | ✅ | ✅ | ✅ | ✅ |
+| Stable injection anchors | ✅ | ✅ | ✅ | ✅ |
+| Full cache injected | ✅ | ✅ | ✅ | ✅ |
+| Exchange rate fetch | ✅ | ✅ | ✅ | ✅ |
+| Glossary | ✅ | ✅ | ✅ | ✅ |
+| War cost clock + currency converter | ✅ | ✅ | ✅ | ✅ |
+| Article panel overlay | ✅ | ✅ | ✅ | ✅ |
+| Row tints per source | ✅ | ✅ | ✅ | ✅ |
+| Key stats panel responsive font sizing | ✅ | ✅ | ✅ | ✅ |
+| Ticker | ✅ | ✅ | ✅ | ✅ |
+| `push.bat` | ✅ | ✅ | ✅ | ✅ |
+| CSS extracted to `styles.css` | ✅ | ✅ | ✅ | ✅ |
+| CSS audit and cleanup (334 lines removed) | ✅ | ✅ | ✅ | ✅ |
+| Cache bust | ✅ | ✅ | ✅ | ✅ |
+| JS refactored into `js/` folder (8 files) | ✅ | ✅ | ✅ | ✅ |
+| Panel pill drag fix | ✅ | ✅ | ✅ | ✅ |
+| Expand panel scrolls into view | ✅ | ✅ | ✅ | ✅ |
+| Source filter pills — multi-select | ✅ | ✅ | ✅ | ✅ |
+| Date range filter | ✅ | ✅ | ✅ | ✅ |
+| Rows-per-page dropdown | ✅ | ✅ | ✅ | ✅ |
+| Controls bar repositioned | ✅ | ✅ | ✅ | ✅ |
+| Dynamic day pill | ✅ | ✅ | ✅ | ✅ |
+| Local time in header | ✅ | ✅ | ✅ | ✅ |
+| Tag cloud external link fix | ✅ | ✅ | ✅ | ✅ |
+| RSS sources expanded to 14 | ✅ | ✅ | ✅ | ✅ |
+| `mock_data.py` | ✅ | — | — | — |
+| Test suite (pytest + Vitest + Playwright) | ✅ | — | — | — |
+| `CONTEXT.md` | ✅ | — | — | — |
+| `BACKLOG.md` | ✅ | — | — | — |
+| `backlog.html` | ✅ | — | — | — |
+| Supabase schema + migration SQL | ✅ | — | — | — |
+| `supabase_backup.py` + `backup.bat` | ✅ | — | — | — |
+| `supabase-client.js` | ✅ | — | — | — |
+
+---
+
+## Key Constraints
+
+- **No build step.** Do not introduce npm dependencies, bundlers, or transpilers unless explicitly agreed. JS and CSS load directly into HTML.
+- **No frameworks.** All interactivity is vanilla JS.
+- **Branching strategy not yet implemented (I21).** Currently all work goes to `main`. I21 is the blocker for enabling CI and committing the test suite.
+- **Cron disabled.** `update.yml` is manual-only until I21 is in place (U6).
+- **Supabase not yet live.** Schema is designed, tables not yet migrated (I9).
+- **Many Coded items uncommitted.** See Pipeline Tracker — `mock_data.py`, test suite, CONTEXT.md, BACKLOG.md, backlog.html, Supabase files are all local-only.
