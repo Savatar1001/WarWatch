@@ -128,7 +128,7 @@
 | # | Priority | Item | Full description | Status | Session history |
 |---|----------|------|-----------------|--------|-----------------|
 | I1 | 🔴 Critical | **Commit test suite and enable CI** | Three-layer test suite written 2026-03-23: pytest (25 tests), Vitest (23 tests), Playwright (10 tests). CI in `tests.yml`. All files exist locally — none committed. Requires I21 first. | Coded | Written 2026-03-23. |
-| I2 | 🔴 Critical | **Implement branching strategy** | `dev` → `staging` → `main`. Tests gate dev→staging via CI. Release Review gates staging→main. | Coded | Agreed 2026-03-23. Branches + bat files created 2026-03-28. CI not yet wired. |
+| I2 | 🔴 Critical | **Implement branching strategy** | `dev` → `staging` → `prod`. Tests gate dev→staging via CI. Release Review gates staging→prod. | Coded | Agreed 2026-03-23. Branches + bat files created 2026-03-28. CI not yet wired. |
 | I4 | 🟡 Medium | **Local dev with real data** | Gitignored `.env` with API keys so `fetch_data.py` runs locally. `mock_data.py` is current workaround. | — | Raised multiple sessions. |
 | I5 | 🟢 Low | **Node.js 24 upgrade** | GitHub Actions warning: Node 20 deprecation June 2026. | — | Identified in workflow logs. |
 | I6 | 🟢 Low | **CSS further cleanup** | Post-audit `!important` remains in grid layout. Ongoing maintenance. | — | Audit done 2026-03-23. |
@@ -152,6 +152,8 @@
 | I24 | 🟠 High | **Pre-deployment restore point** | Versioned restore point before every prod deployment. Auto-rollback if smoke tests fail. | — | Agreed 2026-03-26. |
 | I25 | 🟡 Medium | **Automated rollback on smoke test failure** | Auto-revert git + restore Supabase if prod smoke tests fail. | — | Agreed 2026-03-26. |
 | I26 | 🟠 High | **`rollback.bat`** | One-click rollback — reads latest backup, runs paired rollback SQL, restores data. | — | Agreed 2026-03-26. |
+| I27 | 🔴 Critical | **Migrate primary workflow to Claude Code** | Claude Code (v2.1.86) is now installed and active. All coding, file changes, commits and pushes should be done via CC going forward. claude.ai used for planning, architecture decisions, and session summaries only. This is the #1 tech debt priority. | Deployed | 2026-03-28. |
+| I28 | 🟠 High | **_Tools repo version control** | _Tools git repo created at github.com/Savatar1001/_Tools. Contains Deploy.bat, push-warintel-dev.bat, push-warintel-staging.bat, push-warintel-prod.bat, push-workscrumlist.bat, push-tools.bat, SETUP.bat. Source of truth for all deployment batch files. Deploy.bat self-copies to Projects/ on run. | Deployed | 2026-03-28. |
 
 ---
 
