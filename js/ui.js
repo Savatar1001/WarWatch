@@ -1,5 +1,15 @@
 // ─── ui.js — font size slider, scroll to top ───
 
+// ─── LOADING OVERLAY ───
+if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+window.addEventListener('load', () => {
+  window.scrollTo(0, 0);
+  const overlay = document.getElementById('loading-overlay');
+  if (!overlay) return;
+  overlay.classList.add('fade-out');
+  setTimeout(() => overlay.remove(), 450);
+});
+
 // ─── TEXT SIZE SLIDER ───
 const fontSlider = document.getElementById('fontSlider');
 function applyFontScale(val) {

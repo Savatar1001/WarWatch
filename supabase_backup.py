@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-WarWatch — Supabase Backup Script
+WarIntel — Supabase Backup Script
 Exports all Supabase tables to JSON files in supabase/backups/
 Run before any schema migration or destructive operation.
 
@@ -105,7 +105,7 @@ def backup(tables=None):
         'tables':     {},
     }
 
-    print(f'\nWarWatch Supabase Backup — {timestamp}')
+    print(f'\nWarIntel Supabase Backup — {timestamp}')
     print('=' * 50)
 
     for table in tables:
@@ -153,7 +153,7 @@ def restore(timestamp='latest', tables=None):
     manifest = json.loads(manifest_file.read_text()) if manifest_file.exists() else {}
     tables_to_restore = tables or list(manifest.get('tables', {}).keys()) or TABLES
 
-    print(f'\nWarWatch Supabase Restore — from {timestamp}')
+    print(f'\nWarIntel Supabase Restore — from {timestamp}')
     print('=' * 50)
     print('[WARN] This will upsert all backed-up rows into the current database.')
     confirm = input('Type YES to continue: ').strip()
@@ -237,7 +237,7 @@ def write_local_files(timestamp='latest'):
 
 if __name__ == '__main__':
     import argparse
-    parser = argparse.ArgumentParser(description='WarWatch Supabase backup/restore')
+    parser = argparse.ArgumentParser(description='WarIntel Supabase backup/restore')
     parser.add_argument('action', nargs='?', default='backup',
                         choices=['backup', 'restore', 'write-local'],
                         help='Action to perform (default: backup)')
