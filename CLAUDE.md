@@ -142,6 +142,14 @@ Always update these files and commit them at the end of every session:
 
 ---
 
+## Document Ownership
+- **CLAUDE.md** — owned by Claude Code. CC updates at end of every coding session.
+- **RELEASE_NOTES.md** — owned by Claude Code. CC updates on every prod deploy.
+- **BACKLOG.md** — shared. CC updates pipeline statuses and coded/deployed items. claude.ai updates strategic items, new features, architectural decisions from planning sessions.
+- **CONTEXT.md** — owned by claude.ai (Sav's planning sessions). CC should read but not overwrite. Only update if architecture or file structure changes and confirm with Sav first.
+
+---
+
 ## Key Constraints
 
 - **No build step.** Do not introduce npm dependencies, bundlers, or transpilers unless explicitly agreed. JS and CSS load directly into HTML.
