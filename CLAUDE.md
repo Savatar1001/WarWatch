@@ -9,7 +9,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with th
 **WarIntel** is a real-time intelligence dashboard tracking the 2026 US-Iran conflict, live at **warintel.info**. It is a **zero-build static site** — no npm, no bundler, no framework. Data is fetched by a Python pipeline running in GitHub Actions every 30 minutes and injected directly into `index.html` via regex replacement.
 
 - **Repo:** github.com/Savatar1001/warintel.info
-- **Hosting:** GitHub Pages (`prod` branch, / root)
+- **Hosting:** GitHub Pages (`gh-pages` branch — dev/staging/prod as subpaths: `/dev`, `/staging`, `/` root)
 - **Branching:** `dev` (default) → `staging` → `prod` (live)
 - **Developer:** Savvas D — South Africa (SAST = UTC+2)
 
@@ -101,12 +101,14 @@ Each file owns exactly one feature domain. Load order matters — `utils.js` mus
 ## Session DoD
 
 Before ending every session, confirm:
-- [ ] `RELEASE_NOTES.md` updated
+- [ ] `RELEASE_NOTES.md` updated with timestamped entry (format: `YYYY-MM-DD HH:MM–HH:MM SAST — B3 desc, B5 desc, ...`)
 - [ ] `BACKLOG.md` updated
 - [ ] New backlog items confirmed and numbered
-- [ ] `push-warintel-dev.bat` run (changes go to dev first)
+- [ ] Release notes generated before every push (item numbers + descriptions, comma-separated, timestamped)
+- [ ] `1 push-warintel-dev.bat` run (changes go to dev first)
 - [ ] `push-workscrumlist.bat` run (if WSL changed)
 - [ ] Next session priorities noted at top of `BACKLOG.md`
+- [ ] Memory files updated
 
 ---
 

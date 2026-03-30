@@ -6,6 +6,13 @@
 
 ---
 
+## v0.7.0 -- 2026-03-30 09:00–13:00 SAST
+### Headlines Panel, Dynamic Pills, Primary Sources, Deploy Pipeline
+
+B3 article panel fixes (click-to-close, red close button, panel positioning, label font), B5 source pills now dynamic from feed data, B12 headline click scroll fixed, B14 Wikipedia replaced with CENTCOM/IAEA/UNHCR as primary sources (Wikipedia retained as fallback), B13 AI summary CORS issue logged, 30 RSS feeds expanded from 6, JS+CSS cache busting auto-stamped by fetch_data.py on every run, deploy workflow added (dev/staging/prod subpaths on gh-pages branch), F19/I37/U9/U10/U11 backlog items added.
+
+---
+
 ## v0.6.1 -- 2026-03-29
 ### Infrastructure, DNS, MCP, Bug Fixes
 
