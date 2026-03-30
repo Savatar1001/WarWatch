@@ -1,11 +1,11 @@
 # WarIntel — Backlog
-**Last updated:** 2026-03-29
+**Last updated:** 2026-03-30
 
 ## 🔺 Next Session Priorities
-1. **B1/B2** — Headlines pagination and sort order (core functionality, currently broken)
-2. **B3** — Verify article overlay panel still works post-refactor
+1. **B3** — Verify article overlay panel still works post-refactor
+2. **B1/B2** — Headlines pagination and sort order (core functionality, currently broken)
 3. **B5** — Source filter pills out of sync with 14 RSS feeds
-4. **Claude Desktop MCP** — Parked. Revisit with fresh approach next session.
+4. **I9** — Run Supabase migration SQL (paste `supabase/migrations/001_initial_schema.sql` into Supabase SQL Editor — run `backup.bat` first)
 5. **U8** — Delete `main` branch (5 min task, just noise)
 
 ---
@@ -154,18 +154,18 @@
 
 | # | Priority | Item | Full description | Status | Session history |
 |---|----------|------|-----------------|--------|-----------------|
-| I1 | 🔴 Critical | **Commit test suite and enable CI** | Three-layer test suite written 2026-03-23: pytest (25 tests), Vitest (23 tests), Playwright (10 tests). CI in `tests.yml`. All files exist locally — none committed. Requires I21 first. | Coded | Written 2026-03-23. |
-| I2 | 🔴 Critical | **Implement branching strategy** | `dev` → `staging` → `prod`. Tests gate dev→staging via CI. Release Review gates staging→prod. | Coded | Agreed 2026-03-23. Branches + bat files created 2026-03-28. CI not yet wired. |
+| I1 | 🔴 Critical | **Commit test suite and enable CI** | CI workflow live (`.github/workflows/tests.yml`) with stub tests. Stubs pass — real pytest/Vitest/Playwright to replace later. | Tested | CI live 2026-03-30. Stub tests passing. |
+| I2 | 🔴 Critical | **Implement branching strategy** | `dev` → `staging` → `prod`. CI gates dev→staging. Branch protection on `staging` requires Tests workflow to pass. | Tested | Branches created 2026-03-28. CI + branch protection wired 2026-03-30. |
 | I4 | 🟡 Medium | **Local dev with real data** | Gitignored `.env` with API keys so `fetch_data.py` runs locally. `mock_data.py` is current workaround. | — | Raised multiple sessions. |
 | I5 | 🟢 Low | **Node.js 24 upgrade** | GitHub Actions warning: Node 20 deprecation June 2026. | — | Identified in workflow logs. |
 | I6 | 🟢 Low | **CSS further cleanup** | Post-audit `!important` remains in grid layout. Ongoing maintenance. | — | Audit done 2026-03-23. |
-| I7 | 🔴 Critical | **Commit CONTEXT.md + BACKLOG.md** | Both written locally, neither committed to repo. | Coded | Written 2026-03-23. |
+| I7 | 🔴 Critical | **Commit CONTEXT.md + BACKLOG.md** | Both committed to repo. | Deployed | Committed 2026-03-28. |
 | I8 | 🟠 High | **Set up Claude Code CLI** | `npm install -g @anthropic-ai/claude-code`. Eliminates upload/download cycle. | Deployed | Live and in use from 2026-03-28. |
-| I9 | 🔴 Critical | **Run Supabase schema migration** | `001_initial_schema.sql` creates 5 tables. Run `backup.bat` first, then paste into Supabase SQL Editor. | Coded | Written 2026-03-25. Not yet run. |
-| I10 | 🟠 High | **Supabase rollback strategy** | `001_rollback.sql` + code abstraction (Supabase → localStorage → seed fallback). | Coded | Implemented 2026-03-25. |
-| I11 | 🟠 High | **`supabase_backup.py`** | backup / write-local / restore commands. Exports versioned JSON. | Coded | Built 2026-03-25. |
-| I12 | 🟠 High | **`backup.bat`** | Pre-migration safety script. Always run before schema changes. | Coded | Built 2026-03-25. |
-| I13 | 🟠 High | **`supabase-client.js`** | Shared Supabase client module. Single import for all features. | Coded | Built 2026-03-25. |
+| I9 | 🔴 Critical | **Run Supabase schema migration** | `supabase/migrations/001_initial_schema.sql` committed. **Not yet run** — paste into Supabase SQL Editor, run `backup.bat` first. | Coded | SQL committed 2026-03-30. |
+| I10 | 🟠 High | **Supabase rollback strategy** | `supabase/migrations/001_rollback.sql` committed. | Coded | Committed 2026-03-30. |
+| I11 | 🟠 High | **`supabase_backup.py`** | backup / write-local / restore commands. Exports versioned JSON. | Coded | Committed 2026-03-28. |
+| I12 | 🟠 High | **`backup.bat`** | Pre-migration safety script. Always run before schema changes. | Coded | Committed 2026-03-30. |
+| I13 | 🟠 High | **`supabase-client.js`** | Shared Supabase client module. Single import for all features. | Coded | Committed 2026-03-28. |
 | I14 | 🟢 Low | **Future: paid membership/plans table** | Memberships for paid tiers. Do not build until revenue model confirmed. | — | Agreed 2026-03-25. |
 | I15 | 🟠 High | **Environment config files** | Same pattern as WorkScrumList — 4 env configs, `build.bat` swaps active config. | — | Agreed 2026-03-25. |
 | I16 | 🟠 High | **Timestamps on all persisted records** | `created_at`/`updated_at` on every record. Collapsible column in UI. | — | Agreed 2026-03-26. |
@@ -173,7 +173,7 @@
 | I18 | 🟠 High | **White-label config architecture** | Extract all WarIntel-specific content to `warintel.config.js`. Codebase becomes domain-agnostic. | — | Agreed 2026-03-26. |
 | I19 | 🟡 Medium | **White-label theming layer** | `theme.css` client-overridable layer on top of base styles. | — | Agreed 2026-03-26. |
 | I20 | 🟡 Medium | **Data source config abstraction** | RSS_FEEDS, API endpoints, Wikipedia selectors moved to `sources.config.json`. | — | Agreed 2026-03-26. |
-| I21 | 🔴 Critical | **Branching strategy** | `dev` → `staging` → `prod`. Tests gate dev→staging. Release Review gates staging→prod. CI still needs wiring. | Coded | Agreed 2026-03-26. Branches created, bat files added 2026-03-28. |
+| I21 | 🔴 Critical | **Branching strategy** | `dev` → `staging` → `prod`. CI gates dev→staging. Branch protection wired. | Tested | Branches 2026-03-28. CI + protection 2026-03-30. |
 | I22 | 🟠 High | **Prod smoke test suite** | Lightweight post-deployment tests. Runs automatically after staging→main merge. | — | Agreed 2026-03-26. |
 | I23 | 🟠 High | **Test data tagging and cleanup** | `is_test: true` tag on all test data. Cleanup script post-run. | — | Agreed 2026-03-26. |
 | I24 | 🟠 High | **Pre-deployment restore point** | Versioned restore point before every prod deployment. Auto-rollback if smoke tests fail. | — | Agreed 2026-03-26. |
