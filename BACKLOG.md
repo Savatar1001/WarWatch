@@ -90,6 +90,8 @@
 | B7 | 🟠 High | **OilPrice API timing out** | oilpriceapi.com returning 504. Oil prices show dash on live site. No fallback. | — | Identified in GitHub Actions workflow logs. |
 | B8 | 🟠 High | **Wikipedia scraping returning dash** | Some casualty/strike/nuclear fields returning dash. Selectors likely stale. | — | Known recurring issue. Wikipedia structure changes frequently. |
 | B9 | 🟢 Low | **Hengaw + HRANA figures hardcoded** | Both orgs publish running totals. Hardcoded from a specific date. Scraping deferred as fragile. | — | Discussed 2026-03-22. |
+| B10 | 🟠 High | **Store source URL + version with every scraped data point** | Every figure scraped from Wikipedia (or any source) must store the exact URL and version/revision ID it was pulled from. Enables audit trail, lets us reproduce exactly what was displayed at any point in time, and surfaces when a source has changed underneath us. | — | Added 2026-03-30. |
+| B11 | 🔴 Critical | **Multi-source strategy for every data point** | Wikipedia is a single point of failure for all casualty/strike/nuclear figures. Every data point needs identified alternate sources (ACLED, OHCHR, Reuters, AP, conflict monitors etc.) so if one breaks or goes stale the pipeline falls back automatically. Research + map alternates for each field before building fallback logic. | — | Added 2026-03-30. |
 
 ---
 
