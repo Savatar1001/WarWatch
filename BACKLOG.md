@@ -126,6 +126,14 @@
 | M9 | 🟡 Medium | **Premium subscription — ad-free + features** | Paid tier removes ads, unlocks extra features (data export, custom alerts, advanced filters). Supabase memberships table already planned (I14). | — | Added 2026-03-29. Depends on I14. |
 | M10 | 🟢 Low | **Data API access** | Sell API access to aggregated conflict data for researchers, journalists, analysts, hedge funds. Metered pricing. Only viable once data quality and uptime are consistent. | — | Added 2026-03-29. Long-term. |
 | M11 | 🟢 Low | **Push notification sponsorship** | Sponsored breaking news alerts — "BREAKING: [headline] — Brought to you by [Brand]". Premium because it's opt-in, high-intent audience. Depends on F6. | — | Added 2026-03-29. Depends on F6. |
+| M12 | 🟠 High | **Subscription tier — widget personalisation** | Save custom panel layout, pinned panels, custom source filters. Persisted server-side per user. Free tier gets default layout only. | — | Added 2026-03-30. |
+| M13 | 🟠 High | **Subscription tier — theming** | Dark/light/high contrast modes, custom accent colours. Free tier gets default theme only. | — | Added 2026-03-30. |
+| M14 | 🟠 High | **Subscription tier — priority alerts** | Subscriber-only breaking news notifications before the public feed updates. Higher tier feature — justifies premium pricing. | — | Added 2026-03-30. Depends on F6. |
+| M15 | 🟠 High | **Self-serve ad placement** | Businesses pay to place contextual ads directly on the platform, cutting out the ad network middleman. Higher CPM, direct relationship, full control over placement. | — | Added 2026-03-30. |
+| M16 | 🟠 High | **Early access — new conflict dashboards** | Subscribers see new conflict dashboards before public launch. Exclusivity driver for subscription conversions. | — | Added 2026-03-30. |
+| M17 | 🟠 High | **Data export — CSV/JSON download** | Subscribers can download headlines, casualty figures, and historical data as CSV or JSON. Individual subscriber tier + higher-volume API tier (M10). Target audience: journalists, researchers, analysts, hedge funds tracking conflict risk. | — | Added 2026-03-30. |
+| M18 | 🟡 Medium | **Custom watchlists + keyword alerts** | Track specific sources, regions, or keywords. Get notified on matches. Subscriber-only feature. | — | Added 2026-03-30. Depends on F6. |
+| M19 | 🟡 Medium | **Tiered data refresh rate** | Free tier gets throttled refresh (e.g. hourly). Subscribers get real-time or near-real-time updates. Creates tangible value difference between tiers. | — | Added 2026-03-30. |
 
 ---
 
