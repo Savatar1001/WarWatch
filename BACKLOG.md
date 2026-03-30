@@ -112,6 +112,7 @@
 
 | # | Priority | Item | Full description | Status | Session history |
 |---|----------|------|-----------------|--------|-----------------|
+| M0 | 🔴 Critical | **Research + select ad networks before implementation** | AdSense may decline war/conflict content. Must identify alternatives (Media.net, Ezoic, Carbon Ads, BuySellAds, direct programmatic) and confirm eligibility, CPM rates, and content policies before writing a line of ad code. Decision gates all M1–M4 implementation. | — | Added 2026-03-30. |
 | M1 | 🟠 High | **Header + footer banner ads** | Narrow persistent banner slots at top and bottom of every page. Currently placeholder HTML exists. Needs ad network integration (AdSense or programmatic). Sitewide, always visible. | — | Confirmed 2026-03-29. Placeholder slots already in HTML. |
 | M2 | 🟠 High | **Article overlay ads** | Ad placement shown inside the article panel when a user opens an article in-dashboard. High-intent placement — user is actively reading. | — | Confirmed 2026-03-29. |
 | M3 | 🟠 High | **Article interstitial** | Full-page ad shown between "Open Article" click and redirect to source. Guaranteed full-attention moment, premium CPM. Requires interstitial page with countdown or skip option. | — | Confirmed 2026-03-29. |
