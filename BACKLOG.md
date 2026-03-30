@@ -182,6 +182,7 @@
 | I27 | 🔴 Critical | **Migrate primary workflow to Claude Code** | Claude Code (v2.1.86) is now installed and active. All coding, file changes, commits and pushes should be done via CC going forward. claude.ai used for planning, architecture decisions, and session summaries only. This is the #1 tech debt priority. | Deployed | 2026-03-28. |
 | I28 | 🟠 High | **_Tools repo version control** | _Tools git repo created at github.com/Savatar1001/_Tools. Contains Deploy.bat, push-warintel-dev.bat, push-warintel-staging.bat, push-warintel-prod.bat, push-workscrumlist.bat, push-tools.bat, SETUP.bat. Source of truth for all deployment batch files. Deploy.bat self-copies to Projects/ on run. | Deployed | 2026-03-28. |
 | I29 | 🟡 Medium | **Claude Desktop MCP** | Attempted 2026-03-29. Node.js installed. Config written to `%APPDATA%\Claude\claude_desktop_config.json`. Hammer not appearing — root cause unresolved. Park and revisit. Claude Code MCP fully working as primary. | — | Attempted 2026-03-29. |
+| I30 | 🟢 Low | **Migrate historical data into data stores** | All completed pipeline items exist only in BACKLOG.md. Create closed GitHub Issues for completed work and seed Supabase with historical backlog data — for audit trail completeness. | — | Added 2026-03-30. |
 
 ---
 
