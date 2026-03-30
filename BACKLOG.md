@@ -172,7 +172,7 @@
 | I6 | 🟢 Low | **CSS further cleanup** | Post-audit `!important` remains in grid layout. Ongoing maintenance. | — | Audit done 2026-03-23. |
 | I7 | 🔴 Critical | **Commit CONTEXT.md + BACKLOG.md** | Both committed to repo. | Deployed | Committed 2026-03-28. |
 | I8 | 🟠 High | **Set up Claude Code CLI** | `npm install -g @anthropic-ai/claude-code`. Eliminates upload/download cycle. | Deployed | Live and in use from 2026-03-28. |
-| I9 | 🔴 Critical | **Run Supabase schema migration** | `supabase/migrations/001_initial_schema.sql` committed. **Not yet run** — paste into Supabase SQL Editor, run `backup.bat` first. | Coded | SQL committed 2026-03-30. |
+| I9 | 🔴 Critical | **Run Supabase schema migration** | `supabase/migrations/001_initial_schema.sql` run successfully. 5 tables live: users, backlog_items, messages, notification_subscriptions, push_tokens. | Deployed | Run 2026-03-31. |
 | I10 | 🟠 High | **Supabase rollback strategy** | `supabase/migrations/001_rollback.sql` committed. | Coded | Committed 2026-03-30. |
 | I11 | 🟠 High | **`supabase_backup.py`** | backup / write-local / restore commands. Exports versioned JSON. | Coded | Committed 2026-03-28. |
 | I12 | 🟠 High | **`backup.bat`** | Pre-migration safety script. Always run before schema changes. | Coded | Committed 2026-03-30. |
