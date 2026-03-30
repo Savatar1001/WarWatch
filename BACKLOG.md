@@ -83,7 +83,8 @@
 |---|----------|------|-----------------|--------|-----------------|
 | B1 | 🟠 High | **Pagination not implemented** | The headlines grid uses `applyFilters()` which hides all rows beyond `maxRows` but there is no UI to navigate to hidden rows. No Prev/Next buttons, no "Page X of Y", no way to reach articles beyond the first page. | — | Discussed 2026-03-22. Agreed 2026-03-23. Never built. |
 | B2 | 🟠 High | **Sort order not newest-first** | Articles display in cron-injection order, not chronological. Need to sort by `pub_iso` descending before pagination in `applyFilters()`. | — | Raised 2026-03-22. Agreed but never implemented. |
-| B3 | 🔴 Critical | **Article panel broken after JS refactor** | Headline click overlay was working before refactor. Post-refactor status unverified. Needs live test. | — | Confirmed working 2026-03-22. Refactored 2026-03-23 without re-testing. |
+| B3 | 🔴 Critical | **Article panel broken after JS refactor** | Verified working 2026-03-31. Closed. | Deployed | Verified 2026-03-31. |
+| B12 | 🟠 High | **Headline click scrolls to top of page** | Clicking a headline opens the overlay correctly but also jumps to the top of the page. Likely a stray `href="#"` or unhandled anchor default. Fix with `e.preventDefault()`. | — | Found 2026-03-31 during B3 verification. |
 | B4 | 🟡 Medium | **"Data as of" timestamp is static** | `update-time` element shows hardcoded date. `inject_data()` has regex but may not be firing. | — | Raised 2026-03-22. Not confirmed working on live. |
 | B5 | 🟠 High | **Source filter pills out of sync** | RSS_FEEDS expanded 2026-03-24 with 7 new sources. Pill HTML still shows original 7. | — | New sources added to backend 2026-03-24. Frontend not updated. |
 | B6 | 🟠 High | **Ticker shows placeholder text** | "⚡ Live updates loading..." displays when articles exist. Ticker injection likely failing silently. | — | Raised 2026-03-22. Intermittently broken. |

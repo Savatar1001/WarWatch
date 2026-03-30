@@ -216,6 +216,7 @@ window.HF = (() => {
     document.querySelectorAll('.event-item').forEach(row => {
       row.addEventListener('click', e => {
         if (e.target.closest('.ap-close')) return;
+        e.preventDefault();
         openPanel(row);
       });
     });
