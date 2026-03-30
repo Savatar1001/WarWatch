@@ -126,6 +126,114 @@ def fetch_oil_prices():
 # 2. WIKIPEDIA SCRAPE
 # ─────────────────────────────────────────
 
+def fetch_centcom():
+    """Strike/operations data from CENTCOM press releases."""
+    result = {}
+    try:
+        rss = fetch_url('https://www.centcom.mil/DesktopModules/ArticleCS/RSS.ashx?ContentType=1&Site=958&max=10')
+        strike_patterns = [
+            r'(\d[\d,]+)\+?\s*(?:targets?|strikes?|sites?|facilities?)\s*(?:struck|hit|bombed|attacked|destroyed)',
+            r'(?:struck|hit|bombed|attacked|destroyed)\s*(\d[\d,]+)\+?\s*(?:targets?|sites?)',
+            r'(\d[\d,]+)\+?\s*airstrikes?',
+        ]
+        for pat in strike_patterns:
+            m = re.search(pat, rss, re.IGNORECASE)
+            if m:
+                result['strikes_total'] = m.group(1).replace(',', '') + '+'
+                break
+        wave_m = re.search(r'(\d+)\+?\s*(?:waves?|salvos?)\s*of\s*(?:missile|attack|drone)', rss, re.IGNORECASE)
+        if wave_m:
+            result['missile_waves'] = wave_m.group(1) + '+'
+        drone_m = re.search(r'(\d[\d,]+)\+?\s*(?:UAVs?|drones?|shaheds?)', rss, re.IGNORECASE)
+        if drone_m:
+            result['drones_total'] = drone_m.group(1).replace(',', '') + '+'
+        print(f"  CENTCOM strikes: {result.get('strikes_total', 'not found')}")
+    except Exception as e:
+        print(f"  [WARN] CENTCOM fetch failed: {e}")
+    return result
+
+
+def fetch_iaea():
+    """Nuclear status from IAEA press releases."""
+    result = {}
+    try:
+        html = fetch_url('https://www.iaea.org/newscenter/pressreleases')
+        if re.search(r'natanz.{0,200}struck|struck.{0,200}natanz', html, re.IGNORECASE):
+            result['nuclear_natanz'] = 'Struck'
+        elif re.search(r'natanz.{0,200}intact|natanz.{0,200}undamaged|natanz.{0,200}operational', html, re.IGNORECASE):
+            result['nuclear_natanz'] = 'Reportedly intact'
+        if re.search(r'unable.{0,100}verif|suspend.{0,100}inspect|access.{0,100}denied', html, re.IGNORECASE):
+            result['nuclear_iaea'] = 'Verification suspended'
+        elif re.search(r'iaea.{0,100}concern|iaea.{0,100}warn|serious.{0,100}concern', html, re.IGNORECASE):
+            result['nuclear_iaea'] = 'Warning issued'
+        uranium_m = re.search(r'(\d+\.?\d*\s*kg).{0,80}(?:60|90).{0,20}(?:enriched|uranium)', html, re.IGNORECASE)
+        if uranium_m:
+            result['nuclear_uranium'] = uranium_m.group(0)[:80].strip()
+        print(f"  IAEA Natanz: {result.get('nuclear_natanz', 'not found')}")
+    except Exception as e:
+        print(f"  [WARN] IAEA fetch failed: {e}")
+    return result
+
+
+def fetch_unhcr():
+    """Displacement figures from UNHCR."""
+    result = {}
+    try:
+        html = fetch_url('https://www.unhcr.org/countries/iran')
+        disp_m = re.search(r'(\d[\d,\.]+\s*(?:million|M)?)\s*(?:internally\s*)?displaced', html, re.IGNORECASE)
+        if disp_m:
+            result['displaced'] = disp_m.group(1).strip()
+        print(f"  UNHCR displaced: {result.get('displaced', 'not found')}")
+    except Exception as e:
+        print(f"  [WARN] UNHCR fetch failed: {e}")
+    return result
+
+
+def fetch_conflict_data():
+    """
+    Fetch conflict stats from primary authoritative sources.
+    Falls back to Wikipedia for any field not found by primary scrapers.
+    """
+    print("Fetching conflict data from primary sources...")
+
+    result = {
+        'casualties_iran_official': '—',
+        'casualties_hengaw': '—',
+        'casualties_hrana': '—',
+        'casualties_injured': '—',
+        'strikes_total': '—',
+        'missile_waves': '—',
+        'drones_total': '—',
+        'nuclear_natanz': 'Unknown',
+        'nuclear_uranium': 'Unknown',
+        'nuclear_iaea': 'Unknown',
+        'war_day': '—',
+        'displaced': '—',
+        'countries_attacked': '—',
+    }
+
+    # War day is always calculated — no external source needed
+    now = datetime.now(timezone.utc)
+    result['war_day'] = str((now - WAR_START).days + 1)
+
+    # Primary sources
+    result.update(fetch_centcom())
+    result.update(fetch_iaea())
+    result.update(fetch_unhcr())
+
+    # Wikipedia fallback for any field still missing
+    missing = [k for k, v in result.items()
+               if v in ('—', 'Unknown') and k not in ('war_day', 'countries_attacked')]
+    if missing:
+        print(f"  Wikipedia fallback for: {', '.join(missing)}")
+        wiki = fetch_wikipedia()
+        for k in missing:
+            if wiki.get(k) not in ('—', 'Source unavailable', 'Updating...', 'Unknown'):
+                result[k] = wiki[k]
+
+    return result
+
+
 def fetch_wikipedia():
     print("Fetching Wikipedia data...")
     result = {
@@ -285,12 +393,47 @@ def save_cache(cache: dict):
 # ─────────────────────────────────────────
 
 RSS_FEEDS = [
-    ('Al Jazeera',   'https://www.aljazeera.com/xml/rss/all.xml'),
-    ('BBC',          'https://feeds.bbci.co.uk/news/world/middle_east/rss.xml'),
-    ('Reuters',      'https://news.google.com/rss/search?q=when:24h+allinurl:reuters.com+Iran+war&ceid=US:en&hl=en-US&gl=US'),
+    # ── Middle East / International ──
+    ('Al Jazeera',       'https://www.aljazeera.com/xml/rss/all.xml'),
+    ('France 24',        'https://www.france24.com/en/middle-east/rss'),
+    ('Middle East Eye',  'https://www.middleeasteye.net/rss'),
+    ('Arab News',        'https://www.arabnews.com/rss.xml'),
+
+    # ── Western wire / broadsheet ──
+    ('BBC',              'https://feeds.bbci.co.uk/news/world/middle_east/rss.xml'),
+    ('Reuters',          'https://news.google.com/rss/search?q=when:24h+allinurl:reuters.com+Iran+war&ceid=US:en&hl=en-US&gl=US'),
     ('Associated Press', 'https://news.google.com/rss/search?q=when:24h+allinurl:apnews.com+Iran&ceid=US:en&hl=en-US&gl=US'),
-    ('The Guardian', 'https://www.theguardian.com/world/middleeast/rss'),
-    ('France 24',    'https://www.france24.com/en/middle-east/rss'),
+    ('The Guardian',     'https://www.theguardian.com/world/middleeast/rss'),
+    ('CNN',              'https://news.google.com/rss/search?q=when:24h+allinurl:cnn.com+Iran&ceid=US:en&hl=en-US&gl=US'),
+    ('Fox News',         'https://news.google.com/rss/search?q=when:24h+allinurl:foxnews.com+Iran&ceid=US:en&hl=en-US&gl=US'),
+    ('NBC News',         'https://news.google.com/rss/search?q=when:24h+allinurl:nbcnews.com+Iran&ceid=US:en&hl=en-US&gl=US'),
+    ('New York Times',   'https://news.google.com/rss/search?q=when:24h+allinurl:nytimes.com+Iran&ceid=US:en&hl=en-US&gl=US'),
+    ('Washington Post',  'https://news.google.com/rss/search?q=when:24h+allinurl:washingtonpost.com+Iran&ceid=US:en&hl=en-US&gl=US'),
+    ('The Times',        'https://news.google.com/rss/search?q=when:24h+allinurl:thetimes.co.uk+Iran&ceid=US:en&hl=en-US&gl=US'),
+
+    # ── European ──
+    ('DW',               'https://rss.dw.com/xml/rss-en-middle-east'),
+    ('Euronews',         'https://www.euronews.com/rss?level=theme&name=news'),
+    ('Der Spiegel',      'https://news.google.com/rss/search?q=when:24h+allinurl:spiegel.de+Iran&ceid=US:en&hl=en-US&gl=US'),
+
+    # ── Asia / Pacific ──
+    ('South China Morning Post', 'https://www.scmp.com/rss/91/feed'),
+    ('Times of India',   'https://news.google.com/rss/search?q=when:24h+allinurl:timesofindia.com+Iran&ceid=US:en&hl=en-US&gl=US'),
+    ('CNA',              'https://www.channelnewsasia.com/api/v1/rss-outbound-feed?_format=xml&category=10416'),
+
+    # ── Financial / energy ──
+    ('Financial Times',  'https://news.google.com/rss/search?q=when:24h+allinurl:ft.com+Iran&ceid=US:en&hl=en-US&gl=US'),
+    ('OilPrice.com',     'https://oilprice.com/rss/main'),
+    ('Bloomberg',        'https://news.google.com/rss/search?q=when:24h+allinurl:bloomberg.com+Iran&ceid=US:en&hl=en-US&gl=US'),
+
+    # ── Official / institutional ──
+    ('IAEA',             'https://www.iaea.org/feeds/topstories.xml'),
+    ('UNHCR',            'https://www.unhcr.org/rss.xml'),
+    ('CENTCOM',          'https://www.centcom.mil/DesktopModules/ArticleCS/RSS.ashx?ContentType=1&Site=958&max=10'),
+
+    # ── Alternative / Russian state (for full-spectrum coverage) ──
+    ('RT',               'https://www.rt.com/rss/news/'),
+    ('Sputnik',          'https://sputnikglobe.com/export/rss2/world/index.xml'),
 ]
 
 IRAN_KEYWORDS = [
@@ -500,6 +643,20 @@ def build_ticker(news_items):
     return combined + ' &nbsp; ' + combined
 
 
+def build_pills_html(news_items):
+    """Build source filter pill buttons from actual sources in the feed."""
+    sources = {}
+    for item in news_items:
+        src = item.get('source', '')
+        if src:
+            sources[src] = sources.get(src, 0) + 1
+    parts = []
+    for src in sorted(sources.keys()):
+        slug = re.sub(r'[^a-z0-9]', '-', src.lower()).strip('-')
+        parts.append(f'<button class="hf-btn" data-source="{src}">{src} <span class="hf-count" id="hfc-{slug}"></span></button>')
+    return '\n    '.join(parts)
+
+
 def build_events_html(news_items):
     if not news_items:
         return '<div class="event-item"><div class="event-time">—</div><div class="event-pip" style="background:var(--white3)"></div><div class="event-body"><div class="event-text">Loading latest events...</div></div></div>'
@@ -645,6 +802,14 @@ def inject_data(html, oil, wiki, news, fx=None):
         html, flags=re.DOTALL
     )
 
+    # ── Source filter pills ──
+    pills_html = build_pills_html(news)
+    html = re.sub(
+        r'<!-- PILLS_START -->.*?<!-- PILLS_END -->',
+        f'<!-- PILLS_START -->\n    {pills_html}\n    <!-- PILLS_END -->',
+        html, flags=re.DOTALL
+    )
+
     # ── Events feed ──
     events_html = build_events_html(news)
     html = re.sub(
@@ -714,10 +879,11 @@ def inject_data(html, oil, wiki, news, fx=None):
         html, count=1
     )
 
-    # ── Cache-bust CSS on every deploy ──
+    # ── Cache-bust CSS + JS on every deploy ──
     import time
     bust = str(int(time.time()))
     html = re.sub(r'styles\.css\?v=[^"]*', f'styles.css?v={bust}', html)
+    html = re.sub(r'(js/[^"]+\.js)\?v=[^"]*', rf'\1?v={bust}', html)
 
     return html
 
@@ -739,7 +905,7 @@ def main():
 
     oil  = fetch_oil_prices()
     fx   = fetch_exchange_rates()
-    wiki = fetch_wikipedia()
+    wiki = fetch_conflict_data()
 
     # Fetch new headlines — pass seen_urls so fetchers skip already-cached URLs
     newsapi_items = fetch_newsapi(seen_urls)

@@ -1,0 +1,1080 @@
+TYPE: user
+CONTENT:
+no, they were created with the intention of promoting code through the environments as they get tested and approved and ready for next round of testing and so on
+====================================================================================================
+
+TYPE: assistant
+CONTENT:
+Yes — GitHub has **Environments** and **branch protection rules** that handle this natively, typically through:
+
+- **GitHub Actions** with environment-gated deployments (requires approval before promoting to staging/prod)
+- **Branch protection rules** that enforce PR-based merges between branches
+- **Rulesets** (newer) for more granular promotion control
+
+This is cleaner than batch scripts because approvals, history, and rollbacks are all tracked in GitHub. The scripts become redundant.
+
+Do you want to set that up instead?
+====================================================================================================
+
+TYPE: assistant
+CONTENT:
+Exactly — and for a project like WarIntel where you're moving through dev→staging→prod, it gives you:
+
+- **Required reviewers** per environment before promotion is allowed
+- **Deployment history** with who approved what and when
+- **Commit/PR descriptions enforced** (no more forgetting to write a meaningful message)
+- **Status checks** — can block promotion if tests fail
+- **Environment secrets** scoped per stage (dev/staging/prod each get their own)
+
+The batch scripts can go. Want to walk through setting up the GitHub environments and Actions workflow for WarIntel?
+====================================================================================================
+
+TYPE: assistant
+CONTENT:
+Yes — **GitHub Projects** covers all of that:
+
+- **Kanban/Scrum boards** with sprints, backlog, and custom workflows
+- **Issues** for bugs, features, tasks — with labels, milestones, assignees
+- **Milestones** — perfect for scoping an MVP
+- **Project views** — board, table, roadmap (Gantt-style)
+- **Automations** — issues auto-move when PRs are merged, etc.
+
+And for organization:
+
+- You can create a **GitHub Organization** (free tier available) and move your repos into it — keeps everything under one roof
+- Or just use a **Project** that spans multiple repos without moving anything
+
+For your situation I'd suggest:
+1. Create an org (e.g. `Savatar-Dev` or similar)
+2. Transfer WarIntel repo into it
+3. Set up GitHub Projects for the MVP backlog/sprint
+4. Set up Environments + Actions for the dev→staging→prod pipeline
+
+The batch scripts, WorkScrumList, and whatever else you're using for tracking can all be retired.
+
+Want to start with the org setup, or tackle the GitHub Actions pipeline first?
+====================================================================================================
+
+TYPE: assistant
+CONTENT:
+Yes, GitHub Pro (personal) covers everything you need for this scale:
+
+- **GitHub Projects** with all views and automations
+- **Environments** with required reviewers and deployment protection rules
+- **Private repos** unlimited
+- **Branch protection rules**
+- **Actions minutes** (3,000/month — plenty for a small pipeline)
+
+You don't need Enterprise for any of this. Pro is sufficient. Ready to start setting it up?
+====================================================================================================
+
+TYPE: assistant
+CONTENT:
+I don't do time estimates — too many variables and they're rarely useful.
+
+On migration — GitHub supports most of it natively:
+
+**Has a home in GitHub:**
+- Backlog/tasks → Issues + Projects
+- Bug tracking → Issues with labels
+- Sprints/milestones → Milestones + Project sprints
+- Documentation → Wiki or `/docs` in repo
+- Artefacts → Releases + Attachments, or a dedicated `_artefacts` repo
+- Conversations/decisions → Issue/PR comments, or Discussions (built-in forum-style threads)
+
+**Needs a workaround:**
+- Freeform notes or long-form context documents → Markdown files in repo or GitHub Wiki
+- Chat-style conversation history (like our sessions) → GitHub Discussions works but isn't a perfect fit
+- Files like your WorkScrumList → Can import as Issues via CSV, or just paste into a Project manually
+
+**Honest gap:**
+GitHub isn't a knowledge base or a wiki-first tool. If you have a lot of unstructured notes/artefacts, something like Notion or Confluence pairs well with it. But if you want to keep everything in one place, GitHub can accommodate it — it just takes a bit of structure design upfront.
+
+Want to map out what you actually have and where it should land before touching anything?
+====================================================================================================
+
+TYPE: assistant
+CONTENT:
+Done. Four memory files covering your profile, working preferences, WarIntel status, and WSL. I'll keep these updated as we work.
+
+Now — WarIntel is already on GitHub at `github.com/Savatar1001/WarIntel`. Do you want to start with the GitHub org setup, or go straight into the Environments and Actions pipeline?
+====================================================================================================
+
+TYPE: assistant
+CONTENT:
+That's GitHub's org billing being separate from personal billing — even if you have Pro personally, an org is a separate entity with its own subscription.
+
+Your options:
+
+1. **Free org** — unlimited public repos, limited private repo features (no environment protection rules, limited Actions). May not cover everything we need for the pipeline.
+2. **Team tier** ($4/user/month) — gets you environment protection rules and the full CI/CD setup we planned.
+3. **Skip the org entirely** — keep the repo under `Savatar1001` personal account. You still get all Pro features including Environments, Actions, branch protection, and Projects. Functionally identical for a solo developer.
+
+Honestly for one person, staying on your personal account is the right call. No extra cost, no feature loss. The org mostly adds value when you have a team.
+
+Want to skip the org and just set up the GitHub Project + Environments under your existing account?
+====================================================================================================
+
+TYPE: assistant
+CONTENT:
+Good. So the plan is:
+
+1. **GitHub Project** — migrate backlog from BACKLOG.md files into Issues
+2. **Environments** — set up dev/staging/prod with protection rules
+3. **GitHub Actions** — promotion pipeline replacing the .bat scripts
+4. **Branch protection rules** — enforce PR-based merges
+
+Where is the WarIntel repo currently — is it already on GitHub under `Savatar1001`, and does it have the three branches (dev/staging/prod)?
+====================================================================================================
+
+TYPE: assistant
+CONTENT:
+Good call to pause. Let me map out what we need vs what GitHub Projects gives us out of the box.
+
+**GitHub Projects default fields:**
+- Title
+- Status (we'd set this to our pipeline stages)
+- Assignees
+- Labels
+- Milestone
+- Repository
+- Linked PR
+
+**What our backlog needs:**
+- ID (e.g. W-I1, RR-F2) — for cross-referencing
+- Priority (Critical/High/Medium/Low)
+- Type (Infrastructure/Feature/Bug)
+- Status (our pipeline: Backlog→Coded→Tested→Staged→Deployed→Closed)
+- Detail/description — goes in the Issue body
+- Linked PR — built in, covers the commit reference need
+- Audit trail — built into Issue/PR comments natively
+
+**What needs a decision:**
+- **ID** — GitHub auto-assigns issue numbers (#1, #2 etc). Your RR-I1, W-F3 style IDs would either be retired in favour of #numbers, or kept as a prefix in the title
+- **Priority** — custom field (single select) or label? Labels are more visual on boards, custom fields are more filterable
+- **Type** — same question, label or field?
+- **WSL pipeline stages** vs **GitHub's default Todo/In Progress/Done** — we replace with ours
+
+What's your preference on Priority and Type — labels or fields?
+====================================================================================================
+
+TYPE: assistant
+CONTENT:
+The key might differ by environment. Run this to see all localStorage keys:
+
+```js
+copy(JSON.stringify(Object.keys(localStorage)))
+```
+====================================================================================================
+
+TYPE: user
+CONTENT:
+what's this?? "id":"B1","cat":"bug","priority":"high","status":"","seq":1,"title":"Pagination not implemented","detail":"applyFilters() hides rows beyond maxRows but there is no Prev/Next UI. No way to reach older articles.","history":"Discussed 2026-03-22. Agreed 2026-03-23. Never built.","dod":{},"tasks":[],"ac":[],"audit":[]},{"id":"B2","cat":"bug","priority":"high","status":"","seq":2,"title":"Sort order not newest-first","detail":"Articles display in cron-injection order. Should sort by pub_iso descending before pagination.","history":"Raised 2026-03-22. Agreed but not implemented.","dod":{},"tasks":[],"ac":[],"audit":[]},{"id":"B3","cat":"bug","priority":"critical","status":"","seq":3,"title":"Article panel broken after JS refactor","detail":"Headline click overlay was working before refactor. Post-refactor status unverified. Needs live test.","history":"Confirmed working 2026-03-22. Refactored 2026-03-23 without re-testing.","dod":{},"tasks":[],"ac":[],"audit":[]},{"id":"B4","cat":"bug","priority":"medium","status":"","seq":4,"title":"\"Data as of\" timestamp is static","detail":"update-time element shows hardcoded date. inject_data() has regex but may not be firing.","history":"Raised 2026-03-22. Not confirmed working on live.","dod":{},"tasks":[],"ac":[],"audit":[]},{"id":"B5","cat":"bug","priority":"high","status":"","seq":5,"title":"Source filter pills out of sync","detail":"RSS_FEEDS expanded 2026-03-24 with 7 new sources. Pill HTML still shows original 7.","history":"New sources added to backend 2026-03-24. Frontend not updated.","dod":{},"tasks":[],"ac":[],"audit":[]},{"id":"B6","cat":"bug","priority":"high","status":"","seq":6,"title":"Ticker shows placeholder text","detail":"\"⚡ Live updates loading...\" displays when articles exist. Ticker injection likely failing silently.","history":"Raised 2026-03-22. Intermittently broken across sessions.","dod":{},"tasks":[],"ac":[],"audit":[]},{"id":"B7","cat":"bug","priority":"high","status":"","seq":7,"title":"OilPrice API timing out","detail":"oilpriceapi.com returning 504 on recent runs. Oil prices show dash on live site. No fallback.","history":"Identified in GitHub Actions workflow logs.","dod":{},"tasks":[],"ac":[],"audit":[]},{"id":"B8","cat":"bug","priority":"high","status":"","seq":8,"title":"Wikipedia scraping returning dash","detail":"Some casualty/strike/nuclear fields returning dash. Selectors likely stale.","history":"Known recurring issue. Wikipedia structure changes frequently.","dod":{},"tasks":[],"ac":[],"audit":[]},{"id":"B9","cat":"bug","priority":"low","status":"","seq":9,"title":"Hengaw + HRANA figures hardcoded","detail":"Both orgs publish running totals. Hardcoded from a specific date. Scraping deferred as fragile.","history":"Discussed 2026-03-22.","dod":{},"tasks":[],"ac":[],"audit":[]},{"id":"U1","cat":"ui","priority":"medium","status":"","seq":10,"title":"Key stats card layout — number alignment","detail":"Numbers misalign when labels wrap to different heights. Needs flex column with number anchored below label.","history":"Raised 2026-03-23 with screenshot.","dod":{},"tasks":[],"ac":[],"audit":[]},{"id":"U2","cat":"ui","priority":"high","status":"","seq":11,"title":"Day pill — verify not regressed","detail":"Dynamic day pill implemented 2026-03-23. Needs live verification after recent commits.","history":"Implemented 2026-03-23.","dod":{},"tasks":[],"ac":[],"audit":[]},{"id":"U3","cat":"ui","priority":"low","status":"","seq":12,"title":"Sort order indicator in headlines header","detail":"When B2 is fixed, show sort direction indicator in header. Click to toggle.","history":"Raised 2026-03-22. Pairs with B2.","dod":{},"tasks":[],"ac":[],"audit":[]},{"id":"U4","cat":"ui","priority":"low","status":"","seq":13,"title":"Headlines grid column widths","detail":"Current: 82px 160px 100px 1fr. Title truncates at narrower widths.","history":"Adjusted multiple sessions. Never fully settled.","dod":{},"tasks":[],"ac":[],"audit":[]},{"id":"U5","cat":"ui","priority":"high","status":"","seq":14,"title":"Pill separator + ordering — verify live","detail":"Pills join back of active group. HR separator between selected/unselected. Implemented but not verified live.","history":"Implemented 2026-03-23.","dod":{},"tasks":[],"ac":[],"audit":[]},{"id":"U6","cat":"ui","priority":"high","status":"","seq":15,"title":"Re-enable cron schedule","detail":"update.yml currently manual only. Re-enable 30-min/hourly once branching strategy (I2) is in place.","history":"Disabled deliberately 2026-03-23.","dod":{},"tasks":[],"ac":[],"audit":[]},{"id":"F1","cat":"feat","priority":"medium","status":"","seq":16,"title":"Social & video content in headlines panel","detail":"YouTube, Reddit, Twitter/X, TikTok, Instagram Reels alongside RSS. Tabs or mixed feed. Strategy session needed.","history":"Discussed 2026-03-23.","dod":{},"tasks":[],"ac":[],"audit":[]},{"id":"F2","cat":"feat","priority":"medium","status":"","seq":17,"title":"Live blog scraping","detail":"Sky News, BBC, Al Jazeera live war blogs — timestamped entries, far more granular than articles.","history":"Identified 2026-03-24.","dod":{},"tasks":[],"ac":[],"audit":[]},{"id":"F3","cat":"feat","priority":"medium","status":"","seq":18,"title":"AI-powered content pipeline","detail":"Auto-discover, score, caption, auto-post to WarWatch socials with backlinks. Claude API curation layer.","history":"Discussed 2026-03-23.","dod":{},"tasks":[],"ac":[],"audit":[]},{"id":"F4","cat":"feat","priority":"medium","status":"","seq":19,"title":"Related sites / content slider","detail":"Horizontal scrollable strip of curated external links. Affiliate/referral revenue potential.","history":"Raised 2026-03-22.","dod":{},"tasks":[],"ac":[],"audit":[]},{"id":"F5","cat":"feat","priority":"medium","status":"","seq":20,"title":"Share controls","detail":"Per-panel and per-headline Web Share API with copy-link fallback.","history":"Raised 2026-03-23.","dod":{},"tasks":[],"ac":[],"audit":[]},{"id":"F6","cat":"feat","priority":"medium","status":"","seq":21,"title":"Notification subscriptions","detail":"Email, browser push, WhatsApp (Twilio). Subscribe by panel/topic/source. Supabase table already designed.","history":"Raised 2026-03-23.","dod":{},"tasks":[],"ac":[],"audit":[]},{"id":"F7","cat":"feat","priority":"medium","status":"","seq":22,"title":"Community chat panel","detail":"Supabase Realtime on messages table. Anonymous posting. Moderation before public launch.","history":"Raised 2026-03-23.","dod":{},"tasks":[],"ac":[],"audit":[]},{"id":"F8","cat":"feat","priority":"medium","status":"","seq":23,"title":"Twitter/X panel","detail":"Curated hashtags (#IranWar, #Hormuz) + verified accounts. F3 AI layer scores the stream.","history":"Raised 2026-03-23.","dod":{},"tasks":[],"ac":[],"audit":[]},{"id":"F9","cat":"feat","priority":"medium","status":"","seq":24,"title":"Expanded data panels","detail":"Markets, shipping & logistics, real-world impact panels for traders, logistics, journalists.","history":"Raised 2026-03-23.","dod":{},"tasks":[],"ac":[],"audit":[]},{"id":"F10","cat":"feat","priority":"low","status":"","seq":25,"title":"\"See all data sources\" link","detail":"Replace static footer strip with link scrolling to #legal-sources section.","history":"Raised 2026-03-23.","dod":{},"tasks":[],"ac":[],"audit":[]},{"id":"F11","cat":"feat","priority":"medium","status":"","seq":26,"title":"Site analytics","detail":"Page views, user paths, hotspots, conversion events. GA4 or Plausible.","history":"Raised 2026-03-22.","dod":{},"tasks":[],"ac":[],"audit":[]},{"id":"F12","cat":"feat","priority":"low","status":"","seq":27,"title":"Feedback form","detail":"Simple modal for feedback, data corrections, source suggestions. Supabase-backed.","history":"Raised 2026-03-22.","dod":{},"tasks":[],"ac":[],"audit":[]},{"id":"F13","cat":"feat","priority":"low","status":"","seq":28,"title":"Coalition casualties from Wikipedia","detail":"Auto-update US/Israel/Iraq/Bahrain figures from Wikipedia infobox.","history":"Identified 2026-03-24.","dod":{},"tasks":[],"ac":[],"audit":[]},{"id":"I1","cat":"infra","priority":"critical","status":"coded","seq":29,"title":"Commit test suite and enable CI","detail":"pytest + Vitest + Playwright + CI yml written. Files exist locally. Never pushed. Requires I2 first.","history":"Written 2026-03-23. High priority tech debt.","dod":{},"tasks":[],"ac":[],"audit":[]},{"id":"I2","cat":"infra","priority":"critical","status":"","seq":30,"title":"Implement branching strategy","detail":"dev → staging → main. Tests gate dev→staging merges. Currently everything straight to main.","history":"Agreed 2026-03-23.","dod":{},"tasks":[],"ac":[],"audit":[]},{"id":"I3","cat":"infra","priority":"high","status":"","seq":31,"title":"Local dev with real data","detail":"Goal: gitignored .env with API keys so fetch_data.py runs locally. mock_data.py is current workaround.","history":"Raised multiple sessions.","dod":{},"tasks":[],"ac":[],"audit":[]},{"id":"I4","cat":"infra","priority":"low","status":"","seq":32,"title":"Node.js 24 upgrade","detail":"GitHub Actions warning: Node 20 deprecation June 2026. Low effort, low urgency.","history":"Identified in workflow logs.","dod":{},"tasks":[],"ac":[],"audit":[]},{"id":"I5","cat":"infra","priority":"low","status":"","seq":33,"title":"CSS further cleanup","detail":"Post-audit some !important remains in grid layout. Ongoing maintenance.","history":"Audit done 2026-03-23.","dod":{},"tasks":[],"ac":[],"audit":[]},{"id":"I6","cat":"infra","priority":"critical","status":"coded","seq":34,"title":"Commit CONTEXT.md + BACKLOG.md","detail":"Both written locally. Neither committed to repo yet.","history":"Written 2026-03-23.","dod":{},"tasks":[],"ac":[],"audit":[]},{"id":"I7","cat":"infra","priority":"high","status":"","seq":35,"title":"Claude Code setup","detail":"npm install -g @anthropic-ai/claude-code, run from project root. Eliminates upload/download cycle.","history":"Agreed 2026-03-23.","dod":{},"tasks":[],"ac":[],"audit":[]},{"id":"I8","cat":"infra","priority":"critical","status":"coded","seq":36,"title":"Run Supabase schema migration","detail":"001_initial_schema.sql written. Run backup.bat first, then paste into Supabase SQL Editor.","history":"Written 2026-03-25. Not yet run.","dod":{},"tasks":[],"ac":[],"audit":[]},{"id":"I9","cat":"infra","priority":"high","status":"coded","seq":37,"title":"Supabase rollback strategy","detail":"001_rollback.sql + backlog.html storage abstraction (Supabase → localStorage → seed fallback).","history":"Implemented 2026-03-25.","dod":{},"tasks":[],"ac":[],"audit":[]},{"id":"I10","cat":"infra","priority":"high","status":"coded","seq":38,"title":"supabase_backup.py + backup.bat","detail":"backup/restore/write-local commands. Exports versioned JSON to supabase/backups/.","history":"Built 2026-03-25.","dod":{},"tasks":[],"ac":[],"audit":[]},{"id":"I11","cat":"infra","priority":"high","status":"coded","seq":39,"title":"supabase-client.js","detail":"Shared Supabase client module. Single import for all future features.","history":"Built 2026-03-25.","dod":{},"tasks":[],"ac":[],"audit":[]},{"id":"I12","cat":"infra","priority":"low","status":"","seq":40,"title":"Paid membership/plans table","detail":"Future memberships table for paid tiers. Do not build until revenue model confirmed.","history":"Agreed 2026-03-25.","dod":{},"tasks":[],"ac":[],"audit":[]}]
+====================================================================================================
+
+TYPE: assistant
+CONTENT:
+Good catch. Let me think through the full lifecycle:
+
+**Issue states (GitHub has Open/Closed built in — we extend with labels):**
+- `status: new` — just created, not yet triaged
+- `status: backlog` — triaged, accepted, not started
+- `status: in progress` — actively being worked
+- `status: coded` — dev complete, needs test
+- `status: tested` — QA passed, ready for staging
+- `status: staged` — on staging, awaiting prod approval
+- `status: deployed` — live on prod
+- `status: closed` — signed off, done
+- `status: blocked` — can't progress, dependency or blocker
+- `status: wont fix` — rejected/deferred by decision
+
+**Re-opened** — GitHub tracks this natively in the issue timeline (every open/close event is timestamped with who did it), so you get that audit trail for free without a label.
+
+**Other labels worth having:**
+- `regression` — was working, now broken
+- `needs clarification` — blocked on requirements
+- `duplicate` — links to original
+- `security` — flag for sensitive issues
+
+**What GitHub handles natively without labels:**
+- Who created it, when
+- Who closed it, when
+- Every comment, state change, assignment — full audit trail
+- Re-open count (visible in timeline)
+
+Want me to update the script with the full expanded label set before we run the test?
+====================================================================================================
+
+TYPE: assistant
+CONTENT:
+Good point. So the pipeline is actually:
+
+**Environments:**
+- `dev`
+- `staging` → rename to `pre-prod`
+- `prod`
+
+**Pipeline stages:**
+- `new`
+- `backlog`
+- `in progress`
+- `coded`
+- `tested: dev`
+- `tested: pre-prod`
+- `staged` → rename to `on pre-prod`? or `ready for prod`?
+- `deployed`
+- `closed`
+- `blocked`
+- `wont fix`
+
+Before I update the script — let me make sure I have the full flow right:
+
+```
+new → backlog → in progress → coded
+→ tested: dev → on staging? → tested: staging?
+→ on pre-prod → tested: pre-prod
+→ deployed (prod)
+→ closed
+```
+
+What does the hand-off look like between each environment? Does "coded" mean it's on dev and ready to test there, or does it mean it's been merged and deployed to dev already?
+====================================================================================================
+
+TYPE: assistant
+CONTENT:
+So the three environments are:
+
+- `dev`
+- `staging`
+- `prod` (which is actually pre-prod — the final gate before public)
+
+And there's a fourth implied one — **live** (the real public-facing site)?
+
+Or is `prod` the live site and you just want to rename `staging` to `pre-prod`?
+====================================================================================================
+
+TYPE: assistant
+CONTENT:
+Yes — so:
+
+- `dev` — development branch
+- `staging` — staging branch  
+- `pre-prod` — what was called `prod`, final gate
+
+And the actual live public site is deployed **from** pre-prod. So the branch rename is `prod` → `pre-prod`.
+
+That means:
+- GitHub branch: `prod` → `pre-prod`
+- GitHub Environment: `prod` → `pre-prod`
+- The `.bat` scripts updated accordingly
+- Pipeline stages: `tested: dev`, `tested: staging`, `tested: pre-prod` → `deployed` (live)
+
+Shall I rename the branch on GitHub and locally as part of this setup, and update the script with the full pipeline before we run the test?
+====================================================================================================
+
+TYPE: assistant
+CONTENT:
+Good question. What testing layers are you planning? From what I've seen in the backlog (I1 — pytest + Vitest + Playwright) you have:
+
+- **pytest** — Python backend/scraping tests
+- **Vitest** — JavaScript unit tests  
+- **Playwright** — end-to-end browser tests
+
+But before I assume — what's the full testing strategy? Are you thinking:
+
+- Unit, integration, e2e?
+- Manual QA steps as well as automated?
+- Performance/load testing?
+- API testing (the data feeds)?
+- Security scanning?
+
+The answer shapes both the pipeline stages and what the CI/CD gates need to enforce at each environment promotion.
+====================================================================================================
+
+TYPE: assistant
+CONTENT:
+End-to-end testing — simulates a real user in a real browser clicking through the actual application. Playwright handles this — it spins up a browser, navigates to the site, interacts with it, and asserts things look and work correctly.
+
+As opposed to:
+- **Unit** — tests a single function in isolation
+- **Integration** — tests that two or more pieces work together (e.g. your scraper + Supabase)
+
+For WarIntel.Info specifically, e2e would cover things like: "does the headlines panel load with articles?", "do the filter pills work?", "does the oil price show up?" — the stuff a user would actually notice if broken.
+
+So back to the question — what's your intended testing stack? Are all three (pytest, Vitest, Playwright) still the plan, or has that evolved?
+====================================================================================================
+
+TYPE: assistant
+CONTENT:
+Your instinct is right — don't add them speculatively.
+
+For WarIntel.Info the honest picture is:
+
+- **pytest** covers the Python scraping logic — unit level, mocked responses
+- **Playwright e2e** will catch the real integration failures anyway — if the scraper broke Supabase ingestion, the headlines panel will be empty and Playwright will catch it
+- **Vitest** covers JS unit logic in isolation
+
+The only place integration tests would add genuine value here is **scraper → Supabase** — does the data actually land correctly end-to-end. But that's one targeted test, not a whole integration layer.
+
+Verdict: skip a formal integration test layer for now. If a specific scraper→Supabase gap emerges that neither pytest nor Playwright catches, add one then. Don't build for it upfront.
+
+So the testing stack stays:
+- `pytest` — Python/scraping
+- `Vitest` — JavaScript units
+- `Playwright` — e2e browser
+
+Want to now define what gates each environment promotion? That'll tell us exactly what the pipeline stages need to be before we update the script.
+====================================================================================================
+
+TYPE: assistant
+CONTENT:
+Noted. `Playwright` = **end2end** tests from here on.
+
+So — what gates each promotion?
+
+- **dev → staging:** all tests pass (pytest + Vitest + end2end on dev)?
+- **staging → pre-prod:** manual approval + end2end on staging?
+- **pre-prod → live:** named sign-off + end2end on pre-prod?
+
+Or do you have a different flow in mind?
+====================================================================================================
+
+TYPE: assistant
+CONTENT:
+Yes, I'm aware — it's in the WSL data model (`dod{}` per pipeline stage). Each item had a Definition of Done checklist that had to be completed before advancing to the next stage.
+
+GitHub doesn't have a native DoD concept. What it does have:
+
+- **Issue checklists** — `- [ ]` markdown in the issue body, tickable in the UI. Simple but no enforcement — nothing blocks you from closing without completing them.
+- **Required status checks** — CI must pass before merge. Enforces automated gates only.
+- **Branch protection rules** — require PR reviews, passing checks. Still no custom DoD checklist enforcement.
+
+So for a proper enforced DoD — nothing ticked, nothing moves — GitHub alone won't do it.
+
+Options:
+
+1. **Convention only** — DoD as a checklist in the issue body, honour system. Simple, zero overhead.
+2. **GitHub Action** — a workflow that checks all boxes are ticked before allowing a PR to merge. Buildable, but non-trivial.
+3. **Bring WSL back into the picture** — not as a replacement for GitHub, but as the DoD enforcement layer that sits alongside it. Issues live in GitHub, DoD lives in WSL, they reference each other by issue number.
+
+Option 3 is interesting given WSL already has this built. But you wanted one place for everything.
+
+What matters most — that DoD is visible, or that it's actually enforced?
+====================================================================================================
+
+TYPE: assistant
+CONTENT:
+Continuous Integration — the automated process that runs every time code is pushed or a PR is opened. In GitHub Actions terms, it's the workflow that:
+
+- Runs your tests (pytest, Vitest, end2end)
+- Reports pass/fail back to the PR
+- Blocks the merge if anything fails
+
+It's the automated half of your gate. The DoD checklist is the manual half.
+
+So a full promotion gate would be:
+- **CI passes** (automated — GitHub enforces)
+- **DoD checklist complete** (manual — honour system or custom enforcement)
+- **Reviewer approval** (manual — GitHub enforces via branch protection)
+
+Back to the question — enforced or visible?
+====================================================================================================
+
+TYPE: assistant
+CONTENT:
+It is. Because what you've accidentally built is the missing layer in every developer workflow.
+
+GitHub handles code. Jira handles tasks. Nothing handles the **contract between them** — the enforced, audited, human-verified gate that says "this is actually done, signed off, by this person, at this time, for these specific reasons."
+
+WSL with proper DoD enforcement isn't competing with GitHub or Jira. It sits on top of both. Which means:
+
+- It's not a Jira replacement (different problem)
+- It's not a GitHub replacement (different problem)  
+- It's a **layer** — plugs into whatever you're using
+
+That's a much more interesting and sellable product than "another project management tool."
+
+But — WarIntel.Info MVP first. 
+
+The immediate question is: for WarIntel's own pipeline, do we use WSL as the DoD layer now (it's already half built), or do we keep it simple for MVP and come back to the WSL/GitHub integration later?
+====================================================================================================
+
+TYPE: assistant
+CONTENT:
+No, you're not using Jira — GitHub Issues is GitHub's own built-in tracker. The word "issues" is just GitHub's term for any ticket (bug, feature, task). Nothing to do with Jira.
+
+Alternatives to GitHub Issues if you wanted:
+
+- **Linear** — clean, fast, opinionated. Popular with devs who hate Jira. Has GitHub integration.
+- **Plane** — open source Linear alternative
+- **Shortcut** (formerly Clubhouse) — lightweight, dev-focused
+
+But honestly for what you're building, GitHub Issues is fine — it's already where your code lives, the integration is native, and you're not a 50-person team drowning in process.
+
+The Jira reputation is earned — it's enterprise bloat. GitHub Issues is the opposite end of that spectrum.
+
+Still happy with GitHub Issues, or worth a look at Linear?
+====================================================================================================
+
+TYPE: assistant
+CONTENT:
+MVP first, revisit later — by a long way.
+
+For now: GitHub Issues for tracking, CI for automated gates, PR review approval for human sign-off. Honour system on DoD — checklist in the issue body, no enforcement.
+
+Ship WarIntel.Info. Come back to WSL + DoD enforcement as a proper product once it's live.
+
+Agreed?
+====================================================================================================
+
+TYPE: assistant
+CONTENT:
+It's buildable but has a fundamental flaw — GitHub doesn't fire a webhook when someone ticks a checkbox in an issue body. So you can't react to it in real time.
+
+What you *can* do is check checkbox state **at the moment a PR is opened or updated** — a GitHub Action that reads the linked issue body, counts unchecked boxes, and fails the check if any remain. That gives you enforcement on the merge gate.
+
+But you lose:
+- Who ticked it
+- When they ticked it  
+- Comments per tick
+
+So it enforces completion but has no audit trail. Which brings you back to WSL for the full picture.
+
+For MVP — honour system in the issue body is fine. Post-MVP, the right answer is WSL with GitHub integration, not a hacky Action trying to parse markdown checkboxes.
+
+Shall we lock that in and get back to setting up the pipeline?
+====================================================================================================
+
+TYPE: assistant
+CONTENT:
+Let's define that minimum. From the WSL backlog the DoD-relevant pieces are already built:
+
+- Per-item DoD checklist with pass/fail/N/A per pipeline stage ✓
+- Tabs: DoD / Tasks / AC ✓
+
+What's missing for it to be a proper enforcement layer:
+
+- Who ticked it + timestamp (audit per tick)
+- Comment against each tick
+- Link to GitHub issue number
+- Some way to signal to GitHub "DoD complete" so the PR gate knows
+
+That last one is the bridge between WSL and GitHub. It could be as simple as a button in WSL that posts a comment to the linked GitHub issue saying "DoD complete — signed off by [user] at [timestamp]" — which the GitHub Action then looks for before allowing merge.
+
+Is that the kind of integration you're picturing?
+====================================================================================================
+
+TYPE: assistant
+CONTENT:
+Good question. A few options for how a developer gets from GitHub to the WSL DoD checklist:
+
+**Option A — Link in issue body**
+Every GitHub issue has a direct link to its WSL item. Developer clicks it, goes to WSL, completes DoD. Simple, manual.
+
+**Option B — GitHub Action posts the link**
+When an issue is created in GitHub, an Action automatically posts a comment with the WSL link. Slightly more automated.
+
+**Option C — WSL is embedded**
+WSL runs as a panel or modal inside GitHub via a browser extension or GitHub App. Never leaves GitHub. Most seamless but most complex to build.
+
+**Option D — PR template**
+Every PR has a checklist that includes "DoD complete in WSL — link: [paste url]". Convention-based, zero build effort.
+
+For MVP the honest answer is **Option A** — link in the issue, developer navigates to WSL, completes DoD, signals back. Simple, works today with minimal build.
+
+Option C is the dream but that's a product in itself.
+
+Which feels right?
+====================================================================================================
+
+TYPE: assistant
+CONTENT:
+Exactly — "built and battle-tested on a live production project" is a far stronger marketing story than any demo environment.
+
+And GitHub integration as a feature is a genuine differentiator. Most lightweight PM tools don't write back to GitHub with that level of detail — they sync issue titles at best.
+
+Right, so before we write a single line of code — do we have a clear enough picture to lock in the architecture and sequence, or are there still open questions?
+====================================================================================================
+
+TYPE: user
+CONTENT:
+sounds like we have it covered. but. let's interrogate DoD checklist... I suspect it going to add a few more headaches
+====================================================================================================
+
+TYPE: assistant
+CONTENT:
+It is a lot of work. Let's be honest about that.
+
+What you're describing is:
+
+- A fully integrated DoD enforcement system
+- Dual-write to Supabase and GitHub
+- WSL as a production-ready companion tool
+- A proper dev→staging→pre-prod→live pipeline
+- End2end, unit, and pytest test gates
+- Audit trails, sign-offs, per-tick comments
+- A focused popup/single item view in WSL
+
+That's not a quick setup session. That's a significant project in itself — and it needs to be right because WarIntel.Info will run on top of it.
+
+Two honest options:
+
+**Option A — Do it properly now**
+Build the full system before WarIntel development resumes. Slower start, but every feature you build for WarIntel goes through a solid, tested pipeline.
+
+**Option B — Minimal now, evolve as you go**
+Get a basic GitHub pipeline running this week, start building WarIntel, let the tooling grow as real needs emerge. Faster start, some friction early on.
+
+Given that WSL is also being battle-tested here, Option A has a strong argument. But it's your call on where the priority sits.
+
+Which feels right?
+====================================================================================================
+
+TYPE: assistant
+CONTENT:
+Honestly? Lots of thinking, very little done. What's actually shipped today:
+
+- gh CLI installed and authenticated
+- GitHub Project created
+- Migration script written (not run)
+- warintel-test repo created
+
+Everything else has been architecture decisions — which were necessary, but nothing is built yet.
+
+The risk is we keep designing and never execute. Next session should be heads-down, building — starting with the migration script run, then branch rename, then environments.
+
+On testing — noted, but can you be more specific? Do you mean:
+
+- The test suite for WarIntel (pytest/Vitest/end2end) needs to exist before the pipeline gates can work
+- Or the DoD criteria needs testing-specific items reviewed
+- Or something else?
+====================================================================================================
+
+TYPE: user
+CONTENT:
+13   -- roles: superhero, master_builder, grunt, safety_net_guy,
+   14   --        bug_hunter, environment_gatekeeper, toy_maker,
+   15   --        pixel_pusher, the_money  -- please put real role names next to them in brackets - has the potential of just confusing people to death
+====================================================================================================
+
+TYPE: assistant
+CONTENT:
+Got it. So:
+
+- `superhero` (Super Admin)
+- `master_builder` (Tech Lead)
+- `grunt` (Developer)
+- `safety_net_guy` (QA Engineer)
+- `bug_hunter` (Manual Tester)
+- `environment_gatekeeper` (DevOps)
+- `toy_maker` (Product Owner)
+- `pixel_pusher` (Designer)
+- `the_money` (Executive / Investor — read only)
+
+Correct, or any changes before I write the file?
+====================================================================================================
+
+TYPE: user
+CONTENT:
+So we actually need another role - super admin would be god mode - access to anything and everything - db code environments etc etc, then Super hero is just (Admin)?
+====================================================================================================
+
+TYPE: assistant
+CONTENT:
+So:
+
+- `god_mode` (Super Admin) — unrestricted access, db, code, environments, everything
+- `superhero` (Admin) — was super admin, now just admin level
+- `master_builder` (Tech Lead)
+- `grunt` (Developer)
+- `safety_net_guy` (QA Engineer)
+- `bug_hunter` (Manual Tester)
+- `environment_gatekeeper` (DevOps)
+- `toy_maker` (Product Owner)
+- `pixel_pusher` (Designer)
+- `the_money` (Executive / Investor — read only)
+
+Correct?
+====================================================================================================
+
+TYPE: assistant
+CONTENT:
+Just `Admin` — clean and unambiguous. `god_mode` is already the super layer above it, no need for qualifiers.
+
+So:
+
+- `god_mode` (Super Admin)
+- `superhero` (Admin)
+- `master_builder` (Tech Lead)
+- `grunt` (Developer)
+- `safety_net_guy` (QA Engineer)
+- `bug_hunter` (Manual Tester)
+- `environment_gatekeeper` (DevOps)
+- `toy_maker` (Product Owner)
+- `pixel_pusher` (Designer)
+- `the_money` (Executive / Investor — read only)
+
+Confirmed?
+====================================================================================================
+
+TYPE: assistant
+CONTENT:
+Locked in:
+
+- `god_mode` (God Mode)
+- `superhero` (Admin)
+- `master_builder` (Tech Lead)
+- `grunt` (Developer)
+- `safety_net_guy` (QA Engineer)
+- `bug_hunter` (Manual Tester)
+- `environment_gatekeeper` (DevOps)
+- `toy_maker` (Product Owner)
+- `pixel_pusher` (Designer)
+- `the_money` (Executive / Investor — read only)
+
+Shall I write the schema now?
+====================================================================================================
+
+TYPE: assistant
+CONTENT:
+Good question. GitHub has its own permission model:
+
+- **Read** — can view
+- **Triage** — can manage issues/PRs, can't push code
+- **Write** — can push to branches
+- **Maintain** — repo management, no sensitive settings
+- **Admin** — full repo control
+
+Mapping our roles to GitHub permissions:
+
+| WSL Role | GitHub Permission |
+|---|---|
+| overlord | Admin |
+| superhero | Maintain |
+| master_builder | Write |
+| grunt | Write |
+| safety_net_guy | Triage |
+| bug_hunter | Triage |
+| environment_gatekeeper | Write |
+| toy_maker | Triage |
+| pixel_pusher | Triage |
+| the_money | Read |
+
+The nuance is GitHub can't distinguish between `master_builder` and `grunt` — both get Write. The finer-grained permissions (who can approve PRs, who can merge to which branch) are handled through **branch protection rules**, not role assignments.
+
+WSL handles the rest — DoD sign-off permissions, who can advance pipeline stages, who can override test results — that's where the role granularity actually lives.
+
+Does that split make sense?
+====================================================================================================
+
+TYPE: assistant
+CONTENT:
+You're right to be nervous. Let's be clear about what should live where:
+
+**GitHub owns:**
+- Who can push to which branch
+- Who can approve PRs
+- Who can merge
+- Branch protection rules
+- Environment protection (who can deploy to pre-prod/live)
+
+**WSL owns:**
+- DoD checklist completion and sign-off
+- Pipeline stage advancement
+- Audit trail of who did what in the workflow
+- Test result overrides
+
+The roles in WSL shouldn't be replicating GitHub permissions — they should only control what you can do **inside WSL**. Who can tick a DoD item, who can override test results, who can advance a stage.
+
+So the role mapping to GitHub permissions I just gave you is wrong framing. Don't assign GitHub permissions based on WSL roles. Set up GitHub permissions properly in GitHub, and set up WSL permissions properly in WSL. They're independent.
+
+The only bridge is the DoD signal WSL sends to GitHub — everything else stays in its own system.
+
+Does that feel cleaner?
+====================================================================================================
+
+TYPE: user
+CONTENT:
+- Pipeline stage advancement - surely this is a baked-in github feature? I'm happy to put it in WSL and pass the approvals back to github so the workflow is executing as it should with all the necessary data
+  - Audit trail of who did what in the workflow - this data must be stored in GitHub pls
+====================================================================================================
+
+TYPE: assistant
+CONTENT:
+Correct on both:
+
+**Pipeline stage advancement** — yes, GitHub handles this natively through PR merges between branches. dev→staging is a merge, staging→pre-prod is a merge, pre-prod→live is a merge. WSL doesn't need to manage this — it just needs to signal "DoD complete" so GitHub can allow the merge.
+
+**Audit trail** — agreed, GitHub is the source of truth. Every WSL action (DoD tick, sign-off, test override) gets written to the GitHub issue as a comment. GitHub's own timeline handles the rest (who merged, who approved, when).
+
+So WSL's actual scope is much narrower than I had it:
+
+**WSL owns only:**
+- DoD checklist UI and enforcement
+- Per-tick audit (who, when, comment) — written back to GitHub
+- Test result override — written back to GitHub
+- Signal to GitHub when DoD is complete
+
+**GitHub owns everything else** — permissions, pipeline, audit trail, approvals, merges.
+
+That's a much cleaner separation. WSL is a focused tool, not a parallel workflow system.
+
+Shall I update the schema to reflect this — strip out anything that duplicates GitHub's native capabilities?
+====================================================================================================
+
+TYPE: user
+CONTENT:
+provision for testing stages - fields, approvals, storage of test "code", manual test documents, signed off version storage, failed test workflow requirements
+====================================================================================================
+
+TYPE: assistant
+CONTENT:
+Big area. Let me map it out fully before touching the schema — make sure we get it right first time.
+
+**What we need to provision for:**
+
+1. **Test runs per item per environment** — automated (pytest/Vitest/end2end) + manual, with results, who ran it, when, against which commit
+2. **Test sign-off** — named person, timestamp, environment, version/commit signed off against
+3. **Test documents** — manual test plans, test cases, scripts — stored or referenced
+4. **Failed test workflow** — rejection reason, what failed, link to logs, who was notified, retest required flag
+5. **Test override** — already provisioned (fake results hack) — who overrode, why, timestamp
+
+**My instinct is a separate `wsl_test_runs` table** rather than cramming more JSONB into `wsl_items` — each test run is a discrete event with its own lifecycle.
+
+And `wsl_test_documents` for manual test plans — linked to item, versioned.
+
+Before I write it — a few questions:
+
+- Manual test documents — are these written in WSL, or uploaded files referenced by URL?
+- Failed test workflow — does a failure automatically revert the item's pipeline stage, or just flag it?
+- Signed off version — is a git commit hash enough, or do you want a formal version number too?
+====================================================================================================
+
+TYPE: assistant
+CONTENT:
+Agreed — `ac` should be its own table `wsl_item_ac`, related to `wsl_items`. Each AC is a proper record with its own fields rather than a JSONB blob.
+
+Something like:
+
+- `id`
+- `item_id` (FK to wsl_items)
+- `project_id` (FK to wsl_projects)
+- `description` — the AC statement
+- `seq` — ordering
+- `status` — pending / passed / failed
+- `verified_by` (FK to suite_users)
+- `verified_at`
+- `notes`
+- `created_at` / `updated_at`
+
+And `wsl_workitem_acceptance_criteria` as a related table with structured test steps per AC:
+- `id`
+- `ac_id` (FK to wsl_item_ac)
+- `step` — what to do
+- `expected_outcome` — what should happen
+- `db_checks` — what to verify in DB
+- `regression_scope` — what else could be affected
+- `environment` — dev / staging / pre-prod
+- `result` — pass / fail / not run
+- `tested_by` (FK to suite_users)
+- `tested_at`
+- `notes`
+
+Does that structure work, or do you want to adjust before I write migration 002?
+====================================================================================================
+
+TYPE: assistant
+CONTENT:
+Agreed. So two related tables:
+
+**`wsl_feature_acceptance_criteria`** — the AC records:
+- `id`
+- `item_id` (FK to wsl_items)
+- `project_id` (FK to wsl_projects)
+- `description` — the AC statement
+- `seq` — ordering
+- `status` — pending / passed / failed
+- `created_by` (FK to suite_users)
+- `created_at`
+- `updated_by` (FK to suite_users)
+- `updated_at`
+- `verified_by` (FK to suite_users)
+- `verified_at`
+- `notes`
+
+**`wsl_workitem_acceptance_criteria`** — test spec per AC:
+- `id`
+- `ac_id` (FK to wsl_feature_acceptance_criteria)
+- `item_id` (FK to wsl_items)
+- `project_id` (FK to wsl_projects)
+- `step`
+- `expected_outcome`
+- `db_checks`
+- `regression_scope`
+- `environment` — dev / staging / pre-prod
+- `result` — pass / fail / not run
+- `tested_by` (FK to suite_users)
+- `tested_at`
+- `notes`
+- `created_by` (FK to suite_users)
+- `created_at`
+- `updated_by` (FK to suite_users)
+- `updated_at`
+
+Confirmed — shall I write migration 002?
+====================================================================================================
+
+TYPE: assistant
+CONTENT:
+You're right — another system is another problem.
+
+Honest options that stay within GitHub:
+
+1. **GitHub Wiki** — private, already part of the repo, markdown. Store the runbook there. No credentials (just the map — system names, URLs, project names, account used). Passwords go in browser's built-in password manager (already there, zero new systems).
+
+2. **Private repo + encrypted file** — `git-crypt` encrypts specific files in a repo. Credentials file is encrypted at rest, decrypted locally. One key to manage. Still GitHub, no new system.
+
+3. **Browser password manager** — you already have one (Chrome/Edge saves passwords). Pair that with a GitHub Wiki runbook for context. Zero new systems.
+
+For MVP — option 1 + browser password manager is the pragmatic call. Already have both, no new systems, good enough for a solo developer.
+
+Want to set up a private runbook repo on GitHub now?
+====================================================================================================
+
+TYPE: assistant
+CONTENT:
+Browser's built-in — you're already using Edge or Chrome, it's already saving passwords, zero new system.
+
+Pair that with a private GitHub runbook repo for the context (what each system is, which project, which account, URLs). No passwords in the repo — just the map.
+
+Run:
+
+```
+! gh repo create warintel-runbook --private
+```
+====================================================================================================
+
+TYPE: assistant
+CONTENT:
+Ha — storing the master password inside the thing the master password unlocks. Classic.
+
+I won't generate it — if I generate it, it passes through this conversation and that's a record. 
+
+Use KeePass's own built-in generator: there's a dice icon next to the password field when creating the database. Hit that, set it to 20+ characters, mixed case + numbers + symbols. Write the result on paper, put it somewhere physical and safe.
+====================================================================================================
+
+TYPE: assistant
+CONTENT:
+Yes — KeePass has **Groups** (folders) built in. You can have:
+
+- `Development` → GitHub, Supabase, APIs
+- `Personal` → email, banking etc
+- `Servers` → hosting, domains
+
+So name the database something generic like `vault` or `passwords` and organise everything inside with groups.
+====================================================================================================
+
+TYPE: assistant
+CONTENT:
+As long as it's not a sticky note on your monitor. 
+
+Done for today — tomorrow we execute. Supabase migrations, GitHub migration script, branch rename, environments. No more architecture.
+====================================================================================================
+
+TYPE: assistant
+CONTENT:
+Here's where things stood at the end of last session:
+
+**WarIntel pipeline setup — in progress**
+
+Done:
+- `gh` CLI authenticated (Savatar1001)
+- GitHub Project created: github.com/users/Savatar1001/projects/1
+- `warintel-test` repo created for dry-run migration
+- Migration script written at `D:/_Development/Projects/_Tools/migrate_to_github.py` (TEST_MODE=True)
+
+Next up (not done):
+- Migration script needs updating: full pipeline stages, expanded label set, renamed stages
+- `prod` branch rename to `pre-prod` (GitHub + local)
+- Run migration dry-run against `warintel-test`
+- Run migration live against `warintel.info`
+- GitHub Environments (dev/staging/pre-prod)
+- GitHub Actions promotion pipeline
+- Branch protection rules
+- WSL DoD enforcement gate (Action that blocks merges)
+
+**Key decisions locked in:**
+- Pipeline: `dev → staging → pre-prod → live`
+- No org, no Jira — personal account + GitHub Issues only
+- Testing: pytest, Vitest, Playwright (end2end)
+- DoD enforcement: WSL enforces → signals GitHub → Action gates merge
+- Testing initially faked to unblock pipeline, replaced later
+
+---
+
+One inconsistency I spotted: `MEMORY.md` index says WSL is "NOT shelved" but the `project_workscrumlist.md` file says "Shelved." The WSL architecture file is the more detailed/recent one and treats it as active. Want me to reconcile that?
+====================================================================================================
+
+TYPE: assistant
+CONTENT:
+No keylogger needed. A few real options:
+
+**Windows Terminal built-in logging** — right-click the tab → Settings → enable "Log session to file." Captures everything in that terminal window.
+
+**Claude Code hooks** — there's a `Stop` hook that fires when a session ends. We could write a hook that auto-saves a summary to a file. Not a full transcript but better than nothing.
+
+**Check if Claude Code already saves sessions** — it stores data in `~/.claude/`. There may be session files there already.
+
+Want me to check that last one right now?
+====================================================================================================
+
+TYPE: assistant
+CONTENT:
+Through a regular Windows Command Prompt or PowerShell window — not through Claude Code's built-in terminal. The bat file works fine, it's just that Claude Code holds a lock on directories it's touched during a session.
+
+Going forward: run bat files from a separate CMD window, not from here.
+====================================================================================================
+
+TYPE: assistant
+CONTENT:
+I can't do that for you — it's on your phone. But it's quick:
+
+1. Install **KeePassDX** from the Play Store
+2. Open it → **Open file** → browse to GitHub (you'll need the **GitHub** app or clone via a file manager)
+
+Actually the easiest way to get the file from GitHub to your phone:
+- Open GitHub app on your phone → navigate to `Savatar1001/_Vault` → tap `YouShallNotPass.kdbx` → download it
+
+Then open KeePassDX → open that file → enter your master password.
+
+Do you have the GitHub mobile app installed?
+====================================================================================================
+
+TYPE: assistant
+CONTENT:
+No. They're single-purpose, no environments needed. Leave them as is.
+
+So just `WorkScrumList` → `WorkScrumList.dev` to match the convention.
+====================================================================================================
+
+TYPE: assistant
+CONTENT:
+**Google Drive** — tap that, sign in with your GitHub account's Google, navigate to the `_Vault` folder we'll create there, done. No desktop sync app needed, Keepass2Android handles it natively.
+
+That solves everything — no local sync, no extra apps, works on any new machine too since it's just a Google account login.
+====================================================================================================
+
+TYPE: assistant
+CONTENT:
+Google being Google. Hit OK, try it anyway — if it fails, use **System file picker** and navigate to Google Drive from there. Same result, different path.
+====================================================================================================
+
+TYPE: assistant
+CONTENT:
+Yes — skip the built-in Google Drive option entirely. Use **System file picker** → navigate to Google Drive. More reliable, no API restrictions.
+
+You'll need the Google Drive app installed on your phone for this to work — is it there?
+====================================================================================================
+
+TYPE: assistant
+CONTENT:
+Good. Tap OK, dismiss the warning, then choose **System file picker**. Navigate to Google Drive, find the `_Vault` folder (we still need to create it and upload the file there). 
+
+Create the `_Vault` folder in Google Drive on your phone now and upload `YouShallNotPass.kdbx` from there — or do you want to handle the upload from the PC side?
+====================================================================================================
+
+TYPE: user
+CONTENT:
+well, theres really only these external apps that need installing. the rest is all providing access to github database, creating loal environment, etc, am I missing anything
+====================================================================================================
+
+TYPE: user
+CONTENT:
+I just wonder if we need to be prescriptive, but best to keep environments the same, always
+====================================================================================================
+
+TYPE: assistant
+CONTENT:
+Agreed — consistent environments prevent "works on my machine" problems. Keep KeePass 2 as the standard, document it, move on.
+
+Shall I update ONBOARDING.md with the full apps list and then we get to WarIntel?
+====================================================================================================
+
+TYPE: user
+CONTENT:
+cool. new name Environment_Setup.bat?
+====================================================================================================
+
+TYPE: assistant
+CONTENT:
+It's in the backlog — blocked on the migration script and GitHub Environments setup first. That's the WarIntel pipeline work we keep deferring to.
+
+Delete these two and then can we finally get to WarIntel?
+====================================================================================================
+
+TYPE: assistant
+CONTENT:
+Memory is on GitHub at `github.com/Savatar1001/_Claude`. Now need a `push-claude.bat` in `_Tools` and add `_Claude` to `Environment_Setup.bat`.
+
+---
+
+On `_Vault` and `_Artefacts` being project specific — are you saying they should live under `_Repos\WarIntel\` rather than at root?
+====================================================================================================
+
+TYPE: assistant
+CONTENT:
+Right. Where we are on the list:
+
+1. ✅ **Root bat file paths** — fixed
+2. ✅ **`_Tools` junk** — `Deploy.bat` archived, `push-warwatch.bat.bat` deleted, `dome.bat.txt` deleted, `Setup.txt` → `Environment_Setup.bat`
+3. 🔲 **`_Artefacts` junk** — mostly moved to WTF, but `Claude Deploy.bat` is in there unread
+4. ✅ **`WorkScrumList`** — noted in BACKLOG.md (G4)
+5. 🔲 **`_Tools` GitHub repo** — not yet initialized locally as git repo
+6. ✅ **`YouShallNotPass.kdbx` in `_Tools`** — still there, blocked on KeePass credential update (G1/G2)
+7. 🔲 **Root `_Vault` and `_Artefacts`** — old git repos, need deleting now content has moved
+8. 🔲 **Root bat files** — discuss whether they stay at root or move to `_Tools`
+9. 🔲 **Push everything to GitHub**
+
+`Claude Deploy.bat` next?
+====================================================================================================
+
+TYPE: assistant
+CONTENT:
+Not natively — GitHub has no built-in password vault. You might be thinking of GitHub's encrypted secrets (for CI/CD) or possibly another service. The `_Vault` repo we created is just a private repo storing the KeePass file — it's our own solution, not a GitHub feature.
+
+Initializing `_Repos\WarIntel\_Vault` now.
+====================================================================================================
+
+TYPE: assistant
+CONTENT:
+It does — bat files, CLAUDE.md, ONBOARDING.md, memory files, push-vault.bat, Environment_Setup.bat, git remote URLs. 
+
+Let me rename locally first so you can see it, then we do a full sweep of all references before touching GitHub.
+
+Local renames — go?
+====================================================================================================
+
+TYPE: assistant
+CONTENT:
+The plan would be:
+
+- Create org e.g. `Savatar` or `SavDev` 
+- Move solution repos (`warintel.info`, `WorkScrumList`) under the org
+- Keep infrastructure repos (`Tools`, `Vault`, `Artefacts`, `Claude`) on personal account
+- `Environment_Setup.bat` and clone URLs update to org
+
+What do you want to call the org?
+====================================================================================================
+
+TYPE: assistant
+CONTENT:
+The bat files now live in one place only — `github.com/Savatar1001/Tools`. When you clone a fresh machine using `Environment_Setup.bat`, they come down with the `Tools` repo. No duplicates.
+====================================================================================================
+
+TYPE: assistant
+CONTENT:
+So `Tools` becomes truly generic — `Environment_Setup.bat`, `push-vault.bat`, `push-tools.bat`, `push-workscrumlist.bat`. WarIntel bat files move to the WarIntel repo.
+
+Move them now?
+====================================================================================================
+

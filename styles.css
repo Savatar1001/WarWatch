@@ -807,7 +807,7 @@ main {
 .ct-notes { font-family: var(--body); font-size: var(--text-sm); color: var(--white2); min-width: 0; word-break: break-word; }
 
 /* ── ARTICLE PANEL ── */
-#w-events { position: relative; overflow: hidden; }
+#w-events { position: relative; overflow: visible; }
 .ap-overlay {
   display: none;
   position: absolute;
@@ -818,8 +818,8 @@ main {
 }
 .ap-overlay.visible { display: flex; flex-direction: column; }
 @keyframes apSlideUp {
-  from { transform: translateY(100%); opacity: 0; }
-  to   { transform: translateY(0);    opacity: 1; }
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
 .ap-panel { display: flex; flex-direction: column; gap: 0; overflow-y: auto; }
 .ap-header {
@@ -828,7 +828,8 @@ main {
   border-bottom: 1px solid var(--border);
   flex-shrink: 0;
 }
-.ap-meta { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.ap-meta { display: flex; align-items: center; gap: 4px 10px; flex-wrap: wrap; }
+.ap-label { font-family: var(--mono); font-size: var(--text-xs); color: var(--white3); opacity: 0.5; text-transform: uppercase; }
 .ap-type {
   font-family: var(--mono); font-size: 9px; text-transform: uppercase;
   letter-spacing: 0.07em; padding: 2px 7px; border-radius: 3px;
@@ -840,16 +841,17 @@ main {
 .ap-source { font-family: var(--mono); font-size: var(--text-sm); color: var(--white3); }
 .ap-date   { font-family: var(--mono); font-size: var(--text-sm); color: var(--white3); }
 .ap-close {
-  background: none; border: 1px solid var(--border); color: var(--white3);
+  background: rgba(192,57,43,0.15); border: 1px solid rgba(192,57,43,0.6); color: #e74c3c;
   border-radius: 6px; padding: 4px 10px; cursor: pointer; font-size: var(--text-sm);
   transition: all 0.15s; flex-shrink: 0;
 }
-.ap-close:hover { background: var(--white5); color: var(--white2); }
+.ap-close:hover { background: rgba(192,57,43,0.3); border-color: #e74c3c; }
 .ap-headline {
   padding: 16px 18px 12px;
   font-family: var(--body); font-size: var(--text-md); font-weight: 600;
   color: var(--white2); line-height: 1.5;
   border-bottom: 1px solid var(--border); flex-shrink: 0;
+  cursor: pointer;
 }
 .ap-ad {
   padding: 12px 18px;

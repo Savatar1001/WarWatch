@@ -105,21 +105,14 @@ window.HF = (() => {
       pillBar.querySelector('.hf-pill-sep')?.remove();
 
       if (activeSources.size > 0) {
-        const allBtn = pillBar.querySelector('[data-source="all"]');
-        const activePills   = [...pillBar.querySelectorAll('.hf-btn.hf-active:not([data-source="all"])')];
         const inactivePills = [...pillBar.querySelectorAll('.hf-btn:not(.hf-active):not([data-source="all"])')];
-
-        // Active pills sit right after All (preserve their existing order)
-        activePills.forEach(btn => allBtn.after(btn));
-        // Wait — we want newly selected at BACK, so just append them in existing order
-        // Re-append all active to maintain click order (they're already after All)
 
         // Add full-width horizontal separator
         const sep = document.createElement('div');
         sep.className = 'hf-pill-sep';
         pillBar.appendChild(sep);
 
-        // Inactive pills after separator
+        // Inactive pills after separator — active pills stay in their existing DOM order
         inactivePills.forEach(btn => pillBar.appendChild(btn));
       }
     }
@@ -204,26 +197,34 @@ window.HF = (() => {
       apType.textContent   = tagEl?.firstChild?.textContent?.trim() || '';
       apType.className     = 'ap-type ' + typeClass(apType.textContent);
 
-      // Position overlay starting from the top of the clicked row
-      const widget   = document.getElementById('w-events');
-      const rowTop   = row.offsetTop;
-      overlay.style.top = rowTop + 'px';
+      // Position overlay directly below the clicked row
+      overlay.style.top = (row.offsetTop + row.offsetHeight) + 'px';
 
       overlay.classList.add('visible');
       fetchSummary(headline);
+    }
+
+    function closePanel() {
+      overlay.classList.remove('visible');
+      document.querySelectorAll('.event-item.ap-active').forEach(r => r.classList.remove('ap-active'));
     }
 
     document.querySelectorAll('.event-item').forEach(row => {
       row.addEventListener('click', e => {
         if (e.target.closest('.ap-close')) return;
         e.preventDefault();
+        if (row.classList.contains('ap-active')) {
+          closePanel();
+          return;
+        }
+        closePanel();
+        row.classList.add('ap-active');
         openPanel(row);
       });
     });
 
-    document.getElementById('ap-close')?.addEventListener('click', () => {
-      overlay.classList.remove('visible');
-    });
+    document.getElementById('ap-close')?.addEventListener('click', closePanel);
+    document.getElementById('ap-headline')?.addEventListener('click', closePanel);
 
     updatePillCounts();
     filter('all');

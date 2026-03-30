@@ -1,0 +1,196 @@
+TYPE: assistant
+CONTENT:
+Here's where things stood at the end of last session:
+
+**WarIntel pipeline setup — in progress**
+
+Done:
+- `gh` CLI authenticated (Savatar1001)
+- GitHub Project created: github.com/users/Savatar1001/projects/1
+- `warintel-test` repo created for dry-run migration
+- Migration script written at `D:/_Development/Projects/_Tools/migrate_to_github.py` (TEST_MODE=True)
+
+Next up (not done):
+- Migration script needs updating: full pipeline stages, expanded label set, renamed stages
+- `prod` branch rename to `pre-prod` (GitHub + local)
+- Run migration dry-run against `warintel-test`
+- Run migration live against `warintel.info`
+- GitHub Environments (dev/staging/pre-prod)
+- GitHub Actions promotion pipeline
+- Branch protection rules
+- WSL DoD enforcement gate (Action that blocks merges)
+
+**Key decisions locked in:**
+- Pipeline: `dev → staging → pre-prod → live`
+- No org, no Jira — personal account + GitHub Issues only
+- Testing: pytest, Vitest, Playwright (end2end)
+- DoD enforcement: WSL enforces → signals GitHub → Action gates merge
+- Testing initially faked to unblock pipeline, replaced later
+
+---
+
+One inconsistency I spotted: `MEMORY.md` index says WSL is "NOT shelved" but the `project_workscrumlist.md` file says "Shelved." The WSL architecture file is the more detailed/recent one and treats it as active. Want me to reconcile that?
+====================================================================================================
+
+TYPE: assistant
+CONTENT:
+I can't do that for you — it's on your phone. But it's quick:
+
+1. Install **KeePassDX** from the Play Store
+2. Open it → **Open file** → browse to GitHub (you'll need the **GitHub** app or clone via a file manager)
+
+Actually the easiest way to get the file from GitHub to your phone:
+- Open GitHub app on your phone → navigate to `Savatar1001/_Vault` → tap `YouShallNotPass.kdbx` → download it
+
+Then open KeePassDX → open that file → enter your master password.
+
+Do you have the GitHub mobile app installed?
+====================================================================================================
+
+TYPE: assistant
+CONTENT:
+No. They're single-purpose, no environments needed. Leave them as is.
+
+So just `WorkScrumList` → `WorkScrumList.dev` to match the convention.
+====================================================================================================
+
+TYPE: assistant
+CONTENT:
+Right — and it scales. When WarIntel gets staging/prod repos they slot under `WarIntel\`. Same for WSL. Makes sense.
+
+Shall I proceed?
+====================================================================================================
+
+TYPE: assistant
+CONTENT:
+**Google Drive** — tap that, sign in with your GitHub account's Google, navigate to the `_Vault` folder we'll create there, done. No desktop sync app needed, Keepass2Android handles it natively.
+
+That solves everything — no local sync, no extra apps, works on any new machine too since it's just a Google account login.
+====================================================================================================
+
+TYPE: assistant
+CONTENT:
+Google being Google. Hit OK, try it anyway — if it fails, use **System file picker** and navigate to Google Drive from there. Same result, different path.
+====================================================================================================
+
+TYPE: assistant
+CONTENT:
+Yes — skip the built-in Google Drive option entirely. Use **System file picker** → navigate to Google Drive. More reliable, no API restrictions.
+
+You'll need the Google Drive app installed on your phone for this to work — is it there?
+====================================================================================================
+
+TYPE: assistant
+CONTENT:
+Good. Tap OK, dismiss the warning, then choose **System file picker**. Navigate to Google Drive, find the `_Vault` folder (we still need to create it and upload the file there). 
+
+Create the `_Vault` folder in Google Drive on your phone now and upload `YouShallNotPass.kdbx` from there — or do you want to handle the upload from the PC side?
+====================================================================================================
+
+TYPE: user
+CONTENT:
+well, theres really only these external apps that need installing. the rest is all providing access to github database, creating loal environment, etc, am I missing anything
+====================================================================================================
+
+TYPE: user
+CONTENT:
+I just wonder if we need to be prescriptive, but best to keep environments the same, always
+====================================================================================================
+
+TYPE: assistant
+CONTENT:
+Agreed — consistent environments prevent "works on my machine" problems. Keep KeePass 2 as the standard, document it, move on.
+
+Shall I update ONBOARDING.md with the full apps list and then we get to WarIntel?
+====================================================================================================
+
+TYPE: assistant
+CONTENT:
+It's in the backlog — blocked on the migration script and GitHub Environments setup first. That's the WarIntel pipeline work we keep deferring to.
+
+Delete these two and then can we finally get to WarIntel?
+====================================================================================================
+
+TYPE: assistant
+CONTENT:
+Yes — WSL is the backlog/task tracker. Infrastructure tasks like this are exactly what it's for. Chicken and egg problem: we need WSL to track the work needed to set up WSL.
+
+For now — flat markdown file at `D:\_Development\Projects\BACKLOG.md` as a stopgap until WSL is ready?
+====================================================================================================
+
+TYPE: assistant
+CONTENT:
+Memory is on GitHub at `github.com/Savatar1001/_Claude`. Now need a `push-claude.bat` in `_Tools` and add `_Claude` to `Environment_Setup.bat`.
+
+---
+
+On `_Vault` and `_Artefacts` being project specific — are you saying they should live under `_Repos\WarIntel\` rather than at root?
+====================================================================================================
+
+TYPE: user
+CONTENT:
+is there nothing pertaining to WSL in _Vault and nothing pertaining to warintel in _Artefacts? - both should have both folders, no?
+====================================================================================================
+
+TYPE: assistant
+CONTENT:
+Right. Where we are on the list:
+
+1. ✅ **Root bat file paths** — fixed
+2. ✅ **`_Tools` junk** — `Deploy.bat` archived, `push-warwatch.bat.bat` deleted, `dome.bat.txt` deleted, `Setup.txt` → `Environment_Setup.bat`
+3. 🔲 **`_Artefacts` junk** — mostly moved to WTF, but `Claude Deploy.bat` is in there unread
+4. ✅ **`WorkScrumList`** — noted in BACKLOG.md (G4)
+5. 🔲 **`_Tools` GitHub repo** — not yet initialized locally as git repo
+6. ✅ **`YouShallNotPass.kdbx` in `_Tools`** — still there, blocked on KeePass credential update (G1/G2)
+7. 🔲 **Root `_Vault` and `_Artefacts`** — old git repos, need deleting now content has moved
+8. 🔲 **Root bat files** — discuss whether they stay at root or move to `_Tools`
+9. 🔲 **Push everything to GitHub**
+
+`Claude Deploy.bat` next?
+====================================================================================================
+
+TYPE: assistant
+CONTENT:
+Yes — KeePass databases have one master password. If you want per-user access control you'd need separate databases or use KeePass's key file feature alongside the password.
+
+For now it's just you, so one password is fine. Worth noting for when WSL becomes a multi-user product though.
+====================================================================================================
+
+TYPE: assistant
+CONTENT:
+It does — bat files, CLAUDE.md, ONBOARDING.md, memory files, push-vault.bat, Environment_Setup.bat, git remote URLs. 
+
+Let me rename locally first so you can see it, then we do a full sweep of all references before touching GitHub.
+
+Local renames — go?
+====================================================================================================
+
+TYPE: assistant
+CONTENT:
+The plan would be:
+
+- Create org e.g. `Savatar` or `SavDev` 
+- Move solution repos (`warintel.info`, `WorkScrumList`) under the org
+- Keep infrastructure repos (`Tools`, `Vault`, `Artefacts`, `Claude`) on personal account
+- `Environment_Setup.bat` and clone URLs update to org
+
+What do you want to call the org?
+====================================================================================================
+
+TYPE: assistant
+CONTENT:
+The bat files now live in one place only — `github.com/Savatar1001/Tools`. When you clone a fresh machine using `Environment_Setup.bat`, they come down with the `Tools` repo. No duplicates.
+====================================================================================================
+
+TYPE: assistant
+CONTENT:
+So `Tools` becomes truly generic — `Environment_Setup.bat`, `push-vault.bat`, `push-tools.bat`, `push-workscrumlist.bat`. WarIntel bat files move to the WarIntel repo.
+
+Move them now?
+====================================================================================================
+
+TYPE: user
+CONTENT:
+its not a convention then they are different. WSL.app will eventually be a domain, lowercase it now
+====================================================================================================
+

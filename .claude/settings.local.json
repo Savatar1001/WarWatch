@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls -lh *.html *.css *.py)",
+      "Bash(unzip:*)",
+      "Bash(python:*)",
+      "WebSearch",
+      "Bash(claude mcp:*)",
+      "WebFetch(domain:github.com)"
+    ]
+  }
+}
