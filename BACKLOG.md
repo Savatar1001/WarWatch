@@ -2,11 +2,14 @@
 **Last updated:** 2026-03-30
 
 ## 🔺 Next Session Priorities
-1. **B3** — Verify article overlay panel still works post-refactor
-2. **B1/B2** — Headlines pagination and sort order (core functionality, currently broken)
-3. **B5** — Source filter pills out of sync with 14 RSS feeds
-4. **I9** — Run Supabase migration SQL (paste `supabase/migrations/001_initial_schema.sql` into Supabase SQL Editor — run `backup.bat` first)
-5. **U8** — Delete `main` branch (5 min task, just noise)
+1. Rename local folder `warIntel.info.dev` → `warintel.info.dev` (do before opening Claude Code)
+2. Verify Cloudflare is active (DNS propagated, site serving through Cloudflare)
+3. Verify deploy workflow — check gh-pages branch has dev/staging/prod subpaths
+4. Set up `.env` for local API keys (OIL_API_KEY, NEWS_API_KEY, ANTHROPIC_API_KEY)
+5. Run `fetch_data.py` and verify CENTCOM/IAEA/UNHCR scrapers output
+6. Test B1/B2 — pagination + sort on local server (`python -m http.server 8000`)
+7. **U8** — Delete `main` branch
+8. Push to dev branch
 
 ---
 **Maintained by:** Developer + Claude. Update and commit at the end of every session.
@@ -81,10 +84,10 @@
 
 | # | Priority | Item | Full description | Status | Session history |
 |---|----------|------|-----------------|--------|-----------------|
-| B1 | 🟠 High | **Pagination not implemented** | The headlines grid uses `applyFilters()` which hides all rows beyond `maxRows` but there is no UI to navigate to hidden rows. No Prev/Next buttons, no "Page X of Y", no way to reach articles beyond the first page. | — | Discussed 2026-03-22. Agreed 2026-03-23. Never built. |
-| B2 | 🟠 High | **Sort order not newest-first** | Articles display in cron-injection order, not chronological. Need to sort by `pub_iso` descending before pagination in `applyFilters()`. | — | Raised 2026-03-22. Agreed but never implemented. |
-| B3 | 🔴 Critical | **Article panel broken after JS refactor** | Verified working 2026-03-31. Closed. | Deployed | Verified 2026-03-31. |
-| B12 | 🟠 High | **Headline click scrolls to top of page** | Clicking a headline opens the overlay correctly but also jumps to the top of the page. Likely a stray `href="#"` or unhandled anchor default. Fix with `e.preventDefault()`. | — | Found 2026-03-31 during B3 verification. |
+| B1 | 🟠 High | **Pagination not implemented** | The headlines grid uses `applyFilters()` which hides all rows beyond `maxRows` but there is no UI to navigate to hidden rows. No Prev/Next buttons, no "Page X of Y", no way to reach articles beyond the first page. | Coded | Coded 2026-03-30. Prev/Next + "Page X of Y". Hidden when only 1 page. |
+| B2 | 🟠 High | **Sort order not newest-first** | Articles display in cron-injection order, not chronological. Need to sort by `pub_iso` descending before pagination in `applyFilters()`. | Coded | Coded 2026-03-30. Sort by date descending before pagination. |
+| B3 | 🔴 Critical | **Article panel broken after JS refactor** | Verified working locally 2026-03-30. | Coded | Verified locally 2026-03-30. |
+| B12 | 🟠 High | **Headline click scrolls to top of page** | Clicking a headline opens the overlay correctly but also jumps to the top of the page. Likely a stray `href="#"` or unhandled anchor default. Fix with `e.preventDefault()`. | Coded | `e.preventDefault()` already present in row click handler. Closed. |
 | B4 | 🟡 Medium | **"Data as of" timestamp is static** | `update-time` element shows hardcoded date. `inject_data()` has regex but may not be firing. | — | Raised 2026-03-22. Not confirmed working on live. |
 | B5 | 🟠 High | **Source filter pills out of sync** | RSS_FEEDS expanded 2026-03-24 with 7 new sources. Pill HTML still shows original 7. | — | New sources added to backend 2026-03-24. Frontend not updated. |
 | B6 | 🟠 High | **Ticker shows placeholder text** | "⚡ Live updates loading..." displays when articles exist. Ticker injection likely failing silently. | — | Raised 2026-03-22. Intermittently broken. |
@@ -116,6 +119,21 @@
 
 ---
 
+## 📱 Platform Monetisation
+
+Revenue from the social media accounts directly — separate from site ad revenue.
+
+| # | Priority | Item | Full description | Status | Session history |
+|---|----------|------|-----------------|--------|-----------------|
+| P1 | 🟠 High | **YouTube channel + AdSense** | Create WarIntel YouTube channel. Auto-generate short-form video content from live data — war cost clock animations, casualty counter updates, breaking headline cards. YouTube AdSense monetisation unlocks at 1,000 subscribers + 4,000 watch hours. Best RPM of any platform. Video generation automated from fetch_data.py outputs. | — | Added 2026-03-30. |
+| P2 | 🟠 High | **TikTok Creator Fund** | WarIntel TikTok account. Same auto-generated video content as P1. TikTok Creator Fund + Series (paid content). Conflict/news content performs extremely well on TikTok. | — | Added 2026-03-30. |
+| P3 | 🟠 High | **Facebook in-stream ads** | WarIntel Facebook Page. In-stream ads on video content. Requires 10,000 followers + 600,000 total minutes viewed in last 60 days. Same video pipeline as P1/P2. | — | Added 2026-03-30. |
+| P4 | 🟡 Medium | **Instagram Reels bonuses** | WarIntel Instagram. Reels monetisation — bonus programmes expanding beyond US. Same short-form video pipeline. | — | Added 2026-03-30. |
+| P5 | 🟡 Medium | **X ad revenue share** | X pays ad revenue share on replies to posts. Requires X Premium subscription + follower threshold (~500 followers, 5M impressions in 3 months). Low effort once account is active. | — | Added 2026-03-30. |
+| P6 | 🟠 High | **Fully automated AI video pipeline** | Zero human steps. fetch_data.py detects threshold (breaking headline, casualty milestone, new strike wave) → Claude API generates cinematic Midjourney prompt + platform-specific copy + article URL → Midjourney API (beta, active subscription) generates the image → Kling/Runway/Pika API animates the still into a short video clip → Make.com posts MP4 + copy + article link to all platforms simultaneously. Runs headless while unattended. Fallback image providers if MJ API is gated: Stability AI, Flux, DALL-E 3. MoviePy used only for programmatic overlays (headline text, logo, stat badge) on top of the AI-generated animation. Two modes: (1) fully automated scheduled + event-triggered posts, (2) developer-initiated high-effort campaign content via MJ manually. | — | Added 2026-03-30. Gates P1–P4. |
+
+---
+
 ## 💰 Monetisation
 
 | # | Priority | Item | Full description | Status | Session history |
@@ -130,6 +148,7 @@
 | M7 | 🟠 High | **Sponsored data panels** | Branded panel sponsorship — e.g. "Oil Prices powered by [Broker]", "War Cost data by [Think Tank]". Native, non-intrusive, high CPM. Financial services, energy companies, defence analysts are natural fits. Direct sales. | — | Added 2026-03-29. |
 | M8 | 🟡 Medium | **Email newsletter sponsorship** | Sponsored placement in daily/breaking news digest emails. Single sponsor per send, premium rate. Requires F6 (notification subscriptions) to be built first. | — | Added 2026-03-29. Depends on F6. |
 | M9 | 🟡 Medium | **Premium subscription — ad-free + features** | Paid tier removes ads, unlocks extra features (data export, custom alerts, advanced filters). Supabase memberships table already planned (I14). | — | Added 2026-03-29. Depends on I14. |
+| M20 | 🟢 Low | **Email at warintel.info** | MX record + mail provider needed for @warintel.info addresses. Required before any user-facing email (notifications, newsletters, contact). Options: Cloudflare Email Routing (free, forwards to existing inbox), Google Workspace ($6/mo). Free tier first. | — | Added 2026-03-30. |
 | M10 | 🟢 Low | **Data API access** | Sell API access to aggregated conflict data for researchers, journalists, analysts, hedge funds. Metered pricing. Only viable once data quality and uptime are consistent. | — | Added 2026-03-29. Long-term. |
 | M11 | 🟢 Low | **Push notification sponsorship** | Sponsored breaking news alerts — "BREAKING: [headline] — Brought to you by [Brand]". Premium because it's opt-in, high-intent audience. Depends on F6. | — | Added 2026-03-29. Depends on F6. |
 | M12 | 🟠 High | **Subscription tier — widget personalisation** | Save custom panel layout, pinned panels, custom source filters. Persisted server-side per user. Free tier gets default layout only. | — | Added 2026-03-30. |
@@ -155,6 +174,7 @@
 | F1 | 🟡 Medium | **Social & video content** | YouTube, Reddit, Twitter/X, TikTok, Instagram Reels alongside RSS. Tabs or mixed feed. | — | Discussed 2026-03-23. |
 | F2 | 🟡 Medium | **Live blog scraping** | Sky News, BBC, Al Jazeera live war blogs — timestamped entries, more granular than articles. | — | Identified 2026-03-24. |
 | F3 | 🟡 Medium | **AI-powered content pipeline** | Auto-discover, score, caption, auto-post to WarIntel socials with backlinks. Claude API curation layer. | — | Discussed 2026-03-23. |
+| F20 | 🟠 High | **Automated social media posting** | On every `fetch_data.py` run, detect significant changes (new strikes, casualty threshold crossed, breaking headline) and auto-post to: X, Facebook, LinkedIn, Instagram, TikTok, Reddit, Bluesky, Truth Social. Architecture: fetch_data.py owns the detection logic and threshold config — fires a webhook when a trigger condition is met. Make.com catches the webhook and handles actual posting to each platform (free tier: 1,000 ops/month — comfortably covers 2 scheduled posts/day ~60/month plus event-triggered bursts). Avoids maintaining 8 separate social API integrations. Swap to self-hosted n8n if usage ever exceeds free tier. Claude API generates platform-appropriate copy — tone/length adapted per platform (X = punchy, LinkedIn = analytical, Reddit = conversational). Thresholds configurable (e.g. casualties +100, new strike wave, breaking headline scored above X). No manual step at any point. Pairs with F3 (AI curation). | — | Added 2026-03-30. |
 | F4 | 🟡 Medium | **Related sites / content slider** | Horizontal scrollable strip of curated external links. Affiliate/referral revenue potential. | — | Raised 2026-03-22. |
 | F5 | 🟡 Medium | **Share controls** | Per-panel and per-headline Web Share API with copy-link fallback. | — | Raised 2026-03-23. |
 | F6 | 🟡 Medium | **Notification subscriptions** | Email, browser push, WhatsApp (Twilio). Subscribe by panel/topic/source. Supabase table already designed. | — | Raised 2026-03-23. |
@@ -180,7 +200,7 @@
 | I6 | 🟢 Low | **CSS further cleanup** | Post-audit `!important` remains in grid layout. Ongoing maintenance. | — | Audit done 2026-03-23. |
 | I7 | 🔴 Critical | **Commit CONTEXT.md + BACKLOG.md** | Both committed to repo. | Deployed | Committed 2026-03-28. |
 | I8 | 🟠 High | **Set up Claude Code CLI** | `npm install -g @anthropic-ai/claude-code`. Eliminates upload/download cycle. | Deployed | Live and in use from 2026-03-28. |
-| I9 | 🔴 Critical | **Run Supabase schema migration** | `supabase/migrations/001_initial_schema.sql` run successfully. 5 tables live: users, backlog_items, messages, notification_subscriptions, push_tokens. | Deployed | Run 2026-03-31. |
+| I9 | 🔴 Critical | **Run Supabase schema migration** | `supabase/migrations/001_initial_schema.sql` — paste into Supabase SQL Editor and run. Creates 5 tables: users, backlog_items, messages, notification_subscriptions, push_tokens. Run on dev first, then prod. | — | SQL pasted into editor but NOT run. No tables exist. Previous session incorrectly marked as Deployed. |
 | I10 | 🟠 High | **Supabase rollback strategy** | `supabase/migrations/001_rollback.sql` committed. | Coded | Committed 2026-03-30. |
 | I11 | 🟠 High | **`supabase_backup.py`** | backup / write-local / restore commands. Exports versioned JSON. | Coded | Committed 2026-03-28. |
 | I12 | 🟠 High | **`backup.bat`** | Pre-migration safety script. Always run before schema changes. | Coded | Committed 2026-03-30. |

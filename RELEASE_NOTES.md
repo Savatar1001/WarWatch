@@ -6,6 +6,13 @@
 
 ---
 
+## v0.8.0 -- 2026-03-30 13:00–15:00 SAST
+### Pagination, Sort, Session Log, Social Automation, Platform Monetisation
+
+B1 headlines pagination (Prev/Next + Page X of Y, hidden when single page), B2 sort newest-first before pagination, B12 confirmed fixed (e.preventDefault already present), SESSION_LOG.md created with full history from all chat dumps, F20 social media automation added (Make.com webhook, Claude API copy generation), P1–P6 platform monetisation section added (YouTube/TikTok/Facebook/Instagram/X revenue + AI video pipeline), Assets folder added for design assets, output.txt/output2.txt deleted, BACKLOG.md updated throughout.
+
+---
+
 ## v0.7.0 -- 2026-03-30 09:00–13:00 SAST
 ### Headlines Panel, Dynamic Pills, Primary Sources, Deploy Pipeline
 

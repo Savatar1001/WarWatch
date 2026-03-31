@@ -8,10 +8,12 @@ This file provides guidance to Claude Code (claude.ai/code) when working with th
 
 **WarIntel** is a real-time intelligence dashboard tracking the 2026 US-Iran conflict, live at **warintel.info**. It is a **zero-build static site** — no npm, no bundler, no framework. Data is fetched by a Python pipeline running in GitHub Actions every 30 minutes and injected directly into `index.html` via regex replacement.
 
-- **Repo:** github.com/Savatar1001/warintel.info
+- **Repo:** github.com/OrgSavatar/warintel.info
 - **Hosting:** GitHub Pages (`gh-pages` branch — dev/staging/prod as subpaths: `/dev`, `/staging`, `/` root)
 - **Branching:** `dev` (default) → `staging` → `prod` (live)
 - **Developer:** Savvas D — South Africa (SAST = UTC+2)
+- **Supabase projects:** `warintel-dev` (dev + staging) and `warintel-prod` (production only) — both under OrgSavatar organisation in Supabase (separate from Savatar's Organisation which holds WorkScrumList). Both on free tier. When Pro tier is justified by revenue, `warintel-dev` splits into proper dev + staging branches. Credentials in KeePass.
+- **Supabase org setup:** OrgSavatar org to be created in Supabase. `warintel-dev` currently under Savatar's Organisation — needs recreating under OrgSavatar once org is set up.
 
 ---
 
@@ -105,7 +107,7 @@ Before ending every session, confirm:
 - [ ] `BACKLOG.md` updated
 - [ ] New backlog items confirmed and numbered
 - [ ] Release notes generated before every push (item numbers + descriptions, comma-separated, timestamped)
-- [ ] `1 push-warintel-dev.bat` run (changes go to dev first)
+- [ ] `push-warintel-dev.bat` run from `D:\_Development\Projects\` (changes go to dev first)
 - [ ] `push-workscrumlist.bat` run (if WSL changed)
 - [ ] Next session priorities noted at top of `BACKLOG.md`
 - [ ] Memory files updated
@@ -154,9 +156,11 @@ Always update these files and commit them at the end of every session:
 
 ## Key Constraints
 
+- **Zero cost until revenue.** All infrastructure runs on free tiers. No paid services until the project generates enough revenue to justify them. Flag any proposed tool that has a cost.
+- **Consistent across environments.** Same technology at every layer across dev/staging/prod. No mixing DB engines or platforms between environments.
 - **No build step.** Do not introduce npm dependencies, bundlers, or transpilers unless explicitly agreed. JS and CSS load directly into HTML.
 - **No frameworks.** All interactivity is vanilla JS.
 - **Branching strategy:** `dev` → `staging` → `prod`. All work goes to `dev` first. CI not yet wired (I21).
 - **Cron disabled.** `update.yml` is manual-only until CI is in place (U6).
-- **Supabase not yet live.** Schema is designed, tables not yet migrated (I9).
+- **Supabase not yet live.** Three projects created (warintel-dev, warintel-staging, warintel-prod). Migration SQL ready but not yet run (I9).
 - **Many Coded items uncommitted.** See Pipeline Tracker in BACKLOG.md.
