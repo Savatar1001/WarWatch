@@ -22,8 +22,8 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 # ── CONFIG ────────────────────────────────────────────────────
-SUPABASE_URL     = 'https://ofpxbntgznmrmpamkzbd.supabase.co'
-SUPABASE_ANON    = 'sb_publishable_K_8Frasp7G8XA1BX7QER2w_oUfyU3BO'
+SUPABASE_URL     = 'https://ftrnujvgzsbbilngwmps.supabase.co'
+SUPABASE_ANON    = 'sb_publishable_67jHG2gtSvaPasM8Qjwy3A_SCg6v7a7'
 
 # Tables to back up, in dependency order (parents before children)
 TABLES = [
