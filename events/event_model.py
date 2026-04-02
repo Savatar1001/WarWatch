@@ -2,6 +2,7 @@ from dataclasses import dataclass
 from typing import List, Dict, Any
 from datetime import datetime, timezone
 import uuid
+import re
 
 
 @dataclass
@@ -91,15 +92,18 @@ def _normalize_location(raw: str) -> str:
 
 
 def _parse_date(pub: str) -> datetime:
+    pub = pub.strip()
+    # Normalise 3-digit offset (+000, -000) → 4-digit (+0000)
+    pub = re.sub(r'([+-])(\d{3})$', r'\g<1>0\2', pub)
     for fmt in ('%a, %d %b %Y %H:%M:%S %z', '%a, %d %b %Y %H:%M:%S GMT', '%Y-%m-%d'):
         try:
-            dt = datetime.strptime(pub.strip(), fmt)
+            dt = datetime.strptime(pub, fmt)
             if dt.tzinfo is None:
                 dt = dt.replace(tzinfo=timezone.utc)
             return dt
         except ValueError:
             continue
-    return datetime(2000, 1, 1, tzinfo=timezone.utc)
+    return datetime.now(tz=timezone.utc)
 
 
 def group_headlines_into_events(headlines: Dict[str, Any]) -> List[Event]:
@@ -158,23 +162,30 @@ def group_headlines_into_events(headlines: Dict[str, Any]) -> List[Event]:
         if not placed:
             merged[key] = list(items)
 
+    MAX_SOURCES = 25
+
     # ── Build Event objects ──
     events = []
     for key, items in merged.items():
         event_type, location = key.split('|', 1)
         sorted_items = sorted(items, key=lambda x: _parse_date(x['pub']))
-        earliest = _parse_date(sorted_items[0]['pub'])
-        n = len(items)
-        status = 'New' if n == 1 else ('Developing' if n <= 3 else 'Stable')
 
-        events.append(Event(
-            id=str(uuid.uuid4())[:8],
-            type=event_type,
-            location=location,
-            timestamp_first_seen=earliest,
-            sources=[i['url'] for i in sorted_items],
-            status=status,
-        ))
+        # Split oversized groups into chunks of MAX_SOURCES
+        chunks = [sorted_items[i:i + MAX_SOURCES] for i in range(0, len(sorted_items), MAX_SOURCES)]
+
+        for chunk in chunks:
+            earliest = _parse_date(chunk[0]['pub'])
+            n = len(chunk)
+            status = 'New' if n == 1 else ('Developing' if n <= 3 else 'Stable')
+
+            events.append(Event(
+                id=str(uuid.uuid4())[:8],
+                type=event_type,
+                location=location,
+                timestamp_first_seen=earliest,
+                sources=[i['url'] for i in chunk],
+                status=status,
+            ))
 
     events.sort(key=lambda e: e.timestamp_first_seen, reverse=True)
     return events, merged
