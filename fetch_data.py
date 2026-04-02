@@ -14,6 +14,29 @@ import urllib.parse
 import xml.etree.ElementTree as ET
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
+from events.event_model import group_headlines_into_events
+
+EVENTS_CACHE_FILE = Path('events/events_cache.json')
+
+
+def save_events_cache(headlines: dict):
+    """Group headlines into events and write lightweight events_cache.json."""
+    events, _ = group_headlines_into_events(headlines)
+    output = [
+        {
+            'id': e.id,
+            'type': e.type,
+            'location': e.location,
+            'timestamp_first_seen': e.timestamp_first_seen.isoformat(),
+            'status': e.status,
+            'sources_count': len(e.sources),
+        }
+        for e in events
+    ]
+    EVENTS_CACHE_FILE.write_text(
+        json.dumps(output, indent=2, ensure_ascii=False), encoding='utf-8'
+    )
+    print(f"  ✓ events_cache.json updated ({len(output)} events)")
 
 # ── API keys from GitHub Secrets ──
 OIL_API_KEY  = os.environ.get('OIL_API_KEY', '')
@@ -940,6 +963,9 @@ def main():
 
     save_cache(cache)
     print("  ✓ headlines_cache.json updated")
+
+    save_events_cache(cache)
+
 
     # GitHub Actions commits and pushes the updated file automatically
     # via the workflow's git commit step — no deploy call needed here.

@@ -1,0 +1,130 @@
+[
+  {
+    "id": "e7687810",
+    "type": "invasion",
+    "location": "Middle East",
+    "timestamp_first_seen": "2026-03-30T02:36:04+00:00",
+    "status": "New",
+    "sources_count": 1
+  },
+  {
+    "id": "1742191f",
+    "type": "economic",
+    "location": "Yemen",
+    "timestamp_first_seen": "2026-03-29T08:46:47+00:00",
+    "status": "New",
+    "sources_count": 1
+  },
+  {
+    "id": "4a518077",
+    "type": "houthi",
+    "location": "Gulf",
+    "timestamp_first_seen": "2026-03-28T19:08:30+00:00",
+    "status": "Developing",
+    "sources_count": 3
+  },
+  {
+    "id": "eb6dd70a",
+    "type": "houthi",
+    "location": "Iran",
+    "timestamp_first_seen": "2026-03-28T15:52:59+00:00",
+    "status": "Developing",
+    "sources_count": 3
+  },
+  {
+    "id": "2323f4f8",
+    "type": "houthi",
+    "location": "Israel",
+    "timestamp_first_seen": "2026-03-28T09:55:07+00:00",
+    "status": "Developing",
+    "sources_count": 3
+  },
+  {
+    "id": "08258303",
+    "type": "houthi",
+    "location": "Yemen",
+    "timestamp_first_seen": "2026-03-28T09:53:42+00:00",
+    "status": "Developing",
+    "sources_count": 2
+  },
+  {
+    "id": "d0fa21b5",
+    "type": "protest",
+    "location": "Iran",
+    "timestamp_first_seen": "2026-03-28T09:00:24+00:00",
+    "status": "Developing",
+    "sources_count": 2
+  },
+  {
+    "id": "6551813b",
+    "type": "invasion",
+    "location": "Iran",
+    "timestamp_first_seen": "2000-01-01T00:00:00+00:00",
+    "status": "Stable",
+    "sources_count": 11
+  },
+  {
+    "id": "da84ca21",
+    "type": "update",
+    "location": "Middle East",
+    "timestamp_first_seen": "2000-01-01T00:00:00+00:00",
+    "status": "Stable",
+    "sources_count": 63
+  },
+  {
+    "id": "ed4a5c59",
+    "type": "strike",
+    "location": "Israel",
+    "timestamp_first_seen": "2000-01-01T00:00:00+00:00",
+    "status": "Stable",
+    "sources_count": 38
+  },
+  {
+    "id": "466913c5",
+    "type": "economic",
+    "location": "Gulf",
+    "timestamp_first_seen": "2000-01-01T00:00:00+00:00",
+    "status": "Stable",
+    "sources_count": 38
+  },
+  {
+    "id": "8a616566",
+    "type": "nuclear",
+    "location": "Iran",
+    "timestamp_first_seen": "2000-01-01T00:00:00+00:00",
+    "status": "Developing",
+    "sources_count": 2
+  },
+  {
+    "id": "7f0ed5cb",
+    "type": "houthi",
+    "location": "Middle East",
+    "timestamp_first_seen": "2000-01-01T00:00:00+00:00",
+    "status": "Stable",
+    "sources_count": 4
+  },
+  {
+    "id": "2ddfb210",
+    "type": "casualty",
+    "location": "Middle East",
+    "timestamp_first_seen": "2000-01-01T00:00:00+00:00",
+    "status": "Developing",
+    "sources_count": 3
+  },
+  {
+    "id": "01fdcb60",
+    "type": "diplomacy",
+    "location": "Middle East",
+    "timestamp_first_seen": "2000-01-01T00:00:00+00:00",
+    "status": "Stable",
+    "sources_count": 14
+  },
+  {
+    "id": "f39cba73",
+    "type": "nuclear",
+    "location": "Middle East",
+    "timestamp_first_seen": "2000-01-01T00:00:00+00:00",
+    "status": "New",
+    "sources_count": 1
+  }
+]
