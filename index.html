@@ -347,6 +347,107 @@
   <div class="panel-disclaimer-link"><a href="#data-disclaimer" class="disclaimer-link">⚠ Data Sources &amp; Accuracy</a></div>
   </div><!-- end w-strikes widget -->
 
+  <!-- INTELLIGENCE SUMMARIES widget -->
+  <div class="widget" id="w-intel">
+  <div class="sec">
+    <span class="sec-dot sd-red"></span>
+    <div class="sec-title" onclick="WW.toggle('w-intel')">Intelligence Summaries</div>
+    <div class="sec-line"></div>
+    <div class="sec-tag">Grouped events · last 72h</div>
+    <button class="widget-collapse-btn" onclick="WW.toggle('w-intel')" title="Collapse/expand Intelligence Summaries">−</button>
+  </div>
+
+  <div class="intel-grid-header">
+    <span>Event</span>
+    <span>Location</span>
+    <span>Status</span>
+    <span>Sources</span>
+    <span>First seen</span>
+    <span></span>
+  </div>
+
+  <div class="intel-event" data-expanded="false">
+    <div class="intel-row">
+      <span class="intel-type">Strike / Attack</span>
+      <span class="intel-location">Israel</span>
+      <span class="intel-status intel-status--stable">Stable</span>
+      <span class="intel-sources">13 sources</span>
+      <span class="intel-time">Mar 30</span>
+      <button class="intel-expand-btn">▸</button>
+    </div>
+    <div class="intel-articles">
+      <div class="intel-article"><a href="#" target="_blank">Israeli air force strikes Hezbollah weapons depot in southern Lebanon</a><span class="intel-article-meta">Reuters · Mar 30</span></div>
+      <div class="intel-article"><a href="#" target="_blank">IDF confirms overnight strikes on missile storage sites near Tyre</a><span class="intel-article-meta">Haaretz · Mar 30</span></div>
+      <div class="intel-article"><a href="#" target="_blank">Lebanon reports 3 killed in Israeli strikes, Hezbollah vows response</a><span class="intel-article-meta">Al Jazeera · Mar 30</span></div>
+    </div>
+  </div>
+
+  <div class="intel-event" data-expanded="false">
+    <div class="intel-row">
+      <span class="intel-type">Economic / Energy</span>
+      <span class="intel-location">Gulf</span>
+      <span class="intel-status intel-status--stable">Stable</span>
+      <span class="intel-sources">13 sources</span>
+      <span class="intel-time">Mar 30</span>
+      <button class="intel-expand-btn">▸</button>
+    </div>
+    <div class="intel-articles">
+      <div class="intel-article"><a href="#" target="_blank">Oil surges 4% on fears of Strait of Hormuz closure</a><span class="intel-article-meta">Bloomberg · Mar 30</span></div>
+      <div class="intel-article"><a href="#" target="_blank">Saudi Aramco halts tanker sailings pending security review</a><span class="intel-article-meta">Reuters · Mar 30</span></div>
+      <div class="intel-article"><a href="#" target="_blank">Brent crude hits $98 as Gulf shipping insurers raise premiums</a><span class="intel-article-meta">OilPrice.com · Mar 30</span></div>
+    </div>
+  </div>
+
+  <div class="intel-event" data-expanded="false">
+    <div class="intel-row">
+      <span class="intel-type">Nuclear / IAEA</span>
+      <span class="intel-location">Iran</span>
+      <span class="intel-status intel-status--developing">Developing</span>
+      <span class="intel-sources">2 sources</span>
+      <span class="intel-time">Mar 29</span>
+      <button class="intel-expand-btn">▸</button>
+    </div>
+    <div class="intel-articles">
+      <div class="intel-article"><a href="#" target="_blank">IAEA inspectors denied access to Fordow enrichment facility</a><span class="intel-article-meta">Reuters · Mar 29</span></div>
+      <div class="intel-article"><a href="#" target="_blank">Iran accelerates uranium enrichment at underground site, says IAEA</a><span class="intel-article-meta">BBC · Mar 29</span></div>
+    </div>
+  </div>
+
+  <div class="intel-event" data-expanded="false">
+    <div class="intel-row">
+      <span class="intel-type">Houthi Activity</span>
+      <span class="intel-location">Gulf</span>
+      <span class="intel-status intel-status--developing">Developing</span>
+      <span class="intel-sources">3 sources</span>
+      <span class="intel-time">Mar 28</span>
+      <button class="intel-expand-btn">▸</button>
+    </div>
+    <div class="intel-articles">
+      <div class="intel-article"><a href="#" target="_blank">Houthis fire ballistic missile at Red Sea cargo vessel near Bab el-Mandeb</a><span class="intel-article-meta">Associated Press · Mar 28</span></div>
+      <div class="intel-article"><a href="#" target="_blank">US warship intercepts Houthi drone over Gulf of Aden</a><span class="intel-article-meta">CNN · Mar 28</span></div>
+      <div class="intel-article"><a href="#" target="_blank">Shipping companies reroute around Red Sea after new attacks</a><span class="intel-article-meta">Bloomberg · Mar 28</span></div>
+    </div>
+  </div>
+
+  <div class="intel-event" data-expanded="false">
+    <div class="intel-row">
+      <span class="intel-type">Diplomacy / Talks</span>
+      <span class="intel-location">Middle East</span>
+      <span class="intel-status intel-status--stable">Stable</span>
+      <span class="intel-sources">14 sources</span>
+      <span class="intel-time">Mar 25</span>
+      <button class="intel-expand-btn">▸</button>
+    </div>
+    <div class="intel-articles">
+      <div class="intel-article"><a href="#" target="_blank">Qatar hosts Iran-US backchannel talks on nuclear deal framework</a><span class="intel-article-meta">Reuters · Mar 25</span></div>
+      <div class="intel-article"><a href="#" target="_blank">White House confirms indirect negotiations with Tehran via Oman</a><span class="intel-article-meta">New York Times · Mar 25</span></div>
+      <div class="intel-article"><a href="#" target="_blank">Iran demands sanctions relief before any enrichment freeze</a><span class="intel-article-meta">France 24 · Mar 25</span></div>
+    </div>
+  </div>
+
+  <div class="panel-disclaimer-link"><a href="#data-disclaimer" class="disclaimer-link">⚠ Data Sources &amp; Accuracy</a></div>
+  </div><!-- end w-intel widget -->
+
   <!-- RECENT EVENTS widget — locked -->
   <div class="widget" id="w-events">
   <div class="sec">
@@ -357,7 +458,7 @@
     <button class="widget-collapse-btn" onclick="WW.toggle('w-events')" title="Collapse/expand Latest headlines">−</button>
   </div>
 
-  <!-- HEADLINE SOURCE FILTER BAR -->
+  <div id="headlines-original">
   <div class="hf-bar" id="hf-bar">
     <button class="hf-btn hf-active" data-source="all">All <span class="hf-count" id="hfc-all"></span></button>
     <!-- PILLS_START -->
@@ -1713,6 +1814,8 @@
     </div>
   </div>
 
+  </div><!-- end headlines-original -->
+
   <div class="panel-disclaimer-link"><a href="#data-disclaimer" class="disclaimer-link">⚠ Data Sources &amp; Accuracy</a></div>
   </div><!-- end w-events widget -->
 
@@ -2130,6 +2233,7 @@
 <script src="js/latest-updates-panel.js?v=1774879051"></script>
 <script src="js/headlines.js?v=1774879051"></script>
 <script src="js/ui.js?v=1774879051"></script>
+<script src="js/intel.js?v=1"></script>
 
 </body>
 </html>

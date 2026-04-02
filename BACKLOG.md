@@ -2,14 +2,14 @@
 **Last updated:** 2026-03-30
 
 ## 🔺 Next Session Priorities
-1. Rename local folder `warIntel.info.dev` → `warintel.info.dev` (do before opening Claude Code)
-2. Verify Cloudflare is active (DNS propagated, site serving through Cloudflare)
-3. Verify deploy workflow — check gh-pages branch has dev/staging/prod subpaths
-4. Set up `.env` for local API keys (OIL_API_KEY, NEWS_API_KEY, ANTHROPIC_API_KEY)
-5. Run `fetch_data.py` and verify CENTCOM/IAEA/UNHCR scrapers output
-6. Test B1/B2 — pagination + sort on local server (`python -m http.server 8000`)
-7. **U8** — Delete `main` branch
-8. Push to dev branch
+1. Update `fetch_data.py` → `save_events_cache()` to write full article data per event (`articles: [{title, url, source, pub}]`)
+2. Wire `summaries.html` prototype to real `events_cache.json` data (replace mock HTML)
+3. Improve event titles — human-readable generated summaries, not just type labels
+4. Move summaries view into `w-events` with tab toggle (Headlines | Summaries) — between filter pills and date/count row
+5. Kill or archive `w-intel` standalone widget once summaries are integrated into `w-events`
+6. Verify B1/B2 still working after today's changes
+7. Decide: toggle label names — "Headlines" / "Summaries" or something else?
+8. Decide: widget title — "Latest headlines" → change now that it holds two views?
 
 ---
 **Maintained by:** Developer + Claude. Update and commit at the end of every session.
@@ -98,6 +98,16 @@
 | B14 | 🔴 Critical | **Replace Wikipedia with primary sources for all key stats** | Wikipedia is unacceptable as a source for conflict casualty/strike data — any editor can change figures at any time. Replaced with: CENTCOM (strikes, missile waves, drones), IAEA (nuclear status), UNHCR (displaced), Wikipedia retained as last-resort fallback only. Casualties still need a primary source — candidates: OHCHR, IRNA (Iranian MoH), Reuters/AP wire extraction. Coded 2026-03-30. Each scraper needs monitoring as site structures change. | Coded | Added 2026-03-30. |
 | B13 | 🟠 High | **AI summary broken — CORS + no API key** | `fetchSummary()` calls `api.anthropic.com` directly from the browser. Fails for two reasons: (1) CORS — browsers block direct Anthropic API calls, (2) no `x-api-key` header in the request. Summary always shows "Summary could not be loaded." Fix: pre-generate summaries in `fetch_data.py` using `ANTHROPIC_API_KEY` GitHub Secret, store in `headlines_cache.json`, inject alongside headlines into HTML. No browser API call, no key exposure, summaries load instantly. | — | Added 2026-03-30. |
 | B11 | 🔴 Critical | **Multi-source strategy for every data point** | Wikipedia is a single point of failure for all casualty/strike/nuclear figures. Every data point needs identified alternate sources (ACLED, OHCHR, Reuters, AP, conflict monitors etc.) so if one breaks or goes stale the pipeline falls back automatically. Research + map alternates for each field before building fallback logic. | — | Added 2026-03-30. |
+
+---
+
+## 🧠 Intelligence Summaries
+
+| # | Priority | Item | Full description | Status | Session history |
+|---|----------|------|-----------------|--------|-----------------|
+| F21 | 🟠 High | **Intelligence Summaries — tab toggle inside w-events** | Add Headlines / Summaries tab toggle inside `w-events` widget, between filter pills and date/count row. Summaries view shows expandable event grid (type, location, status, sources, first seen). Click row to expand individual articles. `w-intel` standalone widget to be removed once integrated. | Coded (prototype) | Built as standalone widget + summaries.html prototype 2026-04-02. |
+| F22 | 🟠 High | **events_cache.json — include full article data per event** | `save_events_cache()` currently writes only `sources_count`. Must write `articles: [{title, url, source, pub}]` per event so the summaries expand can show real headlines. Gate on F21. | — | Added 2026-04-02. |
+| F23 | 🟡 Medium | **Human-readable event titles** | Event rows currently show generic type labels (e.g. "Strike / Attack"). Replace with generated human-readable summaries derived from grouped headline titles. Could be rule-based or LLM-generated in fetch_data.py. | — | Added 2026-04-02. |
 
 ---
 

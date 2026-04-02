@@ -6,6 +6,13 @@
 
 ---
 
+## v0.9.0 — 2026-04-02 SAST
+### Event Model, Grouping Pipeline, Intelligence Summaries Prototype
+
+Event domain built end-to-end: `events/event_model.py` — Event dataclass, keyword→type mapping, location normalisation, two-pass grouping logic (bucket by type+region, merge on shared keywords), 25-source cap. `fetch_data.py` now writes `events/events_cache.json` on every run (~20 events from ~189 headlines). Timestamp parsing fixed for Al Jazeera non-standard +000 offset. Intelligence Summaries widget prototype built: `w-intel` widget (mock data), `js/intel.js` expand/collapse, CSS classes added to `styles.css`, `summaries.html` standalone prototype page for isolated iteration. `core/` directory created: operating rules, decision log, run log, ChatGPT bootstrap summary. Headlines widget fully restored — `display:none` wrapper removed.
+
+---
+
 ## v0.8.0 -- 2026-03-30 13:00–15:00 SAST
 ### Pagination, Sort, Session Log, Social Automation, Platform Monetisation
 

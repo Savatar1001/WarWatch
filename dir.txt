@@ -1,0 +1,1176 @@
+ Volume in drive D is Savatar D (Games & Storage)
+ Volume Serial Number is 6A3D-D16A
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev
+
+02 Apr 2026  13:41    <DIR>          .
+02 Apr 2026  12:30    <DIR>          ..
+28 Mar 2026  22:50    <DIR>          .claude
+31 Mar 2026  11:37    <DIR>          .git
+30 Mar 2026  03:17    <DIR>          .github
+28 Mar 2026  23:29               286 .mcp.json
+28 Mar 2026  23:29            45,176 armalite.ttf
+30 Mar 2026  16:22            37,068 BACKLOG.md
+30 Mar 2026  03:23               157 backup.bat
+30 Mar 2026  22:33             8,316 CLAUDE.md
+28 Mar 2026  22:17                13 CNAME
+28 Mar 2026  23:29             4,090 CONTEXT.md
+02 Apr 2026  13:41                 0 dir.txt
+28 Mar 2026  23:29            23,979 favicon.ico
+30 Mar 2026  12:20            41,201 fetch_data.py
+30 Mar 2026  03:31            46,111 github_features.txt
+30 Mar 2026  12:24           142,160 headlines_cache.json
+30 Mar 2026  15:57           195,550 index.html
+31 Mar 2026  11:35    <DIR>          js
+30 Mar 2026  15:27             9,535 RELEASE_NOTES.md
+30 Mar 2026  14:34            15,356 SESSION_LOG.md
+30 Mar 2026  15:56            52,347 styles.css
+30 Mar 2026  03:22    <DIR>          supabase
+31 Mar 2026  11:35            10,416 supabase_backup.py
+              17 File(s)        631,761 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.claude
+
+28 Mar 2026  22:50    <DIR>          .
+02 Apr 2026  13:41    <DIR>          ..
+28 Mar 2026  22:50               218 settings.local.json
+               1 File(s)            218 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git
+
+31 Mar 2026  11:37    <DIR>          .
+02 Apr 2026  13:41    <DIR>          ..
+31 Mar 2026  11:37               252 COMMIT_EDITMSG
+30 Mar 2026  01:42               543 config
+28 Mar 2026  06:24                73 description
+30 Mar 2026  13:04               102 FETCH_HEAD
+28 Mar 2026  23:38                20 HEAD
+28 Mar 2026  06:24    <DIR>          hooks
+31 Mar 2026  11:37             2,779 index
+28 Mar 2026  06:24    <DIR>          info
+28 Mar 2026  06:24    <DIR>          logs
+31 Mar 2026  11:37    <DIR>          objects
+28 Mar 2026  23:38                41 ORIG_HEAD
+28 Mar 2026  06:25    <DIR>          refs
+               7 File(s)          3,810 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\hooks
+
+28 Mar 2026  06:24    <DIR>          .
+31 Mar 2026  11:37    <DIR>          ..
+28 Mar 2026  06:24               478 applypatch-msg.sample
+28 Mar 2026  06:24               896 commit-msg.sample
+28 Mar 2026  06:24             4,726 fsmonitor-watchman.sample
+28 Mar 2026  06:24               189 post-update.sample
+28 Mar 2026  06:24               424 pre-applypatch.sample
+28 Mar 2026  06:24             1,649 pre-commit.sample
+28 Mar 2026  06:24               416 pre-merge-commit.sample
+28 Mar 2026  06:24             1,374 pre-push.sample
+28 Mar 2026  06:24             4,898 pre-rebase.sample
+28 Mar 2026  06:24               544 pre-receive.sample
+28 Mar 2026  06:24             1,492 prepare-commit-msg.sample
+28 Mar 2026  06:24             2,783 push-to-checkout.sample
+28 Mar 2026  06:24             2,308 sendemail-validate.sample
+28 Mar 2026  06:24             3,650 update.sample
+              14 File(s)         25,827 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\info
+
+28 Mar 2026  06:24    <DIR>          .
+31 Mar 2026  11:37    <DIR>          ..
+28 Mar 2026  06:24               240 exclude
+               1 File(s)            240 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\logs
+
+28 Mar 2026  06:24    <DIR>          .
+31 Mar 2026  11:37    <DIR>          ..
+31 Mar 2026  11:37             8,562 HEAD
+28 Mar 2026  06:24    <DIR>          refs
+               1 File(s)          8,562 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\logs\refs
+
+28 Mar 2026  06:24    <DIR>          .
+28 Mar 2026  06:24    <DIR>          ..
+28 Mar 2026  20:49    <DIR>          heads
+28 Mar 2026  06:25    <DIR>          remotes
+               0 File(s)              0 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\logs\refs\heads
+
+28 Mar 2026  20:49    <DIR>          .
+28 Mar 2026  06:24    <DIR>          ..
+31 Mar 2026  11:37             5,584 dev
+28 Mar 2026  06:27               352 main
+28 Mar 2026  23:38               732 prod
+28 Mar 2026  20:46               162 staging
+               4 File(s)          6,830 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\logs\refs\remotes
+
+28 Mar 2026  06:25    <DIR>          .
+28 Mar 2026  06:24    <DIR>          ..
+28 Mar 2026  20:53    <DIR>          origin
+               0 File(s)              0 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\logs\refs\remotes\origin
+
+28 Mar 2026  20:53    <DIR>          .
+28 Mar 2026  06:25    <DIR>          ..
+30 Mar 2026  13:04             3,322 dev
+28 Mar 2026  20:51               142 HEAD
+28 Mar 2026  20:51               465 main
+28 Mar 2026  23:38               604 prod
+28 Mar 2026  20:46               151 staging
+               5 File(s)          4,684 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\objects
+
+31 Mar 2026  11:37    <DIR>          .
+31 Mar 2026  11:37    <DIR>          ..
+31 Mar 2026  11:24    <DIR>          00
+30 Mar 2026  02:04    <DIR>          01
+28 Mar 2026  06:24    <DIR>          02
+28 Mar 2026  06:24    <DIR>          04
+30 Mar 2026  04:05    <DIR>          06
+29 Mar 2026  00:16    <DIR>          07
+30 Mar 2026  12:59    <DIR>          0a
+31 Mar 2026  11:24    <DIR>          0e
+30 Mar 2026  04:05    <DIR>          10
+30 Mar 2026  03:17    <DIR>          11
+30 Mar 2026  12:59    <DIR>          12
+30 Mar 2026  03:17    <DIR>          17
+28 Mar 2026  06:24    <DIR>          21
+30 Mar 2026  12:59    <DIR>          22
+29 Mar 2026  00:09    <DIR>          23
+30 Mar 2026  03:23    <DIR>          24
+28 Mar 2026  23:30    <DIR>          26
+30 Mar 2026  13:04    <DIR>          27
+30 Mar 2026  12:59    <DIR>          2a
+28 Mar 2026  06:24    <DIR>          2c
+28 Mar 2026  22:49    <DIR>          2d
+30 Mar 2026  12:59    <DIR>          2f
+30 Mar 2026  10:45    <DIR>          35
+28 Mar 2026  22:20    <DIR>          37
+30 Mar 2026  03:24    <DIR>          3d
+30 Mar 2026  10:45    <DIR>          3e
+29 Mar 2026  00:27    <DIR>          41
+30 Mar 2026  12:59    <DIR>          42
+30 Mar 2026  03:17    <DIR>          43
+28 Mar 2026  23:29    <DIR>          44
+30 Mar 2026  13:02    <DIR>          45
+29 Mar 2026  00:09    <DIR>          46
+28 Mar 2026  22:49    <DIR>          48
+28 Mar 2026  23:29    <DIR>          4a
+29 Mar 2026  00:25    <DIR>          4d
+30 Mar 2026  13:04    <DIR>          4e
+30 Mar 2026  03:23    <DIR>          4f
+30 Mar 2026  04:03    <DIR>          51
+28 Mar 2026  22:20    <DIR>          52
+28 Mar 2026  06:24    <DIR>          58
+28 Mar 2026  06:24    <DIR>          5e
+30 Mar 2026  10:41    <DIR>          5f
+30 Mar 2026  04:28    <DIR>          61
+31 Mar 2026  11:24    <DIR>          64
+28 Mar 2026  22:20    <DIR>          67
+31 Mar 2026  11:37    <DIR>          69
+30 Mar 2026  12:59    <DIR>          6a
+31 Mar 2026  11:24    <DIR>          6b
+30 Mar 2026  10:45    <DIR>          6d
+30 Mar 2026  03:53    <DIR>          6f
+30 Mar 2026  12:59    <DIR>          72
+30 Mar 2026  13:04    <DIR>          75
+30 Mar 2026  03:24    <DIR>          7a
+30 Mar 2026  04:01    <DIR>          7c
+29 Mar 2026  00:16    <DIR>          7d
+30 Mar 2026  04:01    <DIR>          7e
+31 Mar 2026  11:24    <DIR>          7f
+30 Mar 2026  13:04    <DIR>          82
+28 Mar 2026  22:18    <DIR>          83
+28 Mar 2026  21:03    <DIR>          86
+30 Mar 2026  12:59    <DIR>          87
+30 Mar 2026  03:17    <DIR>          8a
+28 Mar 2026  06:27    <DIR>          8d
+31 Mar 2026  11:24    <DIR>          8e
+30 Mar 2026  12:59    <DIR>          90
+28 Mar 2026  23:29    <DIR>          98
+31 Mar 2026  11:37    <DIR>          9a
+28 Mar 2026  22:18    <DIR>          9d
+30 Mar 2026  03:53    <DIR>          9e
+30 Mar 2026  10:45    <DIR>          9f
+30 Mar 2026  02:04    <DIR>          a0
+28 Mar 2026  23:38    <DIR>          a1
+28 Mar 2026  06:24    <DIR>          a4
+28 Mar 2026  23:29    <DIR>          a6
+30 Mar 2026  04:05    <DIR>          a7
+28 Mar 2026  22:18    <DIR>          a8
+28 Mar 2026  06:24    <DIR>          a9
+30 Mar 2026  04:03    <DIR>          aa
+28 Mar 2026  23:29    <DIR>          ad
+30 Mar 2026  03:23    <DIR>          af
+28 Mar 2026  22:18    <DIR>          b1
+28 Mar 2026  22:18    <DIR>          b2
+30 Mar 2026  03:53    <DIR>          b3
+28 Mar 2026  22:18    <DIR>          b4
+31 Mar 2026  11:24    <DIR>          b7
+30 Mar 2026  04:28    <DIR>          b9
+28 Mar 2026  06:24    <DIR>          ba
+30 Mar 2026  02:04    <DIR>          bb
+28 Mar 2026  22:18    <DIR>          c3
+31 Mar 2026  11:37    <DIR>          c6
+30 Mar 2026  12:59    <DIR>          c8
+31 Mar 2026  11:24    <DIR>          c9
+28 Mar 2026  23:38    <DIR>          ca
+31 Mar 2026  11:37    <DIR>          d0
+28 Mar 2026  22:49    <DIR>          d5
+28 Mar 2026  06:24    <DIR>          d8
+30 Mar 2026  10:41    <DIR>          d9
+29 Mar 2026  00:16    <DIR>          dc
+28 Mar 2026  06:24    <DIR>          dd
+30 Mar 2026  12:59    <DIR>          de
+28 Mar 2026  23:29    <DIR>          e0
+30 Mar 2026  12:59    <DIR>          e1
+31 Mar 2026  11:37    <DIR>          e4
+31 Mar 2026  11:24    <DIR>          e5
+29 Mar 2026  00:09    <DIR>          e6
+30 Mar 2026  02:04    <DIR>          e8
+30 Mar 2026  03:23    <DIR>          ee
+30 Mar 2026  12:59    <DIR>          f4
+30 Mar 2026  03:24    <DIR>          f5
+31 Mar 2026  11:24    <DIR>          f9
+28 Mar 2026  06:24    <DIR>          fc
+30 Mar 2026  12:59    <DIR>          ff
+28 Mar 2026  06:24    <DIR>          info
+28 Mar 2026  20:51    <DIR>          pack
+               0 File(s)              0 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\objects\00
+
+31 Mar 2026  11:24    <DIR>          .
+31 Mar 2026  11:37    <DIR>          ..
+31 Mar 2026  11:24             4,848 297753ec40009755225e3e317c5da5d8f5f37e
+30 Mar 2026  12:59               320 3a3cd51c749e422eca2bd3f834b40607c3d9b7
+               2 File(s)          5,168 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\objects\01
+
+30 Mar 2026  02:04    <DIR>          .
+31 Mar 2026  11:37    <DIR>          ..
+30 Mar 2026  02:04               248 c3bd2a716e94c6e1554a12aad11b8a9a1546db
+               1 File(s)            248 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\objects\02
+
+28 Mar 2026  06:24    <DIR>          .
+31 Mar 2026  11:37    <DIR>          ..
+28 Mar 2026  06:24             3,451 5c918d9f431755ced3df17d4b0f771c4996ec5
+               1 File(s)          3,451 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\objects\04
+
+28 Mar 2026  06:24    <DIR>          .
+31 Mar 2026  11:37    <DIR>          ..
+28 Mar 2026  06:24               203 5a1e2735891b895c6c7dba422e90dcd20cc559
+               1 File(s)            203 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\objects\06
+
+30 Mar 2026  04:05    <DIR>          .
+31 Mar 2026  11:37    <DIR>          ..
+30 Mar 2026  04:05               660 9e286fc1eead53779e7b3c06931607d9d8a9d2
+               1 File(s)            660 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\objects\07
+
+29 Mar 2026  00:16    <DIR>          .
+31 Mar 2026  11:37    <DIR>          ..
+29 Mar 2026  00:16               208 21bbb8f4b309bf7eb68d69ada4229d4edd3187
+               1 File(s)            208 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\objects\0a
+
+30 Mar 2026  12:59    <DIR>          .
+31 Mar 2026  11:37    <DIR>          ..
+30 Mar 2026  12:59               828 9552055d6e2d5b119123e934a98157e37984d8
+29 Mar 2026  00:27               460 a8e460c580e0a7388113a6ea6e15bcabf7bdf8
+               2 File(s)          1,288 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\objects\0e
+
+31 Mar 2026  11:24    <DIR>          .
+31 Mar 2026  11:37    <DIR>          ..
+31 Mar 2026  11:24             7,689 65dbda21b7a3b50d66bd8260e3da191e0a0c78
+               1 File(s)          7,689 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\objects\10
+
+30 Mar 2026  04:05    <DIR>          .
+31 Mar 2026  11:37    <DIR>          ..
+30 Mar 2026  04:05            10,501 eabc58cd487a6d5fa62ae6048ca8e4fc617d2c
+               1 File(s)         10,501 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\objects\11
+
+30 Mar 2026  03:17    <DIR>          .
+31 Mar 2026  11:37    <DIR>          ..
+30 Mar 2026  03:17                54 03ea53fea03c2ca79e2fc49ac71282be0fcdf1
+               1 File(s)             54 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\objects\12
+
+30 Mar 2026  12:59    <DIR>          .
+31 Mar 2026  11:37    <DIR>          ..
+30 Mar 2026  12:59               244 5fb3a00c5b9f41fc283f88417b657d84f53f84
+               1 File(s)            244 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\objects\17
+
+30 Mar 2026  03:17    <DIR>          .
+31 Mar 2026  11:37    <DIR>          ..
+30 Mar 2026  03:17               606 8c16d6eaeece7c7b29cfebd3d47cd5f7889e6e
+               1 File(s)            606 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\objects\21
+
+28 Mar 2026  06:24    <DIR>          .
+31 Mar 2026  11:37    <DIR>          ..
+28 Mar 2026  06:24             3,563 3aab58055b7fdb51e3365e4e32d28dfe7d10db
+28 Mar 2026  06:24             3,181 7b313d3df3dd50957e3da6879abfef2e09ca71
+               2 File(s)          6,744 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\objects\22
+
+30 Mar 2026  12:59    <DIR>          .
+31 Mar 2026  11:37    <DIR>          ..
+30 Mar 2026  12:59                52 de1351e140ab4c52cc1d05be517ec7903a9a64
+               1 File(s)             52 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\objects\23
+
+29 Mar 2026  00:09    <DIR>          .
+31 Mar 2026  11:37    <DIR>          ..
+29 Mar 2026  00:09             3,443 dbcdeed8d2e3998b4d5f7e88a5cd6ec0db0ec5
+               1 File(s)          3,443 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\objects\24
+
+30 Mar 2026  03:23    <DIR>          .
+31 Mar 2026  11:37    <DIR>          ..
+29 Mar 2026  00:25             9,135 bcf4e80060b211047fe1392719f40527375b88
+30 Mar 2026  03:23               660 c55568949e07fa118445975c2c329650495671
+               2 File(s)          9,795 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\objects\26
+
+28 Mar 2026  23:30    <DIR>          .
+31 Mar 2026  11:37    <DIR>          ..
+28 Mar 2026  23:30               240 fef069f7998be14be0eb3bf610cbb07a49d3a7
+               1 File(s)            240 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\objects\27
+
+30 Mar 2026  13:04    <DIR>          .
+31 Mar 2026  11:37    <DIR>          ..
+30 Mar 2026  13:04               827 72a91e23315940f2ab94ac7f8805078dbd11d1
+29 Mar 2026  00:27            19,900 a455922ae645436c84cdcd259428228a2f1fae
+30 Mar 2026  03:23               296 c6a811788c74ae91afa254a1980fa6f8f18d01
+               3 File(s)         21,023 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\objects\2a
+
+30 Mar 2026  12:59    <DIR>          .
+31 Mar 2026  11:37    <DIR>          ..
+30 Mar 2026  12:59            13,384 68c61469cdab8444b811c5b0fa28abda814fe6
+28 Mar 2026  22:18             7,258 80f6f05c29a13f490c2b42f41606ca135fd78c
+28 Mar 2026  21:03               175 bac3808f388952b2e93cd71bdf8e7d8b12e9e5
+               3 File(s)         20,817 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\objects\2c
+
+28 Mar 2026  06:24    <DIR>          .
+31 Mar 2026  11:37    <DIR>          ..
+28 Mar 2026  06:24             1,796 ab1c8bed4df7936b954363f86f249ecf8eeaa7
+               1 File(s)          1,796 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\objects\2d
+
+28 Mar 2026  22:49    <DIR>          .
+31 Mar 2026  11:37    <DIR>          ..
+28 Mar 2026  22:49               198 6730a63151cdc561fbf5486ff07a3877234fcc
+               1 File(s)            198 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\objects\2f
+
+30 Mar 2026  12:59    <DIR>          .
+31 Mar 2026  11:37    <DIR>          ..
+30 Mar 2026  12:59            13,230 1abc03a04e3d7fb1f016ed10112a0ecff6a9f7
+               1 File(s)         13,230 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\objects\35
+
+30 Mar 2026  10:45    <DIR>          .
+31 Mar 2026  11:37    <DIR>          ..
+30 Mar 2026  10:45               210 c19ae943edd0858a2b2e2f7c7c41b2270a7704
+               1 File(s)            210 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\objects\37
+
+28 Mar 2026  22:20    <DIR>          .
+31 Mar 2026  11:37    <DIR>          ..
+28 Mar 2026  22:18            27,156 90b92f9693b7931236f0722c6f20d0421de829
+28 Mar 2026  22:20             7,573 eb28b8ab86a7a4c482ad026bba46c2dfb1f5ae
+               2 File(s)         34,729 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\objects\3d
+
+30 Mar 2026  03:24    <DIR>          .
+31 Mar 2026  11:37    <DIR>          ..
+30 Mar 2026  03:24               661 3f06144dee1156c6eb3898ea15d7043314cf8d
+               1 File(s)            661 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\objects\3e
+
+30 Mar 2026  10:45    <DIR>          .
+31 Mar 2026  11:37    <DIR>          ..
+30 Mar 2026  10:45            11,289 fb168fad9da8ab3313f4937095770e8ab2ad78
+               1 File(s)         11,289 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\objects\41
+
+29 Mar 2026  00:27    <DIR>          .
+31 Mar 2026  11:37    <DIR>          ..
+28 Mar 2026  23:29               218 464866eb6585cc6a4037f2dd31e140d72812e3
+29 Mar 2026  00:27               227 9819276cb80534bd5e738ec73922c2ee5b3d9c
+               2 File(s)            445 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\objects\42
+
+30 Mar 2026  12:59    <DIR>          .
+31 Mar 2026  11:37    <DIR>          ..
+30 Mar 2026  12:59            41,930 7a923ef9e0ba38b41fcc21a5c48ae523c54026
+               1 File(s)         41,930 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\objects\43
+
+30 Mar 2026  03:17    <DIR>          .
+31 Mar 2026  11:37    <DIR>          ..
+30 Mar 2026  03:17                52 13a5bbaf88c94337912e4ce0dac13528396411
+               1 File(s)             52 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\objects\44
+
+28 Mar 2026  23:29    <DIR>          .
+31 Mar 2026  11:37    <DIR>          ..
+28 Mar 2026  06:24               143 00d435dc230f4162e02fbafff15222b909b624
+28 Mar 2026  23:38               320 5e652108a34e748995db46d7f9575b0aaa0d5b
+28 Mar 2026  23:38             3,179 b689e6bea66ca03f1da5bd3a24201fb6134387
+               3 File(s)          3,642 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\objects\45
+
+30 Mar 2026  13:02    <DIR>          .
+31 Mar 2026  11:37    <DIR>          ..
+30 Mar 2026  13:02               521 667289dbe6c1ebc9d37292c3667f4a5962ba20
+29 Mar 2026  00:16               460 d3ed69ce52575e9ea181f6216a85c6e466a0ce
+               2 File(s)            981 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\objects\46
+
+29 Mar 2026  00:09    <DIR>          .
+31 Mar 2026  11:37    <DIR>          ..
+29 Mar 2026  00:09               190 4dc4ec00fbbdb360971e0cd5c2396b4a960cf5
+               1 File(s)            190 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\objects\48
+
+28 Mar 2026  22:49    <DIR>          .
+31 Mar 2026  11:37    <DIR>          ..
+28 Mar 2026  22:49               223 10010231a72d4be30dd7ce24b3d3b0e5aa1cf5
+               1 File(s)            223 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\objects\4a
+
+28 Mar 2026  23:29    <DIR>          .
+31 Mar 2026  11:37    <DIR>          ..
+28 Mar 2026  23:29               461 9886f696ac94399249c18e226716db197fbfaf
+               1 File(s)            461 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\objects\4d
+
+29 Mar 2026  00:25    <DIR>          .
+31 Mar 2026  11:37    <DIR>          ..
+28 Mar 2026  06:24             1,855 8bbcc654856c4038fd2de75d9a6a4bdb3c79e1
+29 Mar 2026  00:25               460 f76169bac63fac976dc0a66d468195e783dde6
+               2 File(s)          2,315 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\objects\4e
+
+30 Mar 2026  13:04    <DIR>          .
+31 Mar 2026  11:37    <DIR>          ..
+30 Mar 2026  13:04             4,522 0bc86a94b83bf5797daa7b397a814ea82cc9e6
+               1 File(s)          4,522 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\objects\4f
+
+30 Mar 2026  03:23    <DIR>          .
+31 Mar 2026  11:37    <DIR>          ..
+30 Mar 2026  03:23               100 200303fe2856e041df9b424e3b70510e642bc8
+28 Mar 2026  23:38               205 cb55895064ea2517f626327f256849e2631ad2
+               2 File(s)            305 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\objects\51
+
+30 Mar 2026  04:03    <DIR>          .
+31 Mar 2026  11:37    <DIR>          ..
+30 Mar 2026  04:03             9,722 50098efffd38c8fc7f7ecc16abc9accabaffc4
+30 Mar 2026  03:23                52 68a65b1649bdf3c73f642bbfc86aabbd34de73
+               2 File(s)          9,774 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\objects\52
+
+28 Mar 2026  22:20    <DIR>          .
+31 Mar 2026  11:37    <DIR>          ..
+28 Mar 2026  22:20               189 fa530a415db75083aad0eb9d17c4e7171b7f8f
+               1 File(s)            189 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\objects\58
+
+28 Mar 2026  06:24    <DIR>          .
+31 Mar 2026  11:37    <DIR>          ..
+28 Mar 2026  06:24             1,653 b0187ba6964ee97940c42a3981c28293a249f6
+               1 File(s)          1,653 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\objects\5e
+
+28 Mar 2026  06:24    <DIR>          .
+31 Mar 2026  11:37    <DIR>          ..
+28 Mar 2026  06:24             2,882 7fa52f012968f145d975235091714bfbc13cb2
+               1 File(s)          2,882 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\objects\5f
+
+30 Mar 2026  10:41    <DIR>          .
+31 Mar 2026  11:37    <DIR>          ..
+30 Mar 2026  10:41               661 81605be30f97a89f4e4852223002e7e7a4c687
+               1 File(s)            661 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\objects\61
+
+30 Mar 2026  04:28    <DIR>          .
+31 Mar 2026  11:37    <DIR>          ..
+30 Mar 2026  04:28               660 82eb67ed429335448a76810fa044013cb7bd76
+30 Mar 2026  04:03               211 8c058a1fad0b742f175e8fac4750b892ad880a
+               2 File(s)            871 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\objects\64
+
+31 Mar 2026  11:24    <DIR>          .
+31 Mar 2026  11:37    <DIR>          ..
+31 Mar 2026  11:24             3,970 b6aacae6b5e4fd06120c99eeac8af11ed51145
+               1 File(s)          3,970 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\objects\67
+
+28 Mar 2026  22:20    <DIR>          .
+31 Mar 2026  11:37    <DIR>          ..
+28 Mar 2026  22:20               427 b010ed5fec0ed2c9ad8e10a8f1f27008e17f79
+28 Mar 2026  06:24               341 d18c80ff2962345c2156ca257a1731e04f1fc9
+28 Mar 2026  06:24               341 tmp_obj_UvvRdC
+               3 File(s)          1,109 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\objects\69
+
+31 Mar 2026  11:37    <DIR>          .
+31 Mar 2026  11:37    <DIR>          ..
+31 Mar 2026  11:37             3,561 391e3fd9a5dbca76efc7c7acb2b9d51cc7ff14
+               1 File(s)          3,561 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\objects\6a
+
+30 Mar 2026  12:59    <DIR>          .
+31 Mar 2026  11:37    <DIR>          ..
+30 Mar 2026  12:59            12,203 30cf70182e7dff5e9587ef6c4d11b0e37570d3
+               1 File(s)         12,203 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\objects\6b
+
+31 Mar 2026  11:24    <DIR>          .
+31 Mar 2026  11:37    <DIR>          ..
+31 Mar 2026  11:24            14,984 911fafefa199f6132feae6a27c7ca87cfe337f
+30 Mar 2026  10:41               198 bed77696780f6ae3cfcd28c3c57e1c1df769e1
+               2 File(s)         15,182 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\objects\6d
+
+30 Mar 2026  10:45    <DIR>          .
+31 Mar 2026  11:37    <DIR>          ..
+30 Mar 2026  10:45               320 6e2346e2225a6db6559350b663efdf76183e84
+               1 File(s)            320 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\objects\6f
+
+30 Mar 2026  03:53    <DIR>          .
+31 Mar 2026  11:37    <DIR>          ..
+30 Mar 2026  03:53             9,191 0a49fad0ddf0d7c38f9e79a3b7b9e663c72aaa
+29 Mar 2026  00:25               198 a535d591b13f615bfcb0ba804d4dd163315448
+28 Mar 2026  06:24            18,747 ecd55048bbd64b847e4462e54c04dc2dac6e36
+               3 File(s)         28,136 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\objects\72
+
+30 Mar 2026  12:59    <DIR>          .
+31 Mar 2026  11:37    <DIR>          ..
+28 Mar 2026  23:29               192 1ef4845a12ae57151027eea4c6f4aac3ce885f
+28 Mar 2026  06:24             2,147 23f823a5f2f27085d786052dc6a3aa04080408
+30 Mar 2026  12:59            17,475 cf73099ee4be3b4009090034c11a41f7769be2
+               3 File(s)         19,814 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\objects\75
+
+30 Mar 2026  13:04    <DIR>          .
+31 Mar 2026  11:37    <DIR>          ..
+30 Mar 2026  13:04               169 b658216708e201f2f86fe891bdd1310d986a19
+28 Mar 2026  06:24             2,585 c5d73af50cfba0e0453c5e3ecb1f0dccefbf0f
+               2 File(s)          2,754 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\objects\7a
+
+30 Mar 2026  03:24    <DIR>          .
+31 Mar 2026  11:37    <DIR>          ..
+30 Mar 2026  03:24             9,084 05d09288f7aa42ae239b80205e34a699d79f69
+               1 File(s)          9,084 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\objects\7c
+
+30 Mar 2026  04:01    <DIR>          .
+31 Mar 2026  11:37    <DIR>          ..
+30 Mar 2026  04:01             9,393 5945b50a91afdf714b281bb9cc4c9b3e6028ec
+               1 File(s)          9,393 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\objects\7d
+
+29 Mar 2026  00:16    <DIR>          .
+31 Mar 2026  11:37    <DIR>          ..
+29 Mar 2026  00:16             4,189 a9afe9d9fe73450a8a6b386ead87b2f94c1b50
+               1 File(s)          4,189 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\objects\7e
+
+30 Mar 2026  04:01    <DIR>          .
+31 Mar 2026  11:37    <DIR>          ..
+30 Mar 2026  04:01               200 a11dcd3841f488027eb12029d9fa769cb12075
+               1 File(s)            200 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\objects\7f
+
+31 Mar 2026  11:24    <DIR>          .
+31 Mar 2026  11:37    <DIR>          ..
+31 Mar 2026  11:24             4,056 50ecc8e5f72834eba1e860ae0a2d78be5fec60
+               1 File(s)          4,056 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\objects\82
+
+30 Mar 2026  13:04    <DIR>          .
+31 Mar 2026  11:37    <DIR>          ..
+30 Mar 2026  13:04             3,600 3ab6fc659616fd565cd3f985180743f0b5a705
+               1 File(s)          3,600 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\objects\83
+
+28 Mar 2026  22:18    <DIR>          .
+31 Mar 2026  11:37    <DIR>          ..
+28 Mar 2026  22:18            13,346 f0b104ed4b5e88ef10b42d5ada458e914cf4e6
+               1 File(s)         13,346 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\objects\86
+
+28 Mar 2026  21:03    <DIR>          .
+31 Mar 2026  11:37    <DIR>          ..
+28 Mar 2026  21:03               356 99588520d93778b26524b25880d43d93484cca
+               1 File(s)            356 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\objects\87
+
+30 Mar 2026  12:59    <DIR>          .
+31 Mar 2026  11:37    <DIR>          ..
+30 Mar 2026  12:59             3,388 47b720e08ddef8d7d515eb2b67ef3e48e2c614
+               1 File(s)          3,388 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\objects\8a
+
+30 Mar 2026  03:17    <DIR>          .
+31 Mar 2026  11:37    <DIR>          ..
+30 Mar 2026  03:17               189 3da1836389385612ab87cc827950e5f8a986fe
+               1 File(s)            189 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\objects\8d
+
+28 Mar 2026  06:27    <DIR>          .
+31 Mar 2026  11:37    <DIR>          ..
+28 Mar 2026  06:27               298 883362d57ad8003250765b5bae70e8b7c5367a
+               1 File(s)            298 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\objects\8e
+
+31 Mar 2026  11:24    <DIR>          .
+31 Mar 2026  11:37    <DIR>          ..
+31 Mar 2026  11:24               549 f7fb6050822f37521727261bb6447c5a978fce
+30 Mar 2026  03:17               247 fcd3a259de3dc630e3e851d8dd0836fb63154e
+               2 File(s)            796 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\objects\90
+
+30 Mar 2026  12:59    <DIR>          .
+31 Mar 2026  11:37    <DIR>          ..
+30 Mar 2026  12:59            41,089 e959dfca9285fdb86bb9161c7583493a32a013
+               1 File(s)         41,089 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\objects\98
+
+28 Mar 2026  23:29    <DIR>          .
+31 Mar 2026  11:37    <DIR>          ..
+28 Mar 2026  23:29               356 e024ed0bb77090e9fae1168209d2aae2d4a450
+               1 File(s)            356 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\objects\9a
+
+31 Mar 2026  11:37    <DIR>          .
+31 Mar 2026  11:37    <DIR>          ..
+31 Mar 2026  11:37               334 11763031879f07adda9362291d7527a790f885
+               1 File(s)            334 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\objects\9d
+
+28 Mar 2026  22:18    <DIR>          .
+31 Mar 2026  11:37    <DIR>          ..
+28 Mar 2026  22:18             1,950 3f322b4edeccc2f11fe3f5336d351d3de7a75e
+               1 File(s)          1,950 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\objects\9e
+
+30 Mar 2026  03:53    <DIR>          .
+31 Mar 2026  11:37    <DIR>          ..
+30 Mar 2026  03:53               196 12d2f4a19b11a8986263d242cc4a9bdb283c8e
+               1 File(s)            196 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\objects\9f
+
+30 Mar 2026  10:45    <DIR>          .
+31 Mar 2026  11:37    <DIR>          ..
+30 Mar 2026  04:01               660 7b85e9ba4d325f57124a1467c9575c07b69bb3
+30 Mar 2026  10:45             3,468 e143b34a9e6f2b707fb518d45c0712a1902fb6
+               2 File(s)          4,128 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\objects\a0
+
+30 Mar 2026  02:04    <DIR>          .
+31 Mar 2026  11:37    <DIR>          ..
+30 Mar 2026  02:04               258 145a97e617cc12a502ac77006b47a955cb59eb
+               1 File(s)            258 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\objects\a1
+
+28 Mar 2026  23:38    <DIR>          .
+31 Mar 2026  11:37    <DIR>          ..
+28 Mar 2026  23:38               198 e510b146b8c75c043c2ea8757f013d0e7c1454
+               1 File(s)            198 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\objects\a4
+
+28 Mar 2026  06:24    <DIR>          .
+31 Mar 2026  11:37    <DIR>          ..
+28 Mar 2026  06:24             2,890 ac39a726fce17f038983f4725217b42ffe0b55
+               1 File(s)          2,890 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\objects\a6
+
+28 Mar 2026  23:29    <DIR>          .
+31 Mar 2026  11:37    <DIR>          ..
+28 Mar 2026  06:24               855 6c2d9cd0e6da506768e885bc828a9ba1e38fb6
+28 Mar 2026  23:38             3,563 f90ede8b80411ac1066c862ed866a6be2bf13f
+               2 File(s)          4,418 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\objects\a7
+
+30 Mar 2026  04:05    <DIR>          .
+31 Mar 2026  11:37    <DIR>          ..
+30 Mar 2026  04:05               228 1e867ea4327790a2ab1583a84e33e855cc3812
+               1 File(s)            228 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\objects\a8
+
+28 Mar 2026  22:18    <DIR>          .
+31 Mar 2026  11:37    <DIR>          ..
+28 Mar 2026  23:30             3,244 b93c0ce64648983c5c290f047d251fb53bff4e
+               1 File(s)          3,244 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\objects\a9
+
+28 Mar 2026  06:24    <DIR>          .
+31 Mar 2026  11:37    <DIR>          ..
+28 Mar 2026  06:24            10,072 0c82b502d5bcaa0b156a8f38aaf60b283984bc
+               1 File(s)         10,072 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\objects\aa
+
+30 Mar 2026  04:03    <DIR>          .
+31 Mar 2026  11:37    <DIR>          ..
+30 Mar 2026  04:03               661 34b96053285cf65d6cd81cee0c3c35cae50af4
+               1 File(s)            661 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\objects\ad
+
+28 Mar 2026  23:29    <DIR>          .
+31 Mar 2026  11:37    <DIR>          ..
+28 Mar 2026  23:38               957 c467995f36c1ee704163264b4fd070cadaca3e
+               1 File(s)            957 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\objects\af
+
+30 Mar 2026  03:23    <DIR>          .
+31 Mar 2026  11:37    <DIR>          ..
+30 Mar 2026  03:23               941 e6adcc631a7f5933e33454762c1395fc6a14c7
+               1 File(s)            941 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\objects\b1
+
+28 Mar 2026  22:18    <DIR>          .
+31 Mar 2026  11:37    <DIR>          ..
+28 Mar 2026  22:18            23,763 9c079a2a079495cfb78e449ae6d13ca489be12
+               1 File(s)         23,763 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\objects\b2
+
+28 Mar 2026  22:18    <DIR>          .
+31 Mar 2026  11:37    <DIR>          ..
+28 Mar 2026  22:18               487 856081dcbd821e0ef4d0fee7f6cc2514b4ebc0
+28 Mar 2026  22:18               426 c72e7fe35e7476421f3c6fc26b0aa11fd258a6
+               2 File(s)            913 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\objects\b3
+
+30 Mar 2026  03:53    <DIR>          .
+31 Mar 2026  11:37    <DIR>          ..
+30 Mar 2026  03:53               661 bd03fcd61590720950a9a73524b5e32df99377
+               1 File(s)            661 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\objects\b4
+
+28 Mar 2026  22:18    <DIR>          .
+31 Mar 2026  11:37    <DIR>          ..
+28 Mar 2026  22:18            19,859 2af982dfafb1540872a40064a73a74e8bdc875
+               1 File(s)         19,859 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\objects\b7
+
+31 Mar 2026  11:24    <DIR>          .
+31 Mar 2026  11:37    <DIR>          ..
+31 Mar 2026  11:24               692 431ea5d793261cb8b45e50aa418ebdb5c78e43
+               1 File(s)            692 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\objects\b9
+
+30 Mar 2026  04:28    <DIR>          .
+31 Mar 2026  11:37    <DIR>          ..
+30 Mar 2026  04:28            11,174 1d4b051df750297eef11053000448444f7c165
+               1 File(s)         11,174 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\objects\ba
+
+28 Mar 2026  06:24    <DIR>          .
+31 Mar 2026  11:37    <DIR>          ..
+28 Mar 2026  06:24            12,966 843c773c227375683821b6a06c386809feffa5
+               1 File(s)         12,966 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\objects\bb
+
+30 Mar 2026  02:04    <DIR>          .
+31 Mar 2026  11:37    <DIR>          ..
+30 Mar 2026  02:04               575 9bdeeb78302df76454d449dec27973d8f145df
+               1 File(s)            575 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\objects\c3
+
+28 Mar 2026  22:18    <DIR>          .
+31 Mar 2026  11:37    <DIR>          ..
+28 Mar 2026  22:18             3,666 5dc7abf3c14c7b3ec0df81c6cae11ea4923653
+               1 File(s)          3,666 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\objects\c6
+
+31 Mar 2026  11:37    <DIR>          .
+31 Mar 2026  11:37    <DIR>          ..
+31 Mar 2026  11:37               955 27f41e798cc5bcc0f441907513f6af3af06a92
+30 Mar 2026  12:59                63 6909739824f86a73de02ea84b124faea4652df
+               2 File(s)          1,018 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\objects\c8
+
+30 Mar 2026  12:59    <DIR>          .
+31 Mar 2026  11:37    <DIR>          ..
+30 Mar 2026  12:59            20,980 a3a73ac79f68f313ae7c2cc8f8103021a2ba43
+               1 File(s)         20,980 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\objects\c9
+
+31 Mar 2026  11:24    <DIR>          .
+31 Mar 2026  11:37    <DIR>          ..
+31 Mar 2026  11:24            13,518 c25c22f038564ef7be5a06b16dd09e3642d516
+               1 File(s)         13,518 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\objects\ca
+
+28 Mar 2026  23:38    <DIR>          .
+31 Mar 2026  11:37    <DIR>          ..
+28 Mar 2026  23:38               461 99514ea9789e380bc1fd012edde6fdf63cd4f2
+28 Mar 2026  23:38            10,070 dabbfcad00b50439d5f94f21b4cb802a9f1370
+               2 File(s)         10,531 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\objects\d0
+
+31 Mar 2026  11:37    <DIR>          .
+31 Mar 2026  11:37    <DIR>          ..
+28 Mar 2026  06:27               176 06ee464d960713cb99cc876ee8336a8e099cdb
+31 Mar 2026  11:37               693 5073cd7f3885416f3a964d68fdfcca6afb8abb
+               2 File(s)            869 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\objects\d5
+
+28 Mar 2026  22:49    <DIR>          .
+31 Mar 2026  11:37    <DIR>          ..
+28 Mar 2026  23:30               461 b1a6bf2021cf90f3a59c94632f84984b2a6fee
+               1 File(s)            461 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\objects\d8
+
+28 Mar 2026  06:24    <DIR>          .
+31 Mar 2026  11:37    <DIR>          ..
+28 Mar 2026  06:24               958 c963cd28777722eac00d9c95a8aa65a5dd98e2
+               1 File(s)            958 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\objects\d9
+
+30 Mar 2026  10:41    <DIR>          .
+31 Mar 2026  11:37    <DIR>          ..
+30 Mar 2026  10:41            11,200 0e95bcdbe3e4036320690a45630adc3beed946
+30 Mar 2026  10:30             4,096 tmp_obj_5UsXAX
+               2 File(s)         15,296 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\objects\dc
+
+29 Mar 2026  00:16    <DIR>          .
+31 Mar 2026  11:37    <DIR>          ..
+29 Mar 2026  00:16             7,909 6ff415326268e023f107f2dba5d1ee46327a4c
+               1 File(s)          7,909 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\objects\dd
+
+28 Mar 2026  06:24    <DIR>          .
+31 Mar 2026  11:37    <DIR>          ..
+28 Mar 2026  06:24               320 3d3cdd4af5c716a5e14c38c89ecd44476d13e7
+               1 File(s)            320 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\objects\de
+
+30 Mar 2026  12:59    <DIR>          .
+31 Mar 2026  11:37    <DIR>          ..
+30 Mar 2026  12:59               153 4a3465b563475630892438b50adaa012733c13
+28 Mar 2026  21:03             9,094 6d1cece17e587962bf3dd9c9a6183445ac7944
+               2 File(s)          9,247 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\objects\e0
+
+28 Mar 2026  23:29    <DIR>          .
+31 Mar 2026  11:37    <DIR>          ..
+28 Mar 2026  23:29             9,498 23bfcffe5424ef2bacc080e0428b065021e3ec
+               1 File(s)          9,498 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\objects\e1
+
+30 Mar 2026  12:59    <DIR>          .
+31 Mar 2026  11:37    <DIR>          ..
+30 Mar 2026  12:59                85 7468eeb170d32aba549454711fefdc14d8e990
+30 Mar 2026  02:04               174 a09ef705cb1c202c29213d21eba65c2eb071df
+               2 File(s)            259 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\objects\e4
+
+31 Mar 2026  11:37    <DIR>          .
+31 Mar 2026  11:37    <DIR>          ..
+31 Mar 2026  11:37               320 48baee7f4ed953c427245072d70d61947b96bf
+               1 File(s)            320 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\objects\e5
+
+31 Mar 2026  11:24    <DIR>          .
+31 Mar 2026  11:37    <DIR>          ..
+30 Mar 2026  04:28               201 764d45aeef13408add1c486254604baa6cb366
+31 Mar 2026  11:24               320 c86a307ab667668eda53384dc6ab58b80d89da
+               2 File(s)            521 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\objects\e6
+
+29 Mar 2026  00:09    <DIR>          .
+31 Mar 2026  11:37    <DIR>          ..
+29 Mar 2026  00:09               461 7b07fb470e08f9d6e8b3d1a155226c753f6d7a
+               1 File(s)            461 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\objects\e8
+
+30 Mar 2026  02:04    <DIR>          .
+31 Mar 2026  11:37    <DIR>          ..
+30 Mar 2026  02:04               279 235a9abbe8727317eb02acafe313045b2cb529
+28 Mar 2026  23:38               990 a433dbb49bd4137ea9db5737f8dcc315b1d5a3
+               2 File(s)          1,269 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\objects\ee
+
+30 Mar 2026  03:23    <DIR>          .
+31 Mar 2026  11:37    <DIR>          ..
+30 Mar 2026  03:23               206 31bb1dec0f9dd0016bebfa1d65286d6a5e126a
+               1 File(s)            206 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\objects\f4
+
+30 Mar 2026  12:59    <DIR>          .
+31 Mar 2026  11:37    <DIR>          ..
+30 Mar 2026  12:59               728 bc55ccecc4712c77c919254a3171ec861ee48a
+30 Mar 2026  03:23               137 fa2022886e2aa202b6702d0f60dbe487509f06
+               2 File(s)            865 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\objects\f5
+
+30 Mar 2026  03:24    <DIR>          .
+31 Mar 2026  11:37    <DIR>          ..
+30 Mar 2026  03:24               215 edb29c1debab65ff36546a8e8b6f070bba59af
+               1 File(s)            215 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\objects\f9
+
+31 Mar 2026  11:24    <DIR>          .
+31 Mar 2026  11:37    <DIR>          ..
+31 Mar 2026  11:24            41,225 98894aa8a61da583c7bc7e9389435700e253fd
+               1 File(s)         41,225 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\objects\fc
+
+28 Mar 2026  06:24    <DIR>          .
+31 Mar 2026  11:37    <DIR>          ..
+28 Mar 2026  06:24             6,893 b95271c3086574132d13ceca7919fe54402716
+               1 File(s)          6,893 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\objects\ff
+
+30 Mar 2026  12:59    <DIR>          .
+31 Mar 2026  11:37    <DIR>          ..
+30 Mar 2026  10:45               661 be2e5b239d28ce45937988a7670dd355952d5d
+30 Mar 2026  12:59             3,443 e591063053f3c6883e25497a9080b19fe146e2
+               2 File(s)          4,104 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\objects\info
+
+28 Mar 2026  06:24    <DIR>          .
+31 Mar 2026  11:37    <DIR>          ..
+               0 File(s)              0 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\objects\pack
+
+28 Mar 2026  20:51    <DIR>          .
+31 Mar 2026  11:37    <DIR>          ..
+28 Mar 2026  20:51             5,300 pack-cdb21443c7afe3186657d078a3ff1a739ef3e051.idx
+28 Mar 2026  22:18           130,894 pack-cdb21443c7afe3186657d078a3ff1a739ef3e051.pack
+28 Mar 2026  20:51               656 pack-cdb21443c7afe3186657d078a3ff1a739ef3e051.rev
+               3 File(s)        136,850 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\refs
+
+28 Mar 2026  06:25    <DIR>          .
+31 Mar 2026  11:37    <DIR>          ..
+31 Mar 2026  11:37    <DIR>          heads
+28 Mar 2026  06:25    <DIR>          remotes
+28 Mar 2026  06:24    <DIR>          tags
+               0 File(s)              0 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\refs\heads
+
+31 Mar 2026  11:37    <DIR>          .
+28 Mar 2026  06:25    <DIR>          ..
+31 Mar 2026  11:37                41 dev
+28 Mar 2026  06:27                41 main
+28 Mar 2026  23:38                41 prod
+28 Mar 2026  20:46                41 staging
+               4 File(s)            164 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\refs\remotes
+
+28 Mar 2026  06:25    <DIR>          .
+28 Mar 2026  06:25    <DIR>          ..
+30 Mar 2026  13:04    <DIR>          origin
+               0 File(s)              0 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\refs\remotes\origin
+
+30 Mar 2026  13:04    <DIR>          .
+28 Mar 2026  06:25    <DIR>          ..
+30 Mar 2026  13:04                41 dev
+28 Mar 2026  20:51                30 HEAD
+28 Mar 2026  20:51                41 main
+28 Mar 2026  23:38                41 prod
+28 Mar 2026  20:46                41 staging
+               5 File(s)            194 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.git\refs\tags
+
+28 Mar 2026  06:24    <DIR>          .
+28 Mar 2026  06:25    <DIR>          ..
+               0 File(s)              0 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.github
+
+30 Mar 2026  03:17    <DIR>          .
+02 Apr 2026  13:41    <DIR>          ..
+30 Mar 2026  12:33    <DIR>          workflows
+               0 File(s)              0 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\.github\workflows
+
+30 Mar 2026  12:33    <DIR>          .
+30 Mar 2026  03:17    <DIR>          ..
+30 Mar 2026  12:33             1,775 deploy.yml
+30 Mar 2026  03:17               515 tests.yml
+               2 File(s)          2,290 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\js
+
+31 Mar 2026  11:35    <DIR>          .
+02 Apr 2026  13:41    <DIR>          ..
+27 Mar 2026  17:25             5,450 casualties.js
+27 Mar 2026  17:25             4,976 charts.js
+30 Mar 2026  15:55            11,066 headlines.js
+27 Mar 2026  17:25             7,150 latest-updates-panel.js
+31 Mar 2026  11:35             1,862 supabase-client.js
+28 Mar 2026  23:38             2,230 ui.js
+27 Mar 2026  17:25             5,171 utils.js
+28 Mar 2026  23:38             8,257 warcost.js
+27 Mar 2026  17:25             8,359 widgets.js
+               9 File(s)         54,521 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\supabase
+
+30 Mar 2026  03:22    <DIR>          .
+02 Apr 2026  13:41    <DIR>          ..
+30 Mar 2026  03:23    <DIR>          migrations
+               0 File(s)              0 bytes
+
+ Directory of D:\_Development\Projects\Repos\OrgSavatar\WarIntel\warintel.info.dev\supabase\migrations
+
+30 Mar 2026  03:23    <DIR>          .
+30 Mar 2026  03:22    <DIR>          ..
+30 Mar 2026  03:23             3,833 001_initial_schema.sql
+30 Mar 2026  03:23               944 001_rollback.sql
+               2 File(s)          4,777 bytes
+
+     Total Files Listed:
+             226 File(s)      1,535,447 bytes
+             404 Dir(s)   6,456,909,824 bytes free
