@@ -1,0 +1,162 @@
+[
+  {
+    "id": "e2f72131",
+    "type": "update",
+    "location": "Middle East",
+    "timestamp_first_seen": "2026-03-30T09:18:49+00:00",
+    "status": "Stable",
+    "sources_count": 13
+  },
+  {
+    "id": "eee08541",
+    "type": "economic",
+    "location": "Gulf",
+    "timestamp_first_seen": "2026-03-30T07:00:56+00:00",
+    "status": "Stable",
+    "sources_count": 13
+  },
+  {
+    "id": "a98dfc43",
+    "type": "strike",
+    "location": "Israel",
+    "timestamp_first_seen": "2026-03-30T03:20:49+00:00",
+    "status": "Stable",
+    "sources_count": 13
+  },
+  {
+    "id": "e2961f5c",
+    "type": "invasion",
+    "location": "Middle East",
+    "timestamp_first_seen": "2026-03-30T02:36:04+00:00",
+    "status": "New",
+    "sources_count": 1
+  },
+  {
+    "id": "9fef9fe9",
+    "type": "nuclear",
+    "location": "Middle East",
+    "timestamp_first_seen": "2026-03-30T02:30:18+00:00",
+    "status": "New",
+    "sources_count": 1
+  },
+  {
+    "id": "775fa652",
+    "type": "nuclear",
+    "location": "Iran",
+    "timestamp_first_seen": "2026-03-29T22:11:34+00:00",
+    "status": "Developing",
+    "sources_count": 2
+  },
+  {
+    "id": "728cb341",
+    "type": "update",
+    "location": "Middle East",
+    "timestamp_first_seen": "2026-03-29T17:00:09+00:00",
+    "status": "Stable",
+    "sources_count": 25
+  },
+  {
+    "id": "42202311",
+    "type": "economic",
+    "location": "Yemen",
+    "timestamp_first_seen": "2026-03-29T08:46:47+00:00",
+    "status": "New",
+    "sources_count": 1
+  },
+  {
+    "id": "6f960e49",
+    "type": "invasion",
+    "location": "Iran",
+    "timestamp_first_seen": "2026-03-29T08:45:13+00:00",
+    "status": "Stable",
+    "sources_count": 11
+  },
+  {
+    "id": "098a2ce7",
+    "type": "houthi",
+    "location": "Gulf",
+    "timestamp_first_seen": "2026-03-28T19:08:30+00:00",
+    "status": "Developing",
+    "sources_count": 3
+  },
+  {
+    "id": "3e8d9249",
+    "type": "houthi",
+    "location": "Iran",
+    "timestamp_first_seen": "2026-03-28T15:52:59+00:00",
+    "status": "Developing",
+    "sources_count": 3
+  },
+  {
+    "id": "5d6f183f",
+    "type": "houthi",
+    "location": "Israel",
+    "timestamp_first_seen": "2026-03-28T09:55:07+00:00",
+    "status": "Developing",
+    "sources_count": 3
+  },
+  {
+    "id": "ade308d8",
+    "type": "houthi",
+    "location": "Yemen",
+    "timestamp_first_seen": "2026-03-28T09:53:42+00:00",
+    "status": "Developing",
+    "sources_count": 2
+  },
+  {
+    "id": "8ed6faee",
+    "type": "protest",
+    "location": "Iran",
+    "timestamp_first_seen": "2026-03-28T09:00:24+00:00",
+    "status": "Developing",
+    "sources_count": 2
+  },
+  {
+    "id": "ff575e87",
+    "type": "houthi",
+    "location": "Middle East",
+    "timestamp_first_seen": "2026-03-28T06:16:47+00:00",
+    "status": "Stable",
+    "sources_count": 4
+  },
+  {
+    "id": "efcc1be4",
+    "type": "strike",
+    "location": "Israel",
+    "timestamp_first_seen": "2026-03-27T10:15:27+00:00",
+    "status": "Stable",
+    "sources_count": 25
+  },
+  {
+    "id": "30b7cc55",
+    "type": "economic",
+    "location": "Gulf",
+    "timestamp_first_seen": "2026-03-27T01:25:17+00:00",
+    "status": "Stable",
+    "sources_count": 25
+  },
+  {
+    "id": "0e5d6006",
+    "type": "diplomacy",
+    "location": "Middle East",
+    "timestamp_first_seen": "2026-03-25T11:25:17+00:00",
+    "status": "Stable",
+    "sources_count": 14
+  },
+  {
+    "id": "f2e6f18b",
+    "type": "casualty",
+    "location": "Middle East",
+    "timestamp_first_seen": "2026-03-23T18:31:26+00:00",
+    "status": "Developing",
+    "sources_count": 3
+  },
+  {
+    "id": "ea0f5aab",
+    "type": "update",
+    "location": "Middle East",
+    "timestamp_first_seen": "2026-03-23T15:34:38+00:00",
+    "status": "Stable",
+    "sources_count": 25
+  }
+]

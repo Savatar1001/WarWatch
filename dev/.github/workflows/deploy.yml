@@ -1,0 +1,57 @@
+name: Deploy
+
+on:
+  push:
+    branches: [dev, staging, prod]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout source branch
+        uses: actions/checkout@v4
+        with:
+          path: source
+
+      - name: Checkout gh-pages branch (create if missing)
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git clone --depth=1 --branch=gh-pages \
+            https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git \
+            gh-pages 2>/dev/null || (
+              mkdir gh-pages && cd gh-pages &&
+              git init &&
+              git remote add origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git &&
+              git checkout --orphan gh-pages &&
+              git commit --allow-empty -m "Initialise gh-pages"
+            )
+
+      - name: Sync to correct subfolder
+        run: |
+          BRANCH="${{ github.ref_name }}"
+          if [ "$BRANCH" = "prod" ]; then
+            # Prod deploys to root — preserve dev/ and staging/ subdirs
+            rsync -av --delete \
+              --exclude='.git' \
+              --exclude='dev/' \
+              --exclude='staging/' \
+              source/ gh-pages/
+          else
+            mkdir -p gh-pages/$BRANCH
+            rsync -av --delete \
+              --exclude='.git' \
+              source/ gh-pages/$BRANCH/
+          fi
+
+      - name: Commit and push
+        run: |
+          cd gh-pages
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git diff --staged --quiet || git commit -m "Deploy ${{ github.ref_name }} @ ${GITHUB_SHA::7}"
+          git push origin gh-pages
