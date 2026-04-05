@@ -18,6 +18,8 @@ jobs:
 
       - name: Checkout gh-pages branch (create if missing)
         run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git clone --depth=1 --branch=gh-pages \
             https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git \
             gh-pages 2>/dev/null || (
