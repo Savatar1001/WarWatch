@@ -11,6 +11,13 @@ jobs:
       contents: write
 
     steps:
+      - name: Debug — environment
+        run: |
+          echo "Branch: ${{ github.ref_name }}"
+          echo "Repo:   ${{ github.repository }}"
+          echo "SHA:    ${{ github.sha }}"
+          ls -la
+
       - name: Checkout source branch
         uses: actions/checkout@v4
         with:
