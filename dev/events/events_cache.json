@@ -1,54 +1,574 @@
 [
   {
-    "id": "e2f72131",
-    "type": "update",
-    "location": "Middle East",
-    "timestamp_first_seen": "2026-03-30T09:18:49+00:00",
-    "status": "Stable",
-    "sources_count": 13
-  },
-  {
-    "id": "eee08541",
-    "type": "economic",
-    "location": "Gulf",
-    "timestamp_first_seen": "2026-03-30T07:00:56+00:00",
-    "status": "Stable",
-    "sources_count": 13
-  },
-  {
-    "id": "a98dfc43",
-    "type": "strike",
-    "location": "Israel",
-    "timestamp_first_seen": "2026-03-30T03:20:49+00:00",
-    "status": "Stable",
-    "sources_count": 13
-  },
-  {
-    "id": "e2961f5c",
+    "id": "786c02b9",
     "type": "invasion",
-    "location": "Middle East",
-    "timestamp_first_seen": "2026-03-30T02:36:04+00:00",
-    "status": "New",
-    "sources_count": 1
-  },
-  {
-    "id": "9fef9fe9",
-    "type": "nuclear",
-    "location": "Middle East",
-    "timestamp_first_seen": "2026-03-30T02:30:18+00:00",
-    "status": "New",
-    "sources_count": 1
-  },
-  {
-    "id": "775fa652",
-    "type": "nuclear",
-    "location": "Iran",
-    "timestamp_first_seen": "2026-03-29T22:11:34+00:00",
+    "location": "Israel",
+    "timestamp_first_seen": "2026-04-27T22:08:16.031029+00:00",
     "status": "Developing",
     "sources_count": 2
   },
   {
-    "id": "728cb341",
+    "id": "cdbe77e3",
+    "type": "invasion",
+    "location": "Gulf",
+    "timestamp_first_seen": "2026-04-27T22:08:16.030973+00:00",
+    "status": "New",
+    "sources_count": 1
+  },
+  {
+    "id": "9fd6434d",
+    "type": "protest",
+    "location": "Middle East",
+    "timestamp_first_seen": "2026-04-27T22:08:16.030946+00:00",
+    "status": "New",
+    "sources_count": 1
+  },
+  {
+    "id": "618ddbb6",
+    "type": "protest",
+    "location": "Israel",
+    "timestamp_first_seen": "2026-04-27T22:08:16.030920+00:00",
+    "status": "Developing",
+    "sources_count": 2
+  },
+  {
+    "id": "9287f526",
+    "type": "nuclear",
+    "location": "Israel",
+    "timestamp_first_seen": "2026-04-27T22:08:16.030883+00:00",
+    "status": "Stable",
+    "sources_count": 4
+  },
+  {
+    "id": "2cca2f89",
+    "type": "diplomacy",
+    "location": "Middle East",
+    "timestamp_first_seen": "2026-04-27T22:08:16.030328+00:00",
+    "status": "Stable",
+    "sources_count": 18
+  },
+  {
+    "id": "dd542cd8",
+    "type": "diplomacy",
+    "location": "Middle East",
+    "timestamp_first_seen": "2026-04-27T22:08:16.030311+00:00",
+    "status": "Stable",
+    "sources_count": 25
+  },
+  {
+    "id": "fefcf6b8",
+    "type": "diplomacy",
+    "location": "Middle East",
+    "timestamp_first_seen": "2026-04-27T22:08:16.030295+00:00",
+    "status": "Stable",
+    "sources_count": 25
+  },
+  {
+    "id": "32098a86",
+    "type": "diplomacy",
+    "location": "Middle East",
+    "timestamp_first_seen": "2026-04-27T22:08:16.030279+00:00",
+    "status": "Stable",
+    "sources_count": 25
+  },
+  {
+    "id": "c3ea2e0b",
+    "type": "diplomacy",
+    "location": "Middle East",
+    "timestamp_first_seen": "2026-04-27T22:08:16.030263+00:00",
+    "status": "Stable",
+    "sources_count": 25
+  },
+  {
+    "id": "c316dbf0",
+    "type": "diplomacy",
+    "location": "Middle East",
+    "timestamp_first_seen": "2026-04-27T22:08:16.030247+00:00",
+    "status": "Stable",
+    "sources_count": 25
+  },
+  {
+    "id": "c41d9957",
+    "type": "diplomacy",
+    "location": "Middle East",
+    "timestamp_first_seen": "2026-04-27T22:08:16.030231+00:00",
+    "status": "Stable",
+    "sources_count": 25
+  },
+  {
+    "id": "b71f5bc4",
+    "type": "diplomacy",
+    "location": "Middle East",
+    "timestamp_first_seen": "2026-04-27T22:08:16.030214+00:00",
+    "status": "Stable",
+    "sources_count": 25
+  },
+  {
+    "id": "b51b296c",
+    "type": "diplomacy",
+    "location": "Middle East",
+    "timestamp_first_seen": "2026-04-27T22:08:16.030198+00:00",
+    "status": "Stable",
+    "sources_count": 25
+  },
+  {
+    "id": "486e6c64",
+    "type": "diplomacy",
+    "location": "Middle East",
+    "timestamp_first_seen": "2026-04-27T22:08:16.030181+00:00",
+    "status": "Stable",
+    "sources_count": 25
+  },
+  {
+    "id": "070a07b7",
+    "type": "diplomacy",
+    "location": "Middle East",
+    "timestamp_first_seen": "2026-04-27T22:08:16.030164+00:00",
+    "status": "Stable",
+    "sources_count": 25
+  },
+  {
+    "id": "9f27f542",
+    "type": "diplomacy",
+    "location": "Middle East",
+    "timestamp_first_seen": "2026-04-27T22:08:16.030147+00:00",
+    "status": "Stable",
+    "sources_count": 25
+  },
+  {
+    "id": "0258fcfd",
+    "type": "diplomacy",
+    "location": "Middle East",
+    "timestamp_first_seen": "2026-04-27T22:08:16.030128+00:00",
+    "status": "Stable",
+    "sources_count": 25
+  },
+  {
+    "id": "ff928552",
+    "type": "nuclear",
+    "location": "Iran",
+    "timestamp_first_seen": "2026-04-27T22:08:16.025780+00:00",
+    "status": "Stable",
+    "sources_count": 17
+  },
+  {
+    "id": "560c63b5",
+    "type": "nuclear",
+    "location": "Iran",
+    "timestamp_first_seen": "2026-04-27T22:08:16.025761+00:00",
+    "status": "Stable",
+    "sources_count": 25
+  },
+  {
+    "id": "baa9026b",
+    "type": "economic",
+    "location": "Gulf",
+    "timestamp_first_seen": "2026-04-27T22:08:16.025065+00:00",
+    "status": "Stable",
+    "sources_count": 12
+  },
+  {
+    "id": "a989650e",
+    "type": "economic",
+    "location": "Gulf",
+    "timestamp_first_seen": "2026-04-27T22:08:16.025048+00:00",
+    "status": "Stable",
+    "sources_count": 25
+  },
+  {
+    "id": "d6cddd92",
+    "type": "economic",
+    "location": "Gulf",
+    "timestamp_first_seen": "2026-04-27T22:08:16.025031+00:00",
+    "status": "Stable",
+    "sources_count": 25
+  },
+  {
+    "id": "57e0d613",
+    "type": "economic",
+    "location": "Gulf",
+    "timestamp_first_seen": "2026-04-27T22:08:16.025011+00:00",
+    "status": "Stable",
+    "sources_count": 25
+  },
+  {
+    "id": "e38f7a80",
+    "type": "economic",
+    "location": "Gulf",
+    "timestamp_first_seen": "2026-04-27T22:08:16.024975+00:00",
+    "status": "Stable",
+    "sources_count": 25
+  },
+  {
+    "id": "62d337c2",
+    "type": "economic",
+    "location": "Gulf",
+    "timestamp_first_seen": "2026-04-27T22:08:16.024957+00:00",
+    "status": "Stable",
+    "sources_count": 25
+  },
+  {
+    "id": "7fdc2587",
+    "type": "economic",
+    "location": "Gulf",
+    "timestamp_first_seen": "2026-04-27T22:08:16.024939+00:00",
+    "status": "Stable",
+    "sources_count": 25
+  },
+  {
+    "id": "29c8d6cf",
+    "type": "strike",
+    "location": "Israel",
+    "timestamp_first_seen": "2026-04-27T22:08:16.022339+00:00",
+    "status": "Stable",
+    "sources_count": 24
+  },
+  {
+    "id": "4faab7f8",
+    "type": "strike",
+    "location": "Israel",
+    "timestamp_first_seen": "2026-04-27T22:08:16.022322+00:00",
+    "status": "Stable",
+    "sources_count": 25
+  },
+  {
+    "id": "6efde3b9",
+    "type": "strike",
+    "location": "Israel",
+    "timestamp_first_seen": "2026-04-27T22:08:16.022304+00:00",
+    "status": "Stable",
+    "sources_count": 25
+  },
+  {
+    "id": "46d30b09",
+    "type": "strike",
+    "location": "Israel",
+    "timestamp_first_seen": "2026-04-27T22:08:16.022287+00:00",
+    "status": "Stable",
+    "sources_count": 25
+  },
+  {
+    "id": "e5ea2dda",
+    "type": "strike",
+    "location": "Israel",
+    "timestamp_first_seen": "2026-04-27T22:08:16.022270+00:00",
+    "status": "Stable",
+    "sources_count": 25
+  },
+  {
+    "id": "e8a17c44",
+    "type": "strike",
+    "location": "Israel",
+    "timestamp_first_seen": "2026-04-27T22:08:16.022252+00:00",
+    "status": "Stable",
+    "sources_count": 25
+  },
+  {
+    "id": "d7bb92f9",
+    "type": "strike",
+    "location": "Israel",
+    "timestamp_first_seen": "2026-04-27T22:08:16.022233+00:00",
+    "status": "Stable",
+    "sources_count": 25
+  },
+  {
+    "id": "12526506",
+    "type": "update",
+    "location": "Middle East",
+    "timestamp_first_seen": "2026-04-27T22:08:16.019759+00:00",
+    "status": "Stable",
+    "sources_count": 25
+  },
+  {
+    "id": "96fad894",
+    "type": "update",
+    "location": "Middle East",
+    "timestamp_first_seen": "2026-04-27T22:08:16.019743+00:00",
+    "status": "Stable",
+    "sources_count": 25
+  },
+  {
+    "id": "ce85c3a7",
+    "type": "update",
+    "location": "Middle East",
+    "timestamp_first_seen": "2026-04-27T22:08:16.019727+00:00",
+    "status": "Stable",
+    "sources_count": 25
+  },
+  {
+    "id": "13210a6a",
+    "type": "update",
+    "location": "Middle East",
+    "timestamp_first_seen": "2026-04-27T22:08:16.019710+00:00",
+    "status": "Stable",
+    "sources_count": 25
+  },
+  {
+    "id": "c9da4b19",
+    "type": "update",
+    "location": "Middle East",
+    "timestamp_first_seen": "2026-04-27T22:08:16.019694+00:00",
+    "status": "Stable",
+    "sources_count": 25
+  },
+  {
+    "id": "4d5606ca",
+    "type": "update",
+    "location": "Middle East",
+    "timestamp_first_seen": "2026-04-27T22:08:16.019677+00:00",
+    "status": "Stable",
+    "sources_count": 25
+  },
+  {
+    "id": "f3d90705",
+    "type": "update",
+    "location": "Middle East",
+    "timestamp_first_seen": "2026-04-27T22:08:16.019660+00:00",
+    "status": "Stable",
+    "sources_count": 25
+  },
+  {
+    "id": "7fe6e99f",
+    "type": "update",
+    "location": "Middle East",
+    "timestamp_first_seen": "2026-04-27T22:08:16.019644+00:00",
+    "status": "Stable",
+    "sources_count": 25
+  },
+  {
+    "id": "b07d444b",
+    "type": "update",
+    "location": "Middle East",
+    "timestamp_first_seen": "2026-04-27T22:08:16.019628+00:00",
+    "status": "Stable",
+    "sources_count": 25
+  },
+  {
+    "id": "dea79b15",
+    "type": "update",
+    "location": "Middle East",
+    "timestamp_first_seen": "2026-04-27T22:08:16.019611+00:00",
+    "status": "Stable",
+    "sources_count": 25
+  },
+  {
+    "id": "01416254",
+    "type": "update",
+    "location": "Middle East",
+    "timestamp_first_seen": "2026-04-27T22:08:16.019594+00:00",
+    "status": "Stable",
+    "sources_count": 25
+  },
+  {
+    "id": "aa4246fc",
+    "type": "update",
+    "location": "Middle East",
+    "timestamp_first_seen": "2026-04-27T22:08:16.019578+00:00",
+    "status": "Stable",
+    "sources_count": 25
+  },
+  {
+    "id": "16a526f5",
+    "type": "update",
+    "location": "Middle East",
+    "timestamp_first_seen": "2026-04-27T22:08:16.019561+00:00",
+    "status": "Stable",
+    "sources_count": 25
+  },
+  {
+    "id": "e7c8d629",
+    "type": "update",
+    "location": "Middle East",
+    "timestamp_first_seen": "2026-04-27T22:08:16.019545+00:00",
+    "status": "Stable",
+    "sources_count": 25
+  },
+  {
+    "id": "7ddfb62e",
+    "type": "update",
+    "location": "Middle East",
+    "timestamp_first_seen": "2026-04-27T22:08:16.019529+00:00",
+    "status": "Stable",
+    "sources_count": 25
+  },
+  {
+    "id": "ddb252da",
+    "type": "update",
+    "location": "Middle East",
+    "timestamp_first_seen": "2026-04-27T22:08:16.019512+00:00",
+    "status": "Stable",
+    "sources_count": 25
+  },
+  {
+    "id": "865870c1",
+    "type": "update",
+    "location": "Middle East",
+    "timestamp_first_seen": "2026-04-27T22:08:16.019496+00:00",
+    "status": "Stable",
+    "sources_count": 25
+  },
+  {
+    "id": "7fa49674",
+    "type": "update",
+    "location": "Middle East",
+    "timestamp_first_seen": "2026-04-27T22:08:16.019479+00:00",
+    "status": "Stable",
+    "sources_count": 25
+  },
+  {
+    "id": "20aeaba5",
+    "type": "update",
+    "location": "Middle East",
+    "timestamp_first_seen": "2026-04-27T22:08:16.019462+00:00",
+    "status": "Stable",
+    "sources_count": 25
+  },
+  {
+    "id": "ada44cab",
+    "type": "update",
+    "location": "Middle East",
+    "timestamp_first_seen": "2026-04-27T22:08:16.019444+00:00",
+    "status": "Stable",
+    "sources_count": 25
+  },
+  {
+    "id": "c171e512",
+    "type": "update",
+    "location": "Middle East",
+    "timestamp_first_seen": "2026-04-27T22:08:16.019421+00:00",
+    "status": "Stable",
+    "sources_count": 25
+  },
+  {
+    "id": "81975dcc",
+    "type": "update",
+    "location": "Middle East",
+    "timestamp_first_seen": "2026-04-27T22:08:16.019404+00:00",
+    "status": "Stable",
+    "sources_count": 25
+  },
+  {
+    "id": "8f5e6945",
+    "type": "update",
+    "location": "Middle East",
+    "timestamp_first_seen": "2026-04-27T22:08:16.019386+00:00",
+    "status": "Stable",
+    "sources_count": 25
+  },
+  {
+    "id": "6d75e531",
+    "type": "update",
+    "location": "Middle East",
+    "timestamp_first_seen": "2026-04-27T22:08:16.019369+00:00",
+    "status": "Stable",
+    "sources_count": 25
+  },
+  {
+    "id": "e82ad20b",
+    "type": "update",
+    "location": "Middle East",
+    "timestamp_first_seen": "2026-04-27T22:08:16.019350+00:00",
+    "status": "Stable",
+    "sources_count": 25
+  },
+  {
+    "id": "cb3be3f6",
+    "type": "update",
+    "location": "Middle East",
+    "timestamp_first_seen": "2026-04-27T22:08:16.019330+00:00",
+    "status": "Stable",
+    "sources_count": 25
+  },
+  {
+    "id": "dede9b41",
+    "type": "update",
+    "location": "Middle East",
+    "timestamp_first_seen": "2026-04-27T15:52:30+00:00",
+    "status": "Stable",
+    "sources_count": 25
+  },
+  {
+    "id": "1f29aec4",
+    "type": "nuclear",
+    "location": "Gulf",
+    "timestamp_first_seen": "2026-04-27T15:50:25+00:00",
+    "status": "Stable",
+    "sources_count": 4
+  },
+  {
+    "id": "39acec2a",
+    "type": "economic",
+    "location": "Gulf",
+    "timestamp_first_seen": "2026-04-27T10:00:00-00:50",
+    "status": "Stable",
+    "sources_count": 25
+  },
+  {
+    "id": "a2d511e3",
+    "type": "update",
+    "location": "Middle East",
+    "timestamp_first_seen": "2026-04-25T11:38:05+00:00",
+    "status": "Stable",
+    "sources_count": 25
+  },
+  {
+    "id": "afb61226",
+    "type": "diplomacy",
+    "location": "Middle East",
+    "timestamp_first_seen": "2026-04-25T05:13:07+00:00",
+    "status": "Stable",
+    "sources_count": 25
+  },
+  {
+    "id": "70325c4c",
+    "type": "update",
+    "location": "Middle East",
+    "timestamp_first_seen": "2026-03-30T09:18:49+00:00",
+    "status": "Stable",
+    "sources_count": 25
+  },
+  {
+    "id": "0d134ac0",
+    "type": "economic",
+    "location": "Gulf",
+    "timestamp_first_seen": "2026-03-30T07:00:56+00:00",
+    "status": "Stable",
+    "sources_count": 25
+  },
+  {
+    "id": "60fa6537",
+    "type": "strike",
+    "location": "Israel",
+    "timestamp_first_seen": "2026-03-30T03:20:49+00:00",
+    "status": "Stable",
+    "sources_count": 25
+  },
+  {
+    "id": "3095a257",
+    "type": "invasion",
+    "location": "Middle East",
+    "timestamp_first_seen": "2026-03-30T02:36:04+00:00",
+    "status": "Developing",
+    "sources_count": 2
+  },
+  {
+    "id": "343017c6",
+    "type": "nuclear",
+    "location": "Middle East",
+    "timestamp_first_seen": "2026-03-30T02:30:18+00:00",
+    "status": "Stable",
+    "sources_count": 8
+  },
+  {
+    "id": "c5143261",
+    "type": "nuclear",
+    "location": "Iran",
+    "timestamp_first_seen": "2026-03-29T22:11:34+00:00",
+    "status": "Stable",
+    "sources_count": 25
+  },
+  {
+    "id": "9e178fd6",
     "type": "update",
     "location": "Middle East",
     "timestamp_first_seen": "2026-03-29T17:00:09+00:00",
@@ -56,7 +576,7 @@
     "sources_count": 25
   },
   {
-    "id": "42202311",
+    "id": "a1ef400d",
     "type": "economic",
     "location": "Yemen",
     "timestamp_first_seen": "2026-03-29T08:46:47+00:00",
@@ -64,15 +584,15 @@
     "sources_count": 1
   },
   {
-    "id": "6f960e49",
+    "id": "e7fb5a50",
     "type": "invasion",
     "location": "Iran",
     "timestamp_first_seen": "2026-03-29T08:45:13+00:00",
     "status": "Stable",
-    "sources_count": 11
+    "sources_count": 24
   },
   {
-    "id": "098a2ce7",
+    "id": "fb02800f",
     "type": "houthi",
     "location": "Gulf",
     "timestamp_first_seen": "2026-03-28T19:08:30+00:00",
@@ -80,7 +600,7 @@
     "sources_count": 3
   },
   {
-    "id": "3e8d9249",
+    "id": "87e35a42",
     "type": "houthi",
     "location": "Iran",
     "timestamp_first_seen": "2026-03-28T15:52:59+00:00",
@@ -88,39 +608,39 @@
     "sources_count": 3
   },
   {
-    "id": "5d6f183f",
+    "id": "c8da524e",
     "type": "houthi",
     "location": "Israel",
     "timestamp_first_seen": "2026-03-28T09:55:07+00:00",
-    "status": "Developing",
-    "sources_count": 3
+    "status": "Stable",
+    "sources_count": 5
   },
   {
-    "id": "ade308d8",
+    "id": "0f235870",
     "type": "houthi",
     "location": "Yemen",
     "timestamp_first_seen": "2026-03-28T09:53:42+00:00",
-    "status": "Developing",
-    "sources_count": 2
-  },
-  {
-    "id": "8ed6faee",
-    "type": "protest",
-    "location": "Iran",
-    "timestamp_first_seen": "2026-03-28T09:00:24+00:00",
-    "status": "Developing",
-    "sources_count": 2
-  },
-  {
-    "id": "ff575e87",
-    "type": "houthi",
-    "location": "Middle East",
-    "timestamp_first_seen": "2026-03-28T06:16:47+00:00",
     "status": "Stable",
     "sources_count": 4
   },
   {
-    "id": "efcc1be4",
+    "id": "17e657f9",
+    "type": "protest",
+    "location": "Iran",
+    "timestamp_first_seen": "2026-03-28T09:00:24+00:00",
+    "status": "Stable",
+    "sources_count": 8
+  },
+  {
+    "id": "8e093b87",
+    "type": "houthi",
+    "location": "Middle East",
+    "timestamp_first_seen": "2026-03-28T06:16:47+00:00",
+    "status": "Stable",
+    "sources_count": 5
+  },
+  {
+    "id": "723ddacc",
     "type": "strike",
     "location": "Israel",
     "timestamp_first_seen": "2026-03-27T10:15:27+00:00",
@@ -128,7 +648,7 @@
     "sources_count": 25
   },
   {
-    "id": "30b7cc55",
+    "id": "2892ae89",
     "type": "economic",
     "location": "Gulf",
     "timestamp_first_seen": "2026-03-27T01:25:17+00:00",
@@ -136,23 +656,23 @@
     "sources_count": 25
   },
   {
-    "id": "0e5d6006",
+    "id": "11c25b14",
     "type": "diplomacy",
     "location": "Middle East",
     "timestamp_first_seen": "2026-03-25T11:25:17+00:00",
     "status": "Stable",
-    "sources_count": 14
+    "sources_count": 25
   },
   {
-    "id": "f2e6f18b",
+    "id": "218301d9",
     "type": "casualty",
     "location": "Middle East",
     "timestamp_first_seen": "2026-03-23T18:31:26+00:00",
-    "status": "Developing",
-    "sources_count": 3
+    "status": "Stable",
+    "sources_count": 25
   },
   {
-    "id": "ea0f5aab",
+    "id": "ee8e44e0",
     "type": "update",
     "location": "Middle East",
     "timestamp_first_seen": "2026-03-23T15:34:38+00:00",

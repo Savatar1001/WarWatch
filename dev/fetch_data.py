@@ -227,9 +227,9 @@ def fetch_conflict_data():
         'strikes_total': '—',
         'missile_waves': '—',
         'drones_total': '—',
-        'nuclear_natanz': 'Unknown',
-        'nuclear_uranium': 'Unknown',
-        'nuclear_iaea': 'Unknown',
+        'nuclear_natanz': '—',
+        'nuclear_uranium': '—',
+        'nuclear_iaea': '—',
         'war_day': '—',
         'displaced': '—',
         'countries_attacked': '—',
@@ -251,7 +251,7 @@ def fetch_conflict_data():
         print(f"  Wikipedia fallback for: {', '.join(missing)}")
         wiki = fetch_wikipedia()
         for k in missing:
-            if wiki.get(k) not in ('—', 'Source unavailable', 'Updating...', 'Unknown'):
+            if wiki.get(k) not in ('—', 'Source unavailable', 'Unknown'):
                 result[k] = wiki[k]
 
     return result
@@ -260,19 +260,19 @@ def fetch_conflict_data():
 def fetch_wikipedia():
     print("Fetching Wikipedia data...")
     result = {
-        'casualties_iran_official': 'Updating...',
-        'casualties_hengaw': 'Updating...',
-        'casualties_hrana': 'Updating...',
-        'casualties_injured': 'Updating...',
-        'strikes_total': 'Updating...',
-        'missile_waves': 'Updating...',
-        'drones_total': 'Updating...',
-        'nuclear_natanz': 'Unknown',
-        'nuclear_uranium': 'Unknown',
-        'nuclear_iaea': 'Unknown',
+        'casualties_iran_official': '—',
+        'casualties_hengaw': '—',
+        'casualties_hrana': '—',
+        'casualties_injured': '—',
+        'strikes_total': '—',
+        'missile_waves': '—',
+        'drones_total': '—',
+        'nuclear_natanz': '—',
+        'nuclear_uranium': '—',
+        'nuclear_iaea': '—',
         'war_day': '—',
-        'displaced': 'Updating...',
-        'countries_attacked': 'Updating...',
+        'displaced': '—',
+        'countries_attacked': '—',
     }
     try:
         api_url = (
@@ -379,15 +379,11 @@ def fetch_wikipedia():
 
     except Exception as e:
         print(f"  [WARN] Wikipedia fetch failed: {e}")
-        # Set unfilled fields to source unavailable rather than Updating...
-        for key in result:
-            if result[key] == 'Updating...':
-                result[key] = 'Source unavailable'
 
-    # Replace any remaining Updating... with source unavailable
+    # Replace any unresolved placeholders with — so CSS hides them cleanly
     for key in result:
-        if result[key] == 'Updating...':
-            result[key] = 'Source unavailable'
+        if result[key] in ('—', 'Source unavailable'):
+            result[key] = '—'
 
     return result
 
