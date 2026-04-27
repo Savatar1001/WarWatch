@@ -1,0 +1,22 @@
+name: Tests
+
+on:
+  push:
+    branches: [dev]
+  pull_request:
+    branches: [staging, prod]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Python tests (pytest)
+        run: echo "pytest stub — replace with real tests (I1)" && exit 0
+
+      - name: JS tests (Vitest)
+        run: echo "Vitest stub — replace with real tests (I1)" && exit 0
+
+      - name: E2E tests (Playwright)
+        run: echo "Playwright stub — replace with real tests (I1)" && exit 0
