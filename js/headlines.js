@@ -2,7 +2,6 @@
 
 window.HF = (() => {
   let activeSources = new Set(); // empty = all
-  let currentPage = 1;
 
   const MONTHS = {jan:0,feb:1,mar:2,apr:3,may:4,jun:5,jul:6,aug:7,sep:8,oct:9,nov:10,dec:11};
 
@@ -28,39 +27,22 @@ window.HF = (() => {
     const fromDate = fromVal ? new Date(fromVal + 'T00:00:00') : null;
     const toDate   = toVal   ? new Date(toVal   + 'T23:59:59') : null;
 
+    const items = [...document.querySelectorAll('#events-feed .event-item')];
     const maxRows = parseInt(document.getElementById('hf-rows')?.value || '10');
+    let shown = 0, total = 0;
 
-    // B2 — sort newest first before pagination
-    const items = [...document.querySelectorAll('#events-feed .event-item')]
-      .sort((a, b) => {
-        const da = parseItemDate(a), db = parseItemDate(b);
-        if (!da && !db) return 0;
-        if (!da) return 1;
-        if (!db) return -1;
-        return db - da;
-      });
-
-    // Filter to matching items
-    const matching = items.filter(item => {
+    items.forEach(item => {
       const sourceMatch = activeSources.size === 0 || activeSources.has(item.dataset.source);
       const itemDate = parseItemDate(item);
       const afterFrom = !fromDate || !itemDate || itemDate >= fromDate;
       const beforeTo  = !toDate  || !itemDate || itemDate <= toDate;
-      return sourceMatch && afterFrom && beforeTo;
+      const matches = sourceMatch && afterFrom && beforeTo;
+      if (matches) total++;
+      const show = matches && shown < maxRows;
+      item.style.setProperty('display', show ? 'grid' : 'none', 'important');
+      if (show) shown++;
     });
 
-    const total = matching.length;
-    const totalPages = Math.max(1, Math.ceil(total / maxRows));
-    currentPage = Math.min(currentPage, totalPages);
-    const start = (currentPage - 1) * maxRows;
-    const pageItems = new Set(matching.slice(start, start + maxRows));
-
-    // Show/hide all items
-    items.forEach(item => {
-      item.style.setProperty('display', pageItems.has(item) ? 'grid' : 'none', 'important');
-    });
-
-    // Update counts
     const totalEl = document.getElementById('hf-total');
     if (totalEl) totalEl.textContent = total;
 
@@ -69,24 +51,6 @@ window.HF = (() => {
     const grandEl = document.getElementById('hf-grand-total');
     if (sourceLabel) sourceLabel.textContent = activeSources.size === 0 ? 'articles · ' + allItems.length + ' available' : 'articles · ' + total + ' available from sources selected above';
     if (grandEl) grandEl.textContent = activeSources.size === 0 ? '' : '(' + allItems.length + ' from all sources)';
-
-    // Update pagination UI
-    const pageLabel = document.getElementById('hf-page-label');
-    const prevBtn   = document.getElementById('hf-prev');
-    const nextBtn   = document.getElementById('hf-next');
-    const pagination = document.getElementById('hf-pagination');
-    if (pageLabel) pageLabel.textContent = `Page ${currentPage} of ${totalPages}`;
-    if (prevBtn)   prevBtn.disabled = currentPage <= 1;
-    if (nextBtn)   nextBtn.disabled = currentPage >= totalPages;
-    if (pagination) pagination.style.display = totalPages > 1 ? 'flex' : 'none';
-  }
-
-  function goToPage(dir) {
-    if (dir === 'prev') currentPage = Math.max(1, currentPage - 1);
-    else if (dir === 'next') currentPage++;
-    else currentPage = parseInt(dir) || 1;
-    applyFilters();
-    document.getElementById('events-feed')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
   function updatePillCounts() {
@@ -141,18 +105,24 @@ window.HF = (() => {
       pillBar.querySelector('.hf-pill-sep')?.remove();
 
       if (activeSources.size > 0) {
+        const allBtn = pillBar.querySelector('[data-source="all"]');
+        const activePills   = [...pillBar.querySelectorAll('.hf-btn.hf-active:not([data-source="all"])')];
         const inactivePills = [...pillBar.querySelectorAll('.hf-btn:not(.hf-active):not([data-source="all"])')];
+
+        // Active pills sit right after All (preserve their existing order)
+        activePills.forEach(btn => allBtn.after(btn));
+        // Wait — we want newly selected at BACK, so just append them in existing order
+        // Re-append all active to maintain click order (they're already after All)
 
         // Add full-width horizontal separator
         const sep = document.createElement('div');
         sep.className = 'hf-pill-sep';
         pillBar.appendChild(sep);
 
-        // Inactive pills after separator — active pills stay in their existing DOM order
+        // Inactive pills after separator
         inactivePills.forEach(btn => pillBar.appendChild(btn));
       }
     }
-    currentPage = 1;
     applyFilters();
   }
 
@@ -172,12 +142,10 @@ window.HF = (() => {
       });
     });
 
-    // Wire date inputs — reset to page 1 on filter change; input fires immediately on selection
-    ['change', 'input'].forEach(ev => {
-      document.getElementById('hf-date-from')?.addEventListener(ev, () => { currentPage = 1; applyFilters(); });
-      document.getElementById('hf-date-to')?.addEventListener(ev, () => { currentPage = 1; applyFilters(); });
-    });
-    document.getElementById('hf-rows')?.addEventListener('change', () => { currentPage = 1; applyFilters(); });
+    // Wire date inputs
+    document.getElementById('hf-date-from')?.addEventListener('change', applyFilters);
+    document.getElementById('hf-date-to')?.addEventListener('change', applyFilters);
+    document.getElementById('hf-rows')?.addEventListener('change', applyFilters);
 
     // ── ARTICLE PANEL ──
     const overlay   = document.getElementById('ap-overlay');
@@ -236,34 +204,25 @@ window.HF = (() => {
       apType.textContent   = tagEl?.firstChild?.textContent?.trim() || '';
       apType.className     = 'ap-type ' + typeClass(apType.textContent);
 
-      // Position overlay directly below the clicked row
-      overlay.style.top = (row.offsetTop + row.offsetHeight) + 'px';
+      // Position overlay starting from the top of the clicked row
+      const widget   = document.getElementById('w-events');
+      const rowTop   = row.offsetTop;
+      overlay.style.top = rowTop + 'px';
 
       overlay.classList.add('visible');
       fetchSummary(headline);
     }
 
-    function closePanel() {
-      overlay.classList.remove('visible');
-      document.querySelectorAll('.event-item.ap-active').forEach(r => r.classList.remove('ap-active'));
-    }
-
     document.querySelectorAll('.event-item').forEach(row => {
       row.addEventListener('click', e => {
         if (e.target.closest('.ap-close')) return;
-        e.preventDefault();
-        if (row.classList.contains('ap-active')) {
-          closePanel();
-          return;
-        }
-        closePanel();
-        row.classList.add('ap-active');
         openPanel(row);
       });
     });
 
-    document.getElementById('ap-close')?.addEventListener('click', closePanel);
-    document.getElementById('ap-headline')?.addEventListener('click', closePanel);
+    document.getElementById('ap-close')?.addEventListener('click', () => {
+      overlay.classList.remove('visible');
+    });
 
     updatePillCounts();
     filter('all');
@@ -275,5 +234,5 @@ window.HF = (() => {
     setTimeout(initHF, 0);
   }
 
-  return { filter, goToPage };
+  return { filter };
 })();
