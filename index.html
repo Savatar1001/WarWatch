@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500;600;700&family=Barlow:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
-<link rel="stylesheet" href="styles.css?v=1777378299">
+<link rel="stylesheet" href="styles.css?v=1777388971">
 </head>
 <body>
 
@@ -105,7 +105,7 @@
   <div class="update-strip">
     <div class="update-left">
       <span class="live-pip"></span>
-      <span>Data as of: <strong id="update-time">28 Apr 2026 12:11 UTC</strong></span>
+      <span>Data as of: <strong id="update-time">28 Apr 2026 15:09 UTC</strong></span>
     </div>
     <span>Sources: CENTCOM · Hengaw · HRANA · Al Jazeera · CNBC · IAEA · NPR · Reuters</span>
   </div>
@@ -465,6 +465,7 @@
     <button class="hf-btn" data-source="ABC News (AU)">ABC News (AU) <span class="hf-count" id="hfc-abc-news--au"></span></button>
     <button class="hf-btn" data-source="Abcnews.com">Abcnews.com <span class="hf-count" id="hfc-abcnews-com"></span></button>
     <button class="hf-btn" data-source="Activistpost.com">Activistpost.com <span class="hf-count" id="hfc-activistpost-com"></span></button>
+    <button class="hf-btn" data-source="Airandspaceforces.com">Airandspaceforces.com <span class="hf-count" id="hfc-airandspaceforces-com"></span></button>
     <button class="hf-btn" data-source="Al Jazeera">Al Jazeera <span class="hf-count" id="hfc-al-jazeera"></span></button>
     <button class="hf-btn" data-source="Alltoc.com">Alltoc.com <span class="hf-count" id="hfc-alltoc-com"></span></button>
     <button class="hf-btn" data-source="Americanthinker.com">Americanthinker.com <span class="hf-count" id="hfc-americanthinker-com"></span></button>
@@ -554,12 +555,14 @@
     <button class="hf-btn" data-source="Newser">Newser <span class="hf-count" id="hfc-newser"></span></button>
     <button class="hf-btn" data-source="Newsfromthestates.com">Newsfromthestates.com <span class="hf-count" id="hfc-newsfromthestates-com"></span></button>
     <button class="hf-btn" data-source="OilPrice.com">OilPrice.com <span class="hf-count" id="hfc-oilprice-com"></span></button>
+    <button class="hf-btn" data-source="Omny.fm">Omny.fm <span class="hf-count" id="hfc-omny-fm"></span></button>
     <button class="hf-btn" data-source="PBS">PBS <span class="hf-count" id="hfc-pbs"></span></button>
     <button class="hf-btn" data-source="Phr.org">Phr.org <span class="hf-count" id="hfc-phr-org"></span></button>
     <button class="hf-btn" data-source="Protothema.gr">Protothema.gr <span class="hf-count" id="hfc-protothema-gr"></span></button>
     <button class="hf-btn" data-source="RT">RT <span class="hf-count" id="hfc-rt"></span></button>
     <button class="hf-btn" data-source="RTE">RTE <span class="hf-count" id="hfc-rte"></span></button>
     <button class="hf-btn" data-source="Radaronline.com">Radaronline.com <span class="hf-count" id="hfc-radaronline-com"></span></button>
+    <button class="hf-btn" data-source="Radio Free Europe/ Radio Liberty">Radio Free Europe/ Radio Liberty <span class="hf-count" id="hfc-radio-free-europe--radio-liberty"></span></button>
     <button class="hf-btn" data-source="Raw Story">Raw Story <span class="hf-count" id="hfc-raw-story"></span></button>
     <button class="hf-btn" data-source="Reason">Reason <span class="hf-count" id="hfc-reason"></span></button>
     <button class="hf-btn" data-source="Reuters">Reuters <span class="hf-count" id="hfc-reuters"></span></button>
@@ -590,6 +593,7 @@
     <button class="hf-btn" data-source="The New Republic">The New Republic <span class="hf-count" id="hfc-the-new-republic"></span></button>
     <button class="hf-btn" data-source="The New York Review of Books">The New York Review of Books <span class="hf-count" id="hfc-the-new-york-review-of-books"></span></button>
     <button class="hf-btn" data-source="The New Yorker">The New Yorker <span class="hf-count" id="hfc-the-new-yorker"></span></button>
+    <button class="hf-btn" data-source="The Next Web">The Next Web <span class="hf-count" id="hfc-the-next-web"></span></button>
     <button class="hf-btn" data-source="The Punch">The Punch <span class="hf-count" id="hfc-the-punch"></span></button>
     <button class="hf-btn" data-source="The Space Review">The Space Review <span class="hf-count" id="hfc-the-space-review"></span></button>
     <button class="hf-btn" data-source="The Times">The Times <span class="hf-count" id="hfc-the-times"></span></button>
@@ -1279,6 +1283,190 @@
         <div class="event-text"><a href="https://news.google.com/rss/articles/CBMiswFBVV95cUxOUTMzWEFNdENQZ1dOeUFIbkEtT2dTTkRXZDhuaGsxVzNuQS11OVA4cFFzd0lwVHBGRDdud2hONWNsZ0xNRmZfQWJaR0puMkJIazRzdVljUUdUSHNheUU3X0RhREZHdGpkSThGZzBZc2haOGgtenQ3SDNvTlFsNG9hd1NWVW1naXUxVV9ZQ21tSXQ4b2NyTXNEcFhLY1hoQUNwbzJsRVFEZU43aGZNczdIVExHOA?oc=5" target="_blank" rel="noopener" class="event-link" title="First LNG Shipment Since War Began Appears to Exit Hormuz - Bloomberg.com">First LNG Shipment Since War Began Appears to Exit Hormuz - Bloomberg.com</a></div>
       </div>
     </div>
+    <div class="event-item" data-source="Al Jazeera" data-date="2026-04-28">
+      <div class="event-time">2026-04-28</div>
+      <div class="event-src">Al Jazeera</div>
+      <div class="event-body">
+        <span class="event-tag et-diplo">Diplomatic<span class="ev-tip">Political developments, peace talks, sanctions, humanitarian events or general war news</span></span>
+        <div class="event-text"><a href="https://www.aljazeera.com/video/newsfeed/2026/4/28/qatar-says-using-hormuz-strait-as-political-weapon-is?traffic_source=rss" target="_blank" rel="noopener" class="event-link" title="Qatar says using Hormuz Strait as political weapon is ‘unacceptable’">Qatar says using Hormuz Strait as political weapon is ‘unacceptable’</a></div>
+      </div>
+    </div>
+    <div class="event-item" data-source="Al Jazeera" data-date="2026-04-28">
+      <div class="event-time">2026-04-28</div>
+      <div class="event-src">Al Jazeera</div>
+      <div class="event-body">
+        <span class="event-tag et-diplo">Diplomatic<span class="ev-tip">Political developments, peace talks, sanctions, humanitarian events or general war news</span></span>
+        <div class="event-text"><a href="https://www.aljazeera.com/news/2026/4/28/the-cost-of-76-years-of-us-wars-from-korea-to-iran?traffic_source=rss" target="_blank" rel="noopener" class="event-link" title="The cost of 76 years of US wars, from Korea to Iran">The cost of 76 years of US wars, from Korea to Iran</a></div>
+      </div>
+    </div>
+    <div class="event-item" data-source="Al Jazeera" data-date="2026-04-28">
+      <div class="event-time">2026-04-28</div>
+      <div class="event-src">Al Jazeera</div>
+      <div class="event-body">
+        <span class="event-tag et-diplo">Diplomatic<span class="ev-tip">Political developments, peace talks, sanctions, humanitarian events or general war news</span></span>
+        <div class="event-text"><a href="https://www.aljazeera.com/news/2026/4/28/whats-in-irans-latest-proposal-and-how-has-the-us-responded?traffic_source=rss" target="_blank" rel="noopener" class="event-link" title="What’s in Iran’s latest proposal – and how has the US responded?">What’s in Iran’s latest proposal – and how has the US responded?</a></div>
+      </div>
+    </div>
+    <div class="event-item" data-source="Al Jazeera" data-date="2026-04-28">
+      <div class="event-time">2026-04-28</div>
+      <div class="event-src">Al Jazeera</div>
+      <div class="event-body">
+        <span class="event-tag et-energy">Energy/Oil<span class="ev-tip">Impact on oil prices, gas supplies, refineries, shipping lanes or energy infrastructure</span></span>
+        <div class="event-text"><a href="https://www.aljazeera.com/news/2026/4/28/uae-leaves-opec-and-opec?traffic_source=rss" target="_blank" rel="noopener" class="event-link" title="UAE leaves OPEC in blow to oil cartel amid war on Iran">UAE leaves OPEC in blow to oil cartel amid war on Iran</a></div>
+      </div>
+    </div>
+    <div class="event-item" data-source="France 24" data-date="2026-04-28">
+      <div class="event-time">2026-04-28</div>
+      <div class="event-src">France 24</div>
+      <div class="event-body">
+        <span class="event-tag et-energy">Energy/Oil<span class="ev-tip">Impact on oil prices, gas supplies, refineries, shipping lanes or energy infrastructure</span></span>
+        <div class="event-text"><a href="https://www.france24.com/en/middle-east/20260428-uae-to-quit-global-oil-cartel-opec-citing-national-interests" target="_blank" rel="noopener" class="event-link" title="UAE to quit global oil cartel OPEC, citing 'national interests'">UAE to quit global oil cartel OPEC, citing 'national interests'</a></div>
+      </div>
+    </div>
+    <div class="event-item" data-source="Reuters" data-date="2026-04-28">
+      <div class="event-time">2026-04-28</div>
+      <div class="event-src">Reuters</div>
+      <div class="event-body">
+        <span class="event-tag et-diplo">Diplomatic<span class="ev-tip">Political developments, peace talks, sanctions, humanitarian events or general war news</span></span>
+        <div class="event-text"><a href="https://news.google.com/rss/articles/CBMitgFBVV95cUxQLXhXRm42aXJqZFRHN29tT3Z0TGZtbkRPSDFqbVBhdFEteW5ESEhJOFQzRXFqUF9RRjFDMmY2NC15TzhOa19pWk54U1FLWm5uS2cwS0FjZTdhVzBiWFpxVTNNaVVDaTM1UFZTWkFhMnZBeVJGbkhrUWQ2UHRmOFF3XzVXQTVqbDlaOThyeDZUem1JNUZ2dTZrMHZWSjdvcnZQQk9KLTRpQUExU2VNVWNPeER1bUF6QQ?oc=5" target="_blank" rel="noopener" class="event-link" title="Toyota suppliers feeling profit pressure from Iran war - Reuters">Toyota suppliers feeling profit pressure from Iran war - Reuters</a></div>
+      </div>
+    </div>
+    <div class="event-item" data-source="The Guardian" data-date="2026-04-28">
+      <div class="event-time">2026-04-28</div>
+      <div class="event-src">The Guardian</div>
+      <div class="event-body">
+        <span class="event-tag et-diplo">Diplomatic<span class="ev-tip">Political developments, peace talks, sanctions, humanitarian events or general war news</span></span>
+        <div class="event-text"><a href="https://www.theguardian.com/world/2026/apr/28/alexei-mordashov-russian-superyacht-strait-of-hormuz" target="_blank" rel="noopener" class="event-link" title="Russian oligarch’s superyacht allowed through strait of Hormuz, source says">Russian oligarch’s superyacht allowed through strait of Hormuz, source says</a></div>
+      </div>
+    </div>
+    <div class="event-item" data-source="The Guardian" data-date="2026-04-28">
+      <div class="event-time">2026-04-28</div>
+      <div class="event-src">The Guardian</div>
+      <div class="event-body">
+        <span class="event-tag et-energy">Energy/Oil<span class="ev-tip">Impact on oil prices, gas supplies, refineries, shipping lanes or energy infrastructure</span></span>
+        <div class="event-text"><a href="https://www.theguardian.com/business/2026/apr/28/uae-quit-opec-oil-exporters-cartel-donald-trump" target="_blank" rel="noopener" class="event-link" title="UAE quits Opec in win for Trump as oil cartel weakened">UAE quits Opec in win for Trump as oil cartel weakened</a></div>
+      </div>
+    </div>
+    <div class="event-item" data-source="Fox News" data-date="2026-04-28">
+      <div class="event-time">2026-04-28</div>
+      <div class="event-src">Fox News</div>
+      <div class="event-body">
+        <span class="event-tag et-diplo">Diplomatic<span class="ev-tip">Political developments, peace talks, sanctions, humanitarian events or general war news</span></span>
+        <div class="event-text"><a href="https://news.google.com/rss/articles/CBMixwFBVV95cUxObkJxcW9ISjV4N1ZSYWN1OFBwNXJ6eG9ZMDNOaHNxNUIxenBjWm5hT2c1MElIX0ZvZWpkbVhzRlMxUTZobWVwN21WZzVjVlhIaUJOVG9Lb2gyem9PYmNiZnVGZzJpRThuZzZ6em55UUZPNmsxTjdxejdDMk90czlfMm15Mmt2UmFReUlWRHRpNllKZmxVUGFqVFVIeDNjOFRwT3FKRFhoTDV4eVEzQ0lxeG0xRFlGV3ZUeWpsaW1NaGY3YnZoOEZj0gHMAUFVX3lxTE4wdmNsem1OYm5fbzNvYUN3VTF6SUR2eVR1LXNqWU90RTN0bGwzSHFPb3NsVngza25xU2xQcjd5cFAzekNPakNnLTE2QTVYTFYtZzNOUVdHZFpOV3dKQVlLZ0hHUkg4RFNoWmQtcEplbEs2N1EtbjRuM1FZczdKWGFTQWNtT0F3V2FFOVRZNHhjd0pFYXVHWjQ2Tm9ndEpmenlpaWRMTi03WDM3VnBSajRGSE03Y1l3N0w0RGFXMmszRlVzV2FyNmJoMXNIVA?oc=5" target="_blank" rel="noopener" class="event-link" title="Can King Charles save the ever-fracturing ‘special relationship’ after Trump anger at Starmer over Iran war? - Fox News">Can King Charles save the ever-fracturing ‘special relationship’ after Trump anger at Starmer over Iran war? - Fox News</a></div>
+      </div>
+    </div>
+    <div class="event-item" data-source="NBC News" data-date="2026-04-28">
+      <div class="event-time">2026-04-28</div>
+      <div class="event-src">NBC News</div>
+      <div class="event-body">
+        <span class="event-tag et-diplo">Diplomatic<span class="ev-tip">Political developments, peace talks, sanctions, humanitarian events or general war news</span></span>
+        <div class="event-text"><a href="https://news.google.com/rss/articles/CBMingFBVV95cUxNNkdJWTU0VkQwQ1ZGMTlhS2ZoY0ExeXo4X25UX1k2NnFwdXgybTFtNEtoNlVMSHRlUFExVVZIX1FFelBMMk9jZkEzWmprZEktcTByZUJVcWsxVVE1WG92QjZ3dkhjX25DNFlqS3ZTRXFLSUVjRWpGNHhtdmtlMVdJWEFFZXJoM1RYU2JLS2F5emRFX0w2cVlmRWFZOGlzUQ?oc=5" target="_blank" rel="noopener" class="event-link" title="Tracking ship traffic through the Strait of Hormuz. Updated regularly. - NBC News">Tracking ship traffic through the Strait of Hormuz. Updated regularly. - NBC News</a></div>
+      </div>
+    </div>
+    <div class="event-item" data-source="NBC News" data-date="2026-04-28">
+      <div class="event-time">2026-04-28</div>
+      <div class="event-src">NBC News</div>
+      <div class="event-body">
+        <span class="event-tag et-diplo">Diplomatic<span class="ev-tip">Political developments, peace talks, sanctions, humanitarian events or general war news</span></span>
+        <div class="event-text"><a href="https://news.google.com/rss/articles/CBMihwFBVV95cUxQTDdKZVVaQ1FrOEhrYXU0dHhNa1dWQWRlWVNGYnNZZ25YV3FHMWRVeXNLelloRVc0a3kteVExNk1RTVRKdzFYdVdRUnFtZGdLaWphN1JRcGxkQUdLeWZreUZ6VUdyUHA2Z1FyTVQ0d3RkeGNmTUtDSVdNWXBKWlZkQXJmdzdaWlE?oc=5" target="_blank" rel="noopener" class="event-link" title="United Arab Emirates quits OPEC as Iran war raises Gulf tensions - NBC News">United Arab Emirates quits OPEC as Iran war raises Gulf tensions - NBC News</a></div>
+      </div>
+    </div>
+    <div class="event-item" data-source="New York Times" data-date="2026-04-28">
+      <div class="event-time">2026-04-28</div>
+      <div class="event-src">New York Times</div>
+      <div class="event-body">
+        <span class="event-tag et-diplo">Diplomatic<span class="ev-tip">Political developments, peace talks, sanctions, humanitarian events or general war news</span></span>
+        <div class="event-text"><a href="https://news.google.com/rss/articles/CBMiiwFBVV95cUxPSWEwOUdlVG9ZcnZOdEVLQThndlhTUUpPU3c3NzB5TGRDRFhRQjZKaXdOcHB3bGpBLVMzVjV0MXlEUHN2Y3BXX3NKZTFGWFN2NE1YcjJ4OW94ZnJ3akZxXzN0ckRBYktEaVVvSVVUT2RoT0hFTkZ4TXRPV3BXLXp2ZVg3U1VwZEgxTG1z?oc=5" target="_blank" rel="noopener" class="event-link" title="In Iran, Cheetah Sightings Offer Rare Spots of Hope Amid War - The New York Times">In Iran, Cheetah Sightings Offer Rare Spots of Hope Amid War - The New York Times</a></div>
+      </div>
+    </div>
+    <div class="event-item" data-source="Euronews" data-date="2026-04-28">
+      <div class="event-time">2026-04-28</div>
+      <div class="event-src">Euronews</div>
+      <div class="event-body">
+        <span class="event-tag et-diplo">Diplomatic<span class="ev-tip">Political developments, peace talks, sanctions, humanitarian events or general war news</span></span>
+        <div class="event-text"><a href="http://www.euronews.com/my-europe/2026/04/28/louis-arnaud-former-french-hostage-in-iran-describes-evin-prison-as-the-den-of-evil" target="_blank" rel="noopener" class="event-link" title="Louis Arnaud, former French hostage in Iran, describes Evin prison as 'the den of evil'">Louis Arnaud, former French hostage in Iran, describes Evin prison as 'the den of evil'</a></div>
+      </div>
+    </div>
+    <div class="event-item" data-source="South China Morning Post" data-date="2026-04-28">
+      <div class="event-time">2026-04-28</div>
+      <div class="event-src">South China Morning Post</div>
+      <div class="event-body">
+        <span class="event-tag et-diplo">Diplomatic<span class="ev-tip">Political developments, peace talks, sanctions, humanitarian events or general war news</span></span>
+        <div class="event-text"><a href="https://www.scmp.com/news/china/diplomacy/article/3351707/chinas-calls-open-hormuz-show-limits-its-ties-iran-experts-say?utm_source=rss_feed" target="_blank" rel="noopener" class="event-link" title="China’s calls to open Hormuz show the limits of its ties to Iran, experts say">China’s calls to open Hormuz show the limits of its ties to Iran, experts say</a></div>
+      </div>
+    </div>
+    <div class="event-item" data-source="South China Morning Post" data-date="2026-04-28">
+      <div class="event-time">2026-04-28</div>
+      <div class="event-src">South China Morning Post</div>
+      <div class="event-body">
+        <span class="event-tag et-diplo">Diplomatic<span class="ev-tip">Political developments, peace talks, sanctions, humanitarian events or general war news</span></span>
+        <div class="event-text"><a href="https://www.scmp.com/economy/china-economy/article/3351712/china-orders-maritime-security-research-strait-hormuz-crisis-exposes-trade-risks?utm_source=rss_feed" target="_blank" rel="noopener" class="event-link" title="China orders maritime security research as Strait of Hormuz crisis exposes trade risks">China orders maritime security research as Strait of Hormuz crisis exposes trade risks</a></div>
+      </div>
+    </div>
+    <div class="event-item" data-source="OilPrice.com" data-date="2026-04-28">
+      <div class="event-time">2026-04-28</div>
+      <div class="event-src">OilPrice.com</div>
+      <div class="event-body">
+        <span class="event-tag et-energy">Energy/Oil<span class="ev-tip">Impact on oil prices, gas supplies, refineries, shipping lanes or energy infrastructure</span></span>
+        <div class="event-text"><a href="https://oilprice.com/Latest-Energy-News/World-News/Oil-Prices-Dip-as-Trump-Claims-Iran-is-in-State-of-Collapse.html" target="_blank" rel="noopener" class="event-link" title="Oil Prices Dip as Trump Claims Iran is in "State of Collapse"">Oil Prices Dip as Trump Claims Iran is in "State of Collapse"</a></div>
+      </div>
+    </div>
+    <div class="event-item" data-source="OilPrice.com" data-date="2026-04-28">
+      <div class="event-time">2026-04-28</div>
+      <div class="event-src">OilPrice.com</div>
+      <div class="event-body">
+        <span class="event-tag et-diplo">Diplomatic<span class="ev-tip">Political developments, peace talks, sanctions, humanitarian events or general war news</span></span>
+        <div class="event-text"><a href="https://oilprice.com/Geopolitics/Middle-East/Putin-Signals-Support-for-Iran-in-Standoff-With-US.html" target="_blank" rel="noopener" class="event-link" title="Putin Signals Support for Iran in Standoff With U.S.">Putin Signals Support for Iran in Standoff With U.S.</a></div>
+      </div>
+    </div>
+    <div class="event-item" data-source="OilPrice.com" data-date="2026-04-28">
+      <div class="event-time">2026-04-28</div>
+      <div class="event-src">OilPrice.com</div>
+      <div class="event-body">
+        <span class="event-tag et-strike">Airstrike<span class="ev-tip">A military strike, missile attack or drone operation carried out by either side</span></span>
+        <div class="event-text"><a href="https://oilprice.com/Latest-Energy-News/World-News/Asias-LNG-Imports-Hit-7-Year-March-Low-as-War-Chokes-Qatari-Supply.html" target="_blank" rel="noopener" class="event-link" title="Asia's LNG Imports Hit 7-Year March Low as War Chokes Qatari Supply">Asia's LNG Imports Hit 7-Year March Low as War Chokes Qatari Supply</a></div>
+      </div>
+    </div>
+    <div class="event-item" data-source="OilPrice.com" data-date="2026-04-28">
+      <div class="event-time">2026-04-28</div>
+      <div class="event-src">OilPrice.com</div>
+      <div class="event-body">
+        <span class="event-tag et-diplo">Diplomatic<span class="ev-tip">Political developments, peace talks, sanctions, humanitarian events or general war news</span></span>
+        <div class="event-text"><a href="https://oilprice.com/Latest-Energy-News/World-News/UAE-Quits-OPEC-as-Hormuz-Crisis-Drags-On.html" target="_blank" rel="noopener" class="event-link" title="UAE Quits OPEC and OPEC+ as Hormuz Crisis Drags On">UAE Quits OPEC and OPEC+ as Hormuz Crisis Drags On</a></div>
+      </div>
+    </div>
+    <div class="event-item" data-source="OilPrice.com" data-date="2026-04-28">
+      <div class="event-time">2026-04-28</div>
+      <div class="event-src">OilPrice.com</div>
+      <div class="event-body">
+        <span class="event-tag et-diplo">Diplomatic<span class="ev-tip">Political developments, peace talks, sanctions, humanitarian events or general war news</span></span>
+        <div class="event-text"><a href="https://oilprice.com/Latest-Energy-News/World-News/Iranian-Tankers-Pile-Up-Outside-Hormuz-as-US-Blockade-Tightens.html" target="_blank" rel="noopener" class="event-link" title="Iranian Tankers Pile Up Outside Hormuz as U.S. Blockade Tightens">Iranian Tankers Pile Up Outside Hormuz as U.S. Blockade Tightens</a></div>
+      </div>
+    </div>
+    <div class="event-item" data-source="Bloomberg" data-date="2026-04-28">
+      <div class="event-time">2026-04-28</div>
+      <div class="event-src">Bloomberg</div>
+      <div class="event-body">
+        <span class="event-tag et-energy">Energy/Oil<span class="ev-tip">Impact on oil prices, gas supplies, refineries, shipping lanes or energy infrastructure</span></span>
+        <div class="event-text"><a href="https://news.google.com/rss/articles/CBMisgFBVV95cUxNZ2xIZ3ZmdTFqeFMyczJDeGotVEM1QjZkSW5LSXJZM2NaWDhDZlYyRW15Ql9BcDFyY2V3Y2xZLU1vb08xdUVTSE5EeURRSldqc3dodmY2Q1p1R1VxNkpJRWdNell4VVNzLXZXcTRSdGk3MVotM1lJSXA3RWZ3ck1XSFdpQXFWWU0zN0JUY2xkTDd1dm56SThpQjZaWEw1SUdhZnFVb0dydUlFcnpocGliTEh3?oc=5" target="_blank" rel="noopener" class="event-link" title="Iran Faces Economic Reckoning as Oil Storage Tanks Fill Up - Bloomberg.com">Iran Faces Economic Reckoning as Oil Storage Tanks Fill Up - Bloomberg.com</a></div>
+      </div>
+    </div>
+    <div class="event-item" data-source="RT" data-date="2026-04-28">
+      <div class="event-time">2026-04-28</div>
+      <div class="event-src">RT</div>
+      <div class="event-body">
+        <span class="event-tag et-diplo">Diplomatic<span class="ev-tip">Political developments, peace talks, sanctions, humanitarian events or general war news</span></span>
+        <div class="event-text"><a href="https://www.rt.com/news/639183-vance-no-authority-iran-talks-marandi/?utm_source=rss&utm_medium=rss&utm_campaign=RSS" target="_blank" rel="noopener" class="event-link" title="Vance ‘had no authority’ in Iran talks – Tehran delegation member (VIDEO)">Vance ‘had no authority’ in Iran talks – Tehran delegation member (VIDEO)</a></div>
+      </div>
+    </div>
+    <div class="event-item" data-source="RT" data-date="2026-04-28">
+      <div class="event-time">2026-04-28</div>
+      <div class="event-src">RT</div>
+      <div class="event-body">
+        <span class="event-tag et-strike">Airstrike<span class="ev-tip">A military strike, missile attack or drone operation carried out by either side</span></span>
+        <div class="event-text"><a href="https://www.rt.com/news/639203-bangladeshs-russian-backed-nuclear-power/?utm_source=rss&utm_medium=rss&utm_campaign=RSS" target="_blank" rel="noopener" class="event-link" title="Bangladesh’s Russian-backed nuclear power project enters final stage">Bangladesh’s Russian-backed nuclear power project enters final stage</a></div>
+      </div>
+    </div>
     <div class="event-item" data-source="Al Jazeera" data-date="2026-04-27">
       <div class="event-time">2026-04-27</div>
       <div class="event-src">Al Jazeera</div>
@@ -1483,14 +1671,6 @@
       <div class="event-time">2026-04-27</div>
       <div class="event-src">Fox News</div>
       <div class="event-body">
-        <span class="event-tag et-diplo">Diplomatic<span class="ev-tip">Political developments, peace talks, sanctions, humanitarian events or general war news</span></span>
-        <div class="event-text"><a href="https://news.google.com/rss/articles/CBMisgFBVV95cUxPclNnQ3otV0hJQmZjYjl3cTRKWnlhMktaQjVnM2d4bkxQNFdqb29NRmxETi1OamdGUndOXzdFcVVpS3JKNFU4Mkc2WEN0d0REUjBBYTJRbTVva0JuT1p0UjhYT0R2aDJ6TWUzZ1AxM0g3dTRFTHNIbWMxeWlBYlQwSDVVM0cxNU9fRHNodF9MSUo5UTAwaUtjUHpxMlN1ckNsMEVIQVBhbG9ialFyTS1NUV930gG3AUFVX3lxTFAybG9sTWllakljX1dBNGtJWThKY0ZrUnFpdGd6YmgwaXRFSU1LSzVHT2o1WWJNOUxBMkltWjAwTmthbnZTN0JVYUJycFlYYk9GRkVPbHUzTzFDLTBwN2o5eXdTWEdLNHR0VHNfZ3lUdUVxMWllNTlCLXNmekhISW8zUnpvN2t0eUJzTkdJbnRtOXpEc3ZEM2RrdjY2ZDBTME9yUWEtWU5xRU83SWxtMkdXd2ZSUkJLZw?oc=5" target="_blank" rel="noopener" class="event-link" title="Trump admin warns Iraq over Iran terror proxies as US reportedly blocks cash payments - Fox News">Trump admin warns Iraq over Iran terror proxies as US reportedly blocks cash payments - Fox News</a></div>
-      </div>
-    </div>
-    <div class="event-item" data-source="Fox News" data-date="2026-04-27">
-      <div class="event-time">2026-04-27</div>
-      <div class="event-src">Fox News</div>
-      <div class="event-body">
         <span class="event-tag et-energy">Energy/Oil<span class="ev-tip">Impact on oil prices, gas supplies, refineries, shipping lanes or energy infrastructure</span></span>
         <div class="event-text"><a href="https://news.google.com/rss/articles/CBMitAFBVV95cUxObG8yQU5zQ1E1SmozeUdaVEs1Z0FLQTgxOUVVRk1TZzZaQ203bWhlOWRoRktqaXN5VHJQaTNlLThvSTZqT3d1Qkczc3l4OWVCNUZHU2JNeHM4UWM0NFdTcktpNlB6Q0I2azlPTl85X0pRQlluc3BuZmdabTZ5bWVUZTRDMVVfNWMtUkJwNUNzNmdMSzVPR2xEMEZWRXotWXNYdjRXOGVqcGp6VzJLci1tRHRLMHE?oc=5" target="_blank" rel="noopener" class="event-link" title="Iran turns to Putin as US talks collapse, Hormuz standoff threatens global oil flow - noticias.foxnews.com">Iran turns to Putin as US talks collapse, Hormuz standoff threatens global oil flow - noticias.foxnews.com</a></div>
       </div>
@@ -1509,22 +1689,6 @@
       <div class="event-body">
         <span class="event-tag et-diplo">Diplomatic<span class="ev-tip">Political developments, peace talks, sanctions, humanitarian events or general war news</span></span>
         <div class="event-text"><a href="https://news.google.com/rss/articles/CBMinwFBVV95cUxPVURic3p0aU9fYUszTUlvRlpzNHZuMUhtXzE4RVVaT1V6cEN1Ulo2LVFYWld3T2k5VDk4VjVzMUdIVWRKUFdfTEhwN1AxTHVDdnd4eDVzNTNlSWF0eW1RRGU4T2RCN2Q3NHhHX09UV242b1NjLXJqMnhiMWVXWFR1eGpHSVNsZVZIT2RFb0xWNGlJZzVYclhIT2VCa1pnZW8?oc=5" target="_blank" rel="noopener" class="event-link" title="Iran offers new deal through Pakistani mediators - NBC News">Iran offers new deal through Pakistani mediators - NBC News</a></div>
-      </div>
-    </div>
-    <div class="event-item" data-source="New York Times" data-date="2026-04-27">
-      <div class="event-time">2026-04-27</div>
-      <div class="event-src">New York Times</div>
-      <div class="event-body">
-        <span class="event-tag et-diplo">Diplomatic<span class="ev-tip">Political developments, peace talks, sanctions, humanitarian events or general war news</span></span>
-        <div class="event-text"><a href="https://news.google.com/rss/articles/CBMihgFBVV95cUxOcHlFaVlQZ1R1cnJ4NWJkclNsNmJVZ293eW50UEQ3bC1xTFZVU19sRjhLdlNiOV9aUER3cDZCamhpRGlTMEN4WVA5UnU3X0l3WnpncWttMmxGS0FWQ3VhYzEzejZmdkdPQk14aG1RYU5pR1daYmZfSXFFYy1NMkxCcnJxdW54UQ?oc=5" target="_blank" rel="noopener" class="event-link" title="Iran War Shakes Global Economy, but the U.S. Has Mostly Been Spared - The New York Times">Iran War Shakes Global Economy, but the U.S. Has Mostly Been Spared - The New York Times</a></div>
-      </div>
-    </div>
-    <div class="event-item" data-source="New York Times" data-date="2026-04-27">
-      <div class="event-time">2026-04-27</div>
-      <div class="event-src">New York Times</div>
-      <div class="event-body">
-        <span class="event-tag et-strike">Airstrike<span class="ev-tip">A military strike, missile attack or drone operation carried out by either side</span></span>
-        <div class="event-text"><a href="https://news.google.com/rss/articles/CBMilAFBVV95cUxQZ1E2dHF5cjFGaThkRF9EOTh3ZVViNW5Td1lJXzZYWktVN2JMWUVMYVl4WFR3RG9ZSWtaRXJtSzd5TTVCdGpfTnd6YzNCeF9QM1EwS2syX2tXX3BGbHVrZ1ZadjhhR2tNZlpSOXI0MVg3LXA0ZkhZa3Y1QzFqZnlOdklsU1ZLY29GdEtlNFVUZ3h0ZU9y?oc=5" target="_blank" rel="noopener" class="event-link" title="The Art of the Nuclear Deal - The New York Times">The Art of the Nuclear Deal - The New York Times</a></div>
       </div>
     </div>
     <div class="event-item" data-source="New York Times" data-date="2026-04-27">
@@ -1907,6 +2071,14 @@
       <div class="event-time">2026-04-27</div>
       <div class="event-src">Associated Press</div>
       <div class="event-body">
+        <span class="event-tag et-strike">Airstrike<span class="ev-tip">A military strike, missile attack or drone operation carried out by either side</span></span>
+        <div class="event-text"><a href="https://news.google.com/rss/articles/CBMipAFBVV95cUxPVUNvUUJzaGltVzhXNHJpRUtCcXo5M0NXMGVwemk4bUh4SERfczdEX1NiaTRSOG5rR1NTRXNSQTFFRm1uNFI0RHoyQzcwd2F6bWFPLVA0T3FBZ1p1Nk9ULUtzMjdvSThNVmFGV2Zva2JwTnBvTjdpZDFaLWhNVzdwV1YxcnJjU3RETVlEd0daOWJtTjBqY01rd1NZR0VrN1pOWkVRUw?oc=5" target="_blank" rel="noopener" class="event-link" title="US and Iran clash over Tehran’s nuclear program as review of atomic treaty begins at UN - AP News">US and Iran clash over Tehran’s nuclear program as review of atomic treaty begins at UN - AP News</a></div>
+      </div>
+    </div>
+    <div class="event-item" data-source="Associated Press" data-date="2026-04-27">
+      <div class="event-time">2026-04-27</div>
+      <div class="event-src">Associated Press</div>
+      <div class="event-body">
         <span class="event-tag et-energy">Energy/Oil<span class="ev-tip">Impact on oil prices, gas supplies, refineries, shipping lanes or energy infrastructure</span></span>
         <div class="event-text"><a href="https://news.google.com/rss/articles/CBMi0gFBVV95cUxON01UcmpQcWRIQmlHdk5DLWdDLWJNd0htRFhocndwc2hGYmRlREFZSWRqZmFoSGlKT3FqVmxGY2p0V0V2eTlEVE0zV0RYSWVpazFrRnJYalFFY2MtbG5iOWJEdWFKZS1yRUkydnpMZFAyT1JyUzNxMzdUcEwzTFpNQ0pwZWIzU1FORExZcHJIS0VhWUhhVFlOMGpEN1lreHhQeVpQSS12NlA0YVBYRzlBdHI3ZndSWDc1RFBtNkstQmdUZ2hRRWlTT3Y2SHJjQXJzSFE?oc=5" target="_blank" rel="noopener" class="event-link" title="Iran war drives up the cost of plastics, leading to higher prices for consumers - AP News">Iran war drives up the cost of plastics, leading to higher prices for consumers - AP News</a></div>
       </div>
@@ -1917,6 +2089,14 @@
       <div class="event-body">
         <span class="event-tag et-diplo">Diplomatic<span class="ev-tip">Political developments, peace talks, sanctions, humanitarian events or general war news</span></span>
         <div class="event-text"><a href="https://news.google.com/rss/articles/CBMitgFBVV95cUxNSnM3SWtFVEtvamZBSUxpcTlZT2k3MDJDZXQyTUs0U2NSbWo5SkpvTElhbC1wNjh4b2xRY0EzS0NEZ0N4SFFLVVpQWjBUR0FreFBGeHU3czVid1hIb3FvWjhFckpxVV9Na2xJeFllM1lkZkVpSmVBNVRIZWFPNkpQa01FNDZYTXJENVl6akxKUlRESnpMZVl4WnVZT1JTQXpGLU1NZTEybGZfaTNudkxLdkJNRzNZdw?oc=5" target="_blank" rel="noopener" class="event-link" title="Gulf economies diverge under Iran war pressure - CNN">Gulf economies diverge under Iran war pressure - CNN</a></div>
+      </div>
+    </div>
+    <div class="event-item" data-source="Fox News" data-date="2026-04-27">
+      <div class="event-time">2026-04-27</div>
+      <div class="event-src">Fox News</div>
+      <div class="event-body">
+        <span class="event-tag et-intercept">Intercepted<span class="ev-tip">A missile, drone or projectile that was shot down or neutralised before reaching its target</span></span>
+        <div class="event-text"><a href="https://news.google.com/rss/articles/CBMivwFBVV95cUxQc3ExcXZKTF9qMzNyLTFmSDJjVVpIWGtTbTBkYVFIRnRqUFE5T1lJM0VZd3dLdFljZnFvbmYzRHppX2QwRExWdEJLQWhGQVdwTU9mQ1VMMlNYVWoxeE5vdG80U3NKYjBKaFZwZ2dGcVhzSjlkdkF3WTVVUkRqbDVMek85YVJEZDVUeXMyYVdCUU91TXVGRHUwdnk2Q0x0ZkZxcVhELWVhUEk5QjNfQVY3RzlFSmhnYkU5RmpZZUdpUdIBxAFBVV95cUxNNTg2dG5iZGpxYlZ6S0ZhLU9MbHRUWUdqRERoWThRNkhjTU4tQUJ2ZjFVVWt4M0lOcl9wZk1PU0Q0RmhyT2xBT0JnZ1lvbkVoT3FDQldYby0ybjlzRURmRDJja2xnWER4VWZpQ2xuRW1PMkV0R1BHbktMQ096a3dtY2NBQ0ZDcEljQ2J1YnJNMThwVjg2ODRlLVBFSXFQV0VCdVBDdzV5NEd5MGNLN0hkS05FbnVtUm1tNERFeDFyOUVoOWd1?oc=5" target="_blank" rel="noopener" class="event-link" title="Iran eyes revenge for Soleimani as WHCA Dinner shooting exposes security ‘vulnerability’, expert warns - Fox News">Iran eyes revenge for Soleimani as WHCA Dinner shooting exposes security ‘vulnerability’, expert warns - Fox News</a></div>
       </div>
     </div>
     <div class="event-item" data-source="OilPrice.com" data-date="2026-04-27">
@@ -1933,14 +2113,6 @@
       <div class="event-body">
         <span class="event-tag et-diplo">Diplomatic<span class="ev-tip">Political developments, peace talks, sanctions, humanitarian events or general war news</span></span>
         <div class="event-text"><a href="https://news.google.com/rss/articles/CBMirgFBVV95cUxPVkxFTXc1UHhVNEJNU2xrNDF0SHM4NDlxSFlOa0M2Xy1nU3pwcGJSYUNoUG1ER2JKcnRWWFR5aGwxbHhkcWpJLXRnLVVoeDBneWFxYWhVQU5hMU9ENXJLcm51UUVRdGJnekdJUi1nbmUwdFFOUENTZ0MtREtrQmM5SjlENlVDR2o5YUdibEFxbXZWbGJJcmNCVUNQcXFRSnI3bkhNTXRZLWhxMTRSYlE?oc=5" target="_blank" rel="noopener" class="event-link" title="Malta calls early election, with PM pledging stability amid Iran war - Reuters">Malta calls early election, with PM pledging stability amid Iran war - Reuters</a></div>
-      </div>
-    </div>
-    <div class="event-item" data-source="Washington Post" data-date="2026-04-27">
-      <div class="event-time">2026-04-27</div>
-      <div class="event-src">Washington Post</div>
-      <div class="event-body">
-        <span class="event-tag et-strike">Airstrike<span class="ev-tip">A military strike, missile attack or drone operation carried out by either side</span></span>
-        <div class="event-text"><a href="https://news.google.com/rss/articles/CBMi1AFBVV95cUxOUWxRTlJjTmYyY1lqVUJrQXMxRjZzeHlISWxGZzlsYXdubXVLMG52dlJ2bkd6bGRsWFpQbFptWk9IdVZKakxIXzBrTFRJRkl1Nzlyck9CblIzd2FjbTl4azBiV2JLZXZUMWk2N05zNFpaZ2JQZ1h1clUzSFRzbUR3MnczUFdmZEVYSjhVRmUwTDJTaW51cXhMMlJZT25nU25jZEpUejVSZmRaU1V0WGRKZlZybmcyZVc5R0FIcW9JQmhjNk5STnVpZXpJYVNId19NRE1aYw?oc=5" target="_blank" rel="noopener" class="event-link" title="US and Iran clash over Tehran's nuclear program as review of atomic treaty begins at UN - The Washington Post">US and Iran clash over Tehran's nuclear program as review of atomic treaty begins at UN - The Washington Post</a></div>
       </div>
     </div>
     <div class="event-item" data-source="Bloomberg" data-date="2026-04-27">
@@ -1989,6 +2161,326 @@
       <div class="event-body">
         <span class="event-tag et-diplo">Diplomatic<span class="ev-tip">Political developments, peace talks, sanctions, humanitarian events or general war news</span></span>
         <div class="event-text"><a href="https://news.google.com/rss/articles/CBMitAFBVV95cUxPRGNVb0lVRWhyTXZibGNUMzlkd1ZkWGFPMWRxNXV4eG5jc0Q4cWYzZTZCN1RBZTBoekhrMDlKVmpmX0IwX2laYkdHNTZzLTQ1ZkNDUGFCTFFYT1NkbHBqY3lKNGJVdTJ4M3BiWjB2SEVuRk9LWTZNV1VyRFM0aEU2WFdITjYydzh3c00tZDJxN19YaXlBVWxrNXdRUi1MenRnYlN3MjFvMC1XRXFoYWtDT2dlUzQ?oc=5" target="_blank" rel="noopener" class="event-link" title="Stalled US-Iran Talks Show Limits of Pakistan Mediation Push - Bloomberg.com">Stalled US-Iran Talks Show Limits of Pakistan Mediation Push - Bloomberg.com</a></div>
+      </div>
+    </div>
+    <div class="event-item" data-source="Common Dreams" data-date="2026-04-27">
+      <div class="event-time">2026-04-27</div>
+      <div class="event-src">Common Dreams</div>
+      <div class="event-body">
+        <span class="event-tag et-diplo">Diplomatic<span class="ev-tip">Political developments, peace talks, sanctions, humanitarian events or general war news</span></span>
+        <div class="event-text"><a href="https://www.commondreams.org/news/trump-iran-war-deadline" target="_blank" rel="noopener" class="event-link" title="Anyone Still Arguing Trump's Iran War Isn't Illegal Will Soon Be Out of Excuses: Legal Scholar">Anyone Still Arguing Trump's Iran War Isn't Illegal Will Soon Be Out of Excuses: Legal Scholar</a></div>
+      </div>
+    </div>
+    <div class="event-item" data-source="CBC News" data-date="2026-04-27">
+      <div class="event-time">2026-04-27</div>
+      <div class="event-src">CBC News</div>
+      <div class="event-body">
+        <span class="event-tag et-strike">Airstrike<span class="ev-tip">A military strike, missile attack or drone operation carried out by either side</span></span>
+        <div class="event-text"><a href="https://www.cbc.ca/news/world/israel-east-lebanon-strikes-ceasefire-9.7178499" target="_blank" rel="noopener" class="event-link" title="Israeli strikes hit east Lebanon, expanding conflict area despite ceasefire">Israeli strikes hit east Lebanon, expanding conflict area despite ceasefire</a></div>
+      </div>
+    </div>
+    <div class="event-item" data-source="Al Jazeera" data-date="2026-04-27">
+      <div class="event-time">2026-04-27</div>
+      <div class="event-src">Al Jazeera</div>
+      <div class="event-body">
+        <span class="event-tag et-strike">Airstrike<span class="ev-tip">A military strike, missile attack or drone operation carried out by either side</span></span>
+        <div class="event-text"><a href="https://www.aljazeera.com/news/2026/4/27/npt-summit-can-nuclear-pact-survive-us-israel-war-on-iran" target="_blank" rel="noopener" class="event-link" title="NPT summit: Can nuclear pact survive US-Israel war on Iran?">NPT summit: Can nuclear pact survive US-Israel war on Iran?</a></div>
+      </div>
+    </div>
+    <div class="event-item" data-source="Globalresearch.ca" data-date="2026-04-27">
+      <div class="event-time">2026-04-27</div>
+      <div class="event-src">Globalresearch.ca</div>
+      <div class="event-body">
+        <span class="event-tag et-diplo">Diplomatic<span class="ev-tip">Political developments, peace talks, sanctions, humanitarian events or general war news</span></span>
+        <div class="event-text"><a href="https://www.globalresearch.ca/iran-sovereignty-territorial-waters-strait-hormuz/5923981" target="_blank" rel="noopener" class="event-link" title="Iran Exercises Its Sovereignty Over Its Territorial Waters in the Strait of Hormuz">Iran Exercises Its Sovereignty Over Its Territorial Waters in the Strait of Hormuz</a></div>
+      </div>
+    </div>
+    <div class="event-item" data-source="Globalsecurity.org" data-date="2026-04-27">
+      <div class="event-time">2026-04-27</div>
+      <div class="event-src">Globalsecurity.org</div>
+      <div class="event-body">
+        <span class="event-tag et-strike">Airstrike<span class="ev-tip">A military strike, missile attack or drone operation carried out by either side</span></span>
+        <div class="event-text"><a href="https://www.globalsecurity.org/wmd/library/news/iran/2026/04/iran-260427-presstv06.htm" target="_blank" rel="noopener" class="event-link" title="50 Iranian hospitals damaged in US-Israeli attacks: Health minister">50 Iranian hospitals damaged in US-Israeli attacks: Health minister</a></div>
+      </div>
+    </div>
+    <div class="event-item" data-source="Globalsecurity.org" data-date="2026-04-27">
+      <div class="event-time">2026-04-27</div>
+      <div class="event-src">Globalsecurity.org</div>
+      <div class="event-body">
+        <span class="event-tag et-diplo">Diplomatic<span class="ev-tip">Political developments, peace talks, sanctions, humanitarian events or general war news</span></span>
+        <div class="event-text"><a href="https://www.globalsecurity.org/wmd/library/news/iran/2026/04/iran-260427-presstv02.htm" target="_blank" rel="noopener" class="event-link" title="April 27: Iran strengthens its diplomatic hand as US faces mounting strategic setbacks">April 27: Iran strengthens its diplomatic hand as US faces mounting strategic setbacks</a></div>
+      </div>
+    </div>
+    <div class="event-item" data-source="Globalsecurity.org" data-date="2026-04-27">
+      <div class="event-time">2026-04-27</div>
+      <div class="event-src">Globalsecurity.org</div>
+      <div class="event-body">
+        <span class="event-tag et-diplo">Diplomatic<span class="ev-tip">Political developments, peace talks, sanctions, humanitarian events or general war news</span></span>
+        <div class="event-text"><a href="https://www.globalsecurity.org/wmd/library/news/iran/2026/04/iran-260427-rferl02.htm" target="_blank" rel="noopener" class="event-link" title="With Peace Talks Stalled, Iranian Foreign Minister Meets Putin To Solidify Ties">With Peace Talks Stalled, Iranian Foreign Minister Meets Putin To Solidify Ties</a></div>
+      </div>
+    </div>
+    <div class="event-item" data-source="Vanguard" data-date="2026-04-27">
+      <div class="event-time">2026-04-27</div>
+      <div class="event-src">Vanguard</div>
+      <div class="event-body">
+        <span class="event-tag et-diplo">Diplomatic<span class="ev-tip">Political developments, peace talks, sanctions, humanitarian events or general war news</span></span>
+        <div class="event-text"><a href="https://www.vanguardngr.com/2026/04/trump-to-hold-talks-on-iran-with-security-team/" target="_blank" rel="noopener" class="event-link" title="Trump to hold talks on Iran with security team">Trump to hold talks on Iran with security team</a></div>
+      </div>
+    </div>
+    <div class="event-item" data-source="Nakedcapitalism.com" data-date="2026-04-27">
+      <div class="event-time">2026-04-27</div>
+      <div class="event-src">Nakedcapitalism.com</div>
+      <div class="event-body">
+        <span class="event-tag et-diplo">Diplomatic<span class="ev-tip">Political developments, peace talks, sanctions, humanitarian events or general war news</span></span>
+        <div class="event-text"><a href="https://www.nakedcapitalism.com/2026/04/iran-war-narrative-dissolution-ceasefire-lebanon-negotiations-blockade.html" target="_blank" rel="noopener" class="event-link" title="Iran War: Narrative Dissolution as Ceasefire Continues Except in Lebanon">Iran War: Narrative Dissolution as Ceasefire Continues Except in Lebanon</a></div>
+      </div>
+    </div>
+    <div class="event-item" data-source="The Times of India" data-date="2026-04-27">
+      <div class="event-time">2026-04-27</div>
+      <div class="event-src">The Times of India</div>
+      <div class="event-body">
+        <span class="event-tag et-strike">Airstrike<span class="ev-tip">A military strike, missile attack or drone operation carried out by either side</span></span>
+        <div class="event-text"><a href="https://economictimes.indiatimes.com/news/defence/in-a-first-israel-deploys-iron-dome-to-uae-to-counter-iran-missile-and-drone-attacks/articleshow/130550577.cms" target="_blank" rel="noopener" class="event-link" title="In a first, Israel deploys Iron Dome to UAE to counter Iran missile and drone attacks">In a first, Israel deploys Iron Dome to UAE to counter Iran missile and drone attacks</a></div>
+      </div>
+    </div>
+    <div class="event-item" data-source="Financial Post" data-date="2026-04-27">
+      <div class="event-time">2026-04-27</div>
+      <div class="event-src">Financial Post</div>
+      <div class="event-body">
+        <span class="event-tag et-diplo">Diplomatic<span class="ev-tip">Political developments, peace talks, sanctions, humanitarian events or general war news</span></span>
+        <div class="event-text"><a href="https://financialpost.com/pmn/business-pmn/indias-refiners-are-absorbing-the-hefty-cost-of-the-iran-war" target="_blank" rel="noopener" class="event-link" title="India’s Refiners Are Absorbing the Hefty Cost of the Iran War">India’s Refiners Are Absorbing the Hefty Cost of the Iran War</a></div>
+      </div>
+    </div>
+    <div class="event-item" data-source="The Times of India" data-date="2026-04-27">
+      <div class="event-time">2026-04-27</div>
+      <div class="event-src">The Times of India</div>
+      <div class="event-body">
+        <span class="event-tag et-strike">Airstrike<span class="ev-tip">A military strike, missile attack or drone operation carried out by either side</span></span>
+        <div class="event-text"><a href="https://economictimes.indiatimes.com/news/international/world-news/iran-suspends-exports-of-steel-slabs-and-sheets-until-end-of-may-amid-war-strikes/articleshow/130550482.cms" target="_blank" rel="noopener" class="event-link" title="Iran suspends exports of steel slabs and sheets until end of May amid war strikes">Iran suspends exports of steel slabs and sheets until end of May amid war strikes</a></div>
+      </div>
+    </div>
+    <div class="event-item" data-source="Omny.fm" data-date="2026-04-27">
+      <div class="event-time">2026-04-27</div>
+      <div class="event-src">Omny.fm</div>
+      <div class="event-body">
+        <span class="event-tag et-strike">Airstrike<span class="ev-tip">A military strike, missile attack or drone operation carried out by either side</span></span>
+        <div class="event-text"><a href="https://omny.fm/shows/bloomberg-daybreak/dc-gala-attack-latest-us-iran-talks-at-stalemate" target="_blank" rel="noopener" class="event-link" title="DC Gala Attack Latest, US-Iran Talks at Stalemate">DC Gala Attack Latest, US-Iran Talks at Stalemate</a></div>
+      </div>
+    </div>
+    <div class="event-item" data-source="The Times of India" data-date="2026-04-27">
+      <div class="event-time">2026-04-27</div>
+      <div class="event-src">The Times of India</div>
+      <div class="event-body">
+        <span class="event-tag et-diplo">Diplomatic<span class="ev-tip">Political developments, peace talks, sanctions, humanitarian events or general war news</span></span>
+        <div class="event-text"><a href="https://economictimes.indiatimes.com/news/international/world-news/irans-foreign-minister-blames-us-for-diplomatic-stalemate-amid-ongoing-conflict/articleshow/130549022.cms" target="_blank" rel="noopener" class="event-link" title="Iran's foreign minister blames US for failure of talks after landing in Russia">Iran's foreign minister blames US for failure of talks after landing in Russia</a></div>
+      </div>
+    </div>
+    <div class="event-item" data-source="BusinessLine" data-date="2026-04-27">
+      <div class="event-time">2026-04-27</div>
+      <div class="event-src">BusinessLine</div>
+      <div class="event-body">
+        <span class="event-tag et-energy">Energy/Oil<span class="ev-tip">Impact on oil prices, gas supplies, refineries, shipping lanes or energy infrastructure</span></span>
+        <div class="event-text"><a href="https://www.thehindubusinessline.com/markets/global-stocks-steady-oil-climbs-on-stalled-peace-talks/article70911354.ece" target="_blank" rel="noopener" class="event-link" title="Global stocks steady; oil climbs on stalled peace talks">Global stocks steady; oil climbs on stalled peace talks</a></div>
+      </div>
+    </div>
+    <div class="event-item" data-source="The Next Web" data-date="2026-04-27">
+      <div class="event-time">2026-04-27</div>
+      <div class="event-src">The Next Web</div>
+      <div class="event-body">
+        <span class="event-tag et-strike">Airstrike<span class="ev-tip">A military strike, missile attack or drone operation carried out by either side</span></span>
+        <div class="event-text"><a href="https://thenextweb.com/news/iran-war-pcb-supply-chain-sabic/" target="_blank" rel="noopener" class="event-link" title="The Iran war is hitting the AI supply chain where it hurts">The Iran war is hitting the AI supply chain where it hurts</a></div>
+      </div>
+    </div>
+    <div class="event-item" data-source="DW (English)" data-date="2026-04-27">
+      <div class="event-time">2026-04-27</div>
+      <div class="event-src">DW (English)</div>
+      <div class="event-body">
+        <span class="event-tag et-diplo">Diplomatic<span class="ev-tip">Political developments, peace talks, sanctions, humanitarian events or general war news</span></span>
+        <div class="event-text"><a href="https://www.dw.com/en/iran-war-deadline-heats-up-trump-congress-showdown/a-76939852" target="_blank" rel="noopener" class="event-link" title="Iran war deadline heats up Trump-Congress showdown">Iran war deadline heats up Trump-Congress showdown</a></div>
+      </div>
+    </div>
+    <div class="event-item" data-source="Rigzone" data-date="2026-04-27">
+      <div class="event-time">2026-04-27</div>
+      <div class="event-src">Rigzone</div>
+      <div class="event-body">
+        <span class="event-tag et-diplo">Diplomatic<span class="ev-tip">Political developments, peace talks, sanctions, humanitarian events or general war news</span></span>
+        <div class="event-text"><a href="https://www.rigzone.com/news/wire/iran_top_diplomat_in_russia_as_us_talks_in_limbo-27-apr-2026-183539-article/" target="_blank" rel="noopener" class="event-link" title="Iran Top Diplomat in Russia as US Talks in Limbo">Iran Top Diplomat in Russia as US Talks in Limbo</a></div>
+      </div>
+    </div>
+    <div class="event-item" data-source="The Irish Times" data-date="2026-04-27">
+      <div class="event-time">2026-04-27</div>
+      <div class="event-src">The Irish Times</div>
+      <div class="event-body">
+        <span class="event-tag et-diplo">Diplomatic<span class="ev-tip">Political developments, peace talks, sanctions, humanitarian events or general war news</span></span>
+        <div class="event-text"><a href="https://www.irishtimes.com/world/middle-east/2026/04/27/mediators-try-to-bridge-us-iran-disagreements-after-trump-calls-off-envoy-trip/" target="_blank" rel="noopener" class="event-link" title="Mediators try to bridge US-Iran disagreements after Trump calls off envoy trip">Mediators try to bridge US-Iran disagreements after Trump calls off envoy trip</a></div>
+      </div>
+    </div>
+    <div class="event-item" data-source="The Irish Times" data-date="2026-04-27">
+      <div class="event-time">2026-04-27</div>
+      <div class="event-src">The Irish Times</div>
+      <div class="event-body">
+        <span class="event-tag et-diplo">Diplomatic<span class="ev-tip">Political developments, peace talks, sanctions, humanitarian events or general war news</span></span>
+        <div class="event-text"><a href="https://www.irishtimes.com/world/middle-east/2026/04/27/trump-on-us-iran-peace-talks-if-they-want-to-talk-they-can-come-to-us/" target="_blank" rel="noopener" class="event-link" title="Trump on US-Iran peace talks: ‘If they want to talk, they can come to us’">Trump on US-Iran peace talks: ‘If they want to talk, they can come to us’</a></div>
+      </div>
+    </div>
+    <div class="event-item" data-source="The Local Germany" data-date="2026-04-27">
+      <div class="event-time">2026-04-27</div>
+      <div class="event-src">The Local Germany</div>
+      <div class="event-body">
+        <span class="event-tag et-diplo">Diplomatic<span class="ev-tip">Political developments, peace talks, sanctions, humanitarian events or general war news</span></span>
+        <div class="event-text"><a href="https://www.thelocal.de/20260427/germany-to-despatch-minesweeper-for-possible-hormuz-mission-2" target="_blank" rel="noopener" class="event-link" title="Germany to despatch minesweeper for possible Hormuz mission">Germany to despatch minesweeper for possible Hormuz mission</a></div>
+      </div>
+    </div>
+    <div class="event-item" data-source="Naturalnews.com" data-date="2026-04-27">
+      <div class="event-time">2026-04-27</div>
+      <div class="event-src">Naturalnews.com</div>
+      <div class="event-body">
+        <span class="event-tag et-diplo">Diplomatic<span class="ev-tip">Political developments, peace talks, sanctions, humanitarian events or general war news</span></span>
+        <div class="event-text"><a href="https://www.naturalnews.com/2026-04-27-trump-claims-better-peace-proposal-after-canceled-trip.html" target="_blank" rel="noopener" class="event-link" title="War theater: Trump claims Iran sent “Much Better” peace proposal minutes after he canceled high-level trip">War theater: Trump claims Iran sent “Much Better” peace proposal minutes after he canceled high-level trip</a></div>
+      </div>
+    </div>
+    <div class="event-item" data-source="Hurriyet Daily News" data-date="2026-04-27">
+      <div class="event-time">2026-04-27</div>
+      <div class="event-src">Hurriyet Daily News</div>
+      <div class="event-body">
+        <span class="event-tag et-diplo">Diplomatic<span class="ev-tip">Political developments, peace talks, sanctions, humanitarian events or general war news</span></span>
+        <div class="event-text"><a href="https://www.hurriyetdailynews.com/iran-foreign-minister-visits-russia-as-us-talks-remain-stalled-221500" target="_blank" rel="noopener" class="event-link" title="Iran foreign minister visits Russia as US talks remain stalled">Iran foreign minister visits Russia as US talks remain stalled</a></div>
+      </div>
+    </div>
+    <div class="event-item" data-source="Independent.ie" data-date="2026-04-27">
+      <div class="event-time">2026-04-27</div>
+      <div class="event-src">Independent.ie</div>
+      <div class="event-body">
+        <span class="event-tag et-diplo">Diplomatic<span class="ev-tip">Political developments, peace talks, sanctions, humanitarian events or general war news</span></span>
+        <div class="event-text"><a href="https://www.independent.ie/world-news/middle-east/us-being-humiliated-by-iran-german-chancellor-says-as-peace-talks-stall/a1622401180.html" target="_blank" rel="noopener" class="event-link" title="US being humiliated by Iran, German chancellor says as peace talks stall">US being humiliated by Iran, German chancellor says as peace talks stall</a></div>
+      </div>
+    </div>
+    <div class="event-item" data-source="Crypto Briefing" data-date="2026-04-27">
+      <div class="event-time">2026-04-27</div>
+      <div class="event-src">Crypto Briefing</div>
+      <div class="event-body">
+        <span class="event-tag et-diplo">Diplomatic<span class="ev-tip">Political developments, peace talks, sanctions, humanitarian events or general war news</span></span>
+        <div class="event-text"><a href="https://cryptobriefing.com/iranian-foreign-minister-to-meet-putin-on-war-developments-in-st-petersburg/" target="_blank" rel="noopener" class="event-link" title="Iranian foreign minister to meet Putin on war developments in St. Petersburg">Iranian foreign minister to meet Putin on war developments in St. Petersburg</a></div>
+      </div>
+    </div>
+    <div class="event-item" data-source="Digital Journal" data-date="2026-04-27">
+      <div class="event-time">2026-04-27</div>
+      <div class="event-src">Digital Journal</div>
+      <div class="event-body">
+        <span class="event-tag et-diplo">Diplomatic<span class="ev-tip">Political developments, peace talks, sanctions, humanitarian events or general war news</span></span>
+        <div class="event-text"><a href="https://www.digitaljournal.com/world/ecb-set-to-hold-rates-steady-with-eye-on-iran-crisis/article" target="_blank" rel="noopener" class="event-link" title="ECB set to hold rates steady with eye on Iran crisis">ECB set to hold rates steady with eye on Iran crisis</a></div>
+      </div>
+    </div>
+    <div class="event-item" data-source="Juancole.com" data-date="2026-04-27">
+      <div class="event-time">2026-04-27</div>
+      <div class="event-src">Juancole.com</div>
+      <div class="event-body">
+        <span class="event-tag et-diplo">Diplomatic<span class="ev-tip">Political developments, peace talks, sanctions, humanitarian events or general war news</span></span>
+        <div class="event-text"><a href="https://www.juancole.com/2026/04/machine-shut-down.html" target="_blank" rel="noopener" class="event-link" title="Can the War Machine be Shut Down?">Can the War Machine be Shut Down?</a></div>
+      </div>
+    </div>
+    <div class="event-item" data-source="BusinessLine" data-date="2026-04-27">
+      <div class="event-time">2026-04-27</div>
+      <div class="event-src">BusinessLine</div>
+      <div class="event-body">
+        <span class="event-tag et-diplo">Diplomatic<span class="ev-tip">Political developments, peace talks, sanctions, humanitarian events or general war news</span></span>
+        <div class="event-text"><a href="https://www.thehindubusinessline.com/news/world/iran-offers-new-proposal-via-pakistan-to-end-war-reopen-strait-of-hormuz-report/article70910682.ece" target="_blank" rel="noopener" class="event-link" title="Iran offers "new proposal" via Pakistan to end war, reopen Strait of Hormuz: Report">Iran offers "new proposal" via Pakistan to end war, reopen Strait of Hormuz: Report</a></div>
+      </div>
+    </div>
+    <div class="event-item" data-source="BusinessLine" data-date="2026-04-27">
+      <div class="event-time">2026-04-27</div>
+      <div class="event-src">BusinessLine</div>
+      <div class="event-body">
+        <span class="event-tag et-diplo">Diplomatic<span class="ev-tip">Political developments, peace talks, sanctions, humanitarian events or general war news</span></span>
+        <div class="event-text"><a href="https://www.thehindubusinessline.com/markets/forex/dollar-steady-as-traders-assess-stuttering-us-iran-talks/article70910660.ece" target="_blank" rel="noopener" class="event-link" title="Dollar steady as traders assess stuttering US-Iran talks">Dollar steady as traders assess stuttering US-Iran talks</a></div>
+      </div>
+    </div>
+    <div class="event-item" data-source="The Times of India" data-date="2026-04-27">
+      <div class="event-time">2026-04-27</div>
+      <div class="event-src">The Times of India</div>
+      <div class="event-body">
+        <span class="event-tag et-energy">Energy/Oil<span class="ev-tip">Impact on oil prices, gas supplies, refineries, shipping lanes or energy infrastructure</span></span>
+        <div class="event-text"><a href="https://economictimes.indiatimes.com/news/international/us/strait-of-hormuz-to-reopen-u-s-iran-war-to-end-oil-prices-rise-stocks-tumble-check-latest-updates/articleshow/130541840.cms" target="_blank" rel="noopener" class="event-link" title="Strait ​of Hormuz to reopen, U.S-Iran war to end? Oil prices rise, Stocks tumble, check latest updates">Strait ​of Hormuz to reopen, U.S-Iran war to end? Oil prices rise, Stocks tumble, check latest updates</a></div>
+      </div>
+    </div>
+    <div class="event-item" data-source="The Times of India" data-date="2026-04-27">
+      <div class="event-time">2026-04-27</div>
+      <div class="event-src">The Times of India</div>
+      <div class="event-body">
+        <span class="event-tag et-diplo">Diplomatic<span class="ev-tip">Political developments, peace talks, sanctions, humanitarian events or general war news</span></span>
+        <div class="event-text"><a href="https://economictimes.indiatimes.com/markets/forex/dollar-advances-as-us-iran-talks-suffer-setback/articleshow/130541785.cms" target="_blank" rel="noopener" class="event-link" title="Dollar advances as US-Iran talks suffer setback">Dollar advances as US-Iran talks suffer setback</a></div>
+      </div>
+    </div>
+    <div class="event-item" data-source="Digital Journal" data-date="2026-04-27">
+      <div class="event-time">2026-04-27</div>
+      <div class="event-src">Digital Journal</div>
+      <div class="event-body">
+        <span class="event-tag et-strike">Airstrike<span class="ev-tip">A military strike, missile attack or drone operation carried out by either side</span></span>
+        <div class="event-text"><a href="https://www.digitaljournal.com/world/north-korea-strengthens-nuclear-push-as-us-flails-in-middle-east/article" target="_blank" rel="noopener" class="event-link" title="North Korea strengthens nuclear push as US flails in Middle East">North Korea strengthens nuclear push as US flails in Middle East</a></div>
+      </div>
+    </div>
+    <div class="event-item" data-source="The Times of India" data-date="2026-04-27">
+      <div class="event-time">2026-04-27</div>
+      <div class="event-src">The Times of India</div>
+      <div class="event-body">
+        <span class="event-tag et-strike">Airstrike<span class="ev-tip">A military strike, missile attack or drone operation carried out by either side</span></span>
+        <div class="event-text"><a href="https://economictimes.indiatimes.com/wealth/save/cooking-gas-shortage-india-ramps-up-lpg-output-as-west-asia-conflict-hits-supply/articleshow/130498978.cms" target="_blank" rel="noopener" class="event-link" title="Cooking gas shortage: India ramps up LPG output as West Asia conflict hits supply">Cooking gas shortage: India ramps up LPG output as West Asia conflict hits supply</a></div>
+      </div>
+    </div>
+    <div class="event-item" data-source="Fox News" data-date="2026-04-27">
+      <div class="event-time">2026-04-27</div>
+      <div class="event-src">Fox News</div>
+      <div class="event-body">
+        <span class="event-tag et-diplo">Diplomatic<span class="ev-tip">Political developments, peace talks, sanctions, humanitarian events or general war news</span></span>
+        <div class="event-text"><a href="https://www.foxnews.com/world/hormuz-crisis-spurs-24b-iraq-trade-corridor-gulf-routes-shift" target="_blank" rel="noopener" class="event-link" title="Hormuz crisis spurs $24B Iraq trade corridor as Gulf routes shift">Hormuz crisis spurs $24B Iraq trade corridor as Gulf routes shift</a></div>
+      </div>
+    </div>
+    <div class="event-item" data-source="The Times of India" data-date="2026-04-27">
+      <div class="event-time">2026-04-27</div>
+      <div class="event-src">The Times of India</div>
+      <div class="event-body">
+        <span class="event-tag et-energy">Energy/Oil<span class="ev-tip">Impact on oil prices, gas supplies, refineries, shipping lanes or energy infrastructure</span></span>
+        <div class="event-text"><a href="https://economictimes.indiatimes.com/markets/us-stocks/news/global-market-today-oil-jumps-asian-shares-mixed-as-us-iran-talks-stall/articleshow/130541477.cms" target="_blank" rel="noopener" class="event-link" title="Global Market Today: Oil jumps, Asian shares mixed as US-Iran talks stall">Global Market Today: Oil jumps, Asian shares mixed as US-Iran talks stall</a></div>
+      </div>
+    </div>
+    <div class="event-item" data-source="Breitbart News" data-date="2026-04-27">
+      <div class="event-time">2026-04-27</div>
+      <div class="event-src">Breitbart News</div>
+      <div class="event-body">
+        <span class="event-tag et-diplo">Diplomatic<span class="ev-tip">Political developments, peace talks, sanctions, humanitarian events or general war news</span></span>
+        <div class="event-text"><a href="https://www.breitbart.com/middle-east/2026/04/27/iran-sends-foreign-minister-to-russia-after-trump-gives-up-on-in-person-talks/" target="_blank" rel="noopener" class="event-link" title="Iran Sends Foreign Minister to Russia After Trump Gives Up on In-Person Talks">Iran Sends Foreign Minister to Russia After Trump Gives Up on In-Person Talks</a></div>
+      </div>
+    </div>
+    <div class="event-item" data-source="Crypto Briefing" data-date="2026-04-27">
+      <div class="event-time">2026-04-27</div>
+      <div class="event-src">Crypto Briefing</div>
+      <div class="event-body">
+        <span class="event-tag et-diplo">Diplomatic<span class="ev-tip">Political developments, peace talks, sanctions, humanitarian events or general war news</span></span>
+        <div class="event-text"><a href="https://cryptobriefing.com/leaked-pentagon-email-reveals-nato-tensions-over-spain-during-iran-conflict/" target="_blank" rel="noopener" class="event-link" title="Leaked Pentagon email reveals NATO tensions over Spain during Iran conflict">Leaked Pentagon email reveals NATO tensions over Spain during Iran conflict</a></div>
+      </div>
+    </div>
+    <div class="event-item" data-source="Crypto Briefing" data-date="2026-04-27">
+      <div class="event-time">2026-04-27</div>
+      <div class="event-src">Crypto Briefing</div>
+      <div class="event-body">
+        <span class="event-tag et-diplo">Diplomatic<span class="ev-tip">Political developments, peace talks, sanctions, humanitarian events or general war news</span></span>
+        <div class="event-text"><a href="https://cryptobriefing.com/us-airlift-boosts-military-presence-in-gulf-amid-stalled-iran-talks/" target="_blank" rel="noopener" class="event-link" title="US airlift boosts military presence in Gulf amid stalled Iran talks">US airlift boosts military presence in Gulf amid stalled Iran talks</a></div>
+      </div>
+    </div>
+    <div class="event-item" data-source="Naturalnews.com" data-date="2026-04-27">
+      <div class="event-time">2026-04-27</div>
+      <div class="event-src">Naturalnews.com</div>
+      <div class="event-body">
+        <span class="event-tag et-diplo">Diplomatic<span class="ev-tip">Political developments, peace talks, sanctions, humanitarian events or general war news</span></span>
+        <div class="event-text"><a href="https://www.naturalnews.com/2026-04-27-tehran-denies-new-talks-with-trump-envoys.html" target="_blank" rel="noopener" class="event-link" title="Tehran Denies New Talks With Trump Envoys Amid Regional Tour">Tehran Denies New Talks With Trump Envoys Amid Regional Tour</a></div>
+      </div>
+    </div>
+    <div class="event-item" data-source="Airandspaceforces.com" data-date="2026-04-27">
+      <div class="event-time">2026-04-27</div>
+      <div class="event-src">Airandspaceforces.com</div>
+      <div class="event-body">
+        <span class="event-tag et-diplo">Diplomatic<span class="ev-tip">Political developments, peace talks, sanctions, humanitarian events or general war news</span></span>
+        <div class="event-text"><a href="https://www.airandspaceforces.com/usaf-combat-search-rescue-combat-pilots/" target="_blank" rel="noopener" class="event-link" title="We’ll Bring You Home: USAF’s Unwritten Contract With Every Combat Pilot">We’ll Bring You Home: USAF’s Unwritten Contract With Every Combat Pilot</a></div>
       </div>
     </div>
     <div class="event-item" data-source="RTE" data-date="2026-04-26">
@@ -2109,14 +2601,6 @@
       <div class="event-body">
         <span class="event-tag et-diplo">Diplomatic<span class="ev-tip">Political developments, peace talks, sanctions, humanitarian events or general war news</span></span>
         <div class="event-text"><a href="https://www.digitaljournal.com/world/war-in-the-middle-east-latest-developments-58/article" target="_blank" rel="noopener" class="event-link" title="War in the Middle East: latest developments">War in the Middle East: latest developments</a></div>
-      </div>
-    </div>
-    <div class="event-item" data-source="Israelnationalnews.com" data-date="2026-04-26">
-      <div class="event-time">2026-04-26</div>
-      <div class="event-src">Israelnationalnews.com</div>
-      <div class="event-body">
-        <span class="event-tag et-diplo">Diplomatic<span class="ev-tip">Political developments, peace talks, sanctions, humanitarian events or general war news</span></span>
-        <div class="event-text"><a href="https://www.israelnationalnews.com/news/426097" target="_blank" rel="noopener" class="event-link" title="Report: Israel sent Iron Dome system and troops to UAE during Iran war">Report: Israel sent Iron Dome system and troops to UAE during Iran war</a></div>
       </div>
     </div>
     <div class="event-item" data-source="Globalsecurity.org" data-date="2026-04-26">
@@ -2319,6 +2803,14 @@
         <div class="event-text"><a href="https://www.naturalnews.com/2026-04-26-us-enforces-ironclad-blockade-iran-escalating-force.html" target="_blank" rel="noopener" class="event-link" title="U.S. enforces “ironclad blockade” on Iran in escalating show of force">U.S. enforces “ironclad blockade” on Iran in escalating show of force</a></div>
       </div>
     </div>
+    <div class="event-item" data-source="New Zealand Herald" data-date="2026-04-26">
+      <div class="event-time">2026-04-26</div>
+      <div class="event-src">New Zealand Herald</div>
+      <div class="event-body">
+        <span class="event-tag et-diplo">Diplomatic<span class="ev-tip">Political developments, peace talks, sanctions, humanitarian events or general war news</span></span>
+        <div class="event-text"><a href="https://www.nzherald.co.nz/business/economy/strait-of-hormuz-how-iran-is-testing-unclos-and-the-rules-based-order-david-harvey/premium/74DHHJRG2BCDZAZAODZURLVPZY/" target="_blank" rel="noopener" class="event-link" title="Strait of Hormuz: How Iran is testing the UN and the rules-based order - David Harvey">Strait of Hormuz: How Iran is testing the UN and the rules-based order - David Harvey</a></div>
+      </div>
+    </div>
     <div class="event-item" data-source="France 24" data-date="2026-04-26">
       <div class="event-time">2026-04-26</div>
       <div class="event-src">France 24</div>
@@ -2380,14 +2872,6 @@
       <div class="event-src">Euronews</div>
       <div class="event-body">
         <span class="event-tag et-diplo">Diplomatic<span class="ev-tip">Political developments, peace talks, sanctions, humanitarian events or general war news</span></span>
-        <div class="event-text"><a href="http://www.euronews.com/2026/04/26/iranian-foreign-minister-returns-to-pakistan-before-heading-to-moscow-for-meeting-with-put" target="_blank" rel="noopener" class="event-link" title="Iranian foreign minister heads to Moscow for meeting with Putin after second Pakistan trip">Iranian foreign minister heads to Moscow for meeting with Putin after second Pakistan trip</a></div>
-      </div>
-    </div>
-    <div class="event-item" data-source="Euronews" data-date="2026-04-26">
-      <div class="event-time">2026-04-26</div>
-      <div class="event-src">Euronews</div>
-      <div class="event-body">
-        <span class="event-tag et-diplo">Diplomatic<span class="ev-tip">Political developments, peace talks, sanctions, humanitarian events or general war news</span></span>
         <div class="event-text"><a href="http://www.euronews.com/2026/04/26/el-sisi-warns-middle-east-faces-attempts-to-redraw-map-calls-for-gulf-role-in-any-iran-dea" target="_blank" rel="noopener" class="event-link" title="El-Sisi warns Middle East faces ‘attempts to redraw map’, calls for Gulf role in any Iran deal">El-Sisi warns Middle East faces ‘attempts to redraw map’, calls for Gulf role in any Iran deal</a></div>
       </div>
     </div>
@@ -2413,6 +2897,14 @@
       <div class="event-body">
         <span class="event-tag et-diplo">Diplomatic<span class="ev-tip">Political developments, peace talks, sanctions, humanitarian events or general war news</span></span>
         <div class="event-text"><a href="https://www.theguardian.com/world/live/2026/apr/25/middle-east-crisis-live-witkoff-and-kushner-head-to-pakistan-for-iran-negotiations" target="_blank" rel="noopener" class="event-link" title="US president cancels envoy trip to Pakistan for ceasefire talks – as it happened">US president cancels envoy trip to Pakistan for ceasefire talks – as it happened</a></div>
+      </div>
+    </div>
+    <div class="event-item" data-source="BBC" data-date="2026-04-26">
+      <div class="event-time">2026-04-26</div>
+      <div class="event-src">BBC</div>
+      <div class="event-body">
+        <span class="event-tag et-diplo">Diplomatic<span class="ev-tip">Political developments, peace talks, sanctions, humanitarian events or general war news</span></span>
+        <div class="event-text"><a href="https://www.bbc.com/news/videos/cx2e2lg2ny9o?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener" class="event-link" title="Did Trump save eight Iranian women from execution?">Did Trump save eight Iranian women from execution?</a></div>
       </div>
     </div>
     <div class="event-item" data-source="The Times of India" data-date="2026-04-25">
@@ -2501,14 +2993,6 @@
       <div class="event-body">
         <span class="event-tag et-diplo">Diplomatic<span class="ev-tip">Political developments, peace talks, sanctions, humanitarian events or general war news</span></span>
         <div class="event-text"><a href="https://economictimes.indiatimes.com/news/defence/iran-says-it-wont-accept-maximalist-demands-as-islamabad-hosts-peace-push/articleshow/130515887.cms" target="_blank" rel="noopener" class="event-link" title="Iran says it won't accept 'maximalist demands' as Islamabad hosts peace push">Iran says it won't accept 'maximalist demands' as Islamabad hosts peace push</a></div>
-      </div>
-    </div>
-    <div class="event-item" data-source="The Local Germany" data-date="2026-04-25">
-      <div class="event-time">2026-04-25</div>
-      <div class="event-src">The Local Germany</div>
-      <div class="event-body">
-        <span class="event-tag et-diplo">Diplomatic<span class="ev-tip">Political developments, peace talks, sanctions, humanitarian events or general war news</span></span>
-        <div class="event-text"><a href="https://www.thelocal.de/20260425/germany-to-despatch-minesweeper-for-possible-hormuz-mission" target="_blank" rel="noopener" class="event-link" title="Germany to despatch minesweeper for possible Hormuz mission">Germany to despatch minesweeper for possible Hormuz mission</a></div>
       </div>
     </div>
     <div class="event-item" data-source="Globalsecurity.org" data-date="2026-04-25">
@@ -2717,6 +3201,14 @@
       <div class="event-body">
         <span class="event-tag et-energy">Energy/Oil<span class="ev-tip">Impact on oil prices, gas supplies, refineries, shipping lanes or energy infrastructure</span></span>
         <div class="event-text"><a href="https://www.theguardian.com/world/2026/apr/25/ukraine-war-briefing-zelenskyy-holds-talks-in-azerbaijan-saudi-arabia-on-security-and-energy" target="_blank" rel="noopener" class="event-link" title="Ukraine war briefing: Zelenskyy holds talks in Azerbaijan, Saudi Arabia on ‘security and energy’">Ukraine war briefing: Zelenskyy holds talks in Azerbaijan, Saudi Arabia on ‘security and energy’</a></div>
+      </div>
+    </div>
+    <div class="event-item" data-source="Radio Free Europe/ Radio Liberty" data-date="2026-04-25">
+      <div class="event-time">2026-04-25</div>
+      <div class="event-src">Radio Free Europe/ Radio Liberty</div>
+      <div class="event-body">
+        <span class="event-tag et-diplo">Diplomatic<span class="ev-tip">Political developments, peace talks, sanctions, humanitarian events or general war news</span></span>
+        <div class="event-text"><a href="https://www.rferl.org/a/behnam-ben-taleblu-russia-iran-partnership-ukraine-war/33742291.html" target="_blank" rel="noopener" class="event-link" title="Behnam Ben Taleblu: Russia-Iran Partnership Is 'Reshaping Modern Warfare'">Behnam Ben Taleblu: Russia-Iran Partnership Is 'Reshaping Modern Warfare'</a></div>
       </div>
     </div>
     <div class="event-item" data-source="Fair Observer" data-date="2026-04-24">
@@ -6697,14 +7189,6 @@ and election shakeups from California to Hungary: Morning Rundown</a></div>
         <div class="event-text"><a href="https://fortune.com/2026/04/11/trump-iran-war-ceasefire-talks-deal-military-victory-jd-vance/" target="_blank" rel="noopener" class="event-link" title="Trump downplays talks for ceasefire deal with Iran, claiming military victory. ‘It doesn’t matter. From the standpoint of America, we win’">Trump downplays talks for ceasefire deal with Iran, claiming military victory. ‘It doesn’t matter. From the standpoint of America, we win’</a></div>
       </div>
     </div>
-    <div class="event-item" data-source="Freerepublic.com" data-date="2026-04-11">
-      <div class="event-time">2026-04-11</div>
-      <div class="event-src">Freerepublic.com</div>
-      <div class="event-body">
-        <span class="event-tag et-diplo">Diplomatic<span class="ev-tip">Political developments, peace talks, sanctions, humanitarian events or general war news</span></span>
-        <div class="event-text"><a href="https://freerepublic.com/focus/f-news/4374533/posts" target="_blank" rel="noopener" class="event-link" title="Is Iran Unable to Locate its Mines in the Strait of Hormuz?">Is Iran Unable to Locate its Mines in the Strait of Hormuz?</a></div>
-      </div>
-    </div>
     <div class="event-item" data-source="HuffPost" data-date="2026-04-11">
       <div class="event-time">2026-04-11</div>
       <div class="event-src">HuffPost</div>
@@ -7975,14 +8459,6 @@ and election shakeups from California to Hungary: Morning Rundown</a></div>
       <div class="event-body">
         <span class="event-tag et-energy">Energy/Oil<span class="ev-tip">Impact on oil prices, gas supplies, refineries, shipping lanes or energy infrastructure</span></span>
         <div class="event-text"><a href="https://oilprice.com/Latest-Energy-News/World-News/Exxon-Mobil-Signals-29B-Q1-Earnings-Bump-On-Higher-Oil-Prices.html" target="_blank" rel="noopener" class="event-link" title="Exxon Mobil Signals $2.9B Q1 Earnings Bump On Higher Oil Prices">Exxon Mobil Signals $2.9B Q1 Earnings Bump On Higher Oil Prices</a></div>
-      </div>
-    </div>
-    <div class="event-item" data-source="The Indian Express" data-date="2026-04-08">
-      <div class="event-time">2026-04-08</div>
-      <div class="event-src">The Indian Express</div>
-      <div class="event-body">
-        <span class="event-tag et-strike">Airstrike<span class="ev-tip">A military strike, missile attack or drone operation carried out by either side</span></span>
-        <div class="event-text"><a href="https://indianexpress.com/article/world/israel-lebanon-beirut-strikes-death-toll-trump-iran-strait-of-hormuz-ceasefire-10626414/" target="_blank" rel="noopener" class="event-link" title="Iran closes Strait of Hormuz again after Israeli strikes kill over 100 in Lebanon">Iran closes Strait of Hormuz again after Israeli strikes kill over 100 in Lebanon</a></div>
       </div>
     </div>
     <div class="event-item" data-source="Truthout" data-date="2026-04-08">
@@ -11105,12 +11581,28 @@ and election shakeups from California to Hungary: Morning Rundown</a></div>
         <div class="event-text"><a href="https://www.france24.com/en/israel-us-and-iran-exchange-airstrikes-despite-attempted-talks" target="_blank" rel="noopener" class="event-link" title="Israel, US and Iran exchange airstrikes despite attempted talks">Israel, US and Iran exchange airstrikes despite attempted talks</a></div>
       </div>
     </div>
+    <div class="event-item" data-source="Fox News" data-date="2026-03-30">
+      <div class="event-time">2026-03-30</div>
+      <div class="event-src">Fox News</div>
+      <div class="event-body">
+        <span class="event-tag et-diplo">Diplomatic<span class="ev-tip">Political developments, peace talks, sanctions, humanitarian events or general war news</span></span>
+        <div class="event-text"><a href="https://news.google.com/rss/articles/CBMirgFBVV95cUxQemoyZHVUU1NFNDNpanZZcmRVNWZwT3hTWFJBNUFrTDdxMFNxMTV4S0ZsSDVLeW1nRy04SEN5aHRDcWRSbDZBaEo3N0JNS1pBQ3F5RWItTXpLQzN4cm5VRGFLOWNkUEpWMXhyT05XUHVOMFpFcVJLS3B6ODdHT29HWmdfczQ0eXF5YXNuanlTLTRYNkJodVJTVlN6eE9qS1JtUV9wcVVUQlFkNUVaN0HSAbMBQVVfeXFMT3F4TjljalFtcmszNnpCYlk2MGJiNDRqR0tIQ1FXXzR6U01fbzF2M1QweUJaRlR5WEZlYW53WDNxQ1NURGNVbWFkbjY1dDdZT0U3QS1Vc3BLN3B2OTNTcHRCaFdfaWQzRnItRV9jYzJya1BpSDQ5MFBCUDJxb0NHOHcxRkU0dTVQRzJmRTlLWU5ERzlnMUFyZF9nM3QtMjJQcHJ2LTExOWpYczR3QS1IRTd6UW8?oc=5" target="_blank" rel="noopener" class="event-link" title="Trump dominates CPAC poll as conservatives rally behind agenda, back Iran action - Fox News">Trump dominates CPAC poll as conservatives rally behind agenda, back Iran action - Fox News</a></div>
+      </div>
+    </div>
     <div class="event-item" data-source="NBC News" data-date="2026-03-30">
       <div class="event-time">2026-03-30</div>
       <div class="event-src">NBC News</div>
       <div class="event-body">
         <span class="event-tag et-diplo">Diplomatic<span class="ev-tip">Political developments, peace talks, sanctions, humanitarian events or general war news</span></span>
         <div class="event-text"><a href="https://news.google.com/rss/articles/CBMiogFBVV95cUxOOTZlUjhLTUUybldNeEY2bnRWcTc1SUdNV0JaV1NaVXBCLTcyYXVrdEozeWFLR1NCZ0E5NFhWVDhLZkRYb3FaOE16UGxpZF9ra0ZzdmlTNkNNblhQaExIdTVJS0JhT1E4cVN1MDRUekl0UnNPUHE0TWpfOG5mZEJ1cUhMM2tYRTlidWphSGQ5Y0FnTzNrbHBnX0hGQlU4WkdNc2c?oc=5" target="_blank" rel="noopener" class="event-link" title="President Trump claims 'regime change' has happened in Iran - NBC News">President Trump claims 'regime change' has happened in Iran - NBC News</a></div>
+      </div>
+    </div>
+    <div class="event-item" data-source="New York Times" data-date="2026-03-30">
+      <div class="event-time">2026-03-30</div>
+      <div class="event-src">New York Times</div>
+      <div class="event-body">
+        <span class="event-tag et-strike">Airstrike<span class="ev-tip">A military strike, missile attack or drone operation carried out by either side</span></span>
+        <div class="event-text"><a href="https://news.google.com/rss/articles/CBMinAFBVV95cUxQVDFnSjRnTGljU3oyUS1hZ21sUmp1NmNOLWNSSzdfZ3htY1puMEpfOUNidnlYbWw2b1lSNWx2YWgwT0txVjQwUDBRdV9XajZXYjVveGw4NDFnZlp1TWZfVXJfXzBpSGhwNDRnS1h5Ym1nUjB6LU9sUFl4RkhnYldKTTFUbTZWX2pJaWV3UUZNdGZRY2dnLTF2UHhNUnY?oc=5" target="_blank" rel="noopener" class="event-link" title="New U.S. Missile Hit Iranian Sports Hall and School, Analysis Shows - The New York Times">New U.S. Missile Hit Iranian Sports Hall and School, Analysis Shows - The New York Times</a></div>
       </div>
     </div>
     <div class="event-item" data-source="Washington Post" data-date="2026-03-30">
@@ -11649,14 +12141,6 @@ and election shakeups from California to Hungary: Morning Rundown</a></div>
         <div class="event-text"><a href="https://www.activistpost.com/episode-495-this-is-the-real-endgame-in-iran/" target="_blank" rel="noopener" class="event-link" title="Episode 495 – This is the REAL Endgame in Iran">Episode 495 – This is the REAL Endgame in Iran</a></div>
       </div>
     </div>
-    <div class="event-item" data-source="Slashdot.org" data-date="2026-03-30">
-      <div class="event-time">2026-03-30</div>
-      <div class="event-src">Slashdot.org</div>
-      <div class="event-body">
-        <span class="event-tag et-diplo">Diplomatic<span class="ev-tip">Political developments, peace talks, sanctions, humanitarian events or general war news</span></span>
-        <div class="event-text"><a href="https://slashdot.org/firehose.pl?op=view&amp;id=181185580" target="_blank" rel="noopener" class="event-link" title="Trump ‘pretty sure’ of Iran deal, but can Pakistan-led efforts end the war? - Al Jazeera">Trump ‘pretty sure’ of Iran deal, but can Pakistan-led efforts end the war? - Al Jazeera</a></div>
-      </div>
-    </div>
     <div class="event-item" data-source="Al Jazeera" data-date="2026-03-30">
       <div class="event-time">2026-03-30</div>
       <div class="event-src">Al Jazeera</div>
@@ -11823,6 +12307,14 @@ and election shakeups from California to Hungary: Morning Rundown</a></div>
       <div class="event-body">
         <span class="event-tag et-diplo">Diplomatic<span class="ev-tip">Political developments, peace talks, sanctions, humanitarian events or general war news</span></span>
         <div class="event-text"><a href="https://www.rt.com/news/636727-trump-iran-uranium-raid/" target="_blank" rel="noopener" class="event-link" title="Trump weighing raid on Iran to ‘extract’ enriched uranium – WSJ">Trump weighing raid on Iran to ‘extract’ enriched uranium – WSJ</a></div>
+      </div>
+    </div>
+    <div class="event-item" data-source="Al Jazeera" data-date="2026-03-30">
+      <div class="event-time">2026-03-30</div>
+      <div class="event-src">Al Jazeera</div>
+      <div class="event-body">
+        <span class="event-tag et-diplo">Diplomatic<span class="ev-tip">Political developments, peace talks, sanctions, humanitarian events or general war news</span></span>
+        <div class="event-text"><a href="https://www.aljazeera.com/news/2026/3/30/trump-pretty-sure-of-iran-deal-but-can-pakistan-led-efforts-end-the-war" target="_blank" rel="noopener" class="event-link" title="Trump ‘pretty sure’ of Iran deal, but can Pakistan-led efforts end the war?">Trump ‘pretty sure’ of Iran deal, but can Pakistan-led efforts end the war?</a></div>
       </div>
     </div>
     <div class="event-item" data-source="Breitbart News" data-date="2026-03-30">
@@ -12809,6 +13301,14 @@ and election shakeups from California to Hungary: Morning Rundown</a></div>
         <div class="event-text"><a href="https://www.bbc.com/news/articles/cx2dyz6p3weo?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener" class="event-link" title="Why did US and Israel attack Iran and how long could the war last?">Why did US and Israel attack Iran and how long could the war last?</a></div>
       </div>
     </div>
+    <div class="event-item" data-source="BBC" data-date="2026-03-27">
+      <div class="event-time">2026-03-27</div>
+      <div class="event-src">BBC</div>
+      <div class="event-body">
+        <span class="event-tag et-diplo">Diplomatic<span class="ev-tip">Political developments, peace talks, sanctions, humanitarian events or general war news</span></span>
+        <div class="event-text"><a href="https://www.bbc.com/news/videos/cx24jk0z74yo?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener" class="event-link" title="Why is it so hard to pass through the Strait of Hormuz?">Why is it so hard to pass through the Strait of Hormuz?</a></div>
+      </div>
+    </div>
     <div class="event-item" data-source="France 24" data-date="2026-03-27">
       <div class="event-time">2026-03-27</div>
       <div class="event-src">France 24</div>
@@ -13013,12 +13513,12 @@ and election shakeups from California to Hungary: Morning Rundown</a></div>
   <div class="g21">
     <div class="oil-hero">
       <div class="oil-benchmark-label">Brent crude — global benchmark</div>
-      <div class="oil-price-main" id="oil-brent">$112.45</div>
-      <div class="oil-change-badge" id="oil-brent-change">+67.8% vs pre-war</div>
+      <div class="oil-price-main" id="oil-brent">$111.33</div>
+      <div class="oil-change-badge" id="oil-brent-change">+66.2% vs pre-war</div>
       <div class="oil-note">Live price · auto-updated hourly · Source: oilpriceapi.com · ⚠ Not financial advice · approximate</div>
       <div class="oil-sub-grid">
         <div class="oil-sub-card">
-          <div class="osc-val c-red" id="oil-wti">$100.84</div>
+          <div class="osc-val c-red" id="oil-wti">$99.14</div>
           <div class="osc-lbl" id="oil-wti-lbl">WTI crude (US) · updating...</div>
         </div>
         <div class="oil-sub-card">
@@ -13265,7 +13765,7 @@ and election shakeups from California to Hungary: Morning Rundown</a></div>
   <div class="sources-bar">
     <strong>Sources & methodology</strong> — All figures sourced from publicly available, named organisations. Casualty figures shown from multiple independent sources simultaneously to reflect genuine uncertainty — we do not endorse any single figure as definitive. Updated manually; figures reflect best available information as of the displayed timestamp.<br>
     <strong>Primary sources:</strong> Al Jazeera live tracker · Hengaw Organisation for Human Rights · HRANA · CENTCOM (US Central Command) · Wikipedia 2026 Iran War article · NPR Iran War Cost Tracker · CNBC Energy · Bloomberg · Fortune · Newsweek · TIME · IEA · IAEA statements · Iran Health Ministry (via Reuters/AP)<br><span class="sources-auto-update">
-    ⚡ Data auto-updated 28 Apr 2026 12:11 UTC · Scraped from Wikipedia, Al Jazeera, Reuters, BBC &amp; oilpriceapi.com · Figures are approximate and unconfirmed · Always verify with primary sources</span>
+    ⚡ Data auto-updated 28 Apr 2026 15:09 UTC · Scraped from Wikipedia, Al Jazeera, Reuters, BBC &amp; oilpriceapi.com · Figures are approximate and unconfirmed · Always verify with primary sources</span>
   </div>
 
 </main>
@@ -13345,15 +13845,15 @@ and election shakeups from California to Hungary: Morning Rundown</a></div>
   </div>
 </footer>
 
-<script src="js/utils.js?v=1777378299"></script>
-<script src="js/warcost.js?v=1777378299"></script>
-<script src="js/widgets.js?v=1777378299"></script>
-<script src="js/casualties.js?v=1777378299"></script>
-<script src="js/charts.js?v=1777378299"></script>
-<script src="js/latest-updates-panel.js?v=1777378299"></script>
-<script src="js/headlines.js?v=1777378299"></script>
-<script src="js/ui.js?v=1777378299"></script>
-<script src="js/intel.js?v=1777378299"></script>
+<script src="js/utils.js?v=1777388971"></script>
+<script src="js/warcost.js?v=1777388971"></script>
+<script src="js/widgets.js?v=1777388971"></script>
+<script src="js/casualties.js?v=1777388971"></script>
+<script src="js/charts.js?v=1777388971"></script>
+<script src="js/latest-updates-panel.js?v=1777388971"></script>
+<script src="js/headlines.js?v=1777388971"></script>
+<script src="js/ui.js?v=1777388971"></script>
+<script src="js/intel.js?v=1777388971"></script>
 
 </body>
 </html>
