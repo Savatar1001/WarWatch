@@ -21142,5 +21142,21 @@
     "pub": "Sun, 03 May 2026 20:47:14 +000",
     "pub_iso": "2026-05-03",
     "source": "Al Jazeera"
+  },
+  "https://www.aljazeera.com/news/liveblog/2026/5/4/iran-war-live-tehran-says-trumps-hormuz-mission-violates-ceasefire?traffic_source=rss": {
+    "title": "Iran war live: Tehran warns Trump’s Hormuz mission will violate ceasefire",
+    "desc": "Iran protests as Trump announces &#039;Project Freedom&#039; to escort stranded ships out of the Strait of Hormuz.",
+    "link": "https://www.aljazeera.com/news/liveblog/2026/5/4/iran-war-live-tehran-says-trumps-hormuz-mission-violates-ceasefire?traffic_source=rss",
+    "pub": "Mon, 04 May 2026 00:00:00 +000",
+    "pub_iso": "2026-05-04",
+    "source": "Al Jazeera"
+  },
+  "https://www.france24.com/en/middle-east/20260504-live-us-to-escort-ships-through-strait-of-hormuz-as-iran-warns-of-ceasefire-breach-trump": {
+    "title": "Live: US to escort ships through Hormuz as Iran warns of ceasefire breach",
+    "desc": "The United States is set to begin escorting stranded third-country vessels through the Strait of Hormuz starting Monday morning, as part of its “Project Freedom” initiative, Donald Trump announced Sunday. Iran quickly pushed back, with a se",
+    "link": "https://www.france24.com/en/middle-east/20260504-live-us-to-escort-ships-through-strait-of-hormuz-as-iran-warns-of-ceasefire-breach-trump",
+    "pub": "Mon, 04 May 2026 00:06:58 GMT",
+    "pub_iso": "2026-05-04",
+    "source": "France 24"
   }
 }
