@@ -21998,5 +21998,29 @@
     "pub": "Mon, 04 May 2026 17:42:00 GMT",
     "pub_iso": "2026-05-04",
     "source": "Associated Press"
+  },
+  "https://www.aljazeera.com/news/liveblog/2026/5/5/iran-war-live-washington-tehran-trade-threats-over-strait-of-hormuz?traffic_source=rss": {
+    "title": "Iran war live: Washington, Tehran trade threats over Strait of Hormuz",
+    "desc": "Israeli attacks have killed 2,696 people in Lebanon since March 2, the country&#039;s Health Ministry reports.",
+    "link": "https://www.aljazeera.com/news/liveblog/2026/5/5/iran-war-live-washington-tehran-trade-threats-over-strait-of-hormuz?traffic_source=rss",
+    "pub": "Tue, 05 May 2026 00:00:00 +000",
+    "pub_iso": "2026-05-05",
+    "source": "Al Jazeera"
+  },
+  "https://www.france24.com/en/middle-east/20260505-middle-east-war-live-saudi-arabia-calls-for-de-escalation-after-us%E2%80%93iran-clashes": {
+    "title": "Middle East war live: Saudi Arabia calls for de-escalation after US–Iran clashes",
+    "desc": "Saudi Arabia called on Tuesday to de-escalate the conflict in the Middle East after Iran and the United States traded fire, rattling a fragile ceasefire. The UN Security Council is set to hold a closed-door meeting on Lebanon later in the d",
+    "link": "https://www.france24.com/en/middle-east/20260505-middle-east-war-live-saudi-arabia-calls-for-de-escalation-after-us%E2%80%93iran-clashes",
+    "pub": "Tue, 05 May 2026 01:03:49 GMT",
+    "pub_iso": "2026-05-05",
+    "source": "France 24"
+  },
+  "https://www.france24.com/en/middle-east/20260504-us-and-uae-report-iran-attacks-as-military-pushes-to-reopen-strait-of-hormuz": {
+    "title": "US and UAE report Iran attacks as military pushes to reopen Strait of Hormuz",
+    "desc": "US forces opened a passage through the Strait of Hormuz on Monday after sinking Iranian boats and escorting merchant ships, as fresh attacks struck vessels and facilities in the United Arab Emirates. The escalation has raised fears over glo",
+    "link": "https://www.france24.com/en/middle-east/20260504-us-and-uae-report-iran-attacks-as-military-pushes-to-reopen-strait-of-hormuz",
+    "pub": "Mon, 04 May 2026 23:43:01 GMT",
+    "pub_iso": "2026-05-04",
+    "source": "France 24"
   }
 }
