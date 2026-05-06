@@ -23486,5 +23486,37 @@
     "pub": "Wed, 06 May 2026 11:31:06 GMT",
     "pub_iso": "2026-05-06",
     "source": "France 24"
+  },
+  "https://www.aljazeera.com/news/2026/5/6/araghchi-in-beijing-how-china-could-shape-the-direction-of-the-us-iran-war?traffic_source=rss": {
+    "title": "Araghchi in Beijing: How China could shape the direction of the US-Iran war",
+    "desc": "Analysts say shared US and Chinese interests in reopening the Strait of Hormuz could create a path towards peace.",
+    "link": "https://www.aljazeera.com/news/2026/5/6/araghchi-in-beijing-how-china-could-shape-the-direction-of-the-us-iran-war?traffic_source=rss",
+    "pub": "Wed, 06 May 2026 13:47:54 +000",
+    "pub_iso": "2026-05-06",
+    "source": "Al Jazeera"
+  },
+  "https://www.aljazeera.com/video/newsfeed/2026/5/6/what-happened-to-trumps-project?traffic_source=rss": {
+    "title": "What happened to Trump’s ‘Project Freedom’?",
+    "desc": "Donald Trump announced ‘Project Freedom’, an operation to escort stranded ships through the strait. Then paused it.",
+    "link": "https://www.aljazeera.com/video/newsfeed/2026/5/6/what-happened-to-trumps-project?traffic_source=rss",
+    "pub": "Wed, 06 May 2026 12:56:16 +000",
+    "pub_iso": "2026-05-06",
+    "source": "Al Jazeera"
+  },
+  "https://www.bbc.com/news/articles/cd6p5q2dx1po?at_medium=RSS&at_campaign=rss": {
+    "title": "Trump pauses Hormuz plan 50 hours after he announced it - what happened?",
+    "desc": "The US president pauses the military operation to get ships through the Strait of Hormuz two days after he announced it.",
+    "link": "https://www.bbc.com/news/articles/cd6p5q2dx1po?at_medium=RSS&at_campaign=rss",
+    "pub": "Wed, 06 May 2026 13:39:09 GMT",
+    "pub_iso": "2026-05-06",
+    "source": "BBC"
+  },
+  "https://www.bbc.com/news/articles/clypekl71gdo?at_medium=RSS&at_campaign=rss": {
+    "title": "Trump says US to pause operation to guide vessels through Strait of Hormuz",
+    "desc": "\"Project Freedom\", which began on Monday, will be halted because progress has been made toward a deal with Iran, the US president says.",
+    "link": "https://www.bbc.com/news/articles/clypekl71gdo?at_medium=RSS&at_campaign=rss",
+    "pub": "Wed, 06 May 2026 02:18:45 GMT",
+    "pub_iso": "2026-05-06",
+    "source": "BBC"
   }
 }
