@@ -24966,5 +24966,29 @@
     "pub": "Thu, 07 May 2026 14:51:18 GMT",
     "pub_iso": "2026-05-07",
     "source": "France 24"
+  },
+  "https://www.aljazeera.com/video/newsfeed/2026/5/7/irans-president-says-he-has-spoken-to-the-countrys-supreme-leader?traffic_source=rss": {
+    "title": "Iran’s president says he has spoken to the country’s Supreme Leader",
+    "desc": "Iranian President Masoud Pezeshkian says he has met with Iranian Supreme Leader Mojtaba Khamenei.",
+    "link": "https://www.aljazeera.com/video/newsfeed/2026/5/7/irans-president-says-he-has-spoken-to-the-countrys-supreme-leader?traffic_source=rss",
+    "pub": "Thu, 07 May 2026 16:18:04 +000",
+    "pub_iso": "2026-05-07",
+    "source": "Al Jazeera"
+  },
+  "https://www.aljazeera.com/news/2026/5/7/irans-president-pezeshkian-seeks-to-quash-divided-leadership-narrative?traffic_source=rss": {
+    "title": "Iran’s President Pezeshkian seeks to quash divided leadership narrative",
+    "desc": "Tehran emphasises solidarity among top officials as Washington pressures Iran during Strait of Hormuz disputes.",
+    "link": "https://www.aljazeera.com/news/2026/5/7/irans-president-pezeshkian-seeks-to-quash-divided-leadership-narrative?traffic_source=rss",
+    "pub": "Thu, 07 May 2026 15:58:28 +000",
+    "pub_iso": "2026-05-07",
+    "source": "Al Jazeera"
+  },
+  "https://www.theguardian.com/world/2026/may/07/trump-project-freedom-saudi-arabia-strait-of-hormuz": {
+    "title": "Trump shelved ‘Project Freedom’ after Saudis refused use of bases and airspace",
+    "desc": "Riyadh told White House it would deny access for operation to provide tankers military escort through strait of HormuzMiddle East crisis – live updatesA refusal by Saudi Arabia to allow the US to use its bases and airspace to provide a mili",
+    "link": "https://www.theguardian.com/world/2026/may/07/trump-project-freedom-saudi-arabia-strait-of-hormuz",
+    "pub": "Thu, 07 May 2026 16:23:28 GMT",
+    "pub_iso": "2026-05-07",
+    "source": "The Guardian"
   }
 }
