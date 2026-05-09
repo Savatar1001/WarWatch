@@ -27646,5 +27646,13 @@
     "pub": "Sat, 09 May 2026 18:44:01 GMT",
     "pub_iso": "2026-05-09",
     "source": "BBC"
+  },
+  "https://www.bbc.com/news/articles/cn4pjegk358o?at_medium=RSS&at_campaign=rss": {
+    "title": "Lebanon says Israeli strikes killed 39",
+    "desc": "Israel and Hezbollah have continued to trade fire despite a ceasefire deal being announced last month.",
+    "link": "https://www.bbc.com/news/articles/cn4pjegk358o?at_medium=RSS&at_campaign=rss",
+    "pub": "Sat, 09 May 2026 19:49:49 GMT",
+    "pub_iso": "2026-05-09",
+    "source": "BBC"
   }
 }
