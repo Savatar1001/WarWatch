@@ -27670,5 +27670,13 @@
     "pub": "Sun, 10 May 2026 00:00:00 +000",
     "pub_iso": "2026-05-10",
     "source": "Al Jazeera"
+  },
+  "https://www.aljazeera.com/video/newsfeed/2026/5/10/satellite-images-show-likely-oil-slick-off-irans-kharg-island?traffic_source=rss": {
+    "title": "Satellite images show likely oil slick off Iran’s Kharg Island",
+    "desc": "Satellite images have captured a suspected oil slick spanning dozens of square kilometres near Iran’s Kharg Island.",
+    "link": "https://www.aljazeera.com/video/newsfeed/2026/5/10/satellite-images-show-likely-oil-slick-off-irans-kharg-island?traffic_source=rss",
+    "pub": "Sun, 10 May 2026 01:23:32 +000",
+    "pub_iso": "2026-05-10",
+    "source": "Al Jazeera"
   }
 }
