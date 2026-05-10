@@ -28110,5 +28110,21 @@
     "pub": "Sun, 10 May 2026 14:00:27 GMT",
     "pub_iso": "2026-05-10",
     "source": "The Guardian"
+  },
+  "https://dailycaller.com/2026/05/09/united-states-marco-rubio-sanctions-china-belarus-united-arab-emirates-individuals-companies-supporting-iran-war/": {
+    "title": "US Sanctions Foreign Entities Accused Of Sharing Satellite Imagery, Access To Arms To Prop Up Iran’s War Effort",
+    "desc": "The U.S. is imposing sanctions on entities based in China and the Middle East for allegedly being \"involved in Iran's efforts to acquire or use arms.\"",
+    "link": "https://dailycaller.com/2026/05/09/united-states-marco-rubio-sanctions-china-belarus-united-arab-emirates-individuals-companies-supporting-iran-war/",
+    "pub": "2026-05-09T15:57:54Z",
+    "pub_iso": "2026-05-09",
+    "source": "The Daily Caller"
+  },
+  "https://www.aljazeera.com/video/newsfeed/2026/5/10/iran-sends-response-to-us-ceasefire-proposal-via-pakistan?traffic_source=rss": {
+    "title": "Iran sends response to US ceasefire proposal via Pakistan",
+    "desc": "Tehran has been saying negotiations should focus on ending hostilities, securing guarantees against future attacks.",
+    "link": "https://www.aljazeera.com/video/newsfeed/2026/5/10/iran-sends-response-to-us-ceasefire-proposal-via-pakistan?traffic_source=rss",
+    "pub": "Sun, 10 May 2026 15:39:50 +000",
+    "pub_iso": "2026-05-10",
+    "source": "Al Jazeera"
   }
 }
