@@ -27950,5 +27950,37 @@
     "pub": "Sun, 10 May 2026 10:50:07 GMT",
     "pub_iso": "2026-05-10",
     "source": "France 24"
+  },
+  "https://www.aljazeera.com/video/counting-the-cost/2026/5/10/can-asian-economies-cope-with-the-fallout-from-the-iran-war?traffic_source=rss": {
+    "title": "Can Asian economies cope with the fallout from the Iran war?",
+    "desc": "Fuel costs, inflation and debt pressures are testing Asian economies.",
+    "link": "https://www.aljazeera.com/video/counting-the-cost/2026/5/10/can-asian-economies-cope-with-the-fallout-from-the-iran-war?traffic_source=rss",
+    "pub": "Sun, 10 May 2026 13:11:10 +000",
+    "pub_iso": "2026-05-10",
+    "source": "Al Jazeera"
+  },
+  "https://www.aljazeera.com/news/2026/5/10/iran-sends-response-to-us-proposal-to-end-war-via-mediator-pakistan?traffic_source=rss": {
+    "title": "Iran sends response to US proposal to end war via mediator Pakistan",
+    "desc": "According to the proposal, initial negotiations will focus on ending hostilities.",
+    "link": "https://www.aljazeera.com/news/2026/5/10/iran-sends-response-to-us-proposal-to-end-war-via-mediator-pakistan?traffic_source=rss",
+    "pub": "Sun, 10 May 2026 12:40:50 +000",
+    "pub_iso": "2026-05-10",
+    "source": "Al Jazeera"
+  },
+  "https://www.aljazeera.com/news/2026/5/10/us-iran-ceasefire-under-strain-as-gulf-states-report-drone-attacks?traffic_source=rss": {
+    "title": "US-Iran ceasefire under strain as Gulf states report drone attacks",
+    "desc": "Drone hits cargo ship off Qatar’s coast, while Kuwait and the United Arab Emirates repel attacks.",
+    "link": "https://www.aljazeera.com/news/2026/5/10/us-iran-ceasefire-under-strain-as-gulf-states-report-drone-attacks?traffic_source=rss",
+    "pub": "Sun, 10 May 2026 12:16:51 +000",
+    "pub_iso": "2026-05-10",
+    "source": "Al Jazeera"
+  },
+  "https://www.bbc.com/news/articles/clypgz9e5pmo?at_medium=RSS&at_campaign=rss": {
+    "title": "Iran warns against complying with US sanctions as Gulf attacks reported",
+    "desc": "The warning comes as a commercial vessel is hit off Qatar, and both the UAE and Kuwait report drone attacks.",
+    "link": "https://www.bbc.com/news/articles/clypgz9e5pmo?at_medium=RSS&at_campaign=rss",
+    "pub": "Sun, 10 May 2026 12:22:06 GMT",
+    "pub_iso": "2026-05-10",
+    "source": "BBC"
   }
 }
