@@ -30206,5 +30206,37 @@
     "pub": "Wed, 13 May 2026 21:45:15 GMT",
     "pub_iso": "2026-05-13",
     "source": "France 24"
+  },
+  "https://www.aljazeera.com/news/liveblog/2026/5/14/trump-xi-summit-live-us-china-leaders-to-hold-talks-on-trade-tech-iran?traffic_source=rss": {
+    "title": "Trump-Xi summit live: US, China leaders to hold talks on trade, tech, Iran",
+    "desc": "Trump and Xi&#039;s summit comes at a crucial moment for the global economy, as the war on Iran continues to disrupt trade.",
+    "link": "https://www.aljazeera.com/news/liveblog/2026/5/14/trump-xi-summit-live-us-china-leaders-to-hold-talks-on-trade-tech-iran?traffic_source=rss",
+    "pub": "Thu, 14 May 2026 00:00:00 +000",
+    "pub_iso": "2026-05-14",
+    "source": "Al Jazeera"
+  },
+  "https://www.aljazeera.com/news/liveblog/2026/5/14/iran-war-live-tehran-slams-collusion-as-netanyahu-secretly-visits-uae?traffic_source=rss": {
+    "title": "Iran war live: Tehran slams ‘collusion’ as Netanyahu ‘secretly’ visits UAE",
+    "desc": "Iranian first vice president said Tehran&#039;s &#039;right&#039; to the Strait of Hormuz is &#039;established and the matter is closed&#039;.",
+    "link": "https://www.aljazeera.com/news/liveblog/2026/5/14/iran-war-live-tehran-slams-collusion-as-netanyahu-secretly-visits-uae?traffic_source=rss",
+    "pub": "Thu, 14 May 2026 00:00:00 +000",
+    "pub_iso": "2026-05-14",
+    "source": "Al Jazeera"
+  },
+  "https://www.bbc.com/news/articles/c9d3g6deljyo?at_medium=RSS&at_campaign=rss": {
+    "title": "Hezbollah support endures in south Lebanon as ceasefire fails to stop war with Israel",
+    "desc": "Despite continuing Israeli attacks and occupation, many people in the south still believe the armed group is the only force capable of defending them.",
+    "link": "https://www.bbc.com/news/articles/c9d3g6deljyo?at_medium=RSS&at_campaign=rss",
+    "pub": "Wed, 13 May 2026 23:22:07 GMT",
+    "pub_iso": "2026-05-13",
+    "source": "BBC"
+  },
+  "https://www.bbc.com/news/articles/czj2mnwv1ryo?at_medium=RSS&at_campaign=rss": {
+    "title": "Netanyahu says he 'secretly visited' UAE during war with Iran",
+    "desc": "The UAE denied reports of the \"alleged visit\" and insisted relations between the two countries were not based on \"unofficial arrangements\".",
+    "link": "https://www.bbc.com/news/articles/czj2mnwv1ryo?at_medium=RSS&at_campaign=rss",
+    "pub": "Wed, 13 May 2026 22:30:34 GMT",
+    "pub_iso": "2026-05-13",
+    "source": "BBC"
   }
 }
