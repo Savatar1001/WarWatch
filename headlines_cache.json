@@ -32870,5 +32870,21 @@
     "pub": "Sun, 17 May 2026 10:46:13 GMT",
     "pub_iso": "2026-05-17",
     "source": "Reuters"
+  },
+  "https://www.aljazeera.com/news/2026/5/17/drone-strike-sparks-fire-at-uaes-barakah-nuclear-power-plant?traffic_source=rss": {
+    "title": "Drone strike sparks fire on perimeter of UAE’s Barakah nuclear power plant",
+    "desc": "Authorities say radiation levels remain normal, operations not affected.",
+    "link": "https://www.aljazeera.com/news/2026/5/17/drone-strike-sparks-fire-at-uaes-barakah-nuclear-power-plant?traffic_source=rss",
+    "pub": "Sun, 17 May 2026 14:07:07 +000",
+    "pub_iso": "2026-05-17",
+    "source": "Al Jazeera"
+  },
+  "https://www.france24.com/en/drone-hits-uae-nuclear-power-plant-iaea-reports-normal-radiation-levels": {
+    "title": "Drone hits UAE nuclear power plant: IAEA reports normal radiation levels",
+    "desc": "Hoda Abdel-Hamid is live from Doha, Qatar.",
+    "link": "https://www.france24.com/en/drone-hits-uae-nuclear-power-plant-iaea-reports-normal-radiation-levels",
+    "pub": "Sun, 17 May 2026 14:55:43 GMT",
+    "pub_iso": "2026-05-17",
+    "source": "France 24"
   }
 }
