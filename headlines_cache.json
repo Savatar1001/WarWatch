@@ -33254,5 +33254,45 @@
     "pub": "Sun, 17 May 2026 20:46:52 GMT",
     "pub_iso": "2026-05-17",
     "source": "France 24"
+  },
+  "https://www.aljazeera.com/news/liveblog/2026/5/18/iran-war-live-trump-warns-clock-ticking-saudi-uae-report-drone-attacks?traffic_source=rss": {
+    "title": "Iran war live: Trump threatens Tehran; Saudi, UAE report drone attacks",
+    "desc": "Peace talks remain deadlocked as drones hit sites in Saudi Arabia and the UAE.",
+    "link": "https://www.aljazeera.com/news/liveblog/2026/5/18/iran-war-live-trump-warns-clock-ticking-saudi-uae-report-drone-attacks?traffic_source=rss",
+    "pub": "Mon, 18 May 2026 00:00:00 +000",
+    "pub_iso": "2026-05-18",
+    "source": "Al Jazeera"
+  },
+  "https://www.aljazeera.com/video/newsfeed/2026/5/17/pakistan-interior-minister-holds-talks-with-iranian-president-in-tehran?traffic_source=rss": {
+    "title": "Pakistan interior minister holds talks with Iranian president in Tehran",
+    "desc": "Pakistan Interior Minister Mohsin Naqvi met Iranian President Masoud Pezeshkian in Tehran",
+    "link": "https://www.aljazeera.com/video/newsfeed/2026/5/17/pakistan-interior-minister-holds-talks-with-iranian-president-in-tehran?traffic_source=rss",
+    "pub": "Sun, 17 May 2026 23:28:25 +000",
+    "pub_iso": "2026-05-17",
+    "source": "Al Jazeera"
+  },
+  "https://www.bbc.com/news/articles/cn8p392nl7yo?at_medium=RSS&at_campaign=rss": {
+    "title": "'This may be the last time you hear my voice': Political executions surge in Iran since start of war",
+    "desc": "Since the US and Israel attacked Iran on  28 February, the UN says it’s verified the execution of at least 32 political prisoners.",
+    "link": "https://www.bbc.com/news/articles/cn8p392nl7yo?at_medium=RSS&at_campaign=rss",
+    "pub": "Sun, 17 May 2026 23:02:56 GMT",
+    "pub_iso": "2026-05-17",
+    "source": "BBC"
+  },
+  "https://www.france24.com/en/middle-east/20260518-middle-east-war-live-drone-strikes-on-uae-and-saudi-arabia-fuel-escalation-fears": {
+    "title": "Middle East war live: Drone strikes on UAE and Saudi Arabia fuel escalation fears",
+    "desc": "A drone strike caused a fire at a nuclear power plant in the United Arab Emirates, officials there said on Sunday, while Saudi Arabia reported intercepting three drones, as US President Donald Trump warned that Iran must act \"fast\" after ef",
+    "link": "https://www.france24.com/en/middle-east/20260518-middle-east-war-live-drone-strikes-on-uae-and-saudi-arabia-fuel-escalation-fears",
+    "pub": "Mon, 18 May 2026 01:41:36 GMT",
+    "pub_iso": "2026-05-18",
+    "source": "France 24"
+  },
+  "https://www.france24.com/en/middle-east/20260518-trump-warns-iran-peace-deal": {
+    "title": "Trump warns Iran that 'there won't be anything left of them' without peace deal",
+    "desc": "On Sunday, US President Donald Trump warned Iran to move quickly towards a peace deal or face destruction, as Washington’s war with Tehran and its allies continues to stall negotiations, drive up energy prices, and fuel instability across t",
+    "link": "https://www.france24.com/en/middle-east/20260518-trump-warns-iran-peace-deal",
+    "pub": "Mon, 18 May 2026 00:09:16 GMT",
+    "pub_iso": "2026-05-18",
+    "source": "France 24"
   }
 }
